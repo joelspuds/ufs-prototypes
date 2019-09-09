@@ -1,11 +1,11 @@
 {% macro breadcrumb(items=false, muted=false) %}
   {% if items %}
-    <div class="breadcrumbs {{'breadcrumbs--muted' if muted}}">
-      <ol>
+    <div class="govuk-breadcrumbs {{'breadcrumbs--muted' if muted}}">
+      <ol class="govuk-breadcrumbs__list">
           {% for item in items %}
-          <li>
+          <li class="govuk-breadcrumbs__list-item">
             {% if item.url %}
-            <a href="{{ item.url }}">
+            <a href="{{ item.url }}" class="govuk-breadcrumbs__link">
             {% endif %}
               {{ item.text }}
             {% if item.url %}

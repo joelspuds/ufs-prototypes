@@ -1,0 +1,75 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+{% set showMathJAXscripts = true %}
+{% set preScore = preScore if preScore %}
+{% set speakerNotes = speakerNotes if speakerNotes %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.pageHeading(heading='171 - Development of a Novel Inhibitor of Ricin ',extraClass='heading-small') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnFull() %}
+
+            <h2 class="heading heading-medium">First Introducer pre-score</h2>
+
+
+            {% if preScore %}
+
+                <div class="data">
+                    <span class="data-item bold-xlarge">{{ preScore }}/10</span>
+                </div>
+
+            {% else %}
+
+                <div>No pre-score has been added yet.</div>
+
+            {% endif %}
+            <p>
+                <a href="/prototypes/example-journey/introducer">Edit your pre-score</a>
+            </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            <h2 class="heading heading-medium">First Introducer speaker notes</h2>
+
+            {% if speakerNotes %}
+
+            <div class="speaker-notes">
+                {{ speakerNotes }}
+            </div>
+
+            {% else %}
+
+                <div>No speaker notes have been added yet.</div>
+
+            {% endif %}
+
+            <p>
+                <a href="/prototypes/example-journey/introducer">Edit your introducer notes</a>
+            </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+

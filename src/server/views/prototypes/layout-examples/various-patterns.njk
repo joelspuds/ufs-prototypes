@@ -1,0 +1,109 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = 'Various patterns' %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.pageHeading(heading='Various patterns') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <h2 class="heading-large">Application items</h2>
+
+            <div class="application-item govuk-clearfix">
+
+                <a href="#" class="application-item__link">Application</a>
+
+                <div class="application-item__left">
+
+                    <ul class="application-item__list">
+                        <li>
+                            <span class="application-item__key">Status:</span>
+                            <span class="application-item__value application-item__value--complete">100% Complete</span>
+                        </li>
+                        <li>
+                            <span class="application-item__key">Deadline:</span>
+                            <span class="application-item__value"><strong>25 Feb 2020</strong></span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="application-item__right">
+
+                    <ul class="application-item__list u-align-right">
+                        <li>
+                            <span class="application-item__key">Funding request:</span>
+                            <span class="application-item__value"><strong>£68,000</strong></span>
+                        </li>
+                        <li>
+                            <span class="application-item__key">Total project cost:</span>
+                            <span class="application-item__value"><strong>£240,000</strong></span>
+                        </li>
+                        <li>
+                            <span class="application-item__key">Project duration:</span>
+                            <span class="application-item__value"><strong>Six months</strong></span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="application-item govuk-clearfix">
+
+                <a href="#" class="application-item__link">Peer review</a>
+
+                <div class="application-item__left">
+
+                    <ul class="application-item__list">
+                        <li>
+                            <span class="application-item__key">Status:</span>
+                            <span class="application-item__value"><strong>0% Complete</strong></span>
+                        </li>
+                        <li>
+                            <span class="application-item__key">Deadline:</span>
+                            <span class="application-item__value"><strong>25 Feb 2020</strong></span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="application-item__right">
+
+                    <ul class="application-item__list u-align-right">
+                        <li>
+                            <span class="application-item__key">Reviewer:</span>
+                            <span class="application-item__value"><strong><a href="#">Derek Layman</a></strong></span>
+                        </li>
+                        <li>
+                            <span class="application-item__key">Application response:</span>
+                            <span class="application-item__value"><strong>Pending</strong></span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

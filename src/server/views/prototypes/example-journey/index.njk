@@ -1,0 +1,33 @@
+{% extends 'layouts/default.layout.njk' %}
+
+{% set pageTitle = 'Example journeys' %}
+{% set listItems = [
+    { text: 'Introducer pre-score TinyMCE', url: '/prototypes/example-journey/introducer' },
+    { text: 'Case for support with TinyMCE, image upload and Maths', url: '/prototypes/example-journey/application/' },
+    { text: 'Case for support with PDF', url: '/prototypes/example-journey/embedded-pdf/' }
+] %}
+
+
+{% block content %}
+
+  {% call components.gridRow() %}
+  
+    {% call components.columnFull() %}
+
+    {{ components.pageHeading(heading='Example journeys') }}
+
+    {%- endcall %} 
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+          {{ components.list(items=listItems, type='bullet')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+  
+{% endblock %}

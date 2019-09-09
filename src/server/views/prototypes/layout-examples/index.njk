@@ -1,0 +1,34 @@
+{% extends 'layouts/default.layout.njk' %}
+
+{% set pageTitle = 'UFS patterns and ideas' %}
+
+{% set listItems = [
+    { text: 'Layout with left nav', url: '/prototypes/layout-examples/left-nav' },
+    { text: 'Layout with right nav', url: '/prototypes/layout-examples/right-nav' },
+    { text: 'Typeface examples with Montserrat and Open Sans', url: '/prototypes/layout-examples/typeface-examples' },
+    { text: 'Various patterns', url: '/prototypes/layout-examples/various-patterns' }
+] %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+  
+    {% call components.columnFull() %}
+
+    {{ components.pageHeading(heading='Layout ideas') }}
+
+    {%- endcall %} 
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+          {{ components.list(items=listItems, type='bullet')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+  
+{% endblock %}

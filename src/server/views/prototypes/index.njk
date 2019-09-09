@@ -3,55 +3,37 @@
 {% set pageTitle = 'Prototypes Index' %}
 
 {% set listItemsWIP = [
-  { text: 'Accessibility: Voice search for defects (Chrome Only)', url: '/prototypes/speech-to-text' },
-  { text: 'AE Application Tool', url: '/prototypes/ae-application-tool/' },
-  { text: 'AE Search', url: '/prototypes/ae-search/v2/' },
-  { text: 'CI Authentication', url: '/prototypes/authentication/'},
-  { text: 'Correct test record', url: '/prototypes/correct-test-record/' },
-  { text: 'Compare MOT tests', url: '/prototypes/compare-tests/'},
-  { text: 'MOT test - Brake test', url: '/prototypes/mot-test/' },
-  { text: 'MOT History (extra data)', url: '/prototypes/mot-history-data' },
-  { text: 'Recalls', url: '/prototypes/recalls/'},
-  { text: 'Find a MOT location', url: '/prototypes/mot-location/'},
-  { text: 'VSI during test', url: '/prototypes/vsi-during-test/'},
-  { text: 'VTS changes', url: '/prototypes/vts-changes/'}
-  ] %}
-  
-  {% set listItemsFinal = [
-  { text: 'Accessibility: Text to speech for Manuals', url: '/prototypes/speech-to-text/manuals-section-four' },
-  { text: 'Annual assessment admin tool', url: '/prototypes/annual-assessment-admin-tool' },
-  { text: 'MTS messages', url: '/prototypes/mts-messages/'},
-  { text: 'Site review', url: '/prototypes/site-review/'},
-  { text: 'Create account', url: '/prototypes/create-account' },
-  { text: 'Manuals', url: '/manuals' },
-  { text: 'Select-all checkbox', url: '/prototypes/multi-checkbox' }
+    { text: 'Layout examples', url: '/prototypes/layout-examples' },
+    { text: 'Demo journeys', url: '/prototypes/example-journey' }
 ] %}
+
+  {% set listItemsFinal = [
+      { text: 'Nothing made '}
+  ] %}
 
 {% block content %}
 
-  {{ components.pageHeading('Prototypes', 'DVSA Front-End') }}
-  {{ components.paragraph(text="Prototypes within the final column are ready 
-  for implementation. Please consult a member of the service design team 
-  before implementing prototypes from the 'Work in progress' column.", lead='true', limitWidth=true)}}
+    {{ components.pageHeading('Prototypes') }}
+    {{ components.paragraph(text="Prototypes within the final column are ready  for implementation. Please consult a member of the service design team before implementing prototypes from the 'Work in progress' column.", lead='true', limitWidth=true)}}
 
-  {% call components.gridRow() %}
+    {% call components.gridRow() %}
 
-    {% call components.columnHalf() %}
+        {% call components.columnHalf() %}
 
-      {{ components.heading(text='Work in progress', tag='h3', size='medium') }}
+            {{ components.heading(text='Work in progress', tag='h3', size='medium') }}
 
-      {{ components.list(items=listItemsWIP, type='bullet')}}
+            {{ components.list(items=listItemsWIP, type='bullet')}}
+
+        {%- endcall %}
+
+        {% call components.columnHalf() %}
+
+            {{ components.heading(text='Production ready', tag='h3', size='medium') }}
+
+            {{ components.list(items=listItemsFinal, type='bullet')}}
+
+        {%- endcall %}
 
     {%- endcall %}
-
-    {% call components.columnHalf() %}
-
-      {{ components.heading(text='Production ready', tag='h3', size='medium') }}
-
-      {{ components.list(items=listItemsFinal, type='bullet')}}
-
-    {%- endcall %}
-
-  {%- endcall %}
 
 {% endblock %}

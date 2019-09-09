@@ -1,0 +1,44 @@
+
+// typography overrides
+
+body.ufs {
+
+  h1, h2, h3, h4, h5, h6, .heading {
+    font-family: 'Montserrat', sans-serif !important;
+  }
+
+  h1, .heading-xlarge {
+    color: rgb(0, 130, 118);
+  }
+
+  .heading-secondary {
+    color: #6f777b;
+  }
+
+  .heading-xlarge {
+    margin-top: 0.625em;
+    margin-bottom: 1em;
+  }
+
+  .heading-medium {
+    // margin-top: 1.875em;
+    // margin-bottom: 0.83333em;
+
+    margin-top: 1.2em;
+    // margin-bottom: 0.83333em;
+  }
+
+}
+
+
+#global-header #logo {
+  background-image: none;
+  margin-left: 0;
+}
+
+.ufs-body-wrapper {
+
+  .form-label {
+    font-weight: 700;
+  }
+}

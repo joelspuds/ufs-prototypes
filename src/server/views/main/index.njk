@@ -1,24 +1,24 @@
 {% extends 'layouts/default.layout.njk' %}
 
-{% set pageTitle = 'MOT Design System' %}
+{% set pageTitle = 'Design System' %}
 
 {% block content %}
 
-  {{ components.pageHeading('DVSA Front-end', 'Build v' + repoPackageJSON.version) }}
+  {{ components.pageHeading('Front-end', 'Build v' + repoPackageJSON.version) }}
 
   {% call components.gridRow() %}
 
     {% call components.columnOneThird() %}
 
       {{ components.heading(text='Styleguide', tag='h2', size='medium', url='/library') }}
-      {{ components.paragraph(text='GDS and DVSA components library to be used by all applications.') }}
+      {{ components.paragraph(text='GDS and custom components library to be used by all applications.') }}
       
     {%- endcall %}
 
     {% call components.columnOneThird() %}
 
       {{ components.heading(text='Prototypes', tag='h2', size='medium', url='/prototypes') }}
-      {{ components.paragraph(text='All of DVSA prototypes and user journeys.') }}
+      {{ components.paragraph(text='All prototypes and user journeys.') }}
       
     {%- endcall %}
 
@@ -29,9 +29,7 @@
     {% call components.columnTwoThirds() %}
 
       {{ components.heading(text='About the Design System', tag='h2', size='medium') }}
-      {{ components.paragraph(text='The MOT testing service Design System generates versioned images, 
-      CSS and JavaScript for the MOT testing service and provides a platform to document pattern usage, 
-      design principles, user insight and allow for rapid prototyping.') }}
+      {{ components.paragraph(text='The Design System generates versioned images, CSS and JavaScript and provides a platform to document pattern usage, design principles, user insight and allow for rapid prototyping.') }}
 
     {% endcall %}
 

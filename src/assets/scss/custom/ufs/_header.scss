@@ -1,0 +1,64 @@
+.ufs-header {
+  width: 100%;
+  background-color: #fff;
+  padding:10px 0 0 0;
+
+
+  &__main {
+    width:100%;
+    max-width: 960px;
+    margin: 0 auto;
+    min-height: 76px;
+  }
+
+  &__logo {
+    width:174px;
+    height: 56px;
+    float: left;
+  }
+
+  &__proposition {
+
+    @extend %govuk-heading-l;
+
+    width:320px;
+    height: 56px;
+    margin: 15px 0 0 40px;
+    float: left;
+    font-weight: 400;
+    color: #6f777b;
+
+  }
+
+  &__menu {
+    float: right;
+    width:120px;
+    text-align: right;
+
+    a {
+      color: #6f777b;
+    }
+  }
+
+  &__link {
+    // font-size: 14px;
+    // @include core-14;
+    @extend %govuk-body-s;
+    color: #6f777b;
+  }
+
+}
+
+.ufs-header-bar {
+  height: 10px;
+  margin: 0 auto;
+  background: linear-gradient(to right,
+    rgb(42, 80, 141) 0%,
+    rgb(42, 80, 141) 25%,
+    rgb(131, 77, 149) 25%,
+    rgb(131, 77, 149) 50%,
+    rgb(56, 128, 118) 50%,
+    rgb(56, 128, 118) 75%,
+    rgb(181, 79, 35) 75%,
+    rgb(181, 79, 35) 100%);
+}

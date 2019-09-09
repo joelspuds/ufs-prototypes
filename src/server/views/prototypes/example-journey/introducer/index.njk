@@ -1,0 +1,143 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+{% set showTinyMCEScripts = true %}
+{% set storedPreScore = storedPreScore if storedPreScore %}
+{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+
+{% set selectOptions = [
+     {
+         value: '0',
+         text: '0'
+     },
+     {
+         value: '1',
+         text: '1'
+     },
+     {
+         value: '2',
+         text: '2'
+     },
+     {
+         value: '3',
+         text: '3'
+     },{
+         value: '4',
+         text: '4'
+     },
+     {
+         value: '5',
+         text: '5'
+     },
+     {
+         value: '6',
+         text: '6'
+     },
+     {
+         value: '7',
+         text: '7'
+     },
+     {
+         value: '8',
+         text: '8'
+     },
+     {
+         value: '9',
+         text: '9'
+     },
+     {
+         value: '10',
+         text: '10'
+     }
+ ] %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+  
+    {% call components.columnFull() %}
+
+        {{ components.pageHeading(heading='Reviewer scoring', secondary='171 - Development of a Novel Inhibitor of Ricin')}}
+
+    {%- endcall %} 
+
+  {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            <h2 class="heading heading-medium">First Introducer pre-score</h2>
+
+            <p>Please provide your application pre-score. This will be visible to the rest of the panel on the panel date and will be used to give the application a preliminary ranking. </p>
+
+            <details>
+                <summary><span class="summary">Pre-score guidance</span></summary>
+                <div class="panel panel-border-narrow">
+                    <p>
+                        Nunc euismod eu urna nec ultricies. Vestibulum nec urna tristique, ornare felis non, ultrices velit. Sed luctus nulla et venenatis auctor. Proin diam turpis, placerat quis placerat sit amet, aliquet vel orci.
+                    </p>
+                </div>
+            </details>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            {% call components.form(action='/prototypes/example-journey/introducer', method='POST', name='formPreScore') %}
+
+                {{ components.select(options=selectOptions, label='Score out of 10', id='preScore', hint='', group=true, selectedValue=storedPreScore ,size='form-control-1-8') }}
+
+                {{ components.button(text='Submit pre-score') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            <h2 class="heading heading-medium">First Introducer speaker notes</h2>
+
+            <p>Please provide a summary based on the peer reviews and applicant response. This will be visible to the rest of the panel on the panel date and will be used validate your pre-score.</p>
+
+            <details>
+                <summary><span class="summary">Primary introducer notes guidance</span></summary>
+                <div class="panel panel-border-narrow">
+                    <p>
+                        Nunc euismod eu urna nec ultricies. Vestibulum nec urna tristique, ornare felis non, ultrices velit. Sed luctus nulla et venenatis auctor. Proin diam turpis, placerat quis placerat sit amet, aliquet vel orci.
+                    </p>
+                </div>
+            </details>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.form(action='/prototypes/example-journey/introducer', method='POST',name='formSpeakerNotes') %}
+
+                {{ components.textarea(options=selectOptions, label='Speaker notes', id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes) }}
+
+                {{ components.button(text='Submit speaker notes') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+

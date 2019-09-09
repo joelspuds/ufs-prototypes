@@ -1,0 +1,69 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+{% set showMathJAXscripts = true %}
+{% set speakerNotes = speakerNotes if speakerNotes %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.pageHeading(heading='Case for support', secondary='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnFull() %}
+
+            <h2 class="heading heading-medium">Case for support</h2>
+
+            {% if speakerNotes %}
+
+            <div class="speaker-notes">
+                {{ speakerNotes }}
+            </div>
+
+            {% else %}
+
+                <div>No content has been added yet.</div>
+
+            {% endif %}
+{#
+
+            <div class="application-controls govuk-clearfix">
+                {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="")}}
+
+            </div>
+#}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+
+                <div class="application-controls govuk-clearfix">
+
+                    {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
+
+                    {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
+
+                </div>
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+

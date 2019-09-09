@@ -15,14 +15,16 @@
     {% block header %}{% endblock %}
 
   </head>
-  <body class="{{ bodyClass }}">
+  <body class="govuk-template__body {{ bodyClass }}">
 
     {% include './partials/no-js-fallback.njk' %}
     {% include './partials/skip-link.njk' %}
     {% include './partials/cookie-message.njk' %}
     {% include './partials/header.njk' %}
 
-    {% block bodyContentWrapper %}{% endblock %}
+    <div class="govuk-width-container">
+        {% block bodyContentWrapper %}{% endblock %}
+    </div>
 
     {% include './partials/footer.njk' %}
     {% include './partials/body-scripts.njk' %}

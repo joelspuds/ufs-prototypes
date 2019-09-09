@@ -1,0 +1,81 @@
+.application-item {
+    background-color: #f8f8f8;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    &__contents {
+        padding: 10px;
+    }
+
+    &__link {
+        display: block;
+        @include govuk-font($size: 14, $weight: bold);
+        margin-bottom: 10px;
+    }
+
+    &__left {
+        width: 50%;
+        float: left;
+    }
+
+    &__right {
+        width: 50%;
+        float: right;
+    }
+
+    &__list {
+    }
+
+    &__key,
+    &__value {
+        @include govuk-font($size: 14, $weight: normal);
+        // @extend %govuk-body-s;
+        //font-size: $govuk-typography-scale("16");
+    }
+
+    &__key {
+    }
+
+    &__value {
+
+        &--complete {
+            color: #006435;
+        }
+    }
+
+    &__bar {
+        position: relative;
+        background-color: #dee0e2;
+        padding: 10px;
+    }
+
+    &--dar {
+        background-color: #dee0e2;
+    }
+
+    &__bar-title {
+        display: block;
+        padding-right: 170px;
+        // @extend %govuk-body-m;
+        @include govuk-font($size: 16, $weight: bold);
+        // font-weight: 700;
+    }
+
+    &__char-count {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 14px;
+        width: 170px;
+        text-align: right;
+        // @include core-14;
+        @extend %govuk-body-xs;
+    }
+
+    &__upload {
+        margin: 10px 0;
+        padding: 10px;
+        border-top: 1px solid #bfc1c3;
+        border-bottom: 1px solid #bfc1c3;
+    }
+}

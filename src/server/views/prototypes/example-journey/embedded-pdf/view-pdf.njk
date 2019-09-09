@@ -1,0 +1,65 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = 'Embedded PDF' %}
+{% set showEmbeddedPDFScripts = true %}
+{% set storedPreScore = storedPreScore if storedPreScore %}
+{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.pageHeading(heading='Supporting statement', secondary='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            <p>Check your uploaded document. This is how it will be seen by peer reviewers.</p>
+
+           {# {% call components.hiddenText(summary='Reviewing guideline') %}
+                <p>
+                    Nunc euismod eu urna nec ultricies. Vestibulum nec urna tristique, ornare felis non, ultrices velit. Sed luctus nulla et venenatis auctor. Proin diam turpis, placerat quis placerat sit amet, aliquet vel orci.
+                </p>
+            {%- endcall %}
+#}
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnFull() %}
+
+            <embed class="pdfobject" src="/files/fink_epileptor_jnls.pdf#pagemode=thumbs&amp;navpanes=0&amp;toolbar=1&amp;statusbar=0&amp;view=FitV&amp;" width="100%" height="100%" type="application/pdf" style="overflow: auto; width: 100%; height: 800px" internalinstanceid="4">
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <div class="application-controls govuk-clearfix">
+
+                {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/embedded-pdf/', extraClass="")}}
+
+                {{ components.link(text='Upload a different document', url='/prototypes/example-journey/embedded-pdf/start', extraClass="application-controls__cancel")}}
+
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+{% endblock %}
+
+

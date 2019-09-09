@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700&display=swap');
+
+$new-font-stack : 'Open Sans', sans-serif;
+
+body.new-gds, * {
+  font-family: $new-font-stack;
+
+  a {
+
+  }
+
+  h1, h2, h3, h4, h5, h6, .govuk-heading, .heading {
+    font-family: 'Montserrat', sans-serif !important;
+  }
+
+  code[class*="language-"], pre[class*="language-"], code, pre, code[class*="language-"] *, pre[class*="language-"] *, code *, pre * {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+  }
+}
+
+.new-gds {
+
+  a {
+    @extend .govuk-link;
+    font-family: $new-font-stack;
+  }
+
+  a.govuk-button {
+    color: govuk-colour("white");
+
+    &:focus {
+      color: govuk-colour("black");
+    }
+  }
+}

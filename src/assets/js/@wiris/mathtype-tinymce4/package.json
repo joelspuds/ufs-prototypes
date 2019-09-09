@@ -1,0 +1,60 @@
+{
+  "_from": "@wiris/mathtype-tinymce4",
+  "_id": "@wiris/mathtype-tinymce4@7.16.0",
+  "_inBundle": false,
+  "_integrity": "sha512-xewOM4wQY/qRpcBZR+w2D6rXGz7uQ2boNFbUdG1h0VqPRzVM8Xxp/mk/kNQGLUiPITcSm/ndYpTpmM1TjPpm3g==",
+  "_location": "/@wiris/mathtype-tinymce4",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@wiris/mathtype-tinymce4",
+    "name": "@wiris/mathtype-tinymce4",
+    "escapedName": "@wiris%2fmathtype-tinymce4",
+    "scope": "@wiris",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/@wiris/mathtype-tinymce4/-/mathtype-tinymce4-7.16.0.tgz",
+  "_shasum": "adbacc618d7cba08a7ea2506d8927d0c0f837f4a",
+  "_spec": "@wiris/mathtype-tinymce4",
+  "_where": "/Users/joels/projects/front-end-2",
+  "author": {
+    "name": "WIRIS Team",
+    "url": "http://www.wiris.com"
+  },
+  "bugs": {
+    "email": "support@wiris.com"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "MathType for TinyMCE4 editor",
+  "files": [
+    "icons"
+  ],
+  "homepage": "http://www.wiris.com/",
+  "keywords": [
+    "chem",
+    "chemistry",
+    "chemtype",
+    "editor",
+    "equation",
+    "latex",
+    "math",
+    "maths",
+    "mathml",
+    "mathtype",
+    "tinymce",
+    "tinymce4",
+    "wiris"
+  ],
+  "license": "GPL-3.0",
+  "main": "plugin.min.js",
+  "name": "@wiris/mathtype-tinymce4",
+  "version": "7.16.0"
+}

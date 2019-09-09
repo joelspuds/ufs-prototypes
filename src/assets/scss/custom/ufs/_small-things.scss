@@ -1,0 +1,63 @@
+.percent-complete {
+  // border: 1px solid $govuk-border-colour;
+  position: relative;
+  background-color: govuk-colour("light-grey");
+  width: 100%;
+  text-align: center;
+  margin-top: govuk-spacing(3);
+  margin-bottom: govuk-spacing(2);
+
+
+  &__text {
+    position: relative;
+    color: govuk-colour("black");
+    @include govuk-font($size: 14);
+    z-index: 10;
+  }
+
+  &__marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: govuk-colour("green");;
+    z-index: 9;
+  }
+
+}
+
+.application-data {
+
+  &__list {
+
+  }
+
+  &__key {
+    @include govuk-font($size: 14, $weight: bold);
+  }
+
+  &__value {
+    @include govuk-font($size: 14);
+    margin-bottom: govuk-spacing(2);
+    margin-left: 0;
+    padding: 0;
+  }
+}
+
+.application-controls {
+  margin-top: govuk-spacing(3);
+  margin-bottom: govuk-spacing(2);
+
+
+  &__submit {
+    float: left
+  }
+
+  &__cancel {
+    display: block;
+    float: right;
+
+    // padding-top: govuk-spacing(1);
+    // padding-right: govuk-spacing(2);
+    margin-top: govuk-spacing(1);
+  }
+}

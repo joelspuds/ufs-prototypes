@@ -1,0 +1,13 @@
+{% extends 'layouts/library.layout.njk' %}
+
+{% set pageTitle = 'MOT Library - Buttons' %}
+
+{% block content %}
+
+  {{ components.heading(text='Back link', tag='h2', size='medium') }}
+
+  {{ components.backLink(text='Back') | prism }}
+
+  {{ components.backLink(text='Back to application overview') | prism }}
+
+{% endblock %}

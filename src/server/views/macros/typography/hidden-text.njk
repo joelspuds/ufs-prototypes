@@ -1,10 +1,16 @@
-{% macro hiddenText(summary=false, spaceBelow=false) %}
+{% macro hiddenText(summary=false, spaceBelow=false, extraClass=false) %}
   {% if summary %}
-    <details>
+    <details class="govuk-details {{ extraClass if extraClass }}" data-module="govuk-details">
       
-      <summary><span class="summary">{{ summary }}</span></summary>
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+            {{ summary }}
+        </span>
+      </summary>
 
-      <div class="panel panel-border-narrow {{ 'panel--space-below' if spaceBelow }}">{{ caller() }}</div>
+      <div class="govuk-details__text {{ 'panel--space-below' if spaceBelow }}">
+          {{ caller() }}
+      </div>
 
     </details>
   {% endif %}

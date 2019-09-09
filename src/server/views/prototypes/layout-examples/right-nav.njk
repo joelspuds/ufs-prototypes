@@ -1,0 +1,61 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = 'Right nav' %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+  
+    {% call components.columnFull() %}
+
+    {{ components.pageHeading(heading='Layout with left nav') }}
+
+    {%- endcall %} 
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+          <p>This is a demo of a page that has a right-hand navigation and action box. </p>
+
+        {%- endcall %}
+
+        {% call components.columnOneThird() %}
+
+          <aside class="govuk-related-items govuk-related-items--flush govuk-related-items--keylined" role="complementary">
+
+            <h2 class="heading-small">Status</h2>
+              {{ components.badge(text='Item cancelled', type='alert', value='') }}
+
+            <h2 class="heading-small">Data</h2>
+
+            <table class="table-simple table--top">
+              <caption class="visuallyhidden">Important data</caption>
+              <tbody>
+              <tr>
+                <th>Key 1</th>
+                <td>Value 1</td>
+              </tr>
+              <tr>
+                <th>Key 2</th>
+                <td>Value 2</td>
+              </tr>
+              </tbody>
+            </table>
+            <p class="u-space-b30"><a href="#" class="font-xsmall">Action related to data</a> </p>
+
+            <h2 class="heading-small">Specific page actions</h2>
+            <ul class="">
+              <li><a href="#">Do something</a> </li>
+              <li><a href="#">Do something else</a> </li>
+            </ul>
+
+          </aside>
+
+        {%- endcall %}
+
+    {%- endcall %}
+  
+{% endblock %}

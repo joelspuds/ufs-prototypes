@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="173.471" height="56.639" viewBox="0 0 173.471 56.639">
+  <g id="Group_20" data-name="Group 20" transform="translate(-225 -9)">
+    <g id="Group_19" data-name="Group 19">
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="51.836" height="51.836" transform="translate(225 9)" fill="#1a1818"/>
+      <path id="Path_2" data-name="Path 2" d="M91.579,100.872a10.09,10.09,0,0,1-3.042-7.827V80.7h7.977V92.821a5.6,5.6,0,0,0,.93,3.592,3.776,3.776,0,0,0,5.374,0,5.6,5.6,0,0,0,.93-3.592V80.7h7.842V93.045a10.09,10.09,0,0,1-3.042,7.827q-3.042,2.79-8.485,2.79T91.579,100.872Z" transform="translate(142.621 -67.763)" fill="#fff"/>
+      <path id="Path_3" data-name="Path 3" d="M114.733,95.707,112.942,97.6v5.549H105.1V80.7h7.842v8.147l7.774-8.147H129.4l-9.464,9.88,9.937,12.573h-9.228Z" transform="translate(142.621 -67.763)" fill="#fff"/>
+      <path id="Path_4" data-name="Path 4" d="M99.846,119.019H97.509v5.646H88.894V102.212h12.3a16.92,16.92,0,0,1,6.169,1.027,8.916,8.916,0,0,1,4.052,2.951,7.346,7.346,0,0,1,1.424,4.49,7.2,7.2,0,0,1-1.242,4.2,8.455,8.455,0,0,1-3.577,2.855l5.366,6.928h-9.2Zm3.431-10.279a4.2,4.2,0,0,0-2.628-.69h-3.14v5.26h3.14a4.2,4.2,0,0,0,2.628-.689,2.585,2.585,0,0,0,0-3.881Z" transform="translate(142.621 -67.763)" fill="#fff"/>
+      <path id="Path_5" data-name="Path 5" d="M124.778,107.922v11.034h3.85v5.709H112.272v-5.709h3.851V107.922h-3.851v-5.71h16.356v5.71Z" transform="translate(142.621 -67.763)" fill="#fff"/>
+    </g>
+    <text id="UK_Research_and_Innovation" data-name="UK Research
+and Innovation" transform="translate(286.471 44.638)" fill="#1a1818" font-size="14.551" font-family="Montserrat-Bold, Montserrat" font-weight="700" letter-spacing="-0.02em"><tspan x="0" y="0">UK Research</tspan><tspan x="0" y="16.369">and Innovation</tspan></text>
+  </g>
+</svg>

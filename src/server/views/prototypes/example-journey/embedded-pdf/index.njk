@@ -1,0 +1,113 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set bodyClass = 'new-gds' %}
+{% set pageTitle = '171 - Application' %}
+{% set showTinyMCEScripts = true %}
+{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.pageHeading(heading='Application', secondary='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <div class="tabs-alt govuk-clearfix">
+                <ul class="tabs-alt__list">
+                    <li class="tabs-alt__item">
+                        <a class="tabs-alt__link tabs-alt__link--active" href="#" >Write application</a>
+                    </li>
+                    <li class="tabs-alt__item">
+                        <a class="tabs-alt__link" href="#" >Read application</a>
+                    </li>
+                </ul>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+            <ul class="application-tasks">
+                <li class="application-tasks__item">
+                    {{ components.link(text='Project details', url='#', extraClass="application-tasks__link")}}
+                    <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='Team', url='#', extraClass="application-tasks__link")}}
+                    <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                </li>
+            </ul>
+
+            <h2 class="govuk-heading-s">Assessed questions</h2>
+            <ul class="application-tasks">
+                <li class="application-tasks__item">
+                    {{ components.link(text='1. Case for support ', url='/prototypes/example-journey/embedded-pdf/start', extraClass="application-tasks__link")}}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='2. Capability to deliver', url='#', extraClass="application-tasks__link")}}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='3. Resources and cos', url='#', extraClass="application-tasks__link")}}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='4. Ethical and societal issues', url='#', extraClass="application-tasks__link")}}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                </li>
+            </ul>
+
+            <div class="application-controls govuk-clearfix">
+                {{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}
+
+                {{ components.link(text='Cancel/withdraw application', url='#', extraClass="application-controls__cancel", disabled=true)}}
+            </div>
+
+
+        {%- endcall %}
+
+        {% call components.columnOneThird() %}
+
+            <div class="percent-complete">
+                <span class="percent-complete__text">15% complete</span>
+                <span class="percent-complete__marker" style="width:15%">&nbsp;</span>
+            </div>
+
+            <div class="application-data">
+                <dl class="application-data__list">
+                    <dt class="application-data__key">Application reference:</dt>
+                    <dd class="application-data__value">AP00171</dd>
+
+                    <dt class="application-data__key">Application deadline</dt>
+                    <dd class="application-data__value">12:00pm Tuesday 30 March 2020</dd>
+
+                    <dt class="application-data__key">Funding opportunity:</dt>
+                    <dd class="application-data__value">Biosensors for ribosome inactivating protiens</dd>
+
+                    <dt class="application-data__key">Funder</dt>
+                    <dd class="application-data__value">BBSRC</dd>
+                </dl>
+            </div>
+
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+{% endblock %}

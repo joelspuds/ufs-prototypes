@@ -1,7 +1,7 @@
 import { initAccordions } from './accordions';
 
 /**
- * DVSA General modules
+ * General modules
  *
  * @since 1.2.0
  * @author Tameem Safi <t.safi@kainos.com>

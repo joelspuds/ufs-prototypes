@@ -180,12 +180,13 @@ const getCopyWebpackPluginSettings = () => {
  */
 export default {
   entry: {
-    'dvsa': path.resolve(config.paths.js, 'dvsa', 'index.js'),
-    'dvsa-manuals': path.resolve(config.paths.js, 'dvsa-manuals', 'index.js'),
-    'dvsa-mts': path.resolve(config.paths.js, 'dvsa-mts', 'index.js'),
-    'dvsa-mts-legacy': path.resolve(config.paths.js, 'dvsa-mts-legacy', 'index.js'),
+    // 'dvsa': path.resolve(config.paths.js, 'dvsa', 'index.js'),
+    // 'dvsa-manuals': path.resolve(config.paths.js, 'dvsa-manuals', 'index.js'),
+    // 'dvsa-mts': path.resolve(config.paths.js, 'dvsa-mts', 'index.js'),
+    // 'dvsa-mts-legacy': path.resolve(config.paths.js, 'dvsa-mts-legacy', 'index.js'),
     'development': path.resolve(config.paths.js, 'development', 'index.js'),
     'styles': path.resolve(config.paths.scss, 'styles.scss'),
+    // 'new-styles': path.resolve(config.paths.scss, 'new-styles.scss'),
   },
   module: {
     rules: [

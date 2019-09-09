@@ -1,72 +1,49 @@
- 
-    <footer class="group js-footer" id="footer">
-      <div class="footer-wrapper">
-        <div class="footer-categories">
-          <div class="footer-resources--two-thirds">
-            <h2 class="footer-resources__header">
-              Resources on GOV.UK
-            </h2>
-            <ul class="footer-resources__list">
-              <li>
-                <a href="https://www.gov.uk/government/publications/motorcycle-mot-inspection-checklist-vt-29m" id="resources_0">Motorcycle inspection checklist for class 1 and 2 (VT29M)</a>
-              </li>
-              <li>
-                <a href="https://www.gov.uk/government/publications/mot-inspection-checklist-vt-29" id="resources_1">Vehicle inspection checklist for class 3, 4, 5 and 7 (VT29)</a>
-              </li>
-              <li>
-                <a href="https://www.gov.uk/government/publications/in-service-exhaust-emission-standards-for-road-vehicles" id="resources_2">In service exhaust emission standards for road vehicles</a>
-              </li>
-              <li>
-                <a href="https://www.gov.uk/topic/mot/manuals#special-notices" id="resources_3">Special notices</a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer-resources--one-third">
-            <h2 class="footer-resources__header">
-              MOT manuals and guide
-            </h2>
-            <ul class="footer-resources__list">
-              <li>
-                <a href="/documents/manuals/class12/" id="manuals_0" target="_blank">Manual for class 1 and 2 vehicles</a>
-              </li>
-              <li>
-                <a href="/documents/manuals/class3457/" id="manuals_1" target="_blank">Manual for class 3, 4, 5, and 7 vehicles</a>
-              </li>
-              <li>
-                <a href="https://www.gov.uk/government/publications/mot-testing-guide" id="manuals_2" target="_blank">MOT testing guide</a>
-              </li>
-            </ul>
-          </div>
-          <hr>
-        </div>
-        <div class="footer-meta">
-          <div class="footer-meta-inner">
-            <h2 class="visuallyhidden">
-              Support links
-            </h2>
-            <ul>
-              <li>
-                <a href="https://www.gov.uk/help/cookies">Cookies</a>
-              </li>
-              <li>Built by the <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency">Driver &amp; Vehicle Standards Agency</a>
-              </li>
-            </ul>
-            <div class="open-government-licence">
-              <p class="logo">
-                <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a>
-              </p>
-              <p>
-                All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
-              </p>
-            </div>
-            <div class="version-number">
-              Version {{ repoPackageJSON.version }}
-            </div>
-          </div>
-          <div class="copyright">
-            <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">&copy; Crown copyright</a>
-          </div>
-        </div>
+
+<footer class="govuk-footer app-footer app-footer--full" role="contentinfo">
+  <div class="govuk-width-container app-site-width-container">
+    <div class="govuk-footer__navigation">
+      <div class="govuk-footer__section">
+        <h2 class="govuk-footer__heading govuk-heading-m">Related resources</h2>
+        <ul class="govuk-footer__list govuk-footer__list--columns-1">
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="https://www.gov.uk/guidance/government-design-principles">Government Design Principles</a>
+          </li>
+          <li class="govuk-footer__list-item">
+            <a class="govuk-footer__link" href="https://www.gov.uk/service-manual">GOV.UK Service Manual</a>
+          </li>
+        </ul>
       </div>
-    </footer><!-- /footer -->
-    <div class="app-error hidden" id="global-app-error"></div> 
+    </div>
+    <hr class="govuk-footer__section-break">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        <h2 class="govuk-visually-hidden">Support links</h2>
+          {#<ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">Accessibility</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="#">Sitemap</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/cookies">Cookies</a>
+            </li>
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="/privacy-policy">Privacy policy</a>
+            </li>
+          </ul>#}
+        <svg class="govuk-footer__licence-logo" height="17" role="presentation" viewbox="0 0 483.2 195.7" width="41" xmlns="http://www.w3.org/2000/svg">
+          <path d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145" fill="currentColor"></path></svg> <span class="govuk-footer__licence-description">All content is available under the <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a class="govuk-footer__link govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+    <div>
+      Version {{ repoPackageJSON.version }}
+
+    </div>

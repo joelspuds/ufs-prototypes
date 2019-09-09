@@ -1,0 +1,55 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = 'Embedded PDF' %}
+{% set showEmbeddedPDFScripts = true %}
+{% set storedPreScore = storedPreScore if storedPreScore %}
+{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+  
+    {% call components.columnFull() %}
+
+    {{ components.pageHeading(heading='Upload or select a PDF', secondary='')}}
+
+    {%- endcall %} 
+
+  {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            {% call components.form(action='/prototypes/example-journey/embedded-pdf', method='POST', name='formUploadPDF', xform=true) %}
+
+                {{ components.field(label='Upload a PDF', id='inputUploadPDF', type='file', group=true)}}
+
+                {{ components.field(label='Add some text', id='inputUploadText', group=true)}}
+
+                {{ components.button(text='Upload and continue') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            <h2 class="heading-small">Choose an existing PDF</h2>
+
+            <ul class="list-bullet">
+                <li>
+                    <a href="#">Example 1 (very long, large file, contains mathematical formula)</a>
+                </li>
+            </ul>
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
