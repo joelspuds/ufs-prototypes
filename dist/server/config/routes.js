@@ -15,6 +15,10 @@ var _misc = require('../controllers/misc.controller');
 
 var miscController = _interopRequireWildcard(_misc);
 
+var _authentication = require('../middlewares/authentication');
+
+var PrototypeAuth = _interopRequireWildcard(_authentication);
+
 var _ufs = require('../controllers/ufs');
 
 var demosController = _interopRequireWildcard(_ufs);
