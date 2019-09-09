@@ -1,18 +1,25 @@
-Further details and guidance for using this kit for prototypes and releases for MTS can be found internally in Confluence by searching for front-end.
+This is lifted from the DVSA front-end kit (because it is awesome) and re-purposed for UKRI/Innovate UK. 
 
 ## Demo
+You can view the UFS version here:
+[UFS Heroku demo](https://tfs-front-end.herokuapp.com/)
 
-You can view the MOT component library and prototypes here:
 
-[Heroku Demo](https://dvsa-front-end.herokuapp.com/)
+You can view the original MOT component library and prototypes here:
+
+[DVSA/MOT verison on Heroku](https://dvsa-front-end.herokuapp.com/)
 
 ## Login credentials
 
-If you'd like to access the [Prototypes pages](https://dvsa-front-end.herokuapp.com/prototypes), log in as below.
+If you'd like to access the [Prototypes pages](https://tfs-front-end.herokuapp.com/), log in as below.
 The prototype system is password protected to prevent users accidentally accessing what may look like a real Government Service.
 
-User: admin  
-Password: dvsa  
+~~User: admin-~~
+~~Password: dvsa~~
+
+User: anything over 4 chars long
+
+Password: anything over 4 chars long
 
 
 ## Local Setup
