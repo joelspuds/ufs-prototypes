@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import * as mainController from '../controllers/main.controller';
 import * as miscController from '../controllers/misc.controller';
+import * as PrototypeAuth from '../middlewares/authentication';
 //
 import * as demosController from '../controllers/ufs';
 
