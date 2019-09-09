@@ -44,7 +44,8 @@ export const authenticationMiddleware = (req, res, next) => {
    * heroku config:set AUTH_PASSWORD=password_here
    */
   // if (user.name === process.env.AUTH_USERNAME && user.pass === process.env.AUTH_PASSWORD) {
-  if (user.name.length > 4 && user.pass.length > 4) {    // User was authenticated
+  if (user.name.length > 4 && user.pass.length > 4) {
+    // User was authenticated
     // pass request to next middleware
     return next();
   }
