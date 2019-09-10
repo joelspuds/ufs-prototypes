@@ -21,8 +21,12 @@ body.new-gds, * {
 .new-gds {
 
   a {
+    /*@extend .govuk-link;
+    font-family: $new-font-stack;*/
+  }
+
+  a:focus {
     @extend .govuk-link;
-    font-family: $new-font-stack;
   }
 
   a.govuk-button {
