@@ -14,7 +14,7 @@
     { text: 'Pathways to impact', url: '#marker_Pathways' },
     { text: 'Data impact statement', url: '#marker_Data' },
     { text: 'Finances', url: '#marker_Finances' },
-    { text: 'Letters of suppoer', url: '#marker_Letters' }
+    { text: 'Letters of support', url: '#marker_Letters' }
 ] %}
 
 
@@ -66,11 +66,11 @@
 
         {% call components.columnThreeQuarters() %}
 
-            <h2 class="heading heading-medium">Case for support</h2>
+            {#<h2 class="heading heading-medium">Case for support</h2>#}
 
             {#{{ components.paragraph(text='This is how reviewers will see your proposal.', size='l') }}#}
 
-            {{ components.sectionBreak(size='l') }}
+            {#{{ components.sectionBreak(size='l') }}#}
 
             {% if caseForSupport %}
 
@@ -89,25 +89,16 @@
                 {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="")}}
 
             </div>
+
 #}
 
-        {%- endcall %}
+            <div class="application-controls govuk-clearfix">
 
-    {%- endcall %}
+                {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
 
-    {% call components.gridRow() %}
+                {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
 
-        {% call components.columnFull() %}
-
-
-                <div class="application-controls govuk-clearfix">
-
-                    {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
-
-                    {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
-
-                </div>
-
+            </div>
 
         {%- endcall %}
 
