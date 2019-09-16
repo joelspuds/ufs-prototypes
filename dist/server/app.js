@@ -225,8 +225,10 @@ const startApp = exports.startApp = async () => {
 
   // Body parsing middleware
   // Website: https://www.npmjs.com/package/body-parser
-  app.use(_bodyParser2.default.json());
-  app.use(_bodyParser2.default.urlencoded({ extended: true }));
+  // app.use(bodyParser.json());
+  // app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(_bodyParser2.default.json({ limit: '50mb', extended: true }));
+  app.use(_bodyParser2.default.urlencoded({ limit: '50mb', extended: true }));
 
   // Error handling for development
   if ((0, _constants.isDevelopment)()) {

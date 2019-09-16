@@ -1,0 +1,8 @@
+{% macro badge(text='', type='default', value='') %}
+    <span class="badge badge--{{ type if type }}">
+        {{ text }}
+        {% if value %}
+            <span class="badge__value">({{ value }})</span>
+        {% endif %}
+    </span>
+{% endmacro %}

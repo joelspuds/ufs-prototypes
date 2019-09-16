@@ -1,0 +1,34 @@
+.sticky-nav {
+
+  &--fixed {
+    position: fixed;
+    top: 10px;
+  }
+
+  &__list {
+    //
+  }
+
+  &__item {
+    margin-bottom: 4px;
+  }
+
+  &__link {
+
+    &--active {
+      // display: block;
+      /*outline: 3px solid transparent;
+      color: #0b0c0c;
+      background-color: #ffdd00;
+      -webkit-box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+      box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+      text-decoration: none;*/
+
+      color: govuk-colour("black")!important;
+      background-color: govuk-colour("light-grey");
+      // -webkit-box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+      // box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+      text-decoration: none;
+    }
+  }
+}

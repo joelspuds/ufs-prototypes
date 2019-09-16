@@ -1,7 +1,5 @@
-{% macro paragraph(text=false, small=false, lead=false, limitWidth=false, clearfix=true) %}
-  {% if limitWidth %}<div class="text {{ 'u-clearfix' if clearfix }}">{% endif %}
-  <p {{ 'class="lede"' if lead }}{{ 'class="font-xsmall"' if small }}>
+{% macro paragraph(text=false, size, small=false, lead=false, limitWidth=false, clearfix=true) %}
+  <p class="govuk-body{{ '-'+size if size }}">
     {{ text }}
   </p>
-  {% if limitWidth %}</div>{% endif %}
 {% endmacro %}

@@ -1,5 +1,6 @@
 // suggested learning full list GET
 // this is the version with the 0-10 scoring as well
+
 export function tinyMCEGet(req, res) {
   let viewData, storedPreScore, storedSpeakerNotes;
   storedPreScore = req.session.preScore;

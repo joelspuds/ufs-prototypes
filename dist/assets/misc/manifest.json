@@ -1,10 +1,10 @@
 {
-  "name": "DVSA MOT",
-  "short_name": "DVSA MOT",
+  "name": "Funding Service Prototypes",
+  "short_name": "TFS Prototypes",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0b0c0c",
-  "description": "Check your MOT.",
+  "description": "Prototyping kit for funding service",
   "icons": [
     {
       "src": "/images/apple-touch-icon-180x180.png?0.22.1",
@@ -20,11 +20,6 @@
       "src": "/images/apple-touch-icon-152x152.png?0.22.1",
       "sizes": "152x152",
       "type": "image/png"
-    }
-  ],
-  "related_applications": [
-    {
-      "platform": "web"
     }
   ]
 }

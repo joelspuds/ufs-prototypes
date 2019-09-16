@@ -1,9 +1,13 @@
-// GOVUK new GDS stuff
+// GOVUK new GDS stuff, in ordered folders
+// @import '../govuk-ordered/all';
+
+// GOVUK new GDS stuff, as it comes
 @import '../govuk/all';
+
 
 // overrides
 @import 'custom/custom';
 
 body {
-  background-color: red;
+  background-color: lime;
 }

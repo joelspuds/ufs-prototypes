@@ -1,0 +1,50 @@
+<!-- sticky nav Scripts -->
+<script type="text/javascript">
+  // let mainNavLinks = document.querySelectorAll("nav ul li a");
+  let mainNavLinks = document.querySelectorAll('.sticky-nav__link');
+  let navContainer = document.querySelector('.sticky-nav');
+  let navTop = 400;
+
+  window.addEventListener("scroll", event => {
+
+    let fromTop = window.scrollY;
+    // console.log('navContainer.classList = ' + navContainer.classList);
+
+    if (window.scrollY >= navTop) {
+      navContainer.classList.add('sticky-nav--fixed');
+    } else {
+      navContainer.classList.remove('sticky-nav--fixed');
+    }
+
+    console.log(mainNavLinks);
+    let i = 0;
+
+    mainNavLinks.forEach(link => {
+      let section = document.querySelector(link.hash);
+      /*let thisIndex = i;
+      let heightNext = mainNavLinks[thisIndex + 1].offsetHeight;
+      i++ ;*/
+
+     /* console.log('section.offsetTop = ' + section.offsetTop);
+      console.log('section.offsetHeight = ' + section.offsetHeight);
+      console.log('heightNext = ' + heightNext);
+
+      console.log('fromTop = ' + fromTop);*/
+      // console.log('thisIndex = ' + thisIndex);
+
+
+
+      // if ( section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop ) {
+      // if ( section.offsetTop <= fromTop && section.offsetTop > fromTop ) {
+      if ( section.offsetTop <= fromTop ) {
+        link.classList.add("sticky-nav__link--active");
+
+      } else {
+        link.classList.remove("sticky-nav__link--active");
+      }
+
+
+    });
+  });
+
+</script>

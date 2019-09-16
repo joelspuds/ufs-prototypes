@@ -1,0 +1,118 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+{% set showMathJAXscripts = true %}
+{% set showSmoothScrollscripts = true %}
+{% set showStickyNavscripts = true %}
+
+{% set speakerNotes = speakerNotes if speakerNotes %}
+{% set caseForSupport = caseForSupport if caseForSupport %}
+
+{% set listItems = [
+    { text: 'Overview', url: '#marker_Overview' },
+    { text: 'Introduction', url: '#marker_Introduction' },
+    { text: 'Methodology', url: '#marker_Methodology' },
+    { text: 'Process', url: '#marker_Process' },
+    { text: 'Manufacturing', url: '#marker_Manufacturing' },
+    { text: 'Development', url: '#marker_Development' }
+] %}
+
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Case for support preview', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <div class="tabs-alt govuk-clearfix">
+                <ul class="tabs-alt__list">
+                    <li class="tabs-alt__item">
+                        <a class="tabs-alt__link" href="/prototypes/example-journey/application/" >Write application</a>
+                    </li>
+                    <li class="tabs-alt__item">
+                        <a class="tabs-alt__link tabs-alt__link--active" href="#" >Read application</a>
+                    </li>
+                </ul>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnOneQuarter() %}
+
+            {{ components.captionHeading(text='Contents', tag='h2', size='s')}}
+
+            <nav class="sticky-nav">
+
+                {{ components.list(items=listItems, parentClass='sticky-nav')}}
+
+            </nav>
+
+        {%- endcall %}
+
+        {% call components.columnThreeQuarters() %}
+
+            <h2 class="heading heading-medium">Case for support</h2>
+
+            {{ components.paragraph(text='This is how reviewers will see your proposal.', size='l') }}
+
+            {{ components.sectionBreak(size='l') }}
+
+            {% if caseForSupport %}
+
+                {{ caseForSupport }}
+
+            {% else %}
+
+                <div>No content has been added yet.</div>
+
+            {% endif %}
+
+            {{ components.sectionBreak(size='l') }}
+{#
+
+            <div class="application-controls govuk-clearfix">
+                {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="")}}
+
+            </div>
+#}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+
+                <div class="application-controls govuk-clearfix">
+
+                    {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
+
+                    {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
+
+                </div>
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+
