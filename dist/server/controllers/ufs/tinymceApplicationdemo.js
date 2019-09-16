@@ -7,8 +7,11 @@ exports.tinyMCEApplicationIndexGet = tinyMCEApplicationIndexGet;
 exports.tinyMCEApplicationGet = tinyMCEApplicationGet;
 exports.tinyMCEApplicationPost = tinyMCEApplicationPost;
 exports.tinyMCEApplicationViewGet = tinyMCEApplicationViewGet;
+exports.tinyMCEApplicationStaticViewGet = tinyMCEApplicationStaticViewGet;
 // suggested learning full list GET
 // This is the fuller version with
+
+let caseForSupportData = require('./case-for-support');
 
 function tinyMCEApplicationIndexGet(req, res) {
   let viewData;
@@ -56,4 +59,17 @@ function tinyMCEApplicationViewGet(req, res) {
 
   viewData = { speakerNotes };
   return res.render('prototypes/example-journey/application/view', viewData);
+}
+
+// pre-populated view page
+function tinyMCEApplicationStaticViewGet(req, res) {
+  let viewData, caseForSupport;
+
+  caseForSupport = caseForSupportData.caseForSupport;
+
+  viewData = {
+    caseForSupport
+  };
+
+  return res.render('prototypes/example-journey/application/view-static', viewData);
 }

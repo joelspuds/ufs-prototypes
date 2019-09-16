@@ -60,6 +60,7 @@ router.get('/prototypes/example-journey/application', demosController.tinyMCEApp
 router.get('/prototypes/example-journey/application/start', demosController.tinyMCEApplicationGet);
 router.post('/prototypes/example-journey/application/start', demosController.tinyMCEApplicationPost);
 router.get('/prototypes/example-journey/application/view', demosController.tinyMCEApplicationViewGet);
+router.get('/prototypes/example-journey/application/view-static', demosController.tinyMCEApplicationStaticViewGet);
 
 // upload script
 router.get('/prototypes/uploadStuff', demosController.uploadStuffGet);
