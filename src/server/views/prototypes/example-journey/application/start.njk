@@ -7,12 +7,12 @@
 {% block content %}
 
   {% call components.gridRow() %}
-  
+
     {% call components.columnFull() %}
 
-        {{ components.pageHeading(heading='Case for support', secondary='171 - Development of a Novel Inhibitor of Ricin')}}
+        {{ components.captionHeading(text='Case for support', caption='171 - Development of a Novel Inhibitor of Ricin')}}
 
-    {%- endcall %} 
+    {%- endcall %}
 
   {%- endcall %}
 
@@ -20,7 +20,7 @@
 
         {% call components.columnTwoThirds() %}
 
-            <h2 class="heading heading-medium">What is your proposed project and how does it represent excellent research?</h2>
+            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
 
             {% call components.hiddenText(summary='What should I include in case for support section?') %}
                 <p>Your Case for Support should be structured as follows:</p>

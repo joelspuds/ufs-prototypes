@@ -5,10 +5,6 @@ $new-font-stack : 'Open Sans', sans-serif;
 body.new-gds, * {
   font-family: $new-font-stack;
 
-  a {
-
-  }
-
   h1, h2, h3, h4, h5, h6, .govuk-heading, .heading {
     font-family: 'Montserrat', sans-serif !important;
   }
@@ -21,12 +17,13 @@ body.new-gds, * {
 .new-gds {
 
   a {
-    /*@extend .govuk-link;
-    font-family: $new-font-stack;*/
+    @extend .govuk-link;
+    font-family: $new-font-stack;
   }
 
   a:focus {
     @extend .govuk-link;
+    font-family: $new-font-stack;
   }
 
   a.govuk-button {

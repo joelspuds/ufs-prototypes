@@ -7,7 +7,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 /**
  * Constants
- * 
+ *
  * @author Tameem Safi <t.safi@kainos.com>
  * @since 1.2.0
  */
@@ -27,9 +27,9 @@ const config = {
 
 /**
  * Checks environment variable to see if we are in production mode
- * 
- * @returns {Boolean} true if we are in production and false otherwise 
- * 
+ *
+ * @returns {Boolean} true if we are in production and false otherwise
+ *
  * @author Tameem Safi <t.safi@kainos.com>
  * @since 1.2.0
  */
@@ -39,9 +39,9 @@ const isProduction = () => {
 
 /**
  * Get the extract text plugin loader settings based on environment
- * 
+ *
  * @returns A webpack loader array
- * 
+ *
  * @author Tameem Safi <t.safi@kainos.com>
  * @since 1.2.0
  */
@@ -93,9 +93,9 @@ const getExtractTextPluginLoaders = () => {
 
 /**
  * Get settings for copying files
- * 
+ *
  * @returns array containing all settings
- * 
+ *
  * @author Tameem Safi <t.safi@kainos.com>
  * @since 1.2.2
  */
@@ -174,19 +174,22 @@ const getCopyWebpackPluginSettings = () => {
 
 /**
  * Webpack configuration
- * 
+ *
  * @author Tameem Safi <t.safi@kainos.com>
  * @since 1.2.0
  */
+console.log('config.paths.js = ' + config.paths.js);
+console.log(path.resolve(config.paths.js, '../govuk/all.js'));
 export default {
   entry: {
-    // 'dvsa': path.resolve(config.paths.js, 'dvsa', 'index.js'),
+    'dvsa': path.resolve(config.paths.js, 'dvsa', 'index.js'),
     // 'dvsa-manuals': path.resolve(config.paths.js, 'dvsa-manuals', 'index.js'),
     // 'dvsa-mts': path.resolve(config.paths.js, 'dvsa-mts', 'index.js'),
     // 'dvsa-mts-legacy': path.resolve(config.paths.js, 'dvsa-mts-legacy', 'index.js'),
+    'new-gds': path.resolve(config.paths.js, '../govuk/all.js'),
+    // 'new-gds': path.resolve('/src/assets/', 'govuk', 'all.js'),
     'development': path.resolve(config.paths.js, 'development', 'index.js'),
     'styles': path.resolve(config.paths.scss, 'styles.scss'),
-    // 'new-styles': path.resolve(config.paths.scss, 'new-styles.scss'),
   },
   module: {
     rules: [

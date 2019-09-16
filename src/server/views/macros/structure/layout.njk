@@ -1,7 +1,7 @@
 {% macro gridRow() %}
 
   <div class="govuk-grid-row">
-    {{ caller() }}  
+    {{ caller() }}
   </div>
 
 {% endmacro %}
@@ -42,6 +42,14 @@
 
   <div class="govuk-grid-column-one-quarter">
     {{ caller() }}
+  </div>
+
+{% endmacro %}
+
+{% macro columnThreeQuarters() %}
+
+  <div class="govuk-grid-column-three-quarters">
+      {{ caller() }}
   </div>
 
 {% endmacro %}

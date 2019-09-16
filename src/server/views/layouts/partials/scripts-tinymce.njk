@@ -7,6 +7,7 @@
     menubar: false,
     tinydrive_dropbox_app_key: 'socw0soabe8fvpv',
     tinydrive_token_provider: '/prototypes/jwt',
+    powerpaste_allow_local_images: true,
     external_plugins: {
       // 'tiny_mce_wiris' : 'http://localhost:3002/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
       'tiny_mce_wiris' : 'https://tfs-front-end.herokuapp.com/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
@@ -14,9 +15,9 @@
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',
       'searchreplace visualblocks code fullscreen',
-      'insertdatetime media table paste tinydrive code imagetools wordcount'
+      'insertdatetime media table paste tinydrive code imagetools wordcount powerpaste'
     ],
-    toolbar: 'formatselect | bold italic | bullist numlist | image | tiny_mce_wiris_formulaEditor',
+    toolbar: 'formatselect | bold italic | bullist numlist | image pastetext | tiny_mce_wiris_formulaEditor',
     content_css: [
       '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
       '//www.tiny.cloud/css/codepen.min.css'

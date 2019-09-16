@@ -1,0 +1,10 @@
+{% macro captionHeading(text='', caption=false, tag='h1', size='xl', url=false, extraClass) %}
+    {% if caption %}
+        <span class="govuk-caption-{{ size }}">{{ caption }}</span>
+    {% endif %}
+    {% if text %}
+        <{{ tag }} class="govuk-heading-{{ size }} {{ extraClass if extraClass }}">
+        {{ '<a href="' + url +'">' + text + '</a>' if url else text }}
+        </{{ tag }}>
+    {% endif %}
+{% endmacro %}

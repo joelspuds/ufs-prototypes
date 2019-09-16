@@ -20,5 +20,13 @@
     {% include './scripts-mathjax.njk' %}
 {% endif %}
 
+{% if showSmoothScrollscripts %}
+    {% include './scripts-smoothScroll.njk' %}
+{% endif %}
+
+{% if showStickyNavscripts %}
+    {% include './scripts-stickyNav.njk' %}
+{% endif %}
+
 {% block bodyScripts %}{% endblock %}
 <!-- /body-scripts -->

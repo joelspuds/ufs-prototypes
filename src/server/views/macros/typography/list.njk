@@ -1,17 +1,17 @@
-{% macro list(items=false, type=false) %}
+{% macro list(items=false, type=false, extraClass, parentClass) %}
   {% if items %}
     {% if type == 'number' %}
-      <ol class="govuk-list govuk-list--number">
+      <ol class="govuk-list govuk-list--number {{ extraClass if extraClass }} {{ parentClass + '__list' if parentClass }}">
     {% elseif type == 'bullet' %}
-       <ul class="govuk-list govuk-list--bullet">
+       <ul class="govuk-list govuk-list--bullet {{ extraClass if extraClass }} {{ parentClass + '__list' if parentClass }}">
     {% else %}
-        <ul class="govuk-list">
+        <ul class="govuk-list {{ extraClass if extraClass }} {{ parentClass + '__list' if parentClass }}">
     {% endif %}
 
       {% for item in items %}
-        <li>
+        <li class=" {{ parentClass + '__item' if parentClass }}">
           {% if item.url %}
-            <a href="{{ item.url }}" class="govuk-link {{ item.class if item.class }} ">
+            <a href="{{ item.url }}" class="govuk-link {{ item.class if item.class }} {{ parentClass + '__link' if parentClass }}">
               {{ item.text }}
             </a>
           {% else %}

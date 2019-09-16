@@ -10,7 +10,26 @@
 
         {% call components.columnFull() %}
 
-            {{ components.pageHeading(heading='Case for support', secondary='171 - Development of a Novel Inhibitor of Ricin')}}
+            {{ components.captionHeading(text='Case for support preview', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <div class="tabs-alt govuk-clearfix">
+                <ul class="tabs-alt__list">
+                    <li class="tabs-alt__item">
+                        <a class="tabs-alt__link" href="/prototypes/example-journey/application/" >Write application</a>
+                    </li>
+                    <li class="tabs-alt__item">
+                        <a class="tabs-alt__link tabs-alt__link--active" href="#" >Read application</a>
+                    </li>
+                </ul>
+            </div>
 
         {%- endcall %}
 
@@ -19,9 +38,25 @@
 
     {% call components.gridRow(extraClass='u-space-b30') %}
 
-        {% call components.columnFull() %}
+        {% call components.columnOneQuarter() %}
+
+            {{ components.captionHeading(text='Contents', tag='h2', size='s')}}
+
+            <div class="sticky-nav">
+
+                <ul class="govuk-list">
+
+                </ul>
+
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnThreeQuarters() %}
 
             <h2 class="heading heading-medium">Case for support</h2>
+
+            {{ components.paragraph(text='This is how reviewers will see your proposal.', size='l')}}
 
             {% if speakerNotes %}
 
