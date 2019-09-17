@@ -22,9 +22,12 @@
 
             {{ components.paragraph(text='Enter your financial data into the spreadsheet below. You can cut and paste directly from an Excel spreadsheet', size='l')}}
 
-            <p>
+            <p class="govuk-body">
                 {{ components.link(text='Download example spreadhseet', url='/files/example_spreadsheeet.xls')}}
             </p>
+
+            {{ components.paragraph(text='Paste contents into the "spreadsheet" below, then click the <strong>Save and preview</strong> button. Open the console (Right click > inspect) to view the captured data as a big array.')}}
+
 
         {%- endcall %}
 
