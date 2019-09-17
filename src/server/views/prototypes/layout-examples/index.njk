@@ -6,18 +6,19 @@
     { text: 'Layout with left nav', url: '/prototypes/layout-examples/left-nav' },
     { text: 'Layout with right nav', url: '/prototypes/layout-examples/right-nav' },
     { text: 'Typeface examples with Montserrat and Open Sans', url: '/prototypes/layout-examples/typeface-examples' },
-    { text: 'Various patterns', url: '/prototypes/layout-examples/various-patterns' }
+    { text: 'Various patterns', url: '/prototypes/layout-examples/various-patterns' },
+    { text: 'Columns', url: '/prototypes/layout-examples/all-cols' }
 ] %}
 
 {% block content %}
 
   {% call components.gridRow() %}
-  
+
     {% call components.columnFull() %}
 
     {{ components.pageHeading(heading='Layout ideas') }}
 
-    {%- endcall %} 
+    {%- endcall %}
 
   {%- endcall %}
 
@@ -30,5 +31,5 @@
         {%- endcall %}
 
     {%- endcall %}
-  
+
 {% endblock %}
