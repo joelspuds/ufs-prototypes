@@ -62,6 +62,10 @@ router.post('/prototypes/example-journey/application/start', demosController.tin
 router.get('/prototypes/example-journey/application/view', demosController.tinyMCEApplicationViewGet);
 router.get('/prototypes/example-journey/application/view-static', demosController.tinyMCEApplicationStaticViewGet);
 
+// spreadsheet
+router.get('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetGet);
+router.post('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetPost);
+
 // upload script
 router.get('/prototypes/uploadStuff', demosController.uploadStuffGet);
 router.post('/prototypes/uploadStuff', demosController.uploadStuffPost);

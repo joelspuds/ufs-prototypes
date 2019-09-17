@@ -63,3 +63,15 @@ Object.keys(_embeddedPDF).forEach(function (key) {
     }
   });
 });
+
+var _spreadsheet = require('./spreadsheet');
+
+Object.keys(_spreadsheet).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _spreadsheet[key];
+    }
+  });
+});

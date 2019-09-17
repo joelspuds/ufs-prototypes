@@ -16,11 +16,12 @@
       navContainer.classList.remove('sticky-nav--fixed');
     }
 
-    console.log(mainNavLinks);
-    let i = 0;
+    // console.log(mainNavLinks);
+    // let i = 0;
 
     mainNavLinks.forEach(link => {
       let section = document.querySelector(link.hash);
+
       /*let thisIndex = i;
       let heightNext = mainNavLinks[thisIndex + 1].offsetHeight;
       i++ ;*/
@@ -32,8 +33,6 @@
       console.log('fromTop = ' + fromTop);*/
       // console.log('thisIndex = ' + thisIndex);
 
-
-
       // if ( section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop ) {
       // if ( section.offsetTop <= fromTop && section.offsetTop > fromTop ) {
       if ( section.offsetTop <= fromTop ) {
@@ -42,7 +41,6 @@
       } else {
         link.classList.remove("sticky-nav__link--active");
       }
-
 
     });
   });

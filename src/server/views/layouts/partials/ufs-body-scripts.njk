@@ -28,5 +28,9 @@
     {% include './scripts-stickyNav.njk' %}
 {% endif %}
 
+{% if showSpreadsheetscripts %}
+    {% include './scripts-spreadsheet.njk' %}
+{% endif %}
+
 {% block bodyScripts %}{% endblock %}
 <!-- /body-scripts -->

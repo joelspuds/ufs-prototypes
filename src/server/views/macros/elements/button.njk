@@ -1,4 +1,4 @@
-{% macro button(text='Save and continue', url=false, start=false, disabled=false) %}
+{% macro button(text='Save and continue', url=false, start=false, disabled=false, customID) %}
   {% set disabledCode = 'disabled="disabled" aria-disabled="true"' %}
   {% if url %}
       {% if start %}
@@ -12,6 +12,6 @@
         <a class="govuk-button {{ 'button-start' if start }}" href="{{ url }}" role="button" data-module="govuk-button">{{ text }}</a>
       {% endif %}
   {% else %}
-    <button class="govuk-button {{ 'govuk-button--disabled' if disabled }}" type="submit" value="{{ text }}" {{ disabledCode if disabled }} data-module="govuk-button">{{ text }}</button>
+    <button class="govuk-button {{ 'govuk-button--disabled' if disabled }}" {{ 'id="' + customID + '"' if customID }} type="submit" value="{{ text }}" {{ disabledCode if disabled }} data-module="govuk-button">{{ text }}</button>
   {% endif %}
 {% endmacro %}

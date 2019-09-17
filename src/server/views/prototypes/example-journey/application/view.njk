@@ -60,40 +60,24 @@
 
             {% if speakerNotes %}
 
-            <div class="speaker-notes">
-                {{ speakerNotes }}
-            </div>
+            {{ speakerNotes }}
+
 
             {% else %}
 
                 <div>No content has been added yet.</div>
 
             {% endif %}
-{#
+
+            {{ components.sectionBreak(size='l') }}
 
             <div class="application-controls govuk-clearfix">
-                {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="")}}
+
+                {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
+
+                {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
 
             </div>
-#}
-
-        {%- endcall %}
-
-    {%- endcall %}
-
-    {% call components.gridRow() %}
-
-        {% call components.columnFull() %}
-
-
-                <div class="application-controls govuk-clearfix">
-
-                    {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
-
-                    {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
-
-                </div>
-
 
         {%- endcall %}
 

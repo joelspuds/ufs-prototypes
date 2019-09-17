@@ -1,0 +1,33 @@
+<!-- spreadsheet Scripts -->
+<link href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" media="all" rel="stylesheet">
+<script src='https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js'></script>
+
+<script type="text/javascript" >
+  var data = [
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+  ];
+
+  var container = document.getElementById('financialData');
+  var hot = new Handsontable(container, {
+    data: data,
+    rowHeaders: true,
+    colHeaders: true,
+    filters: true,
+    dropdownMenu: true
+  });
+
+  var saveButton = document.getElementById('saveTableData');
+  saveButton.onclick = function(e) {
+    e.preventDefault();
+    console.log(data);
+  };
+
+</script>
+<style>
+    #hot-display-license-info {
+        display: none!important;
+    }
+</style>

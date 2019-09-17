@@ -1,0 +1,59 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+{% set showSpreadsheetscripts = true %}
+{% set speakerNotes = speakerNotes if speakerNotes %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Financial data', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            {{ components.paragraph(text='Enter your financial data into the spreadsheet below. You can cut and paste directly from an Excel spreadsheet', size='l')}}
+
+            <p>
+                {{ components.link(text='Download example spreadhseet', url='/files/example_spreadsheeet.xls')}}
+            </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.form(action='/prototypes/example-journey/application/spreadsheet', method='POST',name='formSpreadsheet') %}
+
+                {#{{ components.textarea(options=selectOptions, label='Enter your financial data', labelBold=true, id='formSpreadsheet', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}#}
+
+                <div id="financialData"></div>
+
+                <div class="application-controls govuk-clearfix">
+
+                    {{ components.button(text='Save and preview', customID="saveTableData", extraClass="application-controls__submit")}}
+
+                    {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
+
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+
