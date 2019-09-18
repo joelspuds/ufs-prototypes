@@ -10,9 +10,17 @@
 <!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html class="" lang="en"><!--<![endif]-->
   <head>
-    
+
     {% include './partials/head.njk' %}
     {% block header %}{% endblock %}
+
+    {#{{ ' govuk-width-container--wide' if templateWidth == 'wide' }}#}
+
+    {% if templateWidth == 'wide' %}
+      <style>
+        .govuk-width-container { max-width: 1380px; }
+      </style>
+    {% endif %}
 
   </head>
   <body class="govuk-template__body {{ bodyClass }}">
@@ -22,7 +30,7 @@
     {% include './partials/cookie-message.njk' %}
     {% include './partials/header.njk' %}
 
-    <div class="govuk-width-container">
+    <div class="govuk-width-container ">
         {% block bodyContentWrapper %}{% endblock %}
     </div>
 

@@ -53,3 +53,19 @@
   </div>
 
 {% endmacro %}
+
+{% macro column1of12() %}
+
+  <div class="govuk-grid-column-one-of-twelve">
+      {{ caller() }}
+  </div>
+
+{% endmacro %}
+
+{% macro column2of12() %}
+
+  <div class="govuk-grid-column-two-of-twelve">
+      {{ caller() }}
+  </div>
+
+{% endmacro %}

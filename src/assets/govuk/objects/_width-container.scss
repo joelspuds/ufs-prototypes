@@ -59,5 +59,9 @@
 @include govuk-exports("govuk/objects/width-container") {
   .govuk-width-container {
     @include govuk-width-container;
+
+    &--wide {
+      max-width: $govuk-page-width-wide;
+    }
   }
 }
