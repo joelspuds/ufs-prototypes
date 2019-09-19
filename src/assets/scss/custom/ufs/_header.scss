@@ -1,19 +1,21 @@
 .ufs-header {
   width: 100%;
   background-color: #fff;
-  padding:10px 0 0 0;
+  padding:20px 0;
 
 
   &__main {
+    position: relative;
     width:100%;
     max-width: 960px;
     margin: 0 auto;
     min-height: 76px;
+
   }
 
   &__logo {
-    width:174px;
-    height: 56px;
+    width:279px;
+    height: 73px;
     float: left;
   }
 
@@ -21,10 +23,14 @@
 
     @extend %govuk-heading-l;
 
+    position: absolute;
+    left: 350px;
+    bottom: 0;
     width:320px;
-    height: 56px;
-    margin: 15px 0 0 40px;
-    float: left;
+    height: 33px;
+    // margin: 15px 0 0 40px;
+    margin: 0;
+    // float: left;
     font-weight: 400;
     color: #6f777b;
 
