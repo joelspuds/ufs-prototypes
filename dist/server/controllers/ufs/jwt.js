@@ -9,7 +9,8 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 //
 const privateKeyFile = './private.key';
-const apiKey = 'phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor';
+// const apiKey = 'phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor';
+const apiKey = 'l2nqkzkytjj1cdcih5cik090v6f75o1pa04irfeow06n7idc';
 const payload = {
   sub: 'joelTest',
   name: 'Joel Test',
@@ -32,7 +33,7 @@ function JWTPost(req, res) {
     res.json({ token });
   } catch (e) {
     res.status(500);
-    res.send('Failed generate jwt token.');
+    res.send('Failed to generate jwt token.');
     console.error(e.message);
   }
 }
