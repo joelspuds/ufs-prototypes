@@ -5,12 +5,12 @@
 {% block content %}
 
   {% call components.gridRow() %}
-  
+
     {% call components.columnFull() %}
 
-    {{ components.pageHeading(heading='Montserrat and Open Sans') }}
+    {{ components.captionHeading(text='All Roboto', caption='No more Montserrat') }}
 
-    {%- endcall %} 
+    {%- endcall %}
 
   {%- endcall %}
 
@@ -18,26 +18,27 @@
 
         {% call components.columnTwoThirds() %}
 
-            <p class="lede">Titles are in Montserrat and copy is in Open Sans</p>
+          <p class="govuk-body-l"><strike>Titles are in Montserrat and copy is in Open Sans</strike> We're living in a modern world of Roboto, thankfully. And the lede lives on with the class: <code>.govuk-body-l</code></p>
 
-          <h2 class="heading-large">Heading large H2</h2>
+          {{ components.captionHeading(text='Heading large H2', tag='h2', size='l') }}
 
-          <p><strong>Normal body copy.</strong> Maecenas porta imperdiet augue, in sagittis massa congue at. Morbi non porttitor urna. Fusce eget tortor diam. Duis imperdiet libero vitae libero vehicula mollis. Suspendisse lacinia elementum pretium. In ultricies diam sit amet vehicula maximus. Cras quis aliquet eros. Pellentesque aliquet metus ante, at tempus nisl tempus sit amet. Aenean pretium felis sed turpis interdum sollicitudin. Donec faucibus cursus erat ac interdum. Sed vitae tincidunt tortor. Nulla ut nunc tristique, iaculis nisl sed, dapibus elit. Pellentesque iaculis enim ut pretium sodales.</p>
-
-          <h2 class="heading-medium">Heading medium H2</h2>
-
-          <p><strong>Normal body copy.</strong> Maecenas porta imperdiet augue, in sagittis massa congue at. Morbi non porttitor urna. Fusce eget tortor diam. Duis imperdiet libero vitae libero vehicula mollis. Suspendisse lacinia elementum pretium. In ultricies diam sit amet vehicula maximus. Cras quis aliquet eros. Pellentesque aliquet metus ante, at tempus nisl tempus sit amet. Aenean pretium felis sed turpis interdum sollicitudin. Donec faucibus cursus erat ac interdum. Sed vitae tincidunt tortor. Nulla ut nunc tristique, iaculis nisl sed, dapibus elit. Pellentesque iaculis enim ut pretium sodales.</p>
-
-          <h3 class="heading-small">Heading small H3</h3>
-
-          <p>Maecenas porta imperdiet augue, in sagittis massa congue at. Morbi non porttitor urna. Fusce eget tortor diam. Duis imperdiet libero vitae libero vehicula mollis. Suspendisse lacinia elementum pretium. </p>
+          <p class="govuk-body"><strong>Normal body copy.</strong> Maecenas porta imperdiet augue, in sagittis massa congue at. Morbi non porttitor urna. Fusce eget tortor diam. Duis imperdiet libero vitae libero vehicula mollis. Suspendisse lacinia elementum pretium. In ultricies diam sit amet vehicula maximus. Cras quis aliquet eros. Pellentesque aliquet metus ante, at tempus nisl tempus sit amet. Aenean pretium felis sed turpis interdum sollicitudin. Donec faucibus cursus erat ac interdum. Sed vitae tincidunt tortor. Nulla ut nunc tristique, iaculis nisl sed, dapibus elit. Pellentesque iaculis enim ut pretium sodales.</p>
 
 
-          <h3 class="heading-small">Heading small H3</h3>
-          <p class="font-xsmall"><strong>Small copy.</strong> In ultricies diam sit amet vehicula maximus. Cras quis aliquet eros. Pellentesque aliquet metus ante, at tempus nisl tempus sit amet. Aenean pretium felis sed turpis interdum sollicitudin. Donec faucibus cursus erat ac interdum. Sed vitae tincidunt tortor. Nulla ut nunc tristique, iaculis nisl sed, dapibus elit. Pellentesque iaculis enim ut pretium sodales.</p>
+          {{ components.captionHeading(text='Heading medium H2', tag='h2', size='m') }}
+
+          <p class="govuk-body"><strong>Normal body copy.</strong> Maecenas porta imperdiet augue, in sagittis massa congue at. Morbi non porttitor urna. Fusce eget tortor diam. Duis imperdiet libero vitae libero vehicula mollis. Suspendisse lacinia elementum pretium. In ultricies diam sit amet vehicula maximus. Cras quis aliquet eros. Pellentesque aliquet metus ante, at tempus nisl tempus sit amet. Aenean pretium felis sed turpis interdum sollicitudin. Donec faucibus cursus erat ac interdum. Sed vitae tincidunt tortor. Nulla ut nunc tristique, iaculis nisl sed, dapibus elit. Pellentesque iaculis enim ut pretium sodales.</p>
+
+          {{ components.captionHeading(text='Heading small H3', tag='h3', size='s') }}
+
+          <p class="govuk-body">Maecenas porta imperdiet augue, in sagittis massa congue at. Morbi non porttitor urna. Fusce eget tortor diam. Duis imperdiet libero vitae libero vehicula mollis. Suspendisse lacinia elementum pretium. </p>
+
+          {{ components.captionHeading(text='Another heading small H3', tag='h3', size='s') }}
+
+          <p class="govuk-body-s"><strong>Small copy.</strong> In ultricies diam sit amet vehicula maximus. Cras quis aliquet eros. Pellentesque aliquet metus ante, at tempus nisl tempus sit amet. Aenean pretium felis sed turpis interdum sollicitudin. Donec faucibus cursus erat ac interdum. Sed vitae tincidunt tortor. Nulla ut nunc tristique, iaculis nisl sed, dapibus elit. Pellentesque iaculis enim ut pretium sodales.</p>
 
         {%- endcall %}
 
     {%- endcall %}
-  
+
 {% endblock %}

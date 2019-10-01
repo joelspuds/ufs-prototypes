@@ -1,0 +1,53 @@
+@include govuk-media-query($from: mobile) {
+  .testDiv1 {
+    background-color: red;
+  }
+}
+
+@include govuk-media-query($from: tablet) {
+  .testDiv1 {
+    background-color: blue;
+  }
+}
+
+@include govuk-media-query($from: desktop) {
+  .testDiv1 {
+    background-color: green;
+  }
+}
+
+
+/*
+@include govuk-media-query($until: tablet) {
+  .testDiv1 {
+    background-color: blue;
+  }
+}
+@include govuk-media-query(mobile, tablet) {
+  .testDiv1 {
+    background-color: green;
+  }
+}
+@include govuk-media-query($from: tablet, $and: '(orientation: landscape)') {
+  .testDiv1 {
+    background-color: teal;
+  }
+}
+@include govuk-media-query(950px) {
+  .testDiv1 {
+    background-color: red;
+  }
+}
+@include govuk-media-query(tablet, $media-type: screen) {
+  .testDiv1 {
+    color: hotpink;
+  }
+}
+*/
+
+.testDiv1 {
+  height: 40px;
+  width: 100%;
+  margin: 20px 0;
+
+}

@@ -1,0 +1,75 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+
+{% set pageTitle = CREATE_NEW_OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+
+    {% call components.columnFull() %}
+
+    {% if createOpportunityError %}
+
+        {{ components.errorSummary(
+            heading='There is a problem with your information',
+            headingId='createOpportunityError',
+            description='',
+            items=[{
+                    link: '#opportunityName',
+                    text: 'Your opportunity name is not valid'
+                }]
+        ) }}
+
+    {% endif %}
+
+    {{ components.captionHeading(text=CREATE_NEW_OPPORTUNITY_TITLE) }}
+
+    {%- endcall %}
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+            {% call components.form(action='/prototypes/opportunity/create', method='POST',name='createOpportunity') %}
+
+                {% call components.hiddenText(summary='How to name your opportunity') %}
+                    <p>Give your opportunity a logical, meaningful title. Be brief, yet descriptive.</p>
+                    <p>You can give your opportunity tags to help users further understand the requirements and exact file later on in the setup process.</p>
+                {%- endcall %}
+
+                {% call components.formGroup(extraClass='') %}
+
+                    {% if createOpportunityError %}
+                        {{ components.field(label=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL, id='opportunityName',  hint=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT, value=opportunityName) }}
+                    {% else %}
+                        {{ components.field(label=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL, id='opportunityName', hint=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT, value=opportunityName) }}
+                    {% endif %}
+
+                {%- endcall %}
+                {% call components.formGroup() %}
+
+                    {{ components.button(text=CREATE_NEW_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
+
+                    <span class="sub-button">
+                        {{ components.link(text='Cancel', url="/prototypes/opportunity/", extraClass="")}}
+                    </span>
+
+                {%- endcall %}
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+
+{% set pageTitle = ADD_FUNDERS_TO_OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{% set allCouncils = allCouncils %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text=ADD_FUNDERS_TO_OPPORTUNITY_TITLE, caption=opportunityID + ': ' +opportunityName) }}
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+            {% call components.form(action='/prototypes/opportunity/funders', method='POST',name='manageFunders') %}
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset" aria-describedby="funders-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h2 class="govuk-fieldset__heading">{{ ADD_FUNDERS_TO_OPPORTUNITY_NAME_LABEL }}</h2>
+                        </legend>
+                        <span id="waste-hint" class="govuk-hint">{{ ADD_FUNDERS_TO_OPPORTUNITY_NAME_HINT }}</span>
+                        <div class="govuk-checkboxes">
+
+                            {% for item in allCouncils %}
+
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="council_{{ item.index }}" name="funders" type="checkbox" value="{{ item.name }}">
+                                    <label class="govuk-label govuk-checkboxes__label" for="council_{{ item.index }}">
+                                        {% if item.short %}
+                                            {{ item.short }},
+                                        {% endif %}
+                                        {{ item.name }}
+                                    </label>
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </fieldset>
+                </div>
+
+                {% call components.formGroup() %}
+
+                    {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
+
+                    <span class="sub-button">
+                        {{ components.link(text='Cancel', url="/prototypes/opportunity/setup", extraClass="")}}
+                    </span>
+
+                {%- endcall %}
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

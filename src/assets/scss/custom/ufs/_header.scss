@@ -1,54 +1,80 @@
 .ufs-header {
   width: 100%;
   background-color: #fff;
-  padding:20px 0;
+  padding:10px 0;
 
+  @include govuk-media-query($from: tablet) {
+    //margin: 0;
+    //padding: 0;
+  }
 
   &__main {
     position: relative;
-    width:100%;
-    max-width: 960px;
-    margin: 0 auto;
-    min-height: 76px;
+    // width: 100%;
+    // max-width: 960px;
+    margin: 0 15px;
+    min-height: 61px;
 
+    @include govuk-media-query($from: mobile) {
+      margin: 0 auto;
+      padding:15px 15px;
+    }
   }
 
   &__logo {
-    width:279px;
-    height: 73px;
-    float: left;
+    width: 208px;
+    height: 61px;
+
+    @include govuk-media-query($from: tablet) {
+      float: left;
+    }
   }
 
   &__proposition {
 
     @extend %govuk-heading-l;
+    font-weight: 100;
+    color: ufs-colour("ukri-blue");
+    float: none;
+    margin: 12px 0 0;
+    width: 100%;
+    clear: both;
 
-    position: absolute;
-    left: 350px;
-    bottom: 0;
-    width:320px;
-    height: 33px;
-    // margin: 15px 0 0 40px;
-    margin: 0;
-    // float: left;
-    font-weight: 400;
-    color: #6f777b;
+    @include govuk-media-query($from: tablet) {
+      width:320px;
+      height: 33px;
+      margin: 18px 0 0 30px;
+      float: left;
+      clear: none;
+    }
 
   }
 
   &__menu {
-    float: right;
-    width:120px;
+    float: none;
+    width: 100%;
     text-align: right;
+    margin-top: 10px;
+    @extend %govuk-body-s;
 
-    a {
-      color: #6f777b;
+    @include govuk-media-query($from: mobile) {
+      float: right;
+      width:180px;
+      display: inline-block;
     }
   }
 
+  &__menu-link{
+
+    display: inline;
+
+    @include govuk-media-query($from: mobile) {
+      display: block;
+    }
+
+  }
+
   &__link {
-    // font-size: 14px;
-    // @include core-14;
     @extend %govuk-body-s;
     color: #6f777b;
   }
@@ -59,12 +85,16 @@
   height: 10px;
   margin: 0 auto;
   background: linear-gradient(to right,
-    rgb(42, 80, 141) 0%,
-    rgb(42, 80, 141) 25%,
-    rgb(131, 77, 149) 25%,
-    rgb(131, 77, 149) 50%,
-    rgb(56, 128, 118) 50%,
-    rgb(56, 128, 118) 75%,
-    rgb(181, 79, 35) 75%,
-    rgb(181, 79, 35) 100%);
+      rgb(29,112,184) 0%,
+      rgb(29,112,184) 20%,
+      rgb(248,156,33) 20%,
+      rgb(248,156,33) 40%,
+      rgb(0, 167, 135) 40%,
+      rgb(0, 167, 135) 60%,
+      rgb(167, 68, 153) 60%,
+      rgb(167, 68, 153) 80%,
+      rgb(232, 77, 54) 80%,
+      rgb(232, 77, 54) 100%);
+  clear: both;
 }
+

@@ -1,4 +1,3 @@
-
 .top-links {
   // width:100%;
   display: flex;
@@ -7,31 +6,43 @@
   align-items: flex-start;
   width: 100%;
   flex-flow: column;
-
-  background-color: rgb(228, 228, 228);
+  min-height: 39px;
+  background-color: ufs-colour("ukri-blue");
 
   &__nav {
-    display: flex;
-    -webkit-box-align: stretch;
-    align-items: stretch;
-    flex-flow: row wrap;
     margin: 0px auto;
     width: 100%;
     max-width: 960px;
-    flex: 1 1 0%;
+
+    @include govuk-media-query($from: desktop) {
+      display: flex;
+      -webkit-box-align: stretch;
+      align-items: stretch;
+      flex-flow: row wrap;
+      flex: 1 1 0%;
+    }
   }
 
   &__link {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    color: rgb(106, 106, 106);
+    // display: flex;
+    // -webkit-box-align: center;
+    // align-items: center;
+    color: govuk-colour("white");
     line-height: 1.2em;
-    vertical-align: middle;
-    flex-flow: row wrap;
+    // vertical-align: middle;
+    // flex-flow: row wrap;
     border-left: 1px solid rgb(153, 153, 153);
     padding: 10px 19px;
     text-decoration: none;
+    display: block;
+
+    @include govuk-media-query($from: desktop) {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      vertical-align: middle;
+      flex-flow: row wrap;
+    }
 
     &:last-of-type {
       border-right: 1px solid rgb(153, 153, 153);
@@ -40,10 +51,51 @@
     &:hover {
       text-decoration: underline;
     }
+
+    &:focus {
+      border-color: #fd0;
+      outline: 3px solid transparent;
+      -webkit-box-shadow: inset 0 0 0 1px #fd0;
+      box-shadow: inset 0 0 0 1px #fd0;
+    }
+
+    &--mobile-hidden {
+      @include govuk-media-query($until: desktop) {
+        display: none!important;
+      }
+    }
   }
 
   a {
-    color: rgb(106, 106, 106);
+    color: govuk-colour("white");
   }
 
+  &__menu {
+    display: block;
+    position: relative;
+    color: govuk-colour("white");
+    line-height: 1.2em;
+    padding: 10px 19px;
+    text-decoration: none;
+
+    @include govuk-media-query($from: desktop) {
+      display: none;
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      left: 65px;
+      top: 11px;
+      font-size: 12px;
+      content:"\25BC";
+      color: govuk-colour("white");
+    }
+
+    &--open {
+      &:after {
+        content:"\25B2";
+      }
+    }
+  }
 }

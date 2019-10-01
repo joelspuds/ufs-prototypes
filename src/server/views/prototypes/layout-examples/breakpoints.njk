@@ -1,0 +1,348 @@
+{% extends 'layouts/default.layout.njk' %}
+
+{% set pageTitle = 'All cols W I D E ' %}
+{% set templateWidth = 'wide' %}
+{% set bodyClass = ' govuk-template__body--wide' %}
+
+{% block content %}
+
+    <style>
+        .layout-example {
+            padding:0;
+            margin:0 0 30px 0;
+            background-color: #c0c0c0;
+            height: 200px;
+            width: 100%;
+        }
+        .layout-example_inner {
+            box-sizing: border-box;
+            background-color: #2b7cac;
+            /*margin:10px;*/
+            padding: 10px;
+            /*border:1px solid #000;*/
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+
+    <div class="testDiv1">blah</div>
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnOneThird() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnOneThird() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnTwoThirds() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnHalf() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnHalf() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnThreeQuarters() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnHalf() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnOneQuarter() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnOneQuarter() %}
+
+            {{ components.pageHeading(heading='Experimental!', size='s') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column1of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.column2of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column2of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column2of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column2of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column2of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.column2of12() %}
+
+            <div class="layout-example">
+                <div class="layout-example_inner"></div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

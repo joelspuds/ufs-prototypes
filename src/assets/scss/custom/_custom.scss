@@ -9,6 +9,9 @@
 
 // @import "../gds/mixins/partials/typography";
 
+@import './vars';
+@import 'utils/utils';
+
 @import 'typography';
 @import 'ufs/ufs';
 @import 'ufs/application-tasks';

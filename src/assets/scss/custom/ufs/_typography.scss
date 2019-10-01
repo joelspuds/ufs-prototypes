@@ -4,12 +4,12 @@
 body.ufs {
 
   h1, h2, h3, h4, h5, h6, .heading {
-    font-family: 'Montserrat', sans-serif !important;
+    // font-family: 'Montserrat', sans-serif !important;
   }
 
-  h1, .heading-xlarge {
-    color: rgb(0, 130, 118);
-  }
+  //h1, .heading-xlarge {
+  //  color: rgb(0, 130, 118);
+  //}
 
   .heading-secondary {
     color: #6f777b;
@@ -41,4 +41,14 @@ body.ufs {
   .form-label {
     font-weight: 700;
   }
+}
+
+.sub-button {
+  display: block;
+  //margin: 20px 0 10px;
+}
+
+
+.govuk-body--s {
+  @include govuk-font($size: 14);
 }

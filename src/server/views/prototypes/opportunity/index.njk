@@ -1,0 +1,47 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+
+{% set pageTitle = OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set listItemsOpportunities = [
+    { text: 'Example opportuity one', url: '#' },
+    { text: 'Example opportuity two', url: '#' },
+    { text: 'Example opportuity three', url: '#' },
+    { text: 'Example opportuity four', url: '#' },
+    { text: 'Example opportuity five', url: '#' }
+] %}
+
+{% set listItemsActions = [
+    { text: 'Create new opportunity', url: '/prototypes/opportunity/create' }
+] %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+
+    {% call components.columnFull() %}
+
+    {{ components.captionHeading(text=OPPORTUNITY_TITLE) }}
+
+    {%- endcall %}
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+          {{ components.list(items=listItemsOpportunities, type='bullet')}}
+
+        {%- endcall %}
+
+        {% call components.columnOneThird() %}
+
+            {{ components.list(items=listItemsActions, type='bullet')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

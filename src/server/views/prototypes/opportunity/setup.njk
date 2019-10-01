@@ -1,0 +1,110 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+
+{% set pageTitle = OPPORTUNITY_SETUP_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{% set fundersList = fundersList %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+
+    {% call components.columnFull() %}
+
+    {{ components.captionHeading(text=OPPORTUNITY_SETUP__TITLE, caption=opportunityID + ': ' +opportunityName) }}
+
+    {%- endcall %}
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Funders", url='/prototypes/opportunity/funders') }}
+                    </div>
+                    {% if fundersList %}
+                    <div class="application-item__right">
+                        <span class="application-item__status">{{ fundersList }}</span>
+                    </div>
+                    {% else %}
+                        <div class="application-item__right">
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Team", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Opportunity type and eligibility", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.columnOneThird() %}
+
+            <aside class="govuk-related-items govuk-related-items--flush" role="complementary">
+
+                {{ components.captionHeading(text=opportunityID, tag='h2', size='s', extraClass='u-space-b5') }}
+                <p class="govuk-body-s u-space-b5">
+                    {{ opportunityName }}
+                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                </p>
+
+
+
+                {{ components.captionHeading(text='Setup status', tag='h3', size='s', extraClass='u-space-b5') }}
+                <span class="badge badge--success badge--smaller u-space-b5">Item complete</span>
+                {{ components.link(text='Update status', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+
+                {{ components.captionHeading(text='Actions', tag='h3', size='s', extraClass='u-space-b5 u-space-t15') }}
+                <ul class="govuk-list">
+                    <li>
+                        {{ components.link(text='Delete opportunity', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                    </li>
+                    <li>
+
+                        {{ components.link(text='Opportunity setup guidance', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+
+                    </li>
+                </ul>
+
+            </aside>
+
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

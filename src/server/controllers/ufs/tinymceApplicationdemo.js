@@ -1,8 +1,6 @@
 // suggested learning full list GET
 // This is the fuller version with
 
-// let caseForSupportData = require('./case-for-support');
-
 const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
 
@@ -17,8 +15,6 @@ export function tinyMCEApplicationGet(req, res) {
 
   storedSpeakerNotes = req.session.speakerNotes;
 
-  // console.log('storedSpeakerNotes = ' + storedSpeakerNotes);
-
   viewData = {
     storedSpeakerNotes,
   };
@@ -28,8 +24,6 @@ export function tinyMCEApplicationGet(req, res) {
 
 export function tinyMCEApplicationPost(req, res) {
   const { speakerNotes } = req.body;
-
-  // console.log('speakerNotes = ' + speakerNotes);
 
   let cleanContent;
 
@@ -56,8 +50,11 @@ export function tinyMCEApplicationPost(req, res) {
     // let newID = 'marker_' + this.closest('span').text();
 
     // console.log('newID = ' + newID);
-    console.log('this = ' + this);
-    console.log(this);
+    // console.log('this = ' + this);
+    // console.log(this);
+
+    // let subStuff = this;
+    // subStuff.each(function() {});
     // this.attribs = {'id': newID};
   });
 
@@ -94,10 +91,16 @@ export function tinyMCEApplicationStaticViewGet(req, res) {
 
   var $ = cheerio.load(caseForSupport);
 
-  $('h1, h2, h3, h4, p, span, div').each(function() {
+  $('p, span, div').each(function() {
     this.attribs = {};
-    // this.style = {};
-    // this.removeAttr('style');
+  });
+
+  $('h1, h2, h3, h4').each(function() {
+    // var existingID = $(this).attr('id');
+    // this.attribs = {
+    //   'id': existingID,
+    //   'style':'test',
+    // };
   });
 
   caseForSupport = $.html();

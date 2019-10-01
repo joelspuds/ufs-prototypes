@@ -68,6 +68,9 @@ function tinyMCEApplicationPost(req, res) {
     // console.log('newID = ' + newID);
     console.log('this = ' + this);
     console.log(this);
+
+    let subStuff = this;
+    subStuff.each(function () {});
     // this.attribs = {'id': newID};
   });
 

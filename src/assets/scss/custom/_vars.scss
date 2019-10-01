@@ -1,0 +1,19 @@
+$space: 5px;
+$space-class-values: (5, 10, 15, 20, 30, 45);
+
+// new colours
+$ufs-colours: (
+    "ukri-blue": #2c2d62,
+    "light-purple": #a74499,
+    "dark-purple": #862a90,
+    "sand": #f89c21,
+    "ochre": #d57927,
+    "jade": #00a787,
+    "forest": #005e54,
+    "lava": #e84d36,
+    "carmine": #a91e2f
+);
+
+@function ufs-colour($colour) {
+  @return map-get($ufs-colours, $colour);
+}

@@ -65,6 +65,15 @@ router.post('/prototypes/example-journey/embedded-pdf/start', demosController.em
 // router.post('/prototypes/example-journey/embedded-pdf/start-uploaded', demosController.embeddedPDFStartPost);
 router.get('/prototypes/example-journey/embedded-pdf/view-pdf', demosController.embeddedPDFViewPDFGet);
 
+// Create new opportunity
+router.get('/prototypes/opportunity/', demosController.opportunityGet);
+router.get('/prototypes/opportunity/create', demosController.createOpportunityGet);
+router.post('/prototypes/opportunity/create', demosController.createOpportunityPost);
+router.get('/prototypes/opportunity/setup', demosController.opportunitySetupGet);
+router.post('/prototypes/opportunity/setup', demosController.opportunitySetupPost);
+router.get('/prototypes/opportunity/funders', demosController.opportunityFundersGet);
+router.post('/prototypes/opportunity/funders', demosController.opportunityFundersPost);
+
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 

@@ -1,0 +1,75 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+
+{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Application team', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-b30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
+
+            {% call components.hiddenText(summary='What should I include in case for support section?') %}
+                <p>Your Case for Support should be structured as follows:</p>
+
+                <p><strong>1.1 The idea</strong><br>
+                    What is your proposed project and how does it represent excellence?</p>
+
+                <p><strong>1.2 Importance</strong><br>
+                    What is the value of this project, to whom, why should it be undertaken?</p>
+
+                <p><strong>1.3 Timeliness</strong><br>
+                    Why is now the right time for this project?</p>
+
+                <p><strong>1.4 Approach</strong><br>
+                    How do you propose to undertake the project and what methods will you use?</p>
+
+                <p><strong>1.5 Impact</strong><br>
+                    What potential impact might come about as result from this project, how might the benefit  be realised?</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.form(action='/prototypes/example-journey/application/project-team', method='POST',name='formProjectTeam') %}
+
+                {#{{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}#}
+
+                <div class="application-controls govuk-clearfix">
+                    {#{{ components.button(text='Submit application for approval', url='/prototypes/example-journey/application/start', extraClass="application-controls__submit", disabled=true)}}#}
+
+                    {#{{ components.button(text='Save and preview') }}#}
+
+                    {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
+
+
+                    {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
+
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

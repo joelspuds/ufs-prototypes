@@ -1,0 +1,18 @@
+.ufs-footer {
+  background-color: govuk-colour("dark-grey");
+  color: govuk-colour("white")!important;
+
+  * {
+    color: govuk-colour("white")!important;
+  }
+
+  .govuk-footer__list-item {
+
+    margin-bottom: 5px;
+
+    @include govuk-media-query($from: mobile) {
+      margin-bottom: 10px;
+    }
+  }
+
+}

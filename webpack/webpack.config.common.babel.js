@@ -182,13 +182,13 @@ console.log('config.paths.js = ' + config.paths.js);
 console.log(path.resolve(config.paths.js, '../govuk/all.js'));
 export default {
   entry: {
-    'dvsa': path.resolve(config.paths.js, 'dvsa', 'index.js'),
+    // 'dvsa': path.resolve(config.paths.js, 'dvsa', 'index.js'),
     // 'dvsa-manuals': path.resolve(config.paths.js, 'dvsa-manuals', 'index.js'),
     // 'dvsa-mts': path.resolve(config.paths.js, 'dvsa-mts', 'index.js'),
     // 'dvsa-mts-legacy': path.resolve(config.paths.js, 'dvsa-mts-legacy', 'index.js'),
-    'new-gds': path.resolve(config.paths.js, '../govuk/all.js'),
+    // 'new-gds': path.resolve(config.paths.js, '../govuk/all.js'),
     // 'new-gds': path.resolve('/src/assets/', 'govuk', 'all.js'),
-    'development': path.resolve(config.paths.js, 'development', 'index.js'),
+    // 'development': path.resolve(config.paths.js, 'development', 'index.js'),
     'styles': path.resolve(config.paths.scss, 'styles.scss'),
   },
   module: {

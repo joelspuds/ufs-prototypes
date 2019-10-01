@@ -1,0 +1,33 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+
+{% set pageTitle = DASHBOARD_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set listItems = [
+    { text: 'Create new opportunity', url: '/prototypes/new-opportunity/' }
+] %}
+
+{% block content %}
+
+  {% call components.gridRow() %}
+
+    {% call components.columnFull() %}
+
+    {{ components.captionHeading(text=DASHBOARD_TITLE) }}
+
+    {%- endcall %}
+
+  {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+          {#{{ components.list(items=listItems, type='bullet')}}#}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

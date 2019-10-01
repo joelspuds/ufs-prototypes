@@ -85,6 +85,8 @@ var _package = require('./../../package.json');
 
 var REPO_PACKAGE_JSON = _interopRequireWildcard(_package);
 
+var _content = require('./config/content');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -115,6 +117,13 @@ const startApp = exports.startApp = async () => {
 
   // Add lodash as a global for view templates
   env.addGlobal('_', _lodash2.default);
+
+  if (_content.content) {
+    for (let key in _content.content) {
+      // console.log('key ' + key + ' has value ' + content[key]);
+      env.addGlobal(key, _content.content[key]);
+    }
+  }
 
   // Add app url as global
   env.addGlobal('appURL', _constants.CONFIG.appURL);

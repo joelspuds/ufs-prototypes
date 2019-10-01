@@ -1,0 +1,10 @@
+{% macro fieldset(legendSize, legendtext, headingTag='h2') %}
+  <fieldset class="govuk-fieldset">
+    {% if legendtext %}
+      <legend class="govuk-fieldset__legend {{ 'govuk-fieldset__legend--' + legendSize if  legendSize }}">
+          <{{ headingTag }}>{{ legendtext }}</{{ headingTag }}>
+      </legend>
+    {%  endif %}
+      {{ caller() }}
+  </fieldset>
+{% endmacro %}
