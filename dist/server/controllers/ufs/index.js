@@ -75,3 +75,15 @@ Object.keys(_spreadsheet).forEach(function (key) {
     }
   });
 });
+
+var _createOpportunity = require('./createOpportunity');
+
+Object.keys(_createOpportunity).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _createOpportunity[key];
+    }
+  });
+});

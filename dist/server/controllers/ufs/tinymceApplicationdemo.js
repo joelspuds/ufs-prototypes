@@ -8,16 +8,34 @@ exports.tinyMCEApplicationGet = tinyMCEApplicationGet;
 exports.tinyMCEApplicationPost = tinyMCEApplicationPost;
 exports.tinyMCEApplicationViewGet = tinyMCEApplicationViewGet;
 exports.tinyMCEApplicationStaticViewGet = tinyMCEApplicationStaticViewGet;
+exports.projectDetailsGet = projectDetailsGet;
+exports.projectDetailsPost = projectDetailsPost;
+exports.applicationTeamGet = applicationTeamGet;
+exports.applicationTeamPost = applicationTeamPost;
+exports.capabilityToDeliverGet = capabilityToDeliverGet;
+exports.capabilityToDeliverPost = capabilityToDeliverPost;
+exports.resourcesCostGet = resourcesCostGet;
+exports.resourcesCostPost = resourcesCostPost;
+exports.ethicalSocietalGet = ethicalSocietalGet;
+exports.ethicalSocietalPost = ethicalSocietalPost;
 // suggested learning full list GET
 // This is the fuller version with
 
-// let caseForSupportData = require('./case-for-support');
-
 const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
+const untitledProjectName = 'Untitled project';
 
 function tinyMCEApplicationIndexGet(req, res) {
   let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName
+  };
 
   return res.render('prototypes/example-journey/application/index', viewData);
 }
@@ -27,10 +45,14 @@ function tinyMCEApplicationGet(req, res) {
 
   storedSpeakerNotes = req.session.speakerNotes;
 
-  // console.log('storedSpeakerNotes = ' + storedSpeakerNotes);
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
 
   viewData = {
-    storedSpeakerNotes
+    storedSpeakerNotes,
+    projectName
   };
 
   return res.render('prototypes/example-journey/application/start', viewData);
@@ -38,8 +60,6 @@ function tinyMCEApplicationGet(req, res) {
 
 function tinyMCEApplicationPost(req, res) {
   const { speakerNotes } = req.body;
-
-  // console.log('speakerNotes = ' + speakerNotes);
 
   let cleanContent;
 
@@ -64,13 +84,11 @@ function tinyMCEApplicationPost(req, res) {
     // this.attr('id', 'marker_' + this.text);
     // this.class('test');
     // let newID = 'marker_' + this.closest('span').text();
-
     // console.log('newID = ' + newID);
-    console.log('this = ' + this);
-    console.log(this);
-
-    let subStuff = this;
-    subStuff.each(function () {});
+    // console.log('this = ' + this);
+    // console.log(this);
+    // let subStuff = this;
+    // subStuff.each(function() {});
     // this.attribs = {'id': newID};
   });
 
@@ -107,10 +125,16 @@ function tinyMCEApplicationStaticViewGet(req, res) {
 
   var $ = cheerio.load(caseForSupport);
 
-  $('h1, h2, h3, h4, p, span, div').each(function () {
+  $('p, span, div').each(function () {
     this.attribs = {};
-    // this.style = {};
-    // this.removeAttr('style');
+  });
+
+  $('h1, h2, h3, h4').each(function () {
+    // var existingID = $(this).attr('id');
+    // this.attribs = {
+    //   'id': existingID,
+    //   'style':'test',
+    // };
   });
 
   caseForSupport = $.html();
@@ -121,3 +145,97 @@ function tinyMCEApplicationStaticViewGet(req, res) {
 
   return res.render('prototypes/example-journey/application/view-static', viewData);
 }
+
+// rest of application journey sections
+
+// PROJECT DETAILS
+function projectDetailsGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName
+  };
+
+  return res.render('prototypes/example-journey/application/project-details', viewData);
+}
+
+function projectDetailsPost(req, res) {}
+
+// Application team
+function applicationTeamGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName
+  };
+
+  return res.render('prototypes/example-journey/application/application-team', viewData);
+}
+
+function applicationTeamPost(req, res) {}
+
+// >>> Case for support above
+
+// Capability to deliver
+function capabilityToDeliverGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName
+  };
+
+  return res.render('prototypes/example-journey/application/capability-to-deliver', viewData);
+}
+
+function capabilityToDeliverPost(req, res) {}
+
+// Resources and costs
+function resourcesCostGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName
+  };
+
+  return res.render('prototypes/example-journey/application/resources-and-cost', viewData);
+}
+
+function resourcesCostPost(req, res) {}
+
+// ethical and societal
+function ethicalSocietalGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName
+  };
+
+  return res.render('prototypes/example-journey/application/ethical-and-societal-issues', viewData);
+}
+
+function ethicalSocietalPost(req, res) {}

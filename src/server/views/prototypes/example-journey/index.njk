@@ -1,7 +1,7 @@
 {% extends 'layouts/default.layout.njk' %}
 
 {% set pageTitle = 'Example journeys' %}
-{% set listItems = [
+{% set listItemsConcepts = [
     { text: 'Introducer pre-score TinyMCE', url: '/prototypes/example-journey/introducer' },
     { text: 'Case for support with TinyMCE, image upload and Maths', url: '/prototypes/example-journey/application/' },
     { text: 'Case for support with PDF', url: '/prototypes/example-journey/embedded-pdf/' },
@@ -9,26 +9,36 @@
     { text: 'Cut and paste into spreadsheet', url: '/prototypes/example-journey/application/spreadsheet/' }
 ] %}
 
+{% set listItemsJourneys = [
+    { text: 'Apply for opportunity as user', url: '/prototypes/example-journey/application/' },
+    { text: 'Create new opportunity', url: '/prototypes/opportunity/' },
+    { text: 'Admin dashboard (fairly empty atm!)', url: '/prototypes/dashboard/' }
+] %}
+
 {% block content %}
 
   {% call components.gridRow() %}
 
-    {% call components.columnFull() %}
+    {% call components.columnHalf() %}
 
-    {{ components.pageHeading(heading='Example journeys') }}
+        {{ components.captionHeading(text='Concepts', tag='h2', size='m') }}
+
+        {{ components.list(items=listItemsConcepts, type='bullet')}}
 
     {%- endcall %}
 
   {%- endcall %}
 
-    {% call components.gridRow() %}
+  {% call components.gridRow() %}
 
-        {% call components.columnTwoThirds() %}
+      {% call components.columnHalf() %}
 
-          {{ components.list(items=listItems, type='bullet')}}
+        {{ components.captionHeading(text='Journeys', tag='h2', size='m') }}
 
-        {%- endcall %}
+        {{ components.list(items=listItemsJourneys, type='bullet')}}
 
-    {%- endcall %}
+      {%- endcall %}
+
+  {%- endcall %}
 
 {% endblock %}

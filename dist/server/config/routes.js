@@ -62,6 +62,18 @@ router.post('/prototypes/example-journey/application/start', demosController.tin
 router.get('/prototypes/example-journey/application/view', demosController.tinyMCEApplicationViewGet);
 router.get('/prototypes/example-journey/application/view-static', demosController.tinyMCEApplicationStaticViewGet);
 
+// Application journey
+router.get('/prototypes/example-journey/application/application-team', demosController.applicationTeamGet);
+router.post('/prototypes/example-journey/application/application-team', demosController.applicationTeamPost);
+router.get('/prototypes/example-journey/application/capability-to-deliver', demosController.capabilityToDeliverGet);
+router.post('/prototypes/example-journey/application/capability-to-deliver', demosController.capabilityToDeliverPost);
+router.get('/prototypes/example-journey/application/ethical-and-societal-issues', demosController.ethicalSocietalGet);
+router.post('/prototypes/example-journey/application/ethical-and-societal-issues', demosController.ethicalSocietalPost);
+router.get('/prototypes/example-journey/application/project-details', demosController.projectDetailsGet);
+router.post('/prototypes/example-journey/application/project-details', demosController.projectDetailsPost);
+router.get('/prototypes/example-journey/application/resources-and-cost', demosController.resourcesCostGet);
+router.post('/prototypes/example-journey/application/resources-and-cost', demosController.resourcesCostPost);
+
 // spreadsheet
 router.get('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetGet);
 router.post('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetPost);
@@ -84,6 +96,15 @@ router.post('/prototypes/example-journey/embedded-pdf/start', demosController.em
 // router.get('/prototypes/example-journey/embedded-pdf/start-uploaded', demosController.embeddedPDFStartGet);
 // router.post('/prototypes/example-journey/embedded-pdf/start-uploaded', demosController.embeddedPDFStartPost);
 router.get('/prototypes/example-journey/embedded-pdf/view-pdf', demosController.embeddedPDFViewPDFGet);
+
+// Create new opportunity
+router.get('/prototypes/opportunity/', demosController.opportunityGet);
+router.get('/prototypes/opportunity/create', demosController.createOpportunityGet);
+router.post('/prototypes/opportunity/create', demosController.createOpportunityPost);
+router.get('/prototypes/opportunity/setup', demosController.opportunitySetupGet);
+router.post('/prototypes/opportunity/setup', demosController.opportunitySetupPost);
+router.get('/prototypes/opportunity/funders', demosController.opportunityFundersGet);
+router.post('/prototypes/opportunity/funders', demosController.opportunityFundersPost);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
