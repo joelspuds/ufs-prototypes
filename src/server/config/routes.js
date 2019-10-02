@@ -42,6 +42,18 @@ router.post('/prototypes/example-journey/application/start', demosController.tin
 router.get('/prototypes/example-journey/application/view', demosController.tinyMCEApplicationViewGet);
 router.get('/prototypes/example-journey/application/view-static', demosController.tinyMCEApplicationStaticViewGet);
 
+// Application journey
+router.get('/prototypes/example-journey/application/application-team', demosController.applicationTeamGet);
+router.post('/prototypes/example-journey/application/application-team', demosController.applicationTeamPost);
+router.get('/prototypes/example-journey/application/capability-to-deliver', demosController.capabilityToDeliverGet);
+router.post('/prototypes/example-journey/application/capability-to-deliver', demosController.capabilityToDeliverPost);
+router.get('/prototypes/example-journey/application/ethical-and-societal-issues', demosController.ethicalSocietalGet);
+router.post('/prototypes/example-journey/application/ethical-and-societal-issues', demosController.ethicalSocietalPost);
+router.get('/prototypes/example-journey/application/project-details', demosController.projectDetailsGet);
+router.post('/prototypes/example-journey/application/project-details', demosController.projectDetailsPost);
+router.get('/prototypes/example-journey/application/resources-and-cost', demosController.resourcesCostGet);
+router.post('/prototypes/example-journey/application/resources-and-cost', demosController.resourcesCostPost);
+
 // spreadsheet
 router.get('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetGet);
 router.post('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetPost);

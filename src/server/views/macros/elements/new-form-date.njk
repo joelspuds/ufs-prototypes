@@ -1,0 +1,61 @@
+{% macro newFormDate(
+    legendText='',
+    showLegend='false',
+    legendSize='s',
+    showDay=true,
+    hint='For example, 12 11 2021',
+    dayLabel='Day',
+    dayId='day',
+    dayName=fale,
+    dayValue='',
+    dayError=false,
+    monthLabel='Month',
+    monthId='month',
+    monthName=false,
+    monthValue='',
+    monthError=false,
+    yearLabel='Year',
+    yearId='year',
+    yearName=false,
+    maxYear=2018,
+    yearValue='',
+    yearError=false)
+%}
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" role="group" aria-describedby="date-input-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--{{ legendSize }}">
+        <h2 class="govuk-fieldset__heading">{{ legendText }}</h2>
+      </legend>
+      <span id="date-input-hint" class="govuk-hint">{{ hint }}</span>
+
+      <div class="govuk-date-input">
+
+        {% if showDay %}
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="{{ dayId }}">{{ dayLabel }}</label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="{{ dayId }}" name="{{ dayId }}" type="number" pattern="[0-9]*">
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="{{ monthId }}">{{ monthLabel }}</label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="{{ monthId }}" name="{{ monthId }}" type="number" pattern="[0-9]*">
+          </div>
+        </div>
+
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="{{ yearId }}">{{ yearLabel }}</label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="{{ yearId }}" name="{{ yearId }}" type="number" pattern="[0-9]*">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+{% endmacro %}

@@ -12,6 +12,10 @@
     {% include './scripts-tinymce.njk' %}
 {% endif %}
 
+{% if showSimpleTinyMCEScripts %}
+    {% include './scripts-simple-tinymce.njk' %}
+{% endif %}
+
 {% if showEmbeddedPDFScripts %}
     {% include './scripts-embedded-pdf.njk' %}
 {% endif %}

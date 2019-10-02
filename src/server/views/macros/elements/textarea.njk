@@ -17,9 +17,9 @@
   {% else %}
     {% set widthClass = false %}
   {% endif %}
-  
+
   {% if group or error %}<div class="form-group {{ 'form-group-error' if error }}">{% endif %}
   {{ formLabel(label=label, id=id, bold=labelBold, visuallyHidden=visuallyHidden, hint=hint, error=error) }}
-  <textarea class="form-control {{ widthClass if widthClass }}" name="{{ name if name else id }}" {{ 'id="' + id + '"' if id }} rows="{{ rows }}">{{ value }}</textarea>
+  <textarea class="govuk-textarea {{ widthClass if widthClass }}" name="{{ name if name else id }}" {{ 'id="' + id + '"' if id }} rows="{{ rows }}">{{ value }}</textarea>
   {% if group or error %}</div>{% endif %}
 {% endmacro %}

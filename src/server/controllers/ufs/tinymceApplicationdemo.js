@@ -3,9 +3,19 @@
 
 const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
+const untitledProjectName = 'Untitled project';
 
 export function tinyMCEApplicationIndexGet(req, res) {
   let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName,
+  };
 
   return res.render('prototypes/example-journey/application/index', viewData);
 }
@@ -15,8 +25,14 @@ export function tinyMCEApplicationGet(req, res) {
 
   storedSpeakerNotes = req.session.speakerNotes;
 
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
   viewData = {
     storedSpeakerNotes,
+    projectName,
   };
 
   return res.render('prototypes/example-journey/application/start', viewData);
@@ -48,11 +64,9 @@ export function tinyMCEApplicationPost(req, res) {
     // this.attr('id', 'marker_' + this.text);
     // this.class('test');
     // let newID = 'marker_' + this.closest('span').text();
-
     // console.log('newID = ' + newID);
     // console.log('this = ' + this);
     // console.log(this);
-
     // let subStuff = this;
     // subStuff.each(function() {});
     // this.attribs = {'id': newID};
@@ -111,3 +125,97 @@ export function tinyMCEApplicationStaticViewGet(req, res) {
 
   return res.render('prototypes/example-journey/application/view-static', viewData);
 }
+
+// rest of application journey sections
+
+// PROJECT DETAILS
+export function projectDetailsGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName,
+  };
+
+  return res.render('prototypes/example-journey/application/project-details', viewData);
+}
+
+export function projectDetailsPost(req, res) {}
+
+// Application team
+export function applicationTeamGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName,
+  };
+
+  return res.render('prototypes/example-journey/application/application-team', viewData);
+}
+
+export function applicationTeamPost(req, res) {}
+
+// >>> Case for support above
+
+// Capability to deliver
+export function capabilityToDeliverGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName,
+  };
+
+  return res.render('prototypes/example-journey/application/capability-to-deliver', viewData);
+}
+
+export function capabilityToDeliverPost(req, res) {}
+
+// Resources and costs
+export function resourcesCostGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName,
+  };
+
+  return res.render('prototypes/example-journey/application/resources-and-cost', viewData);
+}
+
+export function resourcesCostPost(req, res) {}
+
+// ethical and societal
+export function ethicalSocietalGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  viewData = {
+    projectName,
+  };
+
+  return res.render('prototypes/example-journey/application/ethical-and-societal-issues', viewData);
+}
+
+export function ethicalSocietalPost(req, res) {}

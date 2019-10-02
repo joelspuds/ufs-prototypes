@@ -1,8 +1,6 @@
 {% extends 'layouts/ufs.layout.njk' %}
-
-{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
-
-{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+{% set pageTitle = APPLICATION_ETHICAL_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectName = projectName if projectName %}
 
 {% block content %}
 
@@ -10,7 +8,7 @@
 
         {% call components.columnFull() %}
 
-            {{ components.captionHeading(text='Resources and cost', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+            {{ components.captionHeading(text=APPLICATION_ETHICAL_TITLE, caption=projectName)}}
 
         {%- endcall %}
 

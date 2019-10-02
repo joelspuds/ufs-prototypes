@@ -8,11 +8,7 @@ export function opportunityGet(req, res) {
 }
 
 export function createOpportunityGet(req, res) {
-  let viewData,
-    createOpportunityError,
-    createOpportunityErrorMessage,
-    opportunityName,
-    createOpportunityErrorMessageInputLevel;
+  let viewData, createOpportunityError, createOpportunityErrorMessage, opportunityName, createOpportunityErrorMessageInputLevel;
 
   opportunityName = req.session.opportunityName;
 
@@ -27,7 +23,7 @@ export function createOpportunityGet(req, res) {
     createOpportunityError,
     createOpportunityErrorMessage,
     opportunityName,
-    createOpportunityErrorMessageInputLevel
+    createOpportunityErrorMessageInputLevel,
   };
   return res.render('prototypes/opportunity/create', viewData);
 }
@@ -90,7 +86,7 @@ export function opportunityFundersGet(req, res) {
   viewData = {
     opportunityName,
     opportunityID,
-    allCouncils
+    allCouncils,
   };
 
   return res.render('prototypes/opportunity/funders', viewData);
