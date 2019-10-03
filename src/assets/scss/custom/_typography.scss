@@ -14,6 +14,7 @@ body.new-gds, * {
   }
 }
 
+/*
 .new-gds {
 
   a {
@@ -34,3 +35,12 @@ body.new-gds, * {
     }
   }
 }
+*/
+
+.govuk-link:visited {
+  color: $govuk-link-colour;
+}
+.govuk-link:visited:hover {
+  color: $govuk-link-hover-colour;
+}
+

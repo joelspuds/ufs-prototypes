@@ -46,8 +46,8 @@ const authenticationMiddleware = exports.authenticationMiddleware = (req, res, n
   }
 
   /**
-   * Check if username/password entered matches the enviroment variables,
-   * for security should be stored in enviroment variable
+   * Check if username/password entered matches the environment variables,
+   * for security should be stored in environment variable
    *
    * Heroku CLI:
    * -----------

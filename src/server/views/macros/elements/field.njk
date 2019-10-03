@@ -10,7 +10,8 @@
     hint=false,
     group=false,
     groupCompound=false,
-    error=false)
+    error=false,
+    inputWidthClass)
 %}
 
   {% if label %}
@@ -19,7 +20,7 @@
     {% endif %}
     {{ formLabel(label=label, visuallyHidden=labelVisuallyHidden, id=id, bold=labelBold, hint=hint, error=error) }}
     <input
-    {{ 'class="govuk-input' + ( ' form-control-error' if error ) + '"' if type !== 'file' }}
+    {{ 'class="govuk-input ' + (inputWidthClass if inputWidthClass) + ( ' form-control-error' if error ) + '"' if type !== 'file' }}
     {{ 'id="' + id + '"' if id }}
     type="{{ type }}"
     name="{{ name if name else id }}"

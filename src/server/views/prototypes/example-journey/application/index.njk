@@ -1,10 +1,12 @@
 {% extends 'layouts/ufs.layout.njk' %}
 
-{% set bodyClass = 'new-gds' %}
-{% set pageTitle = '171 - Application' %}
+{#{% set bodyClass = 'new-gds' %}#}
+{% set pageTitle = APPLICATION_OVERVIEW_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set showTinyMCEScripts = true %}
 {% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
 {% set projectName = projectName if projectName %}
+{% set projectDetails = projectDetails if projectDetails %}
+{% set hasBeenUpdated = hasBeenUpdated if hasBeenUpdated %}
 
 {% block content %}
 
@@ -17,6 +19,18 @@
     {%- endcall %}
 
   {%- endcall %}
+
+    {% if hasBeenUpdated %}
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {{ components.alerts(text='You have successfully updated your application', type='success')}}
+
+            {%- endcall %}
+
+        {%- endcall %}
+    {% endif %}
 
   {% call components.gridRow() %}
 
@@ -44,7 +58,12 @@
           <ul class="application-tasks">
             <li class="application-tasks__item">
                 {{ components.link(text='Project details', url='/prototypes/example-journey/application/project-details', extraClass="application-tasks__link govuk-link")}}
-                <span class="application-tasks__status application-tasks__status--complete">complete</span>
+
+                {% if projectName != 'Untitled project' %}
+                    <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                {% else %}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                {% endif %}
             </li>
             <li class="application-tasks__item">
                 {{ components.link(text='Application team', url='/prototypes/example-journey/application/application-team', extraClass="application-tasks__link govuk-link")}}

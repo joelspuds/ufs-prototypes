@@ -1,6 +1,6 @@
 {% macro formLabel(label='', visuallyHidden=false, id=false, bold=false, hint=false, error=false) %}
   {% if label %}
-    <label class="govuk-label  {{ 'govuk-!-font-weight-bold' if bold }} {{ 'visuallyHidden' if visuallyHidden }}" {{ 'for="' + id + '"' if id }}>
+    <label class="govuk-label  {{ 'govuk-!-font-weight-bold' if bold }} {{ ' govuk-visually-hidden' if visuallyHidden }}" {{ 'for="' + id + '"' if id }}>
       {{ label }}
       {% if hint %}
         <span class="govuk-hint">{{ hint }}</span>

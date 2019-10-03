@@ -81,10 +81,10 @@ export const startApp = async () => {
   // Add all macro file paths to be accessible inside view templates
   env.addGlobal('macroFilePaths', await getMacroFilePaths());
 
-  // Add express to the nunjucks enviroment instance
+  // Add express to the nunjucks environment instance
   env.express(app);
 
-  // Create a view engine from nunjucks enviroment variable
+  // Create a view engine from nunjucks environment variable
   app.engine('njk', env.render);
 
   // Set the express view engine to the above created view engine

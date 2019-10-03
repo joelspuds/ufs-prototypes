@@ -19,7 +19,7 @@
 
         {% call components.columnFull() %}
 
-            {% call components.form(action='/prototypes/example-journey/application/project-team', method='POST',name='formProjectTeam') %}
+            {% call components.form(action='/prototypes/example-journey/application/project-details', method='POST',name='formProjectTeam') %}
 
                 {% call components.formGroup() %}
 
@@ -34,6 +34,10 @@
                 {%- endcall %}
 
                 {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020') }}
+
+                {% call components.formGroup() %}
+                    {{ components.field(label='Duration in months', labelBold=true, id='projectDuration', inputWidthClass='govuk-input--width-3') }}
+                {%- endcall %}
 
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">

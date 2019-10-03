@@ -6,15 +6,23 @@ let caseForSupportData = require('./case-for-support-2');
 const untitledProjectName = 'Untitled project';
 
 export function tinyMCEApplicationIndexGet(req, res) {
-  let viewData;
+  let viewData, hasBeenUpdated, projectDetails;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
+  // console.log(projectDetails);
+
+  projectDetails = req.session.projectDetails;
+  hasBeenUpdated = req.session.hasBeenUpdated;
+  req.session.hasBeenUpdated = null;
+
   viewData = {
     projectName,
+    hasBeenUpdated,
+    projectDetails,
   };
 
   return res.render('prototypes/example-journey/application/index', viewData);
@@ -144,7 +152,26 @@ export function projectDetailsGet(req, res) {
   return res.render('prototypes/example-journey/application/project-details', viewData);
 }
 
-export function projectDetailsPost(req, res) {}
+export function projectDetailsPost(req, res) {
+  const { projectName, projectSummary, projectDuration, day, month } = req.body;
+
+  // console.log('projectName = ' + projectName);
+
+  let allProjectDetails = {
+    projectName,
+    projectSummary,
+    projectDuration,
+    day,
+    month,
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  return res.redirect('/prototypes/example-journey/application/');
+}
 
 // Application team
 export function applicationTeamGet(req, res) {

@@ -1,0 +1,28 @@
+.alerts {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  @include govuk-font($size: 19);
+  margin-bottom: govuk-spacing(4);
+
+  &--plain {
+    border-left: 10px solid govuk-colour("dark-grey");
+    background-color: govuk-colour("light-grey");
+  }
+
+  &--success {
+    border-left: 10px solid govuk-colour("green");
+    background-color: rgba(govuk-colour("green"), .2);
+  }
+
+  &--danger {
+    border-left: 10px solid govuk-colour("red");
+    background-color: rgba(govuk-colour("red"), .2);
+  }
+
+  &--warning {
+    border-left: 10px solid govuk-colour("yellow");
+    background-color: rgba(govuk-colour("yellow"), .2);
+  }
+
+}

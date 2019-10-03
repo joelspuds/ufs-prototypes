@@ -52,3 +52,13 @@ body.ufs {
 .govuk-body--s {
   @include govuk-font($size: 14);
 }
+
+/*
+.govuk-link:visited,
+.new-gds a:visited {
+  color: $govuk-link-colour;
+}
+a.govuk-button:visited {
+  color: govuk-colour("white");
+}
+*/

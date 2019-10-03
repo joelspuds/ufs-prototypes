@@ -1,11 +1,11 @@
 {% extends 'layouts/library.layout.njk' %}
 
-{% set pageTitle = 'MOT Library - Lists' %}
+{% set pageTitle = 'Pattern Library - Lists' %}
 
 {% block content %}
 
   {{ components.heading(text='Normal List', tag='h2', size='medium') }}
-        
+
   {{ components.list(
     items=[
       { text: 'Aliquam blandit aliquet ex' },
@@ -13,9 +13,9 @@
       { text: 'Vestibulum congue erat id justo tempor' }
     ]
   ) | prism }}
-  
+
   {{ components.heading(text='Bullet List', tag='h2', size='medium') }}
-  
+
   {{ components.list(
     items=[
     { text: 'Aliquam blandit aliquet ex' },
@@ -24,10 +24,10 @@
     ],
     type='bullet'
     ) | prism }}
-    
+
 
   {{ components.heading(text='Numbered List', tag='h2', size='medium') }}
-  
+
   {{ components.list(
     items=[
       { text: 'Aliquam blandit aliquet ex' },
@@ -38,7 +38,7 @@
   ) | prism }}
 
   {{ components.heading(text='Links List', tag='h2', size='medium') }}
-  
+
   {{ components.list(
     items=[
       { text: 'Aliquam blandit aliquet ex', url: '#' },

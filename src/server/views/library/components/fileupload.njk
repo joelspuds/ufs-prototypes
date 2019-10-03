@@ -1,6 +1,6 @@
 {% extends 'layouts/library.layout.njk' %}
 
-{% set pageTitle = 'MOT Library - Fileupload' %}
+{% set pageTitle = 'Pattern Library - Fileupload' %}
 
 {% block content %}
 
@@ -15,5 +15,5 @@
 
   {{ components.heading(text='Fileupload with error', tag='h2', size='medium') }}
   {{ components.field(label='Upload a file', labelBold=true, id='file-upload', type='file', hint='Hint message goes here', group=true, error='Error message goes here') | prism }}
-  
+
 {% endblock %}

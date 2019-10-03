@@ -1,6 +1,6 @@
 {% extends 'layouts/library.layout.njk' %}
 
-{% set pageTitle = 'MOT Library - Select' %}
+{% set pageTitle = 'Pattern Library - Select' %}
 
 {% block content %}
 
@@ -30,5 +30,5 @@
 
   {{ components.heading(text='Select box with error', tag='h2', size='medium') }}
   {{ components.select(options=selectOptions, label='This is the label text', labelBold=true, id='select-box', hint='Hint goes here', group=true, error='Error message goes here') | prism }}
-  
+
 {% endblock %}

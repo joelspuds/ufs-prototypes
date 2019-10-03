@@ -16,29 +16,9 @@
 
     {% call components.gridRow(extraClass='u-space-b30') %}
 
-        {% call components.columnTwoThirds() %}
+        {% call components.columnFull() %}
 
-            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
-
-            {% call components.hiddenText(summary='What should I include in case for support section?') %}
-                <p>Your Case for Support should be structured as follows:</p>
-
-                <p><strong>1.1 The idea</strong><br>
-                    What is your proposed project and how does it represent excellence?</p>
-
-                <p><strong>1.2 Importance</strong><br>
-                    What is the value of this project, to whom, why should it be undertaken?</p>
-
-                <p><strong>1.3 Timeliness</strong><br>
-                    Why is now the right time for this project?</p>
-
-                <p><strong>1.4 Approach</strong><br>
-                    How do you propose to undertake the project and what methods will you use?</p>
-
-                <p><strong>1.5 Impact</strong><br>
-                    What potential impact might come about as result from this project, how might the benefit  be realised?</p>
-
-            {%- endcall %}
+            {{ components.paragraph(text='Invite people to contribute to this application. This gives them access to edit all sections of this application. You are not required to nominate your proposed project team in this section.', size='')}}
 
         {%- endcall %}
 
@@ -48,20 +28,43 @@
 
         {% call components.columnFull() %}
 
-            {% call components.form(action='/prototypes/example-journey/application/project-team', method='POST',name='formProjectTeam') %}
+            {% call components.form(action='/prototypes/example-journey/application/application-team', method='POST',name='formApplicationTeam') %}
 
-                {#{{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}#}
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption">Application team</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Full name</th>
+                            <th scope="col" class="govuk-table__header">Email</th>
+                            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">Dr. Jane Dow</td>
+                            <td class="govuk-table__cell">{{ components.link(text='jane.doe@cardiffuniversity.ac.uk', url='#') }}</td>
+                            <td class="govuk-table__cell">&nbsp;</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell">
+                                {{ components.field(label='Full name', labelVisuallyHidden=true, id='teamFullName', inputWidthClass='govuk-input--width-20') }}
+                            </td>
+                            <td class="govuk-table__cell">
+                                {{ components.field(label='Email', labelVisuallyHidden=true, id='teamEmail', inputWidthClass='govuk-input--width-20') }}                             </td>
+                            <td class="govuk-table__cell govuk-table__cell--action">
+                                {{ components.link(text='Send invite', type='secondary', url='#') }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="govuk-body u-space-t5 u-space-b30">
+                    {{ components.link(text='Add another contributor', url='#') }}
+                </p>
+
 
                 <div class="application-controls govuk-clearfix">
-                    {#{{ components.button(text='Submit application for approval', url='/prototypes/example-journey/application/start', extraClass="application-controls__submit", disabled=true)}}#}
-
-                    {#{{ components.button(text='Save and preview') }}#}
-
-                    {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
-
-
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
-
                 </div>
 
             {%- endcall %}
