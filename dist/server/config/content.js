@@ -38,7 +38,9 @@ let contentItems = {
   APPLICATION_RESOURCES_COST_TITLE_TAG: 'Resources and cost',
   APPLICATION_RESOURCES_COST_TITLE: 'Resources and cost',
   APPLICATION_ETHICAL_TITLE_TAG: 'Ethical and societal issues',
-  APPLICATION_ETHICAL_TITLE: 'Ethical and societal issues'
+  APPLICATION_ETHICAL_TITLE: 'Ethical and societal issues',
+  PROJECT_LISTING_TITLE_TAG: 'All opportunities',
+  PROJECT_LISTING_TITLE: 'All opportunities'
 };
 
 const content = exports.content = contentItems;
