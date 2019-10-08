@@ -1,0 +1,12 @@
+{#{% from "macros/typography/captionHeading.njk" import captionHeading %}#}
+{% from "macros/typography/link.njk" import link %}
+
+{% macro projectListing(title='', url='' , text='')  %}
+
+    <div class="project-listing">
+       {# {{ components.captionHeading(text=title, tag='h2', size='m') }}#}
+        <p class="govuk-body">{{ text }}</p>
+        <p>{{ components.link(text='Apply for this oportunity', url='/prototypes/example-journey/application/') }}</p>
+    </div>
+
+{% endmacro %}
