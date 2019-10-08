@@ -1,7 +1,7 @@
 {% extends 'layouts/ufs.layout.njk' %}
 {% set pageTitle = CASE_FOR_SUPPORT_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set showTinyMCEScripts = true %}
-{% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+{% set storedCaseForSupportNotes = storedCaseForSupportNotes if storedCaseForSupportNotes %}
 {% set projectName = projectName if projectName %}
 
 {% block content %}
@@ -22,7 +22,7 @@
 
             {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
 
-            {% call components.hiddenText(summary='What should I include in case for support section?') %}
+            {% call components.hiddenText(summary='What should I include in this section?') %}
                 <p>Your Case for Support should be structured as follows:</p>
 
                 <p><strong>1.1 The idea</strong><br>
@@ -46,24 +46,23 @@
 
     {%- endcall %}
 
-    {% call components.gridRow() %}
+    {% call components.form(action='/prototypes/example-journey/application/case-for-support', method='POST',name='caseForSupportNotes') %}
 
-        {% call components.columnFull() %}
+        {% call components.gridRow() %}
+            {% call components.columnFull() %}
 
-            {% call components.form(action='/prototypes/example-journey/application/start', method='POST',name='formSpeakerNotes') %}
+                {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='caseForSupportNotes', hint='', group=true, size='', value=storedCaseForSupportNotes, extraClass='', visuallyHidden=true) }}
 
-                {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+            {% call components.columnFull() %}
 
                 <div class="application-controls govuk-clearfix">
-                    {#{{ components.button(text='Submit application for approval', url='/prototypes/example-journey/application/start', extraClass="application-controls__submit", disabled=true)}}#}
-
-                    {#{{ components.button(text='Save and preview') }}#}
-
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
-
-
                     {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
-
                 </div>
 
             {%- endcall %}

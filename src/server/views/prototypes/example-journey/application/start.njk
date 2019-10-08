@@ -1,7 +1,8 @@
 {% extends 'layouts/ufs.layout.njk' %}
-{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
+{% set pageTitle = CASE_FOR_SUPPORT_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set showTinyMCEScripts = true %}
 {% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
+{% set projectName = projectName if projectName %}
 
 {% block content %}
 
@@ -9,7 +10,7 @@
 
     {% call components.columnFull() %}
 
-        {{ components.captionHeading(text='Case for support', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+        {{ components.captionHeading(text=CASE_FOR_SUPPORT_TITLE_TAG, caption=projectName)}}
 
     {%- endcall %}
 
@@ -21,7 +22,7 @@
 
             {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
 
-            {% call components.hiddenText(summary='What should I include in case for support section?') %}
+            {% call components.hiddenText(summary='What should I include in this section?') %}
                 <p>Your Case for Support should be structured as follows:</p>
 
                 <p><strong>1.1 The idea</strong><br>
@@ -58,7 +59,7 @@
 
                     {#{{ components.button(text='Save and preview') }}#}
 
-                    {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
 
 
                     {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}

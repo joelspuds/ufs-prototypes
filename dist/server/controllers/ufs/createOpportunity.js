@@ -86,19 +86,20 @@ function opportunitySetupPost(req, res) {}
 
 // Funders
 function opportunityFundersGet(req, res) {
-  let viewData, opportunityName, opportunityID, allCouncils;
+  let viewData, opportunityName, opportunityID, allCouncils, funderslist;
 
   allCouncils = generalData.allCouncils;
-
-  console.log(allCouncils);
 
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
 
+  funderslist = req.session.funderslist;
+
   viewData = {
     opportunityName,
     opportunityID,
-    allCouncils
+    allCouncils,
+    funderslist
   };
 
   return res.render('prototypes/opportunity/funders', viewData);

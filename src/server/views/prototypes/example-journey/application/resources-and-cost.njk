@@ -1,6 +1,7 @@
 {% extends 'layouts/ufs.layout.njk' %}
-{% set pageTitle = APPLICATION_ETHICAL_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = APPLICATION_RESOURCES_COST_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
+{% set showSimpleTinyMCEScripts = true %}
 
 {% block content %}
 
@@ -8,64 +9,91 @@
 
         {% call components.columnFull() %}
 
-            {{ components.captionHeading(text=APPLICATION_ETHICAL_TITLE, caption=projectName)}}
+            {{ components.captionHeading(text=APPLICATION_RESOURCES_COST_TITLE, caption=projectName)}}
 
         {%- endcall %}
 
     {%- endcall %}
 
-    {% call components.gridRow(extraClass='u-space-b30') %}
+    {% call components.form(action='/prototypes/example-journey/application/resources-and-cost', method='POST',name='formResourcesTeam') %}
 
-        {% call components.columnTwoThirds() %}
+        {% call components.gridRow(extraClass='u-space-b30') %}
 
-            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
+            {% call components.columnFull() %}
 
-            {% call components.hiddenText(summary='What should I include in case for support section?') %}
-                <p>Your Case for Support should be structured as follows:</p>
+                {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
 
-                <p><strong>1.1 The idea</strong><br>
-                    What is your proposed project and how does it represent excellence?</p>
-
-                <p><strong>1.2 Importance</strong><br>
-                    What is the value of this project, to whom, why should it be undertaken?</p>
-
-                <p><strong>1.3 Timeliness</strong><br>
-                    Why is now the right time for this project?</p>
-
-                <p><strong>1.4 Approach</strong><br>
-                    How do you propose to undertake the project and what methods will you use?</p>
-
-                <p><strong>1.5 Impact</strong><br>
-                    What potential impact might come about as result from this project, how might the benefit  be realised?</p>
+                {% call components.hiddenText(summary='What should I include in this section?') %}
+                    <p>This section should contain a full breakdown of the top-level costs involved with your project.</p>
+                    <p>It is not necessary to breakdown costs further than the items below although you must submit full details after initial review.</p>
+                {%- endcall %}
 
             {%- endcall %}
 
         {%- endcall %}
 
-    {%- endcall %}
+        {% call components.gridRow() %}
 
-    {% call components.gridRow() %}
+            {% call components.columnTwoThirds() %}
 
-        {% call components.columnFull() %}
+                {% call components.formGroup() %}
 
-            {% call components.form(action='/prototypes/example-journey/application/project-team', method='POST',name='formProjectTeam') %}
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption">Costs outline</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Item</th>
+                                <th scope="col" class="govuk-table__header u-align-right">Cost £</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Staffing</td>
+                                <td class="govuk-table__cell  govuk-table__cell--numeric">
+                                    {{ components.field(label='Staff costs', labelVisuallyHidden=true, id='costsStaff', inputWidthClass='govuk-input--width-10') }}
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Overheads</td>
+                                <td class="govuk-table__cell  govuk-table__cell--numeric">
+                                    {{ components.field(label='Overheads', labelVisuallyHidden=true, id='costsOverheads', inputWidthClass='govuk-input--width-10') }}
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Materials</td>
+                                <td class="govuk-table__cell  govuk-table__cell--numeric">
+                                    {{ components.field(label='Material costs', labelVisuallyHidden=true, id='costsMaterials', inputWidthClass='govuk-input--width-10') }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {%- endcall %}
 
-                {#{{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}#}
+            {%- endcall %}
 
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Project costs', labelBold=true, id='projectCosts', group=false, size='', value='', extraClass='', hint='Provide reasons and justifictions for the above costs') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+            {% call components.columnFull() %}
                 <div class="application-controls govuk-clearfix">
-                    {#{{ components.button(text='Submit application for approval', url='/prototypes/example-journey/application/start', extraClass="application-controls__submit", disabled=true)}}#}
-
-                    {#{{ components.button(text='Save and preview') }}#}
-
                     {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
-
-
                     {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
-
                 </div>
-
             {%- endcall %}
-
         {%- endcall %}
 
     {%- endcall %}

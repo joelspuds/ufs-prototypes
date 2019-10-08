@@ -1,12 +1,15 @@
-{#{% from "macros/typography/captionHeading.njk" import captionHeading %}#}
+{% from "macros/typography/captionHeading.njk" import captionHeading %}
 {% from "macros/typography/link.njk" import link %}
+{% from "macros/elements/divider.njk" import divider %}
 
-{% macro projectListing(title='', url='' , text='')  %}
-
-    <div class="project-listing">
-       {# {{ components.captionHeading(text=title, tag='h2', size='m') }}#}
-        <p class="govuk-body">{{ text }}</p>
-        <p>{{ components.link(text='Apply for this oportunity', url='/prototypes/example-journey/application/') }}</p>
-    </div>
-
+{#{% macro projectListing(title='', url='' , text='', items)  %}#}
+{% macro projectListing(items) %}
+    {% for item in items %}
+        <div class="project-listing">
+            {{ captionHeading(text=item.title, tag='h2', size='m') }}
+            <p class="govuk-body">{{ item.text }}</p>
+            <p>{{ link(text='Apply for this oportunity', url=item.url) }}</p>
+        </div>
+        {{ divider() }}
+    {% endfor %}
 {% endmacro %}

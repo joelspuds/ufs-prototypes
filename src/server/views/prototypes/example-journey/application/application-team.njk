@@ -24,11 +24,11 @@
 
     {%- endcall %}
 
-    {% call components.gridRow() %}
+    {% call components.form(action='/prototypes/example-journey/application/application-team', method='POST',name='formApplicationTeam') %}
 
-        {% call components.columnFull() %}
+        {% call components.gridRow() %}
 
-            {% call components.form(action='/prototypes/example-journey/application/application-team', method='POST',name='formApplicationTeam') %}
+            {% call components.columnFull() %}
 
                 <table class="govuk-table">
                     <caption class="govuk-table__caption">Application team</caption>
@@ -41,7 +41,7 @@
                     </thead>
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Dr. Jane Dow</td>
+                            <td class="govuk-table__cell">Dr. Jane Doe</td>
                             <td class="govuk-table__cell">{{ components.link(text='jane.doe@cardiffuniversity.ac.uk', url='#') }}</td>
                             <td class="govuk-table__cell">&nbsp;</td>
                         </tr>
@@ -61,6 +61,13 @@
                     {{ components.link(text='Add another contributor', url='#') }}
                 </p>
 
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
 
                 <div class="application-controls govuk-clearfix">
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
@@ -71,6 +78,9 @@
 
         {%- endcall %}
 
+
     {%- endcall %}
 
 {% endblock %}
+
+

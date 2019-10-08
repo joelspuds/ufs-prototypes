@@ -1,6 +1,9 @@
 {% extends 'layouts/ufs.layout.njk' %}
 {% set pageTitle = APPLICATION_CAPABILITY_TO_DELIVER_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
+{% set showSimpleTinyMCEScripts = true %}
+{% set capabilityToDeliverNotes = capabilityToDeliverNotes if capabilityToDeliverNotes %}
+
 
 {% block content %}
 
@@ -14,60 +17,133 @@
 
     {%- endcall %}
 
-    {% call components.gridRow(extraClass='u-space-b30') %}
+    {% call components.form(action='/prototypes/example-journey/application/capability-to-deliver', method='POST',name='formCapabilityToDeliver') %}
 
-        {% call components.columnTwoThirds() %}
+        {% call components.gridRow() %}
 
-            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
+            {% call components.columnFull() %}
 
-            {% call components.hiddenText(summary='What should I include in case for support section?') %}
-                <p>Your Case for Support should be structured as follows:</p>
+                {{ components.captionHeading(text='Project team', size='s')}}
 
-                <p><strong>1.1 The idea</strong><br>
-                    What is your proposed project and how does it represent excellence?</p>
+                {{ components.paragraph(text='Nominate the principal investigator, co-investigators and researchers for your proposed project. People added will be required to verify their involvement.') }}
 
-                <p><strong>1.2 Importance</strong><br>
-                    What is the value of this project, to whom, why should it be undertaken?</p>
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption govuk-visually-hidden">Project team members</caption>
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Full name</th>
+                        <th scope="col" class="govuk-table__header">Email</th>
+                        <th scope="col" class="govuk-table__header">Role</th>
+                        <th scope="col" class="govuk-table__header">Capacity</th>
+                        <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Dr. Jane Doe</td>
+                        <td class="govuk-table__cell">{{ components.link(text='jane.doe@cardiffuniversity.ac.uk', url='#') }}</td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Role on project</option>
+                                <option selected>Principle investigator</option>
+                                <option>Senior researcher</option>
+                                <option>Junior researcher</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Capacity</option>
+                                <option>Full time</option>
+                                <option selected>Part time</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell">&nbsp;</td>
+                    </tr>
+                    <tr class="govuk-table__row govuk-visually-hidden" id="hiddenRow">
+                        <td class="govuk-table__cell">
+                            {{ components.field(label='Full name', labelVisuallyHidden=true, id='teamFullName', inputWidthClass='govuk-input--width-20') }}
+                        </td>
+                        <td class="govuk-table__cell">
+                            {{ components.field(label='Email', labelVisuallyHidden=true, id='teamEmail', inputWidthClass='govuk-input--width-20') }}                             </td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Role on project</option>
+                                <option>Principle investigator</option>
+                                <option>Senior researcher</option>
+                                <option>Junior researcher</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Capacity</option>
+                                <option>Full time</option>
+                                <option>Part time</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--action">
+                            {{ components.link(text='Send invite', type='secondary', url='#') }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="govuk-body u-space-t5 u-space-b30">
+                    {{ components.link(text='Invite another team member', url='#', id='showInviteRow') }}
+                </p>
 
-                <p><strong>1.3 Timeliness</strong><br>
-                    Why is now the right time for this project?</p>
-
-                <p><strong>1.4 Approach</strong><br>
-                    How do you propose to undertake the project and what methods will you use?</p>
-
-                <p><strong>1.5 Impact</strong><br>
-                    What potential impact might come about as result from this project, how might the benefit  be realised?</p>
 
             {%- endcall %}
 
         {%- endcall %}
 
-    {%- endcall %}
+        {% call components.gridRow() %}
 
-    {% call components.gridRow() %}
+            {% call components.columnFull() %}
 
-        {% call components.columnFull() %}
+               {{ components.captionHeading(text='Capability to deliver', size='s')}}
 
-            {% call components.form(action='/prototypes/example-journey/application/project-team', method='POST',name='formProjectTeam') %}
+                {% call components.hiddenText(summary='What should I include in this section?') %}
+                    <p>Your capability to deliver should be structured as follows:</p>
 
-                {#{{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}#}
+                    <p><strong>1.1 Team outline</strong><br>
+                        Sed consequat pulvinar massa, sed egestas ipsum consequat sit amet.</p>
 
+                    <p><strong>1.2 Core skills and experience</strong><br>
+                        Praesent pulvinar enim velit, auctor egestas eros euismod in. </p>
+
+                    <p><strong>1.3 References to previous, related projects</strong><br>
+                        Donec vestibulum dictum lectus et posuere. Nullam massa est, pulvinar ut purus id?</p>
+
+                {%- endcall %}
+
+               {{ components.textarea(options=selectOptions, label='Enter your case for support', id='capabilityToDeliverNotes', hint='Describe how your proposed team is suitable and capable to undertake the project.', group=true, size='', value=capabilityToDeliverNotes, extraClass='', visuallyHidden=true) }}
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
                 <div class="application-controls govuk-clearfix">
-                    {#{{ components.button(text='Submit application for approval', url='/prototypes/example-journey/application/start', extraClass="application-controls__submit", disabled=true)}}#}
-
-                    {#{{ components.button(text='Save and preview') }}#}
-
-                    {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
-
-
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
-
                 </div>
-
             {%- endcall %}
 
         {%- endcall %}
 
     {%- endcall %}
 
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $('#showInviteRow').on('click', function(e) {
+          $('#hiddenRow').removeClass('govuk-visually-hidden');
+          e.isDefaultPrevented();
+        });
+      })
+    </script>
 {% endblock %}

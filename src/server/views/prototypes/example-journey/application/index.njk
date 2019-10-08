@@ -7,6 +7,11 @@
 {% set projectName = projectName if projectName %}
 {% set projectDetails = projectDetails if projectDetails %}
 {% set hasBeenUpdated = hasBeenUpdated if hasBeenUpdated %}
+{% set teamHasBeenUpdated = teamHasBeenUpdated if teamHasBeenUpdated %}
+{% set caseHasBeenUpdated = caseHasBeenUpdated if caseHasBeenUpdated %}
+{% set capabilityHasBeenUpdated = capabilityHasBeenUpdated if capabilityHasBeenUpdated %}
+{% set ethicalHasBeenUpdated = ethicalHasBeenUpdated if ethicalHasBeenUpdated %}
+{% set resourcesHasBeenUpdated = resourcesHasBeenUpdated if resourcesHasBeenUpdated %}
 
 {% block content %}
 
@@ -67,32 +72,62 @@
             </li>
             <li class="application-tasks__item">
                 {{ components.link(text='Application team', url='/prototypes/example-journey/application/application-team', extraClass="application-tasks__link govuk-link")}}
-                <span class="application-tasks__status application-tasks__status--complete">complete</span>
+
+                {% if teamHasBeenUpdated %}
+                    <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                {% else %}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                {% endif %}
+
             </li>
           </ul>
 
             <h2 class="govuk-heading-s">Assessed questions</h2>
             <ul class="application-tasks">
                 <li class="application-tasks__item">
-                    {{ components.link(text='1. Case for support ', url='/prototypes/example-journey/application/start', extraClass="application-tasks__link govuk-link")}}
-                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {{ components.link(text='1. Case for support ', url='/prototypes/example-journey/application/case-for-support', extraClass="application-tasks__link govuk-link")}}
+
+                    {% if caseHasBeenUpdated %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
+
                 </li>
                 <li class="application-tasks__item">
                     {{ components.link(text='2. Capability to deliver', url='/prototypes/example-journey/application/capability-to-deliver', extraClass="application-tasks__link govuk-link")}}
-                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% if capabilityHasBeenUpdated %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
                 </li>
                 <li class="application-tasks__item">
                     {{ components.link(text='3. Resources and cost', url='/prototypes/example-journey/application/resources-and-cost', extraClass="application-tasks__link govuk-link")}}
-                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% if resourcesHasBeenUpdated %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
                 </li>
                 <li class="application-tasks__item">
                     {{ components.link(text='4. Ethical and societal issues', url='/prototypes/example-journey/application/ethical-and-societal-issues', extraClass="application-tasks__link govuk-link")}}
-                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% if ethicalHasBeenUpdated %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
                 </li>
             </ul>
 
             <div class="application-controls govuk-clearfix">
-                {{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}
+
+                {% if progressPercentage == 100 %}
+                    {{ components.button(text='Submit application for approval', extraClass="application-controls__submit")}}
+                {%  else %}
+                    {{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}
+                {% endif %}
+
 
                 {{ components.link(text='Cancel/withdraw application', url='#', extraClass="application-controls__cancel", disabled=true)}}
             </div>
@@ -103,8 +138,8 @@
         {% call components.columnOneThird() %}
 
             <div class="percent-complete">
-                <span class="percent-complete__text">15% complete</span>
-                <span class="percent-complete__marker" style="width:15%">&nbsp;</span>
+                <span class="percent-complete__text">{{ progressPercentage }}% complete</span>
+                <span class="percent-complete__marker" style="width:{{ progressPercentage }}%">&nbsp;</span>
             </div>
 
             <div class="application-data">

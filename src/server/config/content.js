@@ -34,8 +34,12 @@ let contentItems = {
   APPLICATION_RESOURCES_COST_TITLE: 'Resources and cost',
   APPLICATION_ETHICAL_TITLE_TAG: 'Ethical and societal issues',
   APPLICATION_ETHICAL_TITLE: 'Ethical and societal issues',
+  ADD_ETHICAL_LABEL: 'Does you project involve activities that may give rise to any societal and/or ethical issues? ',
+  ADD_ETHICAL_HINT: 'Select all the reasons that apply',
   PROJECT_LISTING_TITLE_TAG: 'All opportunities',
   PROJECT_LISTING_TITLE: 'All opportunities',
+  CASE_FOR_SUPPORT_TITLE_TAG: 'Case for support',
+  CASE_FOR_SUPPORT_TITLE: 'Case for support',
 };
 
 export const content = contentItems;

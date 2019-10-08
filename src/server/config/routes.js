@@ -39,6 +39,10 @@ router.get('/prototypes/example-journey/introducer/view', demosController.tinyMC
 router.get('/prototypes/example-journey/application', demosController.tinyMCEApplicationIndexGet);
 router.get('/prototypes/example-journey/application/start', demosController.tinyMCEApplicationGet);
 router.post('/prototypes/example-journey/application/start', demosController.tinyMCEApplicationPost);
+
+router.get('/prototypes/example-journey/application/case-for-support', demosController.caseForSupportGet);
+router.post('/prototypes/example-journey/application/case-for-support', demosController.caseForSupportPost);
+
 router.get('/prototypes/example-journey/application/view', demosController.tinyMCEApplicationViewGet);
 router.get('/prototypes/example-journey/application/view-static', demosController.tinyMCEApplicationStaticViewGet);
 

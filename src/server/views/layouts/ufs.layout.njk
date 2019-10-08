@@ -9,9 +9,9 @@
 
 {% include './partials/breadcrumbs.njk' %}
 <main id="main-content" class="govuk-main-wrapper govuk-main-wrapper--auto-spacing {{ mainContainerClass if mainContainerClass }}">
-  {% filter prismFullpage %}
+  {#{% filter prismFullpage %}#}
     {% block content %}{% endblock %}
-  {% endfilter %}
+  {#{% endfilter %}#}
 </main>
 {% include './partials/ufs-phase-banner.njk' %}
 {% endblock %}

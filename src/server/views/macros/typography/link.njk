@@ -1,7 +1,7 @@
-{% macro link(text='', url=false, back=false, paragraph=false, extraClass='') %}
+{% macro link(text='', url=false, back=false, paragraph=false, extraClass='', id) %}
   {% if text %}
     {% if paragraph %}<p>{% endif %}
-      <a {{ 'href="' + url + '"' if url }} class="govuk-link {{ extraClass if extraClass}} {{ 'link-back' if back}}">{{ text }}</a>
+      <a {{ 'href="' + url + '"' if url }} class="govuk-link {{ extraClass if extraClass}} {{ 'link-back' if back}}" {{ 'id="' + id + '"' if id}}">{{ text }}</a>
     {% if paragraph %}</p>{% endif %}
   {% endif %}
 {% endmacro %}

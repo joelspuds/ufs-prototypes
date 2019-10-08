@@ -1,8 +1,29 @@
 {% extends 'layouts/ufs.layout.njk' %}
 
-{% set pageTitle = '171 - Development of a Novel Inhibitor of Ricin' %}
 {% set showMathJAXscripts = true %}
-{% set speakerNotes = speakerNotes if speakerNotes %}
+{% set showSmoothScrollscripts = true %}
+{% set showStickyNavscripts = true %}
+
+{% set projectName = projectName if projectName %}
+
+{% set listItems = [
+    { text: 'Top of page', url: '#main-content' },
+    { text: 'Case for support', url: '#marker_Case' },
+    { text: 'Capability to deliver', url: '#marker_Capability' },
+    { text: 'Resources and costs', url: '#marker_Resources' },
+    { text: 'Ethical and societal issues', url: '#marker_Ethical' }
+] %}
+
+{% set notesCaseForSupport = notesCaseForSupport if notesCaseForSupport %}
+{% set notesCapability = notesCapability if notesCapability %}
+{% set notesResources = notesResources if notesResources %}
+{% set notesEthical = notesEthical if notesEthical %}
+{% set notesCosts = notesCosts if notesCosts %}
+{% set costsOverheads = costsOverheads if costsOverheads %}
+{% set costsMaterials = costsMaterials if costsMaterials %}
+{% set costsStaff = costsStaff if costsStaff %}
+{% set ethicalReasons = ethicalReasons if ethicalReasons %}
+
 
 {% block content %}
 
@@ -10,7 +31,7 @@
 
         {% call components.columnFull() %}
 
-            {{ components.captionHeading(text='Case for support preview', caption='171 - Development of a Novel Inhibitor of Ricin')}}
+            {{ components.captionHeading(text='Application preview', caption=proejctName)}}
 
         {%- endcall %}
 
@@ -42,42 +63,104 @@
 
             {{ components.captionHeading(text='Contents', tag='h2', size='s')}}
 
-            <div class="sticky-nav">
+            <nav class="sticky-nav">
 
-                <ul class="govuk-list">
+                {{ components.list(items=listItems, parentClass='sticky-nav')}}
 
-                </ul>
-
-            </div>
+            </nav>
 
         {%- endcall %}
 
         {% call components.columnThreeQuarters() %}
 
-            <h2 class="heading heading-medium">Case for support</h2>
+            {{ components.alerts(text='This is how reviewers will see your proposal.')}}
 
-            {{ components.paragraph(text='This is how reviewers will see your proposal.', size='l')}}
-
-            {% if speakerNotes %}
-
-            {{ speakerNotes }}
-
-
+            <h2 class="heading heading-medium" id="marker_Case">Case for support</h2>
+            {% if notesCaseForSupport %}
+                {{ notesCaseForSupport }}
             {% else %}
+                <div>No content has been added for this section yet.</div>
+            {% endif %}
 
-                <div>No content has been added yet.</div>
+            {{ components.divider() }}
+
+            <h2 class="heading heading-medium" id="marker_Capability">Capability to deliver</h2>
+            {% if notesCapability %}
+                {{ notesCapability }}
+            {% else %}
+                <div>No content has been added for this section yet.</div>
+            {% endif %}
+
+            {{ components.divider() }}
+
+            <h2 class="heading heading-medium" id="marker_Resources">Resources and costs</h2>
+
+              <table class="govuk-table">
+                <caption class="govuk-table__caption">Costs outline</caption>
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Item</th>
+                    <th scope="col" class="govuk-table__header u-align-right">Cost £</th>
+                </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Staffing</td>
+                    <td class="govuk-table__cell  govuk-table__cell--numeric">
+                        {% if costsStaff %}
+                            {{ costsStaff }}
+                        {% else %}
+                            <span>No value has been entered for this item</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Overheads</td>
+                    <td class="govuk-table__cell  govuk-table__cell--numeric">
+                        {% if costsOverheads %}
+                            {{ costsOverheads }}
+                        {% else %}
+                            <span>No value has been entered for this item</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">Materials</td>
+                    <td class="govuk-table__cell  govuk-table__cell--numeric">
+                        {% if costsMaterials %}
+                            {{ costsMaterials }}
+                        {% else %}
+                            <span>No value has been entered for this item</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            {% if notesCosts %}
+                {{ notesCosts }}
+            {% else %}
+                <div>No content has been added for this section yet.</div>
+            {% endif %}
+
+            {{ components.divider() }}
+
+            <h2 class="heading heading-medium" id="marker_Ethical">Ethical and societal issues</h2>
+            {% if ethicalReasons %}
+                <h3 class="heading heading-small">Ethical and societal issue areas</h3>
+                <ul class="govuk-list--bullet">
+                    {% for item in ethicalReasons %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
 
             {% endif %}
 
-            {{ components.sectionBreak(size='l') }}
-
-            <div class="application-controls govuk-clearfix">
-
-                {{ components.button(text='Save and return to application overview', url='/prototypes/example-journey/application/', extraClass="")}}
-
-                {{ components.link(text='Edit your case for support', url='/prototypes/example-journey/application/start', extraClass="application-controls__cancel")}}
-
-            </div>
+            {% if notesEthical %}
+                {{ notesEthical }}
+            {% else %}
+                <div>No content has been added for this section yet.</div>
+            {% endif %}
 
         {%- endcall %}
 

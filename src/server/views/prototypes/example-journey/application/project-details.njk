@@ -15,11 +15,11 @@
 
     {%- endcall %}
 
-    {% call components.gridRow() %}
+    {% call components.form(action='/prototypes/example-journey/application/project-details', method='POST',name='formProjectTeam') %}
 
-        {% call components.columnFull() %}
+        {% call components.gridRow() %}
 
-            {% call components.form(action='/prototypes/example-journey/application/project-details', method='POST',name='formProjectTeam') %}
+            {% call components.columnFull() %}
 
                 {% call components.formGroup() %}
 
@@ -27,11 +27,27 @@
 
                 {%- endcall %}
 
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
                 {% call components.formGroup() %}
 
                     {{ components.textarea(options=selectOptions, label='Project summary', labelBold=true, id='projectSummary', hint='Peer reviewers will be selected to assess your application based on this summary.', group=false, size='', value='', extraClass='') }}
 
                 {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+         {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
 
                 {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020') }}
 
@@ -39,11 +55,20 @@
                     {{ components.field(label='Duration in months', labelBold=true, id='projectDuration', inputWidthClass='govuk-input--width-3') }}
                 {%- endcall %}
 
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">
                         {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                         {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
                     </div>
+
                 {%- endcall %}
 
             {%- endcall %}

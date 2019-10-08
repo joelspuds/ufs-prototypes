@@ -57,3 +57,31 @@ let councils = [
 ];
 
 export const allCouncils = councils;
+
+let ethical = [
+  {
+    name: 'Animals',
+    index: 0,
+  },
+  {
+    name: 'Human participants',
+    index: 1,
+  },
+  {
+    name: 'Stem cells',
+    index: 2,
+  },
+  {
+    name: 'Travel to hostile countries',
+    index: 3,
+  },
+  {
+    name: 'Work with developing/ODA countries ',
+    index: 4,
+  },
+  {
+    name: 'Responsible Innovation considerations',
+    index: 5,
+  },
+];
+export const ethicalReasons = ethical;

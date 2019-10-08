@@ -1,5 +1,11 @@
 {% extends 'layouts/ufs.layout.njk' %}
 {% set pageTitle = PROJECT_LISTING_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectList = [{ title:'Biosensors for ribosome inactivating protiens', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' },
+{ title:'Biosensors for ribosome inactivating protiens', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' },
+{ title:'Agri-tech catalyst round 9: agriculture and food systems innovation, mid stage', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' },
+{ title:'Enabling data access in accountancy, insurance and legal services: CR&D', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' },
+{ title:'ISCF healthy ageing trailblazers: stage 1', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' }] %}
+{#{% set projectList = 'werergerg' %}#}
 
 
 {% block content %}
@@ -8,7 +14,7 @@
 
         {% call components.columnFull() %}
 
-            {{ components.captionHeading(text=PROJECT_LISTING_TITLE)}}
+            {{ components.captionHeading(text=PROJECT_LISTING_TITLE) }}
 
         {%- endcall %}
 
@@ -16,13 +22,24 @@
 
     {% call components.gridRow() %}
 
+        {% call components.columnOneThird() %}
+
+            [search]
+            <br>
+            [filter]
+
+        {%- endcall %}
+
         {% call components.columnTwoThirds() %}
 
-            <div class="project-listing">
+            {#{{ components.projectListing(title='awesome project', url='#', text='wef wef wef we wefwe wefwef we') }}#}
+            {{ components.projectListing(items=projectList) }}
+
+            {#<div class="project-listing">
                 {{ components.captionHeading(text='Biosensors for ribosome inactivating protiens', tag='h2', size='m')}}
                 <p class="govuk-body">Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.</p>
                 <p>{{ components.button(text='Apply for this oportunity', url='/prototypes/example-journey/application/') }}</p>
-            </div>
+            </div>#}
 
         {%- endcall %}
 
