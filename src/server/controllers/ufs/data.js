@@ -48,7 +48,7 @@ let councils = [
     name: 'UK Research and Innovation',
     short: 'UKRI',
     index: 9,
-  }
+  },
 ];
 
 export const allCouncils = councils;

@@ -43,10 +43,6 @@ let councils = [{
   name: 'UK Research and Innovation',
   short: 'UKRI',
   index: 9
-}, {
-  name: 'Other',
-  short: '',
-  index: 10
 }];
 
 const allCouncils = exports.allCouncils = councils;
