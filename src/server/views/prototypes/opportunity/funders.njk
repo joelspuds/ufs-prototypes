@@ -8,6 +8,7 @@
 {% set opportunityID = opportunityID %}
 {% set allCouncils = allCouncils %}
 {% set funderslist = funderslist %}
+{% set backLinkContents =  [{url:'/prototypes/opportunity/setup', text:'Back to opportunity setup'}] %}
 
 {% block content %}
 
@@ -16,7 +17,6 @@
         {% call components.columnFull() %}
 
             {{ components.captionHeading(text=ADD_FUNDERS_TO_OPPORTUNITY_TITLE, caption=opportunityID + ': ' +opportunityName) }}
-
 
         {%- endcall %}
 
