@@ -86,12 +86,15 @@ function opportunitySetupPost(req, res) {}
 
 // Funders
 function opportunityFundersGet(req, res) {
-  let viewData, opportunityName, opportunityID, allCouncils, funderslist;
+  let viewData, opportunityName, opportunityID, allCouncils, funderslist, fundersError;
 
   allCouncils = generalData.allCouncils;
 
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
+
+  fundersError = req.session.fundersError;
+  req.session.fundersError = null;
 
   funderslist = req.session.funderslist;
 
@@ -99,7 +102,8 @@ function opportunityFundersGet(req, res) {
     opportunityName,
     opportunityID,
     allCouncils,
-    funderslist
+    funderslist,
+    fundersError
   };
 
   return res.render('prototypes/opportunity/funders', viewData);
@@ -114,5 +118,10 @@ function opportunityFundersPost(req, res) {
   fundersList = funders;
   req.session.funderslist = fundersList;
 
-  return res.redirect('/prototypes/opportunity/setup');
+  if (fundersList) {
+    return res.redirect('/prototypes/opportunity/setup');
+  } else {
+    req.session.fundersError = true;
+    return res.redirect('/prototypes/opportunity/funders');
+  }
 }

@@ -74,12 +74,7 @@ export function opportunitySetupPost(req, res) {
 
 // Funders
 export function opportunityFundersGet(req, res) {
-  let viewData,
-    opportunityName,
-    opportunityID,
-    allCouncils,
-    funderslist,
-    fundersError;
+  let viewData, opportunityName, opportunityID, allCouncils, funderslist, fundersError;
 
   allCouncils = generalData.allCouncils;
 
@@ -111,12 +106,10 @@ export function opportunityFundersPost(req, res) {
   fundersList = funders;
   req.session.funderslist = fundersList;
 
-  if(fundersList) {
+  if (fundersList) {
     return res.redirect('/prototypes/opportunity/setup');
   } else {
     req.session.fundersError = true;
     return res.redirect('/prototypes/opportunity/funders');
   }
-
-
 }
