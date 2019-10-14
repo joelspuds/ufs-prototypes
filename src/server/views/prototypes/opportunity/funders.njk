@@ -64,7 +64,7 @@
                             {% for item in allCouncils %}
 
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="council_{{ item.index }}" name="funders" type="checkbox" value="{{ item.name }}"
+                                    <input class="govuk-checkboxes__input" id="council_{{ item.index }}" name="funders" type="checkbox" value="{{ item.index }}"
                                     {% for match in funderslist %}
                                         {# DIRTY DIRTY DIRTY #}
                                         {% if match == item.name %}

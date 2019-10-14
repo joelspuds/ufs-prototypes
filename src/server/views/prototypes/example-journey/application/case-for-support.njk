@@ -52,6 +52,13 @@
         {% call components.gridRow() %}
             {% call components.columnFull() %}
 
+                <style>
+                    .tox-notification.tox-notification--in.tox-notification--error,
+                    .tox-notifications-container {
+                        display: none!important;
+                    }
+                </style>
+
                 {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='caseForSupportNotes', hint='', group=true, size='', value=storedCaseForSupportNotes, extraClass='', visuallyHidden=true) }}
 
             {%- endcall %}

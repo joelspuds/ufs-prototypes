@@ -137,12 +137,12 @@
 
         {% call components.columnOneThird(extraClass="padding-left-desktop-30") %}
 
-            {#<div class="percent-complete">
+            <div class="percent-complete">
                 <span class="percent-complete__text">{{ progressPercentage }}% complete</span>
                 <span class="percent-complete__marker" style="width:{{ progressPercentage }}%">&nbsp;</span>
-            </div>#}
+            </div>
 
-            <style>
+           {# <style>
                 .progressBar {
                     width: 300px;
                     /*width: 100%;*/
@@ -187,7 +187,7 @@
                         <div class = "foreground">{{ progressPercentage }}% complete</div>
                     </div>
                 </div>
-            </div>
+            </div>#}
 
             <div class="application-data">
                 <dl class="application-data__list">

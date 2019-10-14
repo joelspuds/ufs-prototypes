@@ -113,9 +113,12 @@ function opportunityFundersPost(req, res) {
   const { funders } = req.body;
   console.log(funders);
 
-  let fundersList;
+  let fundersList, allCouncils;
+  allCouncils = generalData.allCouncils;
 
   fundersList = funders;
+  console.log(fundersList);
+
   req.session.funderslist = fundersList;
 
   if (fundersList) {

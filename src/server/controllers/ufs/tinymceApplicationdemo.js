@@ -65,6 +65,8 @@ export function tinyMCEApplicationIndexGet(req, res) {
     progressPercentage = 100;
   }
 
+  hasBeenUpdated = null;
+
   viewData = {
     projectName,
     hasBeenUpdated,
