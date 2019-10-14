@@ -9,6 +9,10 @@
 
     {{ components.alerts(text='This contains some important information') | prism }}
 
+    {{ components.captionHeading(text='Alert with a title', tag='h2', size='medium') }}
+
+    {{ components.alerts(text='This contains some important information', title='This is really important') | prism }}
+
     {{ components.captionHeading(text='Success alert', tag='h2', size='medium') }}
 
     {{ components.alerts(text='You have successfully updated your application', type='success') | prism }}

@@ -8,32 +8,57 @@
 {% set opportunityID = opportunityID %}
 {% set allCouncils = allCouncils %}
 {% set funderslist = funderslist %}
+{% set fundersError = fundersError if fundersError %}
 {% set backLinkContents =  [{url:'/prototypes/opportunity/setup', text:'Back to opportunity setup'}] %}
+{% set isAdminUser = true %}
 
 {% block content %}
+
+    {% if fundersError %}
+
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#fundersError">You have not selected a funder for your opportunity</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    {% endif %}
 
     {% call components.gridRow() %}
 
         {% call components.columnFull() %}
 
-            {{ components.captionHeading(text=ADD_FUNDERS_TO_OPPORTUNITY_TITLE, caption=opportunityID + ': ' +opportunityName) }}
+            {{ components.captionHeading(text='Funders', caption=opportunityID + ': ' + opportunityName) }}
 
         {%- endcall %}
 
     {%- endcall %}
 
-    {% call components.gridRow() %}
+    {% call components.form(action='/prototypes/opportunity/funders', method='POST',name='manageFunders') %}
 
-        {% call components.columnTwoThirds() %}
+        {% call components.gridRow() %}
 
-            {% call components.form(action='/prototypes/opportunity/funders', method='POST',name='manageFunders') %}
+            {% call components.columnFull() %}
 
-                <div class="govuk-form-group">
+                <div class="govuk-form-group {% if fundersError %} govuk-form-group--error {% endif %}">
                     <fieldset class="govuk-fieldset" aria-describedby="funders-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                            <h2 class="govuk-fieldset__heading">{{ ADD_FUNDERS_TO_OPPORTUNITY_NAME_LABEL }}</h2>
+                            <h2 class="govuk-fieldset__heading"  id="">{{ ADD_FUNDERS_TO_OPPORTUNITY_NAME_LABEL }}</h2>
                         </legend>
-                        <span id="waste-hint" class="govuk-hint">{{ ADD_FUNDERS_TO_OPPORTUNITY_NAME_HINT }}</span>
+                        <span id="funders-hint" class="govuk-hint">{{ ADD_FUNDERS_TO_OPPORTUNITY_NAME_HINT }}</span>
+
+                        {% if fundersError %}
+                        <span id="fundersError" class="govuk-error-message">
+                            <span class="govuk-visually-hidden">Error:</span>Select one or more funders for this opportunity
+                        </span>
+                        {% endif %}
                         <div class="govuk-checkboxes">
 
                             {% for item in allCouncils %}
@@ -60,6 +85,14 @@
                         </div>
                     </fieldset>
                 </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
 
                 {% call components.formGroup() %}
 

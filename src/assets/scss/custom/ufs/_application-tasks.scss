@@ -14,7 +14,7 @@
   }
 
   &__link {
-    @include govuk-font($size: 14, $weight: bold);
+    @include govuk-font($size: 19);
   }
 
   &__status {
@@ -22,7 +22,6 @@
     right: 0;
     top: 12px;
     @include govuk-font($size: 14);
-
 
     &--complete {
       color: govuk-colour("green");
@@ -33,7 +32,6 @@
         top: 1px;
         width: 20px;
         height: 20px;
-        // content: url(/images/ufs/tick.svg);
         content: " ";
         background-image: url('/images/ufs/tick.svg');
         background-size: 28px 28px;
@@ -48,7 +46,6 @@
         width: 20px;
         height: 20px;
         content: " ";
-        // content: url(/images/ufs/pencil.svg);
         background-image: url('/images/ufs/pencil.svg');
         background-size: 28px 20px;
       }

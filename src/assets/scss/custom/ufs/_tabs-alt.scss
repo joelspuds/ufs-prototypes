@@ -15,27 +15,23 @@
     margin-right: 5px;
     margin-bottom: 0;
     margin-left: 0;
-    // padding: 10px 20px;
     float: left;
     width: 200px;
-    // background-color: #f3f2f1;
     text-align: center;
   }
 
   &__link {
     display: block;
     margin-bottom: -1px;
-    // width: 100%;
     height: 20px;
     padding: 10px 10px;
     color: govuk-colour("black")!important;
-    @include govuk-font($size: 14);
+    @include govuk-font($size: 19);
     background-color: govuk-colour("light-grey");
 
 
     &--active {
       background-color: govuk-colour("white");
-      // color: govuk-colour("white")!important;
       border: 1px solid $govuk-border-colour;
       border-bottom: 0;
     }
@@ -47,7 +43,6 @@
     }
 
     &:focus {
-      // background-color: govuk-colour("yellow");
       color: #0b0c0c;
       background-color: #ffdd00;
       -webkit-box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;

@@ -1,5 +1,8 @@
-{% macro alerts(text='You need to set the text paramter in the nunjucks macro.', type='plain') %}
-    <div class="alerts alerts--{{ type }}">
+{% macro alerts(text='You need to set the text paramter in the nunjucks macro.', type, title) %}
+    <div class="alerts {% if type %} alerts--{{ type }} {% endif %}">
+        {% if title %}
+            <h2 class="govuk-heading-s">{{ title }}</h2>
+        {% endif %}
         {{ text }}
     </div>
 {% endmacro %}

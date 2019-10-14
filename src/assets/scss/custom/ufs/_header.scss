@@ -33,7 +33,7 @@
   &__proposition {
 
     @extend %govuk-heading-l;
-    font-weight: 100;
+    font-weight: 300;
     color: ufs-colour("ukri-blue");
     float: none;
     margin: 12px 0 0;
@@ -43,7 +43,7 @@
     @include govuk-media-query($from: tablet) {
       width:320px;
       height: 33px;
-      margin: 18px 0 0 30px;
+      margin: 14px 0 0 30px;
       float: left;
       clear: none;
     }
@@ -59,7 +59,7 @@
 
     @include govuk-media-query($from: mobile) {
       float: right;
-      width:180px;
+      width:200px;
       display: inline-block;
     }
   }

@@ -1,4 +1,4 @@
-{% macro gridRow() %}
+{% macro gridRow(extraClass)%}
 
   <div class="govuk-grid-row">
     {{ caller() }}
@@ -6,65 +6,65 @@
 
 {% endmacro %}
 
-{% macro columnFull() %}
+{% macro columnFull(extraClass) %}
 
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-full {{ extraClass }}">
     {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro columnHalf() %}
+{% macro columnHalf(extraClass)%}
 
-  <div class="govuk-grid-column-one-half">
+  <div class="govuk-grid-column-one-half {{ extraClass }}">
     {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro columnOneThird() %}
+{% macro columnOneThird(extraClass)%}
 
-  <div class="govuk-grid-column-one-third">
+  <div class="govuk-grid-column-one-third {{ extraClass }}">
     {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro columnTwoThirds() %}
+{% macro columnTwoThirds(extraClass)%}
 
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds {{ extraClass }}">
     {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro columnOneQuarter() %}
+{% macro columnOneQuarter(extraClass)%}
 
-  <div class="govuk-grid-column-one-quarter">
+  <div class="govuk-grid-column-one-quarter {{ extraClass }}">
     {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro columnThreeQuarters() %}
+{% macro columnThreeQuarters(extraClass)%}
 
-  <div class="govuk-grid-column-three-quarters">
+  <div class="govuk-grid-column-three-quarters {{ extraClass }}">
       {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro column1of12() %}
+{% macro column1of12(extraClass)%}
 
-  <div class="govuk-grid-column-one-of-twelve">
+  <div class="govuk-grid-column-one-of-twelve {{ extraClass }}">
       {{ caller() }}
   </div>
 
 {% endmacro %}
 
-{% macro column2of12() %}
+{% macro column2of12(extraClass)%}
 
-  <div class="govuk-grid-column-two-of-twelve">
+  <div class="govuk-grid-column-two-of-twelve {{ extraClass }}">
       {{ caller() }}
   </div>
 

@@ -135,11 +135,58 @@
 
         {%- endcall %}
 
-        {% call components.columnOneThird() %}
+        {% call components.columnOneThird(extraClass="padding-left-desktop-30") %}
 
-            <div class="percent-complete">
+            {#<div class="percent-complete">
                 <span class="percent-complete__text">{{ progressPercentage }}% complete</span>
                 <span class="percent-complete__marker" style="width:{{ progressPercentage }}%">&nbsp;</span>
+            </div>#}
+
+            <style>
+                .progressBar {
+                    width: 300px;
+                    /*width: 100%;*/
+                    height: 20px;
+                    /*border: 1px solid #000;*/
+                    position: relative;
+                    /*margin-bottom: 5px;*/
+                    background-color: #f3f2f1;
+                    padding: 4px 0;
+                }
+
+                .progressBar .background,
+                .progressBar .foreground {
+                    width: 300px;
+                    /*width: 100%;*/
+                    height: 20px;
+                    font-size: 16px;
+                    text-align: center;
+                }
+
+                .progressBar .container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    overflow: hidden;
+                }
+
+                .progressBar .foreground {
+                    background-color: #00703c;
+                    color: #FFF;
+                    padding: 4px;
+                }
+            </style>
+
+            {% set progressPercentage = '50' %}
+
+            <div class="u-space-t15">
+                <div class = "progressBar">
+                    <div class = "background">{{ progressPercentage }}% complete</div>
+                    <div class = "container" style="width:{{ progressPercentage }}%">
+                        <div class = "foreground">{{ progressPercentage }}% complete</div>
+                    </div>
+                </div>
             </div>
 
             <div class="application-data">

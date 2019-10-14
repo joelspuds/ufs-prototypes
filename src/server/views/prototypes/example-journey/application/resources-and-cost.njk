@@ -92,7 +92,9 @@
             {% call components.columnFull() %}
                 <div class="application-controls govuk-clearfix">
                     {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
-                    {{ components.link(text='Back to application overview', url='/prototypes/example-journey/application/', extraClass="application-controls__cancel")}}
+                    <span class="sub-button">
+                        {{ components.link(text='Cancel', url='/prototypes/example-journey/application/')}}
+                    </span>
                 </div>
             {%- endcall %}
         {%- endcall %}

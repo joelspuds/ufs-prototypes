@@ -7,6 +7,7 @@
 {% set opportunityName = opportunityName %}
 {% set opportunityID = opportunityID %}
 {% set fundersList = fundersList %}
+{% set isAdminUser = true %}
 
 {% block content %}
 
@@ -71,34 +72,29 @@
 
         {%- endcall %}
 
-        {% call components.columnOneThird() %}
+        {% call components.columnOneThird(extraClass='padding-left-desktop-30') %}
 
             <aside class="govuk-related-items govuk-related-items--flush" role="complementary">
 
-                {{ components.captionHeading(text=opportunityID, tag='h2', size='s', extraClass='u-space-b5') }}
+                {{ components.captionHeading(text=opportunityID, tag='h3', size='xs', extraClass='u-space-y5') }}
                 <p class="govuk-body-s u-space-b5">
                     {{ opportunityName }}
                     {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
                 </p>
 
-
-
-                {{ components.captionHeading(text='Setup status', tag='h3', size='s', extraClass='u-space-b5') }}
+                {#{{ components.captionHeading(text='Setup status', tag='h3', size='s', extraClass='u-space-b5') }}
                 <span class="badge badge--success badge--smaller u-space-b5">Item complete</span>
-                {{ components.link(text='Update status', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                {{ components.link(text='Update status', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}#}
 
-                {{ components.captionHeading(text='Actions', tag='h3', size='s', extraClass='u-space-b5 u-space-t15') }}
-                <ul class="govuk-list">
+                {{ components.captionHeading(text='Actions', tag='h3', size='xs', extraClass='u-space-b5 u-space-t15 govuk-visually-hidden') }}
+                <ul class="govuk-list u-space-t30">
                     <li>
                         {{ components.link(text='Delete opportunity', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
                     </li>
                     <li>
-
                         {{ components.link(text='Opportunity setup guidance', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
-
                     </li>
                 </ul>
-
             </aside>
 
 
