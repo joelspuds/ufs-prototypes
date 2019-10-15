@@ -27,6 +27,7 @@ const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
 const untitledProjectName = 'Untitled project';
 let generalData = require('./data');
+let genericFunctions = require('./generic');
 
 // ************************************************************************
 //
@@ -35,7 +36,7 @@ let generalData = require('./data');
 // ************************************************************************
 
 function tinyMCEApplicationIndexGet(req, res) {
-  let viewData, hasBeenUpdated, projectDetails, teamHasBeenUpdated, caseHasBeenUpdated, capabilityHasBeenUpdated, ethicalHasBeenUpdated, resourcesHasBeenUpdated;
+  let viewData, hasBeenUpdated, projectDetails, teamHasBeenUpdated, caseHasBeenUpdated, capabilityHasBeenUpdated, ethicalHasBeenUpdated, resourcesHasBeenUpdated, projectDetailsIsComplete, applicationDetailsIsComplete, caseForSupportIsComplete, capabilityToDeliverIsComplete, resourcesAndCostsIsComplete, ethicalAndSocietalIsComplete;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
@@ -56,23 +57,45 @@ function tinyMCEApplicationIndexGet(req, res) {
 
   req.session.hasBeenUpdated = null;
 
-  if (projectDetails) {
+  projectDetailsIsComplete = req.session.projectDetailsIsComplete;
+  applicationDetailsIsComplete = req.session.applicationDetailsIsComplete;
+  caseForSupportIsComplete = req.session.caseForSupportIsComplete;
+  capabilityToDeliverIsComplete = req.session.capabilityToDeliverIsComplete;
+  resourcesAndCostsIsComplete = req.session.resourcesAndCostsIsComplete;
+  ethicalAndSocietalIsComplete = req.session.ethicalAndSocietalIsComplete;
+
+  // console.log('projectDetailsIsComplete = ' + projectDetailsIsComplete);
+  // console.log('applicationDetailsIsComplete = ' + applicationDetailsIsComplete);
+
+  if (projectDetailsIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
+  } else if (progressPercentage > 10) {
+    progressPercentage = progressPercentage - 16.66666666666;
   }
-  if (teamHasBeenUpdated) {
+  if (applicationDetailsIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
+  } else if (progressPercentage > 10) {
+    progressPercentage = progressPercentage - 16.66666666666;
   }
-  if (caseHasBeenUpdated) {
+  if (caseForSupportIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
+  } else if (progressPercentage > 10) {
+    progressPercentage = progressPercentage - 16.66666666666;
   }
-  if (capabilityHasBeenUpdated) {
+  if (capabilityToDeliverIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
+  } else if (progressPercentage > 10) {
+    progressPercentage = progressPercentage - 16.66666666666;
   }
-  if (ethicalHasBeenUpdated) {
+  if (ethicalAndSocietalIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
+  } else if (progressPercentage > 10) {
+    progressPercentage = progressPercentage - 16.66666666666;
   }
-  if (resourcesHasBeenUpdated) {
+  if (resourcesAndCostsIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
+  } else if (progressPercentage > 10) {
+    progressPercentage = progressPercentage - 16.66666666666;
   }
 
   progressPercentage = progressPercentage.toFixed(0);
@@ -91,7 +114,10 @@ function tinyMCEApplicationIndexGet(req, res) {
     capabilityHasBeenUpdated,
     ethicalHasBeenUpdated,
     resourcesHasBeenUpdated,
-    progressPercentage
+    progressPercentage,
+    projectDetailsIsComplete,
+    applicationDetailsIsComplete,
+    caseForSupportIsComplete
   };
 
   return res.render('prototypes/example-journey/application/index', viewData);
@@ -208,7 +234,7 @@ function tinyMCEApplicationStaticViewGet(req, res) {
 
   caseForSupport = caseForSupportData.caseForSupport2;
 
-  var $ = cheerio.load(caseForSupport);
+  let $ = cheerio.load(caseForSupport);
 
   $('p, span, div').each(function () {
     this.attribs = {};
@@ -236,37 +262,47 @@ function tinyMCEApplicationStaticViewGet(req, res) {
 //
 // ************************************************************************
 function projectDetailsGet(req, res) {
-  let viewData;
+  let viewData, allProjectDetails;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
+  allProjectDetails = req.session.projectDetails;
+
   viewData = {
-    projectName
+    projectName,
+    allProjectDetails
   };
 
   return res.render('prototypes/example-journey/application/project-details', viewData);
 }
 
 function projectDetailsPost(req, res) {
-  const { projectName, projectSummary, projectDuration, day, month } = req.body;
+  const { projectName, projectSummary, projectDuration, month, year, isComplete } = req.body;
 
-  // console.log('projectName = ' + projectName);
+  console.log('isComplete = ' + isComplete);
 
   let allProjectDetails = {
     projectName,
     projectSummary,
     projectDuration,
-    day,
-    month
+    month,
+    year,
+    isComplete
   };
 
   req.session.storedProjectName = allProjectDetails.projectName;
   console.log(allProjectDetails);
   req.session.projectDetails = allProjectDetails;
   req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
 
   return res.redirect('/prototypes/example-journey/application/');
 }
@@ -276,21 +312,43 @@ function projectDetailsPost(req, res) {
 //
 // ************************************************************************
 function applicationTeamGet(req, res) {
-  let viewData;
+  let viewData, allApplicationTeam, caseForSupportIsComplete;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
+  caseForSupportIsComplete = req.session.caseForSupportIsComplete;
+
+  allApplicationTeam = req.session.allApplicationTeam;
+
   viewData = {
-    projectName
+    projectName,
+    allApplicationTeam,
+    caseForSupportIsComplete
   };
 
   return res.render('prototypes/example-journey/application/application-team', viewData);
 }
 
 function applicationTeamPost(req, res) {
+  const { isComplete } = req.body;
+
+  let allApplicationTeam = {
+    isComplete
+  };
+
+  console.log(isComplete);
+
+  req.session.allApplicationTeam = allApplicationTeam;
+
+  if (isComplete == 'on') {
+    req.session.applicationDetailsIsComplete = true;
+  } else {
+    req.session.applicationDetailsIsComplete = null;
+  }
+
   req.session.hasBeenUpdated = true;
   req.session.teamHasBeenUpdated = true;
 
@@ -321,7 +379,13 @@ function caseForSupportGet(req, res) {
 }
 
 function caseForSupportPost(req, res) {
-  const { caseForSupportNotes } = req.body;
+  const { caseForSupportNotes, isComplete } = req.body;
+
+  if (isComplete == 'on') {
+    req.session.caseForSupportIsComplete = true;
+  } else {
+    req.session.caseForSupportIsComplete = null;
+  }
 
   req.session.caseForSupportNotes = caseForSupportNotes;
   req.session.caseHasBeenUpdated = true;
@@ -335,9 +399,10 @@ function caseForSupportPost(req, res) {
 //
 // ************************************************************************
 function capabilityToDeliverGet(req, res) {
-  let viewData, capabilityToDeliverNotes;
+  let viewData, capabilityToDeliverNotes, allCapabilityToDeliver;
 
   capabilityToDeliverNotes = req.session.storedCapabilityToDeliverNotes;
+  allCapabilityToDeliver = req.session.allCapabilityToDeliver;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
@@ -346,14 +411,27 @@ function capabilityToDeliverGet(req, res) {
 
   viewData = {
     projectName,
-    capabilityToDeliverNotes
+    capabilityToDeliverNotes,
+    allCapabilityToDeliver
   };
 
   return res.render('prototypes/example-journey/application/capability-to-deliver', viewData);
 }
 
 function capabilityToDeliverPost(req, res) {
-  const { capabilityToDeliverNotes } = req.body;
+  const { capabilityToDeliverNotes, isComplete } = req.body;
+
+  let allCapabilityToDeliver = {
+    isComplete
+  };
+
+  req.session.allCapabilityToDeliver = allCapabilityToDeliver;
+
+  if (isComplete == 'on') {
+    req.session.capabilityToDeliverIsComplete = true;
+  } else {
+    req.session.capabilityToDeliverIsComplete = null;
+  }
 
   req.session.storedCapabilityToDeliverNotes = capabilityToDeliverNotes;
   req.session.hasBeenUpdated = true;
@@ -367,29 +445,64 @@ function capabilityToDeliverPost(req, res) {
 //
 // ************************************************************************
 function resourcesCostGet(req, res) {
-  let viewData;
+  let viewData, allResourcesAndCosts;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
+  allResourcesAndCosts = req.session.allResourcesAndCosts;
+
   viewData = {
-    projectName
+    projectName,
+    allResourcesAndCosts
   };
 
   return res.render('prototypes/example-journey/application/resources-and-cost', viewData);
 }
 
 function resourcesCostPost(req, res) {
-  const { projectCosts, costsStaff, costsOverheads, costsMaterials } = req.body;
+  const { projectCosts, costsStaff, costsOverheads, costsMaterials, isComplete } = req.body;
+
+  let allResourcesAndCosts = {
+    projectCosts,
+    costsStaff,
+    costsOverheads,
+    costsMaterials,
+    isComplete
+  };
+
+  if (isComplete == 'on') {
+    req.session.resourcesAndCostsIsComplete = true;
+  } else {
+    req.session.resourcesAndCostsIsComplete = null;
+  }
 
   let newCostsStaff, newCostsOverheads, newCostsMaterials;
-  newCostsStaff = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsStaff);
-  newCostsOverheads = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsOverheads);
-  newCostsMaterials = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsMaterials);
 
-  console.log('newCostsStaff = ' + newCostsStaff);
+  if (genericFunctions.isNumeric(costsStaff)) {
+    newCostsStaff = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsStaff);
+    allResourcesAndCosts.costsStaff = newCostsStaff;
+  } else {
+    allResourcesAndCosts.costsStaff = costsStaff;
+  }
+
+  if (genericFunctions.isNumeric(costsOverheads)) {
+    newCostsOverheads = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsOverheads);
+    allResourcesAndCosts.costsOverheads = newCostsOverheads;
+  } else {
+    allResourcesAndCosts.costsOverheads = costsOverheads;
+  }
+
+  if (genericFunctions.isNumeric(costsMaterials)) {
+    newCostsMaterials = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsMaterials);
+    allResourcesAndCosts.costsMaterials = newCostsMaterials;
+  } else {
+    allResourcesAndCosts.costsMaterials = costsMaterials;
+  }
+
+  // console.log('newCostsStaff = ' + newCostsStaff);
 
   req.session.projectCosts = projectCosts;
   req.session.costsStaff = newCostsStaff;
@@ -397,6 +510,8 @@ function resourcesCostPost(req, res) {
   req.session.costsMaterials = newCostsMaterials;
   req.session.hasBeenUpdated = true;
   req.session.resourcesHasBeenUpdated = true;
+
+  req.session.allResourcesAndCosts = allResourcesAndCosts;
 
   return res.redirect('/prototypes/example-journey/application/');
 }
@@ -407,11 +522,13 @@ function resourcesCostPost(req, res) {
 //
 // ************************************************************************
 function ethicalSocietalGet(req, res) {
-  let viewData, ethicalReasons;
+  let viewData, ethicalReasons, allEthicalAndSocietal;
 
   ethicalReasons = generalData.ethicalReasons;
 
   console.log(ethicalReasons);
+
+  allEthicalAndSocietal = req.session.allEthicalAndSocietal;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
@@ -420,17 +537,29 @@ function ethicalSocietalGet(req, res) {
 
   viewData = {
     projectName,
-    ethicalReasons
+    ethicalReasons,
+    allEthicalAndSocietal
   };
 
   return res.render('prototypes/example-journey/application/ethical-and-societal-issues', viewData);
 }
 
 function ethicalSocietalPost(req, res) {
-  const { ethicalReasons, ethicalNotes } = req.body;
+  const { ethicalReasons, ethicalNotes, isComplete } = req.body;
 
-  console.log(req.body);
+  let allEthicalAndSocietal = {
+    ethicalReasons,
+    ethicalNotes,
+    isComplete
+  };
 
+  if (isComplete == 'on') {
+    req.session.ethicalAndSocietalIsComplete = true;
+  } else {
+    req.session.ethicalAndSocietalIsComplete = null;
+  }
+
+  req.session.allEthicalAndSocietal = allEthicalAndSocietal;
   req.session.ethicalReasons = ethicalReasons;
   req.session.ethicalNotes = ethicalNotes;
   req.session.hasBeenUpdated = true;

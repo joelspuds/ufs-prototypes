@@ -64,10 +64,10 @@
                             {% for item in allCouncils %}
 
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="council_{{ item.index }}" name="funders" type="checkbox" value="{{ item.index }}"
+                                    <input class="govuk-checkboxes__input" id="council_{{ item.index }}" name="funders" type="checkbox" value="{{ item.value }}"
                                     {% for match in funderslist %}
                                         {# DIRTY DIRTY DIRTY #}
-                                        {% if match == item.name %}
+                                        {% if (match == item.name) or (match == item.short) %}
                                             checked
                                         {% endif %}
                                     {% endfor %}

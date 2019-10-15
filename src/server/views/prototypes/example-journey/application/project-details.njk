@@ -3,6 +3,7 @@
 {% set projectName = projectName if projectName %}
 {% set showSimpleTinyMCEScripts = true %}
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
+{% set allProjectDetails = allProjectDetails if allProjectDetails %}
 
 {% block content %}
 
@@ -24,7 +25,7 @@
 
                 {% call components.formGroup() %}
 
-                    {{ components.field(label='Project name', hint='Enter the full title of your proposed project', labelBold=true, id='projectName') }}
+                    {{ components.field(label='Project name', hint='Enter the full title of your proposed project', labelBold=true, id='projectName', value=allProjectDetails.projectName) }}
 
                 {%- endcall %}
 
@@ -38,7 +39,7 @@
 
                 {% call components.formGroup() %}
 
-                    {{ components.textarea(options=selectOptions, label='Project summary', labelBold=true, id='projectSummary', hint='Peer reviewers will be selected to assess your application based on this summary.', group=false, size='', value='', extraClass='') }}
+                    {{ components.textarea(options=selectOptions, label='Project summary', labelBold=true, id='projectSummary', hint='Peer reviewers will be selected to assess your application based on this summary.', group=false, size='', value=allProjectDetails.projectSummary, extraClass='') }}
 
                 {%- endcall %}
 
@@ -50,10 +51,36 @@
 
             {% call components.columnFull() %}
 
-                {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020') }}
+                {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020', monthValue=allProjectDetails.month, yearValue=allProjectDetails.year) }}
 
                 {% call components.formGroup() %}
-                    {{ components.field(label='Duration in months', labelBold=true, id='projectDuration', inputWidthClass='govuk-input--width-3') }}
+                    {{ components.field(label='Duration in months', labelBold=true, id='projectDuration', inputWidthClass='govuk-input--width-3', value=allProjectDetails.projectDuration) }}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allProjectDetails.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
                 {%- endcall %}
 
             {%- endcall %}

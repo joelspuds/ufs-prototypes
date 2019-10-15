@@ -44,14 +44,14 @@
         <div class="govuk-date-input__item">
           <div class="govuk-form-group">
             <label class="govuk-label govuk-date-input__label" for="{{ monthId }}">{{ monthLabel }}</label>
-            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="{{ monthId }}" name="{{ monthId }}" type="number" pattern="[0-9]*">
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="{{ monthId }}" name="{{ monthId }}" type="number" pattern="[0-9]*" value="{{ monthValue }}">
           </div>
         </div>
 
         <div class="govuk-date-input__item">
           <div class="govuk-form-group">
             <label class="govuk-label govuk-date-input__label" for="{{ yearId }}">{{ yearLabel }}</label>
-            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="{{ yearId }}" name="{{ yearId }}" type="number" pattern="[0-9]*">
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="{{ yearId }}" name="{{ yearId }}" type="number" pattern="[0-9]*" value="{{ yearValue }}">
           </div>
         </div>
       </div>

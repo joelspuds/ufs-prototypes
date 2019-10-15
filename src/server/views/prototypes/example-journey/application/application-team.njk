@@ -2,6 +2,8 @@
 {% set pageTitle = APPLICATION_TEAM_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
+{% set allApplicationTeam = allApplicationTeam if allApplicationTeam %}
+
 {% block content %}
 
     {% call components.gridRow() %}
@@ -60,6 +62,32 @@
                 <p class="govuk-body u-space-t5 u-space-b30">
                     {{ components.link(text='Add another contributor', url='#') }}
                 </p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allApplicationTeam.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
 
             {%- endcall %}
 

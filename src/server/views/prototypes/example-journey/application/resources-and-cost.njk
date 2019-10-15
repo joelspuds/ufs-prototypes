@@ -1,6 +1,8 @@
 {% extends 'layouts/ufs.layout.njk' %}
 {% set pageTitle = APPLICATION_RESOURCES_COST_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
+{% set allResourcesAndCosts = allResourcesAndCosts if allResourcesAndCosts %}
+
 {% set showSimpleTinyMCEScripts = true %}
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
 
@@ -51,23 +53,37 @@
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell">Staffing</td>
                                 <td class="govuk-table__cell  govuk-table__cell--numeric">
-                                    {{ components.field(label='Staff costs', labelVisuallyHidden=true, id='costsStaff', inputWidthClass='govuk-input--width-10') }}
+                                    {{ components.field(label='Staff costs', labelVisuallyHidden=true, id='costsStaff', inputWidthClass='govuk-input--width-10', value=allResourcesAndCosts.costsStaff) }}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell">Overheads</td>
                                 <td class="govuk-table__cell  govuk-table__cell--numeric">
-                                    {{ components.field(label='Overheads', labelVisuallyHidden=true, id='costsOverheads', inputWidthClass='govuk-input--width-10') }}
+                                    {{ components.field(label='Overheads', labelVisuallyHidden=true, id='costsOverheads', inputWidthClass='govuk-input--width-10', value=allResourcesAndCosts.costsOverheads) }}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell">Materials</td>
                                 <td class="govuk-table__cell  govuk-table__cell--numeric">
-                                    {{ components.field(label='Material costs', labelVisuallyHidden=true, id='costsMaterials', inputWidthClass='govuk-input--width-10') }}
+                                    {{ components.field(label='Material costs', labelVisuallyHidden=true, id='costsMaterials', inputWidthClass='govuk-input--width-10', value=allResourcesAndCosts.costsMaterials) }}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b30') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Project costs', labelBold=true, id='projectCosts', group=false, size='', value=allResourcesAndCosts.projectCosts, extraClass='', hint='Provide reasons and justifictions for the above costs') }}
+
                 {%- endcall %}
 
             {%- endcall %}
@@ -79,9 +95,21 @@
             {% call components.columnFull() %}
 
                 {% call components.formGroup() %}
-
-                    {{ components.textarea(options=selectOptions, label='Project costs', labelBold=true, id='projectCosts', group=false, size='', value='', extraClass='', hint='Provide reasons and justifictions for the above costs') }}
-
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allResourcesAndCosts.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
                 {%- endcall %}
 
             {%- endcall %}

@@ -3,6 +3,8 @@
 {% set projectName = projectName if projectName %}
 {% set showSimpleTinyMCEScripts = true %}
 {% set capabilityToDeliverNotes = capabilityToDeliverNotes if capabilityToDeliverNotes %}
+{% set allCapabilityToDeliver = allCapabilityToDeliver if allCapabilityToDeliver %}
+
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
 
 {% block content %}
@@ -99,7 +101,7 @@
 
             {% call components.columnFull() %}
 
-               {{ components.captionHeading(text='Capability to deliver', size='s')}}
+               {{ components.captionHeading(text='Capability to deliver', size='s', tag='h2')}}
 
                 {% call components.hiddenText(summary='What should I include in this section?') %}
                     <p>Your capability to deliver should be structured as follows:</p>
@@ -115,8 +117,42 @@
 
                 {%- endcall %}
 
-               {{ components.textarea(options=selectOptions, label='Enter your case for support', id='capabilityToDeliverNotes', hint='Describe how your proposed team is suitable and capable to undertake the project.', group=true, size='', value=capabilityToDeliverNotes, extraClass='', visuallyHidden=true) }}
+            {%- endcall %}
 
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b30') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.textarea(options=selectOptions, label='Enter your case for support', id='capabilityToDeliverNotes', hint='Describe how your proposed team is suitable and capable to undertake the project.', group=true, size='', value=capabilityToDeliverNotes, extraClass='', visuallyHidden=true) }}
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allCapabilityToDeliver.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
 
             {%- endcall %}
 
@@ -142,9 +178,10 @@
 {% block bodyScripts %}
     <script>
       Zepto(function($){
-        $('#showInviteRow').on('click', function(e) {
+        $('#showInviteRow').on('click', function(event) {
           $('#hiddenRow').removeClass('govuk-visually-hidden');
-          e.isDefaultPrevented();
+          // return;
+          event.preventDefault();
         });
       })
     </script>

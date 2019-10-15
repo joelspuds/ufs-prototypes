@@ -2,6 +2,8 @@
 {% set pageTitle = APPLICATION_ETHICAL_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set ethicalReasons = ethicalReasons if ethicalReasons %}
+{% set allEthicalAndSocietal = allEthicalAndSocietal if allEthicalAndSocietal %}
+
 {% set showSimpleTinyMCEScripts = true %}
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
 
@@ -33,7 +35,13 @@
 
                             {% for item in ethicalReasons %}
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="ethicalReason_{{ item.index }}" name="ethicalReasons" type="checkbox" value="{{ item.name }}">
+                                    <input class="govuk-checkboxes__input" id="ethicalReason_{{ item.index }}" name="ethicalReasons" type="checkbox" value="{{ item.name }}"
+                                        {% for reasons in allEthicalAndSocietal.ethicalReasons %}
+                                            {% if reasons == item.name %}
+                                                checked
+                                            {% endif %}
+                                        {% endfor %}
+                                    >
                                     <label class="govuk-label govuk-checkboxes__label" for="ethicalReason_{{ item.index }}">
                                         {{ item.name }}
                                     </label>
@@ -48,7 +56,7 @@
 
         {%- endcall %}
 
-        {% call components.gridRow(extraClass='u-space-b30') %}
+        {% call components.gridRow() %}
 
             {% call components.columnFull() %}
 
@@ -61,15 +69,42 @@
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
+        {% call components.gridRow(extraClass='u-space-b30') %}
 
             {% call components.columnFull() %}
 
-                {{ components.textarea(options=selectOptions, label='How will the selected issues be managed?', labelBold=true, id='ethicalNotes',  group=false, size='', value='', extraClass='') }}
+                {{ components.textarea(options=selectOptions, label='How will the selected issues be managed?', labelBold=true, id='ethicalNotes',  group=false, size='', value=allEthicalAndSocietal.ethicalNotes, extraClass='') }}
 
             {%- endcall %}
 
         {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allEthicalAndSocietal.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
 
         {% call components.gridRow() %}
             {% call components.columnFull() %}

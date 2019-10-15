@@ -3,6 +3,8 @@
 {% set showTinyMCEScripts = true %}
 {% set storedCaseForSupportNotes = storedCaseForSupportNotes if storedCaseForSupportNotes %}
 {% set projectName = projectName if projectName %}
+{% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
+
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
 
 {% block content %}
@@ -49,7 +51,7 @@
 
     {% call components.form(action='/prototypes/example-journey/application/case-for-support', method='POST',name='caseForSupportNotes') %}
 
-        {% call components.gridRow() %}
+        {% call components.gridRow(extraClass='u-space-b30') %}
             {% call components.columnFull() %}
 
                 <style>
@@ -60,6 +62,32 @@
                 </style>
 
                 {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='caseForSupportNotes', hint='', group=true, size='', value=storedCaseForSupportNotes, extraClass='', visuallyHidden=true) }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if caseForSupportIsComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
 
             {%- endcall %}
 

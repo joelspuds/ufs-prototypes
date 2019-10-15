@@ -102,6 +102,7 @@ export function opportunityFundersPost(req, res) {
   console.log(funders);
 
   let fundersList, allCouncils;
+
   allCouncils = generalData.allCouncils;
 
   fundersList = funders;
