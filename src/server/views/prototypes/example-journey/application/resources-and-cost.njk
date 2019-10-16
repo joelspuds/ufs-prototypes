@@ -49,13 +49,15 @@
 
                 {% call components.formGroup() %}
 
-                    {{ components.field(label='Number of full-time staff', id='fullTimeStaff', inputWidthClass='govuk-input--width-10', value=allResourcesValues.fullTimeStaff) }}
+                    {% set fullTimeStaffValue = allResourcesValues.fullTimeStaff if allResourcesValues.fullTimeStaff else "0" %}
+                    {{ components.field(label='Number of full-time staff', id='fullTimeStaff', inputWidthClass='govuk-input--width-5', value=fullTimeStaffValue) }}
 
                 {%- endcall %}
 
                 {% call components.formGroup(extraClass='u-space-b10') %}
 
-                    {{ components.field(label='Number of part-time staff', id='partTimeStaff', inputWidthClass='govuk-input--width-10', value=allResourcesValues.partTimeStaff) }}
+                    {% set partTimeStaffValue = allResourcesValues.partTimeStaff if allResourcesValues.partTimeStaff else "0" %}
+                    {{ components.field(label='Number of part-time staff', id='partTimeStaff', inputWidthClass='govuk-input--width-5', value=partTimeStaffValue) }}
 
                 {%- endcall %}
 
@@ -69,7 +71,8 @@
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
-                    {{ components.field(label='Total staff costs for project (£)', id='totalStaffCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalStaffCost) }}
+                    {% set totalStaffValue = allResourcesValues.totalStaffCost if allResourcesValues.totalStaffCost else "0" %}
+                    {{ components.field(label='Total staff costs for project (£)', id='totalStaffCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalStaffValue) }}
 
                 {%- endcall %}
 
@@ -109,7 +112,8 @@
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
-                    {{ components.field(label='Total travel costs for project (£)', id='totalTravelCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalTravelCost) }}
+                    {% set totalResourcesValue = allResourcesValues.totalTravelCost if allResourcesValues.totalTravelCost else "0" %}
+                    {{ components.field(label='Total travel costs for project (£)', id='totalTravelCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalResourcesValue) }}
 
                 {%- endcall %}
 
@@ -149,7 +153,8 @@
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
-                    {{ components.field(label='Total equipment cost for project (£)', id='totalEquipmentCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalEquipmentCost) }}
+                    {% set totalTravelValue = allResourcesValues.totalTravelCost if allResourcesValues.totalTravelCost else "0" %}
+                    {{ components.field(label='Total equipment cost for project (£)', id='totalEquipmentCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalTravelValue) }}
 
                 {%- endcall %}
 
@@ -189,7 +194,8 @@
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
-                    {{ components.field(label='Total other costs for project (£)', id='totalOtherCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalOtherCost) }}
+                    {% set totalOtherValue = allResourcesValues.totalOtherCost if allResourcesValues.totalOtherCost else "0" %}
+                    {{ components.field(label='Total other costs for project (£)', id='totalOtherCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalOtherValue) }}
 
                 {%- endcall %}
 
@@ -228,7 +234,8 @@
 
             {% call components.columnFull(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
-                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalIndiretCost) }}
+                {% set totalIndirectValue = allResourcesValues.totalIndiretCost if allResourcesValues.totalIndiretCost else "0" %}
+                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalIndirectValue) }}
 
             {%- endcall %}
 
@@ -256,7 +263,7 @@
 
             {% call components.columnHalf(extraClass='u-align-right') %}
 
-                <strong id="totalCostsOutput">£1,450,000</strong>
+                <strong id="totalCostsOutput">£0</strong>
 
             {%- endcall %}
 
@@ -311,4 +318,16 @@
 
     {%- endcall %}
 
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $('#totalStaffCost, #totalTravelCost, #totalEquipmentCost, #totalOtherCost, #totalIndirectCost').on('blur', function(event) {
+          let totalValue = parseInt($('#totalStaffCost').val(), 10) + parseInt($('#totalTravelCost').val(), 10) + parseInt($('#totalEquipmentCost').val(), 10) + parseInt($('#totalOtherCost').val(), 10) + parseInt($('#totalIndirectCost').val(), 10);
+          $('#totalCostsOutput').html('£'+totalValue);
+          event.preventDefault();
+        });
+      })
+    </script>
 {% endblock %}

@@ -34,9 +34,6 @@ export function tinyMCEApplicationIndexGet(req, res) {
     projectName = untitledProjectName;
   }
 
-  let progressPercentage = 0;
-  let reverseProgressPercentage = 0;
-
   // console.log(projectDetails);
 
   projectDetails = req.session.projectDetails;
@@ -56,52 +53,34 @@ export function tinyMCEApplicationIndexGet(req, res) {
   resourcesAndCostsIsComplete = req.session.resourcesAndCostsIsComplete;
   ethicalAndSocietalIsComplete = req.session.ethicalAndSocietalIsComplete;
 
-  console.log('projectDetailsIsComplete = ' + projectDetailsIsComplete);
-  // console.log('applicationDetailsIsComplete = ' + applicationDetailsIsComplete);
+  let incrementValue = 16.66666666666;
+  let progressPercentage = 0;
+  let reverseProgressPercentage = 0;
 
   if (projectDetailsIsComplete) {
-    //console.log('projectDetailsIsComplete is true');
-    progressPercentage += 16.66666666666;
-  } else if (!projectDetailsIsComplete) {
-    progressPercentage = progressPercentage - 16.66666666666;
+    progressPercentage += incrementValue;
   }
   if (applicationDetailsIsComplete) {
-    progressPercentage = progressPercentage + 16.66666666666;
-  } else if (!applicationDetailsIsComplete) {
-    progressPercentage = progressPercentage - 16.66666666666;
+    progressPercentage = progressPercentage + incrementValue;
   }
   if (caseForSupportIsComplete) {
-    progressPercentage = progressPercentage + 16.66666666666;
-  } else if (progressPercentage > 10) {
-    progressPercentage = progressPercentage - 16.66666666666;
+    progressPercentage = progressPercentage + incrementValue;
   }
   if (capabilityToDeliverIsComplete) {
-    progressPercentage = progressPercentage + 16.66666666666;
-  } else if (progressPercentage > 10) {
-    progressPercentage = progressPercentage - 16.66666666666;
+    progressPercentage = progressPercentage + incrementValue;
   }
   if (ethicalAndSocietalIsComplete) {
-    progressPercentage = progressPercentage + 16.66666666666;
-  } else if (progressPercentage > 10) {
-    progressPercentage = progressPercentage - 16.66666666666;
+    progressPercentage = progressPercentage + incrementValue;
   }
   if (resourcesAndCostsIsComplete) {
-    progressPercentage = progressPercentage + 16.66666666666;
-  } else if (progressPercentage > 10) {
-    progressPercentage = progressPercentage - 16.66666666666;
+    progressPercentage = progressPercentage + incrementValue;
   }
 
-  // progressPercentage = 23;
-  console.log('progressPercentage before toFixed = ' + progressPercentage);
   progressPercentage = progressPercentage.toFixed(0);
   if (progressPercentage > 95) {
     progressPercentage = 100;
   }
-
   reverseProgressPercentage = 100 - progressPercentage;
-
-  console.log('progressPercentage = ' + progressPercentage);
-  console.log('reverseProgressPercentage = ' + reverseProgressPercentage);
 
   hasBeenUpdated = null;
 
@@ -120,6 +99,7 @@ export function tinyMCEApplicationIndexGet(req, res) {
     applicationDetailsIsComplete,
     caseForSupportIsComplete,
     resourcesAndCostsIsComplete,
+    ethicalAndSocietalIsComplete,
   };
 
   return res.render('prototypes/example-journey/application/index', viewData);

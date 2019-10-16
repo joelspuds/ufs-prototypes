@@ -21,7 +21,7 @@
 {% set progressPercentage = progressPercentage if progressPercentage %}
 {% set reverseProgressPercentage = reverseProgressPercentage if reverseProgressPercentage %}
 {% set resourcesAndCostsIsComplete = resourcesAndCostsIsComplete if resourcesAndCostsIsComplete %}
-
+{% set ethicalAndSocietalIsComplete = ethicalAndSocietalIsComplete if ethicalAndSocietalIsComplete %}
 
 {% block content %}
 
@@ -124,7 +124,7 @@
                 </li>
                 <li class="application-tasks__item">
                     {{ components.link(text='4. Ethical and societal issues', url='/prototypes/example-journey/application/ethical-and-societal-issues', extraClass="application-tasks__link govuk-link")}}
-                    {% if ethicalIsComplete %}
+                    {% if ethicalAndSocietalIsComplete %}
                         <span class="application-tasks__status application-tasks__status--complete">complete</span>
                     {% else %}
                         <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
@@ -140,122 +140,19 @@
                     {{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}
                 {% endif %}
 
-
                 {{ components.link(text='Cancel/withdraw application', url='#', extraClass="application-controls__cancel", disabled=true)}}
             </div>
-
 
         {%- endcall %}
 
         {% call components.columnOneThird(extraClass="padding-left-desktop-30") %}
 
-            {#<div class="percent-complete">
-                <span class="percent-complete__text">{{ progressPercentage }}% complete</span>
-                <span class="percent-complete__marker" style="width:{{ progressPercentage }}%">&nbsp;</span>
-            </div>#}
-
-           {# <style>
-                .progressBar {
-                    width: 300px;
-                    /*width: 100%;*/
-                    height: 20px;
-                    /*border: 1px solid #000;*/
-                    position: relative;
-                    /*margin-bottom: 5px;*/
-                    background-color: #f3f2f1;
-                    padding: 4px 0;
-                }
-
-                .progressBar .background,
-                .progressBar .foreground {
-                    width: 300px;
-                    /*width: 100%;*/
-                    height: 20px;
-                    font-size: 16px;
-                    text-align: center;
-                }
-
-                .progressBar .container {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 0%;
-                    overflow: hidden;
-                }
-
-                .progressBar .foreground {
-                    background-color: #00703c;
-                    color: #FFF;
-                    padding: 4px;
-                }
-            </style>
-
-            {% set progressPercentage = '50' %}
-
-            <div class="u-space-t15">
-                <div class = "progressBar">
-                    <div class = "background">{{ progressPercentage }}% complete</div>
-                    <div class = "container" style="width:{{ progressPercentage }}%">
-                        <div class = "foreground">{{ progressPercentage }}% complete</div>
-                    </div>
-                </div>
-            </div>#}
-
-            <style>
-                /*.progress {
-                    width: 100%;
-                    !*border: 1px solid #000;*!
-                    height: 24px;
-                    !*padding:4px 0;*!
-                    position: relative;
-                    background-color: #f1f1f1;
-                }
-                .progress__text {
-                    font-size: 14px;
-                    position: absolute;
-                    height: 24px;
-                    left: 0;
-                    top: 0;
-                    line-height: 24px;
-                    !*padding:4px 0;*!
-                }
-                .progress__text--back {
-                    text-align: center;
-                    color: #000;
-                    width: 100%;
-                    z-index:1;
-
-                }
-                .progress__text--front {
-                    text-align: center;
-                    color: #fff;
-                    background-color: #1E8400;
-                    width: 100%;
-
-                }
-                .progress__clipper {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    height: 24px;
-                    width: 100%;
-                    clip-path: inset(0% 50% 0% 0%);
-                    z-index:2;
-                }*/
-                .progress__clipper { clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%); }
-            </style>
-
-            {#reverseProgressPercentage = {{ reverseProgressPercentage }}<br>
-            progressPercentage = {{ progressPercentage }}#}
-            <div class="progress">
+           <div class="progress u-space-t15">
                 <div class="progress__text progress__text--back">{{ progressPercentage }}% complete</div>
-                <div class="progress__clipper">
+                <div class="progress__clipper" style="clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%);">
                     <div class="progress__text progress__text--front">{{ progressPercentage }}% complete</div>
                 </div>
             </div>
-
-
-
 
             <div class="application-data">
                 <dl class="application-data__list">
@@ -273,11 +170,8 @@
                 </dl>
             </div>
 
-
-
         {%- endcall %}
 
     {%- endcall %}
-
 
 {% endblock %}
