@@ -1,9 +1,9 @@
 {% extends 'layouts/ufs.layout.njk' %}
 {% set pageTitle = APPLICATION_RESOURCES_COST_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
-{% set allResourcesAndCosts = allResourcesAndCosts if allResourcesAndCosts %}
+{% set allResourcesValues = allResourcesValues if allResourcesValues %}
 
-{% set showSimpleTinyMCEScripts = true %}
+{#{% set showSimpleTinyMCEScripts = true %}#}
 {% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
 
 {% block content %}
@@ -20,71 +20,253 @@
 
     {% call components.form(action='/prototypes/example-journey/application/resources-and-cost', method='POST',name='formResourcesTeam') %}
 
-        {% call components.gridRow(extraClass='u-space-b30') %}
+        {% call components.gridRow(extraClass='u-space-b10') %}
 
             {% call components.columnFull() %}
 
-                {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
+                {{ components.captionHeading(text='Enter the total project costs for all organisations', tag='h2', size='s')}}
 
-                {% call components.hiddenText(summary='What should I include in this section?') %}
+                {{ components.paragraph(text='Costs are for assessment purposes to determine value for money.<br>A full breakdown of costs will be requested if the application is successful. ', bold=true, size='')}}
+
+                {% call components.hiddenText(summary='Resources and cost guidance') %}
                     <p>This section should contain a full breakdown of the top-level costs involved with your project.</p>
                     <p>It is not necessary to breakdown costs further than the items below although you must submit full details after initial review.</p>
                 {%- endcall %}
 
+                {{ components.sectionBreak(size='s') }}
+
             {%- endcall %}
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
+        {# ----------------- STAFF COSTS ----------------- #}
 
-            {% call components.columnTwoThirds() %}
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.captionHeading(text='Staff', tag='h3', size='s')}}
 
                 {% call components.formGroup() %}
 
-                    <table class="govuk-table">
-                        <caption class="govuk-table__caption">Costs outline</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Item</th>
-                                <th scope="col" class="govuk-table__header u-align-right">Cost £</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <td class="govuk-table__cell">Staffing</td>
-                                <td class="govuk-table__cell  govuk-table__cell--numeric">
-                                    {{ components.field(label='Staff costs', labelVisuallyHidden=true, id='costsStaff', inputWidthClass='govuk-input--width-10', value=allResourcesAndCosts.costsStaff) }}
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <td class="govuk-table__cell">Overheads</td>
-                                <td class="govuk-table__cell  govuk-table__cell--numeric">
-                                    {{ components.field(label='Overheads', labelVisuallyHidden=true, id='costsOverheads', inputWidthClass='govuk-input--width-10', value=allResourcesAndCosts.costsOverheads) }}
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <td class="govuk-table__cell">Materials</td>
-                                <td class="govuk-table__cell  govuk-table__cell--numeric">
-                                    {{ components.field(label='Material costs', labelVisuallyHidden=true, id='costsMaterials', inputWidthClass='govuk-input--width-10', value=allResourcesAndCosts.costsMaterials) }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {{ components.field(label='Number of full-time staff', id='fullTimeStaff', inputWidthClass='govuk-input--width-10', value=allResourcesValues.fullTimeStaff) }}
+
+                {%- endcall %}
+
+                {% call components.formGroup(extraClass='u-space-b10') %}
+
+                    {{ components.field(label='Number of part-time staff', id='partTimeStaff', inputWidthClass='govuk-input--width-10', value=allResourcesValues.partTimeStaff) }}
+
                 {%- endcall %}
 
             {%- endcall %}
 
         {%- endcall %}
 
-        {% call components.gridRow(extraClass='u-space-b30') %}
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {{ components.field(label='Total staff costs for project (£)', id='totalStaffCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalStaffCost) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- TRAVEL AND SUBSISTENCE ----------------- #}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
 
             {% call components.columnFull() %}
 
                 {% call components.formGroup() %}
 
-                    {{ components.textarea(options=selectOptions, label='Project costs', labelBold=true, id='projectCosts', group=false, size='', value=allResourcesAndCosts.projectCosts, extraClass='', hint='Provide reasons and justifictions for the above costs') }}
+                    {{ components.textarea(options=selectOptions, label='Travel and subsistence', labelBold=true, id='travelCostsText', group=false, size='', value=allResourcesValues.travelCostsText, extraClass='', hint='Describe the reason(s) for travel and its purpose for the project') }}
 
                 {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {{ components.field(label='Total travel costs for project (£)', id='totalTravelCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalTravelCost) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- EQUIPMENT ----------------- #}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Equipment', labelBold=true, id='equipmentCostsText', group=false, size='', value=allResourcesValues.equipmentCostsText, extraClass='', hint='Describe the equipment and its purpose for the project') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {{ components.field(label='Total equipment cost for project (£)', id='totalEquipmentCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalEquipmentCost) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- Other directly incurred costs ----------------- #}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Other directly incurred costs', labelBold=true, id='otherCostsText', group=false, size='', value=allResourcesValues.otherCostsText, extraClass='', hint='Describe other directly incurred costs') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {{ components.field(label='Total other costs for project (£)', id='totalOtherCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalOtherCost) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+
+        {# ----------------- Indirect costs ----------------- #}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Indirect costs', labelBold=true, id='indirectCostsText', group=false, size='', value=allResourcesValues.indirectCostsText, extraClass='', hint='Describe indirect costs') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', inputWidthClass='govuk-input--width-10', value=allResourcesValues.totalIndiretCost) }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- Total ----------------- #}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnHalf() %}
+
+                <strong>Total project cost</strong>
+
+            {%- endcall %}
+
+            {% call components.columnHalf(extraClass='u-align-right') %}
+
+                <strong id="totalCostsOutput">£1,450,000</strong>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.sectionBreak(size='s') }}
 
             {%- endcall %}
 
@@ -103,7 +285,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allResourcesAndCosts.isComplete == 'on' %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allResourcesValues.isComplete == 'on' %} checked{% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>
@@ -119,7 +301,7 @@
         {% call components.gridRow() %}
             {% call components.columnFull() %}
                 <div class="application-controls govuk-clearfix">
-                    {{ components.button(text='Save and preview', extraClass="application-controls__submit")}}
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     <span class="sub-button">
                         {{ components.link(text='Cancel', url='/prototypes/example-journey/application/')}}
                     </span>

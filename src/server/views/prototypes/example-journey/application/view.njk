@@ -18,11 +18,13 @@
 {% set notesCapability = notesCapability if notesCapability %}
 {% set notesResources = notesResources if notesResources %}
 {% set notesEthical = notesEthical if notesEthical %}
-{% set notesCosts = notesCosts if notesCosts %}
+{#{% set notesCosts = notesCosts if notesCosts %}
 {% set costsOverheads = costsOverheads if costsOverheads %}
 {% set costsMaterials = costsMaterials if costsMaterials %}
-{% set costsStaff = costsStaff if costsStaff %}
+{% set costsStaff = costsStaff if costsStaff %}#}
 {% set ethicalReasons = ethicalReasons if ethicalReasons %}
+{% set allResourcesValues = allResourcesValues if allResourcesValues %}
+
 
 
 {% block content %}
@@ -95,53 +97,45 @@
 
             <h2 class="heading heading-medium" id="marker_Resources">Resources and costs</h2>
 
-              <table class="govuk-table">
-                <caption class="govuk-table__caption">Costs outline</caption>
-                <thead class="govuk-table__head">
-                <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Item</th>
-                    <th scope="col" class="govuk-table__header u-align-right">Cost £</th>
-                </tr>
-                </thead>
-                <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Staffing</td>
-                    <td class="govuk-table__cell  govuk-table__cell--numeric">
-                        {% if costsStaff %}
-                            {{ costsStaff }}
-                        {% else %}
-                            <span>No value has been entered for this item</span>
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Overheads</td>
-                    <td class="govuk-table__cell  govuk-table__cell--numeric">
-                        {% if costsOverheads %}
-                            {{ costsOverheads }}
-                        {% else %}
-                            <span>No value has been entered for this item</span>
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Materials</td>
-                    <td class="govuk-table__cell  govuk-table__cell--numeric">
-                        {% if costsMaterials %}
-                            {{ costsMaterials }}
-                        {% else %}
-                            <span>No value has been entered for this item</span>
-                        {% endif %}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <p class="govuk-body">
+                <strong>Number of full-time staff: </strong> {{ allResourcesValues.fullTimeStaff }}<br>
+                <strong>Number of part-time staff: </strong> {{ allResourcesValues.partTimeStaff }}
+            </p>
+            <p class="govuk-body u-align-right">
+                <strong>Total staff costs: </strong> {{ allResourcesValues.totalStaffCost }}
+            </p>
 
-            {% if notesCosts %}
-                {{ notesCosts }}
-            {% else %}
-                <div>No content has been added for this section yet.</div>
-            {% endif %}
+            {{ components.captionHeading(text='Travel costs', tag='h3', size='small') }}
+
+            <p class="govuk-body">{{ allResourcesValues.travelCostsText }}</p>
+            <p class="govuk-body u-align-right">
+                <strong>Total travel costs: </strong> {{ allResourcesValues.totalTravelCost }}
+            </p>
+
+            {{ components.captionHeading(text='Equipment costs', tag='h3', size='small') }}
+
+            <p class="govuk-body">{{ allResourcesValues.equipmentCostsText }}</p>
+            <p class="govuk-body u-align-right">
+                <strong>Total equipment costs: </strong> {{ allResourcesValues.totalEquipmentCost }}
+            </p>
+
+            {{ components.captionHeading(text='Other directly incurred costs', tag='h3', size='small') }}
+
+            <p class="govuk-body">{{ allResourcesValues.otherCostsText }}</p>
+            <p class="govuk-body u-align-right">
+                <strong>Total other directly incurred costs: </strong> {{ allResourcesValues.totalOtherCost }}
+            </p>
+
+            {{ components.captionHeading(text='Other indirect costs', tag='h3', size='small') }}
+
+            <p class="govuk-body">{{ allResourcesValues.indirectCostsText }}</p>
+            <p class="govuk-body u-align-right">
+                <strong>Total indirect costs: </strong> {{ allResourcesValues.totalIndirectCost }}
+            </p>
+
+            <p class="govuk-body-l u-align-right">
+                <strong>Total costs: </strong> {{ allResourcesValues.uberTotalCost }}
+            </p>
 
             {{ components.divider() }}
 

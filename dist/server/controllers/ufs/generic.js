@@ -56,7 +56,7 @@ module.exports.createShorterTitle = createShorterTitle;
 
 let numberWithCommas = function (x) {
   // And thus, thine number shalt need a comma inserted within its length?
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
 module.exports.numberWithCommas = numberWithCommas;

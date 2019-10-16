@@ -18,6 +18,10 @@
 {% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
 {% set resourcesAndCostsIsComplete = resourcesAndCostsIsComplete if resourcesAndCostsIsComplete %}
 {% set ethicalIsComplete = ethicalIsComplete if ethicalIsComplete %}
+{% set progressPercentage = progressPercentage if progressPercentage %}
+{% set reverseProgressPercentage = reverseProgressPercentage if reverseProgressPercentage %}
+{% set resourcesAndCostsIsComplete = resourcesAndCostsIsComplete if resourcesAndCostsIsComplete %}
+
 
 {% block content %}
 
@@ -145,10 +149,10 @@
 
         {% call components.columnOneThird(extraClass="padding-left-desktop-30") %}
 
-            <div class="percent-complete">
+            {#<div class="percent-complete">
                 <span class="percent-complete__text">{{ progressPercentage }}% complete</span>
                 <span class="percent-complete__marker" style="width:{{ progressPercentage }}%">&nbsp;</span>
-            </div>
+            </div>#}
 
            {# <style>
                 .progressBar {
@@ -198,49 +202,56 @@
             </div>#}
 
             <style>
-                .progress {
+                /*.progress {
                     width: 100%;
-                    /*border: 1px solid #000;*/
-                    height: 20px;
-                    padding:4px 0;
+                    !*border: 1px solid #000;*!
+                    height: 24px;
+                    !*padding:4px 0;*!
                     position: relative;
                     background-color: #f1f1f1;
                 }
                 .progress__text {
                     font-size: 14px;
                     position: absolute;
-                    left: 1px;
-                    top: 1px;
-                    padding:4px 0;
+                    height: 24px;
+                    left: 0;
+                    top: 0;
+                    line-height: 24px;
+                    !*padding:4px 0;*!
                 }
                 .progress__text--back {
                     text-align: center;
                     color: #000;
                     width: 100%;
+                    z-index:1;
 
                 }
                 .progress__text--front {
                     text-align: center;
-                    color: #c0c0c0;
+                    color: #fff;
                     background-color: #1E8400;
                     width: 100%;
 
                 }
                 .progress__clipper {
                     position: absolute;
-                    left: 1px;
-                    top: 1px;
-                    padding:4px 0;
-                    clip: rect(10px, 290px, 190px, 10px);
-                }
+                    left: 0;
+                    top: 0;
+                    height: 24px;
+                    width: 100%;
+                    clip-path: inset(0% 50% 0% 0%);
+                    z-index:2;
+                }*/
+                .progress__clipper { clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%); }
             </style>
 
+            {#reverseProgressPercentage = {{ reverseProgressPercentage }}<br>
+            progressPercentage = {{ progressPercentage }}#}
             <div class="progress">
-                <div class="progress__text progress__text--back">0% complete</div>
+                <div class="progress__text progress__text--back">{{ progressPercentage }}% complete</div>
                 <div class="progress__clipper">
-                    <div class="progress__text progress__text--front">0% complete</div>
+                    <div class="progress__text progress__text--front">{{ progressPercentage }}% complete</div>
                 </div>
-
             </div>
 
 

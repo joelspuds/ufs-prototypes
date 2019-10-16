@@ -1,5 +1,5 @@
-{% macro formGroup() %}
-  <div class="govuk-form-group">
+{% macro formGroup(extraClass) %}
+  <div class="govuk-form-group {% if extraClass %} {{ extraClass }} {% endif %}">
 
       {{ caller() }}
 

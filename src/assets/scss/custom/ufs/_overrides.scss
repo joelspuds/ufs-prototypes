@@ -26,3 +26,20 @@
 .govuk-related-items {
   border-top-width: 5px;
 }
+
+.govuk-form-group--inline-right {
+
+  @include govuk-media-query($from: tablet) {
+    text-align: right;
+
+    .govuk-label {
+      display: inline-block;
+    }
+
+    .govuk-input {
+      // float: right;
+      display: inline-block;
+    }
+  }
+
+}

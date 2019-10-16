@@ -35,6 +35,7 @@ export function tinyMCEApplicationIndexGet(req, res) {
   }
 
   let progressPercentage = 0;
+  let reverseProgressPercentage = 0;
 
   // console.log(projectDetails);
 
@@ -55,17 +56,18 @@ export function tinyMCEApplicationIndexGet(req, res) {
   resourcesAndCostsIsComplete = req.session.resourcesAndCostsIsComplete;
   ethicalAndSocietalIsComplete = req.session.ethicalAndSocietalIsComplete;
 
-  // console.log('projectDetailsIsComplete = ' + projectDetailsIsComplete);
+  console.log('projectDetailsIsComplete = ' + projectDetailsIsComplete);
   // console.log('applicationDetailsIsComplete = ' + applicationDetailsIsComplete);
 
   if (projectDetailsIsComplete) {
-    progressPercentage = progressPercentage + 16.66666666666;
-  } else if (progressPercentage > 10) {
+    //console.log('projectDetailsIsComplete is true');
+    progressPercentage += 16.66666666666;
+  } else if (!projectDetailsIsComplete) {
     progressPercentage = progressPercentage - 16.66666666666;
   }
   if (applicationDetailsIsComplete) {
     progressPercentage = progressPercentage + 16.66666666666;
-  } else if (progressPercentage > 10) {
+  } else if (!applicationDetailsIsComplete) {
     progressPercentage = progressPercentage - 16.66666666666;
   }
   if (caseForSupportIsComplete) {
@@ -89,10 +91,17 @@ export function tinyMCEApplicationIndexGet(req, res) {
     progressPercentage = progressPercentage - 16.66666666666;
   }
 
+  // progressPercentage = 23;
+  console.log('progressPercentage before toFixed = ' + progressPercentage);
   progressPercentage = progressPercentage.toFixed(0);
   if (progressPercentage > 95) {
     progressPercentage = 100;
   }
+
+  reverseProgressPercentage = 100 - progressPercentage;
+
+  console.log('progressPercentage = ' + progressPercentage);
+  console.log('reverseProgressPercentage = ' + reverseProgressPercentage);
 
   hasBeenUpdated = null;
 
@@ -106,9 +115,11 @@ export function tinyMCEApplicationIndexGet(req, res) {
     ethicalHasBeenUpdated,
     resourcesHasBeenUpdated,
     progressPercentage,
+    reverseProgressPercentage,
     projectDetailsIsComplete,
     applicationDetailsIsComplete,
     caseForSupportIsComplete,
+    resourcesAndCostsIsComplete,
   };
 
   return res.render('prototypes/example-journey/application/index', viewData);
@@ -199,7 +210,8 @@ export function tinyMCEApplicationViewGet(req, res) {
     costsStaff,
     costsOverheads,
     costsMaterials,
-    ethicalReasons;
+    ethicalReasons,
+    allResourcesValues;
 
   notesCaseForSupport = req.session.caseForSupportNotes;
   notesCapability = req.session.storedCapabilityToDeliverNotes;
@@ -210,6 +222,7 @@ export function tinyMCEApplicationViewGet(req, res) {
   costsStaff = req.session.costsStaff;
   costsOverheads = req.session.costsOverheads;
   costsMaterials = req.session.costsMaterials;
+  allResourcesValues = req.session.allResourcesValues;
 
   viewData = {
     notesCaseForSupport,
@@ -221,6 +234,7 @@ export function tinyMCEApplicationViewGet(req, res) {
     costsOverheads,
     costsMaterials,
     ethicalReasons,
+    allResourcesValues,
   };
   return res.render('prototypes/example-journey/application/view', viewData);
 }
@@ -445,33 +459,39 @@ export function capabilityToDeliverPost(req, res) {
 //
 // ************************************************************************
 export function resourcesCostGet(req, res) {
-  let viewData, allResourcesAndCosts;
+  let viewData, allResourcesValues;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
-  allResourcesAndCosts = req.session.allResourcesAndCosts;
+  allResourcesValues = req.session.allResourcesValues;
+  console.log(allResourcesValues);
 
   viewData = {
     projectName,
-    allResourcesAndCosts,
+    allResourcesValues,
   };
 
   return res.render('prototypes/example-journey/application/resources-and-cost', viewData);
 }
 
 export function resourcesCostPost(req, res) {
-  const { projectCosts, costsStaff, costsOverheads, costsMaterials, isComplete } = req.body;
-
-  let allResourcesAndCosts = {
-    projectCosts,
-    costsStaff,
-    costsOverheads,
-    costsMaterials,
+  const {
     isComplete,
-  };
+    fullTimeStaff,
+    partTimeStaff,
+    totalStaffCost,
+    travelCostsText,
+    totalTravelCost,
+    equipmentCostsText,
+    totalEquipmentCost,
+    otherCostsText,
+    totalOtherCost,
+    indirectCostsText,
+    totalIndirectCost,
+  } = req.body;
 
   if (isComplete == 'on') {
     req.session.resourcesAndCostsIsComplete = true;
@@ -479,7 +499,7 @@ export function resourcesCostPost(req, res) {
     req.session.resourcesAndCostsIsComplete = null;
   }
 
-  let newCostsStaff, newCostsOverheads, newCostsMaterials;
+  /*let newCostsStaff, newCostsOverheads, newCostsMaterials;
 
   if (genericFunctions.isNumeric(costsStaff)) {
     newCostsStaff = new Intl.NumberFormat('en-UK', { style: 'currency', currency: 'GBP' }).format(costsStaff);
@@ -501,17 +521,42 @@ export function resourcesCostPost(req, res) {
   } else {
     allResourcesAndCosts.costsMaterials = costsMaterials;
   }
-
+*/
   // console.log('newCostsStaff = ' + newCostsStaff);
 
-  req.session.projectCosts = projectCosts;
-  req.session.costsStaff = newCostsStaff;
-  req.session.costsOverheads = newCostsOverheads;
-  req.session.costsMaterials = newCostsMaterials;
   req.session.hasBeenUpdated = true;
   req.session.resourcesHasBeenUpdated = true;
 
-  req.session.allResourcesAndCosts = allResourcesAndCosts;
+  let allResourcesValues = {
+    fullTimeStaff,
+    partTimeStaff,
+    totalStaffCost,
+    travelCostsText,
+    totalTravelCost,
+    equipmentCostsText,
+    totalEquipmentCost,
+    otherCostsText,
+    totalOtherCost,
+    indirectCostsText,
+    totalIndirectCost,
+    isComplete,
+  };
+
+  let uberTotalCost = 0;
+  uberTotalCost =
+    parseInt(allResourcesValues.totalStaffCost) +
+    parseInt(allResourcesValues.totalTravelCost) +
+    parseInt(allResourcesValues.totalEquipmentCost) +
+    parseInt(allResourcesValues.totalOtherCost) +
+    parseInt(allResourcesValues.totalIndirectCost);
+
+  console.log(uberTotalCost);
+
+  allResourcesValues.uberTotalCost = uberTotalCost;
+
+  req.session.allResourcesValues = allResourcesValues;
+
+  console.log(allResourcesValues);
 
   return res.redirect('/prototypes/example-journey/application/');
 }
