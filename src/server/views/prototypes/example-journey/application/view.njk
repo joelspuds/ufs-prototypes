@@ -8,11 +8,15 @@
 
 {% set listItems = [
     { text: 'Top of page', url: '#main-content' },
-    { text: 'Case for support', url: '#marker_Case' },
-    { text: 'Capability to deliver', url: '#marker_Capability' },
-    { text: 'Resources and costs', url: '#marker_Resources' },
-    { text: 'Ethical and societal issues', url: '#marker_Ethical' }
+    { text: '1. Case for support', url: '#marker_Case' },
+    { text: '2. Capability to deliver', url: '#marker_Capability' },
+    { text: '3. Resources and costs', url: '#marker_Resources' },
+    { text: '4. Ethical and societal issues', url: '#marker_Ethical' }
 ] %}
+{#
+ { text: 'Project details', url: '#marker_details' },
+    { text: 'Application team', url: '#marker_team' },
+#}
 
 {% set notesCaseForSupport = notesCaseForSupport if notesCaseForSupport %}
 {% set notesCapability = notesCapability if notesCapability %}
@@ -77,71 +81,104 @@
 
             {{ components.alerts(text='This is how reviewers will see your proposal.')}}
 
-            <h2 class="heading heading-medium" id="marker_Case">Case for support</h2>
+            {{ components.captionHeading(text='1. Case for support', tag='h2', size='m', extraClass='serif', id='marker_Case', additionalLinkText='Edit', additionalLinkTextHidden=' case for support', additionalLinkURL='/prototypes/example-journey/application/case-for-support') }}
+
+            <div class="serif u-space-b30">
             {% if notesCaseForSupport %}
                 {{ notesCaseForSupport }}
             {% else %}
                 <div>No content has been added for this section yet.</div>
             {% endif %}
+            </div>
 
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
             {{ components.divider() }}
 
-            <h2 class="heading heading-medium" id="marker_Capability">Capability to deliver</h2>
+            {{ components.captionHeading(text='2. Capability to deliver', tag='h2', size='m', extraClass='serif', id='marker_Capability', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/capability-to-deliver', additionalLinkTextHidden=' capility to deliver') }}
+
+            <div class="serif u-space-b30">
             {% if notesCapability %}
                 {{ notesCapability }}
             {% else %}
                 <div>No content has been added for this section yet.</div>
             {% endif %}
+            </div>
 
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
             {{ components.divider() }}
 
-            <h2 class="heading heading-medium" id="marker_Resources">Resources and costs</h2>
+            {{ components.captionHeading(text='3. Resources and costs', tag='h2', size='m', extraClass='serif', id='marker_Resources', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/resources-and-costs', additionalLinkTextHidden=' resources and costs') }}
 
+            {{ components.captionHeading(text='Staff', tag='h3', size='s', extraClass='serif') }}
+
+            <div class="serif u-space-b30">
             <p class="govuk-body">
-                <strong>Number of full-time staff: </strong> {{ allResourcesValues.fullTimeStaff }}<br>
-                <strong>Number of part-time staff: </strong> {{ allResourcesValues.partTimeStaff }}
+                Number of full-time staff: {{ allResourcesValues.fullTimeStaff }}<br>
+                Number of part-time staff: {{ allResourcesValues.partTimeStaff }}
             </p>
-            <p class="govuk-body u-align-right">
-                <strong>Total staff costs: </strong> &pound;{{ allResourcesValues.totalStaffCost }}
+            <p class="govuk-body">
+                <strong>&pound;{{ allResourcesValues.totalStaffCost | numberFormat() }}</strong>
             </p>
+            </div>
 
-            {{ components.captionHeading(text='Travel costs', tag='h3', size='small') }}
+            {{ components.captionHeading(text='Travel costs', tag='h3', size='small', extraClass='serif') }}
 
+            <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.travelCostsText }}</p>
-            <p class="govuk-body u-align-right">
-                <strong>Total travel costs: </strong> &pound;{{ allResourcesValues.totalTravelCost }}
+            <p class="govuk-body">
+                <strong>&pound;{{ allResourcesValues.totalTravelCost | numberFormat() }}</strong>
             </p>
+            </div>
 
-            {{ components.captionHeading(text='Equipment costs', tag='h3', size='small') }}
+            {{ components.captionHeading(text='Equipment costs', tag='h3', size='small', extraClass='serif') }}
 
+            <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.equipmentCostsText }}</p>
-            <p class="govuk-body u-align-right">
-                <strong>Total equipment costs: </strong> &pound;{{ allResourcesValues.totalEquipmentCost }}
+            <p class="govuk-body">
+                <strong>&pound;{{ allResourcesValues.totalEquipmentCost | numberFormat() }}</strong>
             </p>
+            </div>
 
-            {{ components.captionHeading(text='Other directly incurred costs', tag='h3', size='small') }}
+            {{ components.captionHeading(text='Other directly incurred costs', tag='h3', size='small', extraClass='serif') }}
 
+            <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.otherCostsText }}</p>
-            <p class="govuk-body u-align-right">
-                <strong>Total other directly incurred costs: </strong> &pound;{{ allResourcesValues.totalOtherCost }}
+            <p class="govuk-body">
+                <strong>&pound;{{ allResourcesValues.totalOtherCost | numberFormat() }}</strong>
             </p>
+            </div>
 
-            {{ components.captionHeading(text='Other indirect costs', tag='h3', size='small') }}
+            {{ components.captionHeading(text='Other indirect costs', tag='h3', size='small', extraClass='serif') }}
 
+            <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.indirectCostsText }}</p>
-            <p class="govuk-body u-align-right">
-                <strong>Total indirect costs: </strong> &pound;{{ allResourcesValues.totalIndirectCost }}
+            <p class="govuk-body">
+                <strong>&pound;{{ allResourcesValues.totalIndirectCost | numberFormat() }}</strong>
             </p>
+            </div>
 
-            <p class="govuk-body-l u-align-right">
-                <strong>Total costs: </strong> &pound;{{ allResourcesValues.uberTotalCost }}
+            <div class="serif u-space-b30">
+            <p class="govuk-body">
+                <strong>TOTAL PROJECT COSTS<br>
+                    &pound;{{ allResourcesValues.uberTotalCost | numberFormat() }}
+                </strong>
             </p>
+            </div>
 
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
             {{ components.divider() }}
 
-            <h2 class="heading heading-medium" id="marker_Ethical">Ethical and societal issues</h2>
+            <h2 class="govuk-heading-m serif" id="marker_Ethical"></h2>
+            {{ components.captionHeading(text='4. Ethical and societal issues', tag='h2', size='m', extraClass='serif', id='marker_Ethical', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/ethical-and-societal', additionalLinkTextHidden=' ethical and societal issues') }}
+
             {% if ethicalReasons %}
-                <h3 class="heading heading-small">Ethical and societal issue areas</h3>
+                {{ components.captionHeading(text='Ethical and societal issue areas', tag='h3', size='small', extraClass='serif') }}
                 <ul class="govuk-list--bullet">
                     {% for item in ethicalReasons %}
                         <li>{{ item }}</li>
@@ -150,11 +187,18 @@
 
             {% endif %}
 
+            <div class="serif u-space-b30">
             {% if notesEthical %}
                 {{ notesEthical }}
             {% else %}
                 <div>No content has been added for this section yet.</div>
             {% endif %}
+            </div>
+
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}
 
         {%- endcall %}
 

@@ -2,6 +2,7 @@
 // typography overrides
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700&display=swap');
 
 $new-font-stack : 'Roboto', sans-serif;
 
@@ -13,14 +14,17 @@ body.ufs * {
 body.ufs {
 
   h1, h2, h3, h4, h5, h6, .govuk-heading, .heading {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto', sans-serif;
   }
 
   code[class*="language-"], pre[class*="language-"], code, pre, code[class*="language-"] *, pre[class*="language-"] *, code *, pre * {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
   }
-}
 
+  .serif, .serif *, h1.serif, h2.serif, h3.serif, h4.serif {
+    font-family: Merriweather, serif;
+  }
+}
 
 .govuk-link:visited {
   color: $govuk-link-colour;
@@ -40,30 +44,6 @@ h1[class^="govuk-heading"] {
 .govuk-heading-xs {
   @include govuk-font($size: 16, $weight: bold) ;
 }
-
-
-/*
-body.ufs {
-
-  .heading-secondary {
-    color: #6f777b;
-  }
-
-  .heading-xlarge {
-    margin-top: 0.625em;
-    margin-bottom: 1em;
-  }
-
-  .heading-medium {
-    // margin-top: 1.875em;
-    // margin-bottom: 0.83333em;
-
-    margin-top: 1.2em;
-    // margin-bottom: 0.83333em;
-  }
-
-}*/
-
 
 #global-header #logo {
   background-image: none;

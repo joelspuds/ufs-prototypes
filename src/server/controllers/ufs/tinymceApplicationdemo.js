@@ -80,7 +80,11 @@ export function tinyMCEApplicationIndexGet(req, res) {
   if (progressPercentage > 95) {
     progressPercentage = 100;
   }
+
   reverseProgressPercentage = 100 - progressPercentage;
+  if (reverseProgressPercentage < 10) {
+    reverseProgressPercentage = '0';
+  }
 
   hasBeenUpdated = null;
 

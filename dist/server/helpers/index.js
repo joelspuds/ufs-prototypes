@@ -15,3 +15,15 @@ Object.keys(_prismCode).forEach(function (key) {
     }
   });
 });
+
+var _numberFormat = require('./number-format');
+
+Object.keys(_numberFormat).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _numberFormat[key];
+    }
+  });
+});

@@ -47,20 +47,31 @@
                             <td class="govuk-table__cell">{{ components.link(text='jane.doe@cardiffuniversity.ac.uk', url='#') }}</td>
                             <td class="govuk-table__cell">&nbsp;</td>
                         </tr>
-                        <tr class="govuk-table__row">
+                        <tr class="govuk-table__row govuk-visually-hidden" id="hiddenInviteRow">
                             <td class="govuk-table__cell">
                                 {{ components.field(label='Full name', labelVisuallyHidden=true, id='teamFullName', inputWidthClass='govuk-input--width-20') }}
                             </td>
                             <td class="govuk-table__cell">
                                 {{ components.field(label='Email', labelVisuallyHidden=true, id='teamEmail', inputWidthClass='govuk-input--width-20') }}                             </td>
                             <td class="govuk-table__cell govuk-table__cell--action">
-                                {{ components.link(text='Send invite', type='secondary', url='#') }}
+                                {{ components.link(text='Send invite', type='secondary', url='#', id='sendInvite') }}
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row govuk-visually-hidden" id="hiddenPendingRow">
+                            <td class="govuk-table__cell">
+                                <span id="pendingFullName"></span>
+                            </td>
+                            <td class="govuk-table__cell">
+                                <span id="pendingEmail"></span>
+                            </td>
+                            <td class="govuk-table__cell _govuk-table__cell--action u-align-right">
+                                {{ components.link(text='Cancel invite', type='secondary', url='#', id='cancelInvite') }}
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <p class="govuk-body u-space-t5 u-space-b30">
-                    {{ components.link(text='Add another contributor', url='#') }}
+                    {{ components.link(text='Add another contributor', url='#', id='showInviteRow') }}
                 </p>
 
             {%- endcall %}
@@ -112,6 +123,35 @@
 
     {%- endcall %}
 
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $('#showInviteRow').on('click', function(event) {
+          $('#hiddenInviteRow').removeClass('govuk-visually-hidden');
+          $('#hiddenPendingRow').addClass('govuk-visually-hidden');
+          event.preventDefault();
+        });
+        $('#sendInvite').on('click', function(event) {
+          // pendingFullName, pendingEmail
+          $('#hiddenInviteRow').addClass('govuk-visually-hidden');
+          $('#pendingFullName').html($('#teamFullName').val());
+          $('#pendingEmail').html('<a href="#">'+ $('#teamEmail').val() + "</a>");
+          $('#hiddenPendingRow').removeClass('govuk-visually-hidden');
+          $('#teamFullName').val('');
+          $('#teamEmail').val('');
+          event.preventDefault();
+        });
+        $('#cancelInvite').on('click', function(event) {
+          $('#hiddenInviteRow').removeClass('govuk-visually-hidden');
+          $('#hiddenPendingRow').addClass('govuk-visually-hidden');
+          $('#teamFullName').val('');
+          $('#teamEmail').val('');
+          event.preventDefault();
+        });
+      })
+    </script>
 {% endblock %}
 
 

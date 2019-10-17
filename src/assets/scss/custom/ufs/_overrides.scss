@@ -37,9 +37,25 @@
     }
 
     .govuk-input {
-      // float: right;
       display: inline-block;
     }
   }
-
 }
+
+.govuk-form-group--inline-left{
+
+  @include govuk-media-query($from: tablet) {
+
+    .govuk-label {
+      display: inline-block;
+      float: left;
+      margin-right: 10px;
+      line-height: 40px;
+    }
+  }
+}
+
+.govuk-checkboxes__label::before {
+  background: govuk-colour("white");
+}
+

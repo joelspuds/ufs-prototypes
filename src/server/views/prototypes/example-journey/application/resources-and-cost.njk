@@ -47,14 +47,14 @@
 
                 {{ components.captionHeading(text='Staff', tag='h3', size='s')}}
 
-                {% call components.formGroup() %}
+                {% call components.formGroup(extraClass=' govuk-form-group--inline-left') %}
 
                     {% set fullTimeStaffValue = allResourcesValues.fullTimeStaff if allResourcesValues.fullTimeStaff else "0" %}
                     {{ components.field(label='Number of full-time staff', id='fullTimeStaff', inputWidthClass='govuk-input--width-5', value=fullTimeStaffValue) }}
 
                 {%- endcall %}
 
-                {% call components.formGroup(extraClass='u-space-b10') %}
+                {% call components.formGroup(extraClass='u-space-b10 govuk-form-group--inline-left') %}
 
                     {% set partTimeStaffValue = allResourcesValues.partTimeStaff if allResourcesValues.partTimeStaff else "0" %}
                     {{ components.field(label='Number of part-time staff', id='partTimeStaff', inputWidthClass='govuk-input--width-5', value=partTimeStaffValue) }}
@@ -235,7 +235,7 @@
             {% call components.columnFull(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
                 {% set totalIndirectValue = allResourcesValues.totalIndiretCost if allResourcesValues.totalIndiretCost else "0" %}
-                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalIndirectValue) }}
+                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=allResourcesValues.totalIndirectValue) }}
 
             {%- endcall %}
 

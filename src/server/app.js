@@ -45,6 +45,7 @@ export const startApp = async () => {
   // This can be used to display the code inside of the view templates
   env.addFilter('prism', Helpers.wrapCodeWithPreviwAndPrism);
   env.addFilter('prismFullpage', Helpers.wrapCodeWithPrismForFullPagePreview);
+  env.addFilter('numberFormat', Helpers.formatAsNumber);
 
   // Add lodash as a global for view templates
   env.addGlobal('_', _);
