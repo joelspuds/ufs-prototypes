@@ -67,10 +67,15 @@ h1[class^="govuk-heading"] {
 }
 .govuk-heading_additional-link {
   @include govuk-font($size: 16);
-  position: absolute;
-  right: 0;
-  top: 4px;
+  position: relative;
+  display: block;
+  margin: 4px 0 0 0;
 
+  @include govuk-media-query($from: tablet) {
+    position: absolute;
+    right: 0;
+    top: 4px;
+  }
   a {
     font-family: 'Roboto', sans-serif!important;
   }
