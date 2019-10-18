@@ -22,6 +22,7 @@
 {% set reverseProgressPercentage = reverseProgressPercentage if reverseProgressPercentage %}
 {% set resourcesAndCostsIsComplete = resourcesAndCostsIsComplete if resourcesAndCostsIsComplete %}
 {% set ethicalAndSocietalIsComplete = ethicalAndSocietalIsComplete if ethicalAndSocietalIsComplete %}
+{% set capabilityToDeliverIsComplete = capabilityToDeliverIsComplete if capabilityToDeliverIsComplete %}
 
 {% block content %}
 
@@ -108,7 +109,7 @@
                 </li>
                 <li class="application-tasks__item">
                     {{ components.link(text='2. Capability to deliver', url='/prototypes/example-journey/application/capability-to-deliver', extraClass="application-tasks__link govuk-link")}}
-                    {% if capabilityHasBeenUpdated %}
+                    {% if capabilityToDeliverIsComplete      %}
                         <span class="application-tasks__status application-tasks__status--complete">complete</span>
                     {% else %}
                         <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>

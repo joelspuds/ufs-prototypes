@@ -37,7 +37,7 @@
 
         {% call components.columnFull() %}
 
-            {{ components.captionHeading(text='Application preview', caption=proejctName)}}
+            {{ components.linkHeading(text='Application preview', caption=proejctName)}}
 
         {%- endcall %}
 
@@ -67,7 +67,7 @@
 
         {% call components.columnOneQuarter() %}
 
-            {{ components.captionHeading(text='Contents', tag='h2', size='s')}}
+            {{ components.linkHeading(text='Contents', tag='h2', size='s')}}
 
             <nav class="sticky-nav">
 
@@ -81,7 +81,7 @@
 
             {{ components.alerts(text='This is how reviewers will see your proposal.')}}
 
-            {{ components.captionHeading(text='1. Case for support', tag='h2', size='m', extraClass='serif', id='marker_Case', additionalLinkText='Edit', additionalLinkTextHidden=' case for support', additionalLinkURL='/prototypes/example-journey/application/case-for-support') }}
+            {{ components.linkHeading(text='1. Case for support', tag='h2', size='m', extraClass='serif', id='marker_Case', additionalLinkText='Edit', additionalLinkTextHidden=' case for support', additionalLinkURL='/prototypes/example-journey/application/case-for-support') }}
 
             <div class="serif u-space-b30">
             {% if notesCaseForSupport %}
@@ -96,7 +96,7 @@
             </div>
             {{ components.divider() }}
 
-            {{ components.captionHeading(text='2. Capability to deliver', tag='h2', size='m', extraClass='serif', id='marker_Capability', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/capability-to-deliver', additionalLinkTextHidden=' capility to deliver') }}
+            {{ components.linkHeading(text='2. Capability to deliver', tag='h2', size='m', extraClass='serif', id='marker_Capability', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/capability-to-deliver', additionalLinkTextHidden=' capility to deliver') }}
 
             <div class="serif u-space-b30">
             {% if notesCapability %}
@@ -111,9 +111,11 @@
             </div>
             {{ components.divider() }}
 
-            {{ components.captionHeading(text='3. Resources and costs', tag='h2', size='m', extraClass='serif', id='marker_Resources', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/resources-and-costs', additionalLinkTextHidden=' resources and costs') }}
+            {{ components.linkHeading(text='3. Resources and costs', tag='h2', size='m', extraClass='serif', id='marker_Resources', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/resources-and-costs', additionalLinkTextHidden=' resources and costs') }}
 
-            {{ components.captionHeading(text='Staff', tag='h3', size='s', extraClass='serif') }}
+            {% if allResourcesValues %}
+
+            {{ components.linkHeading(text='Staff', tag='h3', size='s', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">
@@ -125,7 +127,7 @@
             </p>
             </div>
 
-            {{ components.captionHeading(text='Travel costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Travel costs', tag='h3', size='small', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.travelCostsText }}</p>
@@ -134,7 +136,7 @@
             </p>
             </div>
 
-            {{ components.captionHeading(text='Equipment costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Equipment costs', tag='h3', size='small', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.equipmentCostsText }}</p>
@@ -143,7 +145,7 @@
             </p>
             </div>
 
-            {{ components.captionHeading(text='Other directly incurred costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Other directly incurred costs', tag='h3', size='small', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.otherCostsText }}</p>
@@ -152,7 +154,7 @@
             </p>
             </div>
 
-            {{ components.captionHeading(text='Other indirect costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Other indirect costs', tag='h3', size='small', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.indirectCostsText }}</p>
@@ -169,16 +171,19 @@
             </p>
             </div>
 
+            {% else %}
+                <div class="serif">No content has been added for this section yet.</div>
+            {% endif %}
+
             <div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
             {{ components.divider() }}
 
-            <h2 class="govuk-heading-m serif" id="marker_Ethical"></h2>
-            {{ components.captionHeading(text='4. Ethical and societal issues', tag='h2', size='m', extraClass='serif', id='marker_Ethical', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/ethical-and-societal', additionalLinkTextHidden=' ethical and societal issues') }}
+            {{ components.linkHeading(text='4. Ethical and societal issues', tag='h2', size='m', extraClass='serif', id='marker_Ethical', additionalLinkText='Edit', additionalLinkURL='/prototypes/example-journey/application/ethical-and-societal', additionalLinkTextHidden=' ethical and societal issues') }}
 
             {% if ethicalReasons %}
-                {{ components.captionHeading(text='Ethical and societal issue areas', tag='h3', size='small', extraClass='serif') }}
+                {{ components.linkHeading(text='Ethical and societal issue areas', tag='h3', size='small', extraClass='serif') }}
                 <ul class="govuk-list--bullet">
                     {% for item in ethicalReasons %}
                         <li>{{ item }}</li>

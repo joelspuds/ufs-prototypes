@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 * {
     border: 0;
     padding: 0;
@@ -29,7 +29,7 @@ button, input, input:not([type]), input[type=button], input[type=color], input[t
     font: inherit
 }
 @font-face {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
 }
@@ -48,7 +48,7 @@ body {
     display: inline-block!important
 }
 .mce-content-body {
-    font-family: 'Open Sans', sans-serif!important;
+    font-family: 'Roboto', sans-serif!important;
     font-size: 16px;
     color: #000;
     font-weight: 400;
@@ -60,43 +60,43 @@ body {
 }
 .mce-content-body h1 {
     font-size: 34px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
 }
 .mce-content-body h2 {
     font-size: 30px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
 }
 .mce-content-body h3 {
     font-size: 26px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
 }
 .mce-content-body h4 {
     font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
 }
 .mce-content-body h5 {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+    font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
 }
 .mce-content-body h6 {
     font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
 }

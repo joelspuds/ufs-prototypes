@@ -1,4 +1,4 @@
-{% macro captionHeading(text='', caption=false, tag='h1', size='xl', url=false, id, extraClass, additionalLinkText, additionalLinkTextHidden, additionalLinkURL) %}
+{% macro captionHeading(text='', caption=false, tag='h1', size='xl', url=false, id, extraClass) %}
     {% if caption %}
         <span class="govuk-caption-{{ size }}">{{ caption }}</span>
     {% endif %}
@@ -6,15 +6,5 @@
         <{{ tag }} class="govuk-heading-{{ size }} {{ extraClass if extraClass }}" {{ ' id="' + id +'"' if id }}>
         {{ '<a href="' + url +'">' + text + '</a>' if url else text }}
         </{{ tag }}>
-    {% endif %}
-    {% if additionalLinkText %}
-        <span class="govuk-heading_additional-link">
-            <a href="{{ additionalLinkURL }}" class="govuk-link">
-                {{ additionalLinkText }}
-                {% if additionalLinkTextHidden %}
-                    <span class="govuk-visually-hidden">{{ additionalLinkTextHidden }}</span>
-                {% endif %}
-            </a>
-        </span>
     {% endif %}
 {% endmacro %}

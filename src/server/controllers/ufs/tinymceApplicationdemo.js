@@ -104,6 +104,7 @@ export function tinyMCEApplicationIndexGet(req, res) {
     caseForSupportIsComplete,
     resourcesAndCostsIsComplete,
     ethicalAndSocietalIsComplete,
+    capabilityToDeliverIsComplete,
   };
 
   return res.render('prototypes/example-journey/application/index', viewData);

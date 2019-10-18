@@ -112,7 +112,8 @@ function tinyMCEApplicationIndexGet(req, res) {
     applicationDetailsIsComplete,
     caseForSupportIsComplete,
     resourcesAndCostsIsComplete,
-    ethicalAndSocietalIsComplete
+    ethicalAndSocietalIsComplete,
+    capabilityToDeliverIsComplete
   };
 
   return res.render('prototypes/example-journey/application/index', viewData);

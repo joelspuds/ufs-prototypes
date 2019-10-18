@@ -75,5 +75,11 @@ let ethical = [{
 }, {
   name: 'Responsible Innovation considerations',
   index: 5
+}, {
+  name: 'Other',
+  index: 6
+}, {
+  name: 'Not applicable',
+  index: 7
 }];
 const ethicalReasons = exports.ethicalReasons = ethical;

@@ -1,7 +1,6 @@
 'use strict';
 
 const formatAsNumber = exports.formatAsNumber = number => {
-
   let isNumeric = function (n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   };
@@ -10,8 +9,8 @@ const formatAsNumber = exports.formatAsNumber = number => {
     let newNumberAsString;
 
     /*if (value == null || typeof value !== 'number') {
-       value = 0;
-     }*/
+      value = 0;
+    }*/
 
     // newNumberAsString = value.toFixed(0).toString();
     newNumberAsString = value.toString();
