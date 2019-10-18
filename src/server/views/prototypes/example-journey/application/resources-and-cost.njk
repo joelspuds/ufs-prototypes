@@ -235,7 +235,7 @@
             {% call components.columnFull(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
                 {% set totalIndirectValue = allResourcesValues.totalIndiretCost if allResourcesValues.totalIndiretCost else "0" %}
-                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=allResourcesValues.totalIndirectValue) }}
+                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalIndirectValue) }}
 
             {%- endcall %}
 
