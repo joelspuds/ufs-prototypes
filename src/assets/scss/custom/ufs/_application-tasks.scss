@@ -17,6 +17,18 @@
     @include govuk-font($size: 19);
   }
 
+  &__controls {
+    display: block;
+    margin-top:10px;
+
+    @include govuk-media-query($from: desktop) {
+      margin-top: 0;
+      position: absolute;
+      right: 120px;
+      top: 12px;
+    }
+  }
+
   &__status {
     position: absolute;
     right: 0;

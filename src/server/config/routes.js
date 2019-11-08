@@ -89,6 +89,8 @@ router.get('/prototypes/opportunity/setup', demosController.opportunitySetupGet)
 router.post('/prototypes/opportunity/setup', demosController.opportunitySetupPost);
 router.get('/prototypes/opportunity/funders', demosController.opportunityFundersGet);
 router.post('/prototypes/opportunity/funders', demosController.opportunityFundersPost);
+router.get('/prototypes/opportunity/application', demosController.opportunityApplicationGet);
+router.post('/prototypes/opportunity/application', demosController.opportunityApplicationPost);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

@@ -70,6 +70,52 @@
                 </div>
             </div>
 
+            {{ components.captionHeading(text='Workflow', tag='h2', size='s', extraClass='u-space-t30') }}
+
+            <div class="application-item application-item--workflow">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Website listing", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item application-item--workflow">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Application", url='/prototypes/opportunity/application') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item application-item--workflow">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Peer review", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+
+
         {%- endcall %}
 
         {% call components.columnOneThird(extraClass='padding-left-desktop-30') %}

@@ -1,0 +1,20 @@
+.date-time {
+  position: relative;
+  max-width: 440px;
+  float: left;
+  width: 50%;
+
+  &__date,
+  &__time {
+    width: 50%;
+    float: left;
+  }
+
+  &__date {
+
+  }
+
+  &__time {
+
+  }
+}

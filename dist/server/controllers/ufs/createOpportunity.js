@@ -10,6 +10,8 @@ exports.opportunitySetupGet = opportunitySetupGet;
 exports.opportunitySetupPost = opportunitySetupPost;
 exports.opportunityFundersGet = opportunityFundersGet;
 exports.opportunityFundersPost = opportunityFundersPost;
+exports.opportunityApplicationGet = opportunityApplicationGet;
+exports.opportunityApplicationPost = opportunityApplicationPost;
 // let councils = require('./data');
 let generalData = require('./data');
 
@@ -127,5 +129,39 @@ function opportunityFundersPost(req, res) {
   } else {
     req.session.fundersError = true;
     return res.redirect('/prototypes/opportunity/funders');
+  }
+}
+
+// Application
+function opportunityApplicationGet(req, res) {
+  let viewData, opportunityName, opportunityID;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  // fundersError = req.session.fundersError;
+  req.session.fundersError = null;
+
+  // funderslist = req.session.funderslist;
+
+  viewData = {
+    opportunityName,
+    opportunityID
+  };
+
+  return res.render('prototypes/opportunity/application', viewData);
+}
+
+function opportunityApplicationPost(req, res) {
+  const {} = req.body;
+  console.log('');
+
+  // let ;
+
+  if (1 > 0) {
+    return res.redirect('/prototypes/opportunity/setup');
+  } else {
+    req.session.fundersError = true;
+    return res.redirect('/prototypes/opportunity/application');
   }
 }

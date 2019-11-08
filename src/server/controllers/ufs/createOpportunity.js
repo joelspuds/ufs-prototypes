@@ -117,3 +117,37 @@ export function opportunityFundersPost(req, res) {
     return res.redirect('/prototypes/opportunity/funders');
   }
 }
+
+// Application
+export function opportunityApplicationGet(req, res) {
+  let viewData, opportunityName, opportunityID;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  // fundersError = req.session.fundersError;
+  req.session.fundersError = null;
+
+  // funderslist = req.session.funderslist;
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+  };
+
+  return res.render('prototypes/opportunity/application', viewData);
+}
+
+export function opportunityApplicationPost(req, res) {
+  const {} = req.body;
+  console.log('');
+
+  // let ;
+
+  if (1 > 0) {
+    return res.redirect('/prototypes/opportunity/setup');
+  } else {
+    req.session.fundersError = true;
+    return res.redirect('/prototypes/opportunity/application');
+  }
+}

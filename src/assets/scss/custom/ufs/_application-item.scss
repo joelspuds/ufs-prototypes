@@ -20,8 +20,16 @@
     }
 
     &__right {
+        position: relative;
         width: 50%;
         float: right;
+        text-align: right;
+    }
+
+    &__control {
+        position: absolute;
+        left: 0;
+        top: 3px;
     }
 
     &__status {

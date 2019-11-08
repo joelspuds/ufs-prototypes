@@ -1,0 +1,176 @@
+{% extends 'layouts/ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+
+{% set pageTitle = ADD_FUNDERS_TO_OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{% set allCouncils = allCouncils %}
+{% set funderslist = funderslist %}
+{% set fundersError = fundersError if fundersError %}
+{% set backLinkContents =  [{url:'/prototypes/opportunity/setup', text:'Back to opportunity setup'}] %}
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% if fundersError %}
+
+        <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+            <h2 class="govuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="govuk-error-summary__body">
+                <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                        <a href="#fundersError">You have not selected a funder for your opportunity</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    {% endif %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Funders', caption=opportunityID + ': ' + opportunityName) }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/opportunity/application', method='POST',name='manageApplication') %}
+
+        {% call components.gridRow(extraClass='u-space-b30') %}
+
+            {% call components.columnTwoThirds() %}
+
+                <div class="date-time">
+
+                    {{ components.captionHeading(text='Application opens', size='s', tag='h2') }}
+
+                    <div class="date-time__date">
+                        {{ components.field(label='Date', id='applicationOpenDate', hint='DD/MM/YYYY', value='', extraClass='', inputWidthClass='govuk-input--width-7') }}
+                    </div>
+
+                    <div class="date-time__time">
+                        {{ components.field(label='Time', id='applicationOpenTime', hint='HH:MM', value='', extraClass='', inputWidthClass='govuk-input--width-3') }}
+                    </div>
+                </div>
+
+                <div class="date-time">
+
+                    {{ components.captionHeading(text='Application closes', size='s', tag='h2') }}
+
+                    <div class="date-time__date">
+                        {{ components.field(label='Date', id='applicationOpenDate', hint='DD/MM/YYYY', value='', extraClass='', inputWidthClass='govuk-input--width-7') }}
+                    </div>
+
+                    <div class="date-time__time">
+                        {{ components.field(label='Time', id='applicationOpenTime', hint='HH:MM', value='', extraClass='', inputWidthClass='govuk-input--width-3') }}
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnTwoThirds() %}
+
+                <ul class="application-tasks">
+
+                    <li class="application-tasks__item">
+                        {{ components.link(text='1. Project details', url='#', extraClass="application-tasks__link govuk-link")}}
+                        {% if thisOneHasBeenDone %}
+                            <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                        {% else %}
+                            <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                        {% endif %}
+                    </li>
+
+                    <li class="application-tasks__item">
+                        {{ components.link(text='2. Case for support', url='#', extraClass="application-tasks__link govuk-link")}}
+
+                        <span class="application-tasks__controls">
+                            {{ components.link(text='Remove', url='#', extraClass="")}}
+                        </span>
+                        {% if thisOneHasBeenDone %}
+                            <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                        {% else %}
+                            <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                        {% endif %}
+                    </li>
+
+                    <li class="application-tasks__item">
+                        {{ components.link(text='3. Project team', url='#', extraClass="application-tasks__link govuk-link")}}
+
+                        <span class="application-tasks__controls">
+                            {{ components.link(text='Remove', url='#', extraClass="")}}
+                        </span>
+                        {% if thisOneHasBeenDone %}
+                            <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                        {% else %}
+                            <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                        {% endif %}
+                    </li>
+
+                    <li class="application-tasks__item">
+                        {{ components.link(text='4. Capability to deliver', url='#', extraClass="application-tasks__link govuk-link")}}
+
+                        <span class="application-tasks__controls">
+                            {{ components.link(text='Remove', url='#', extraClass="")}}
+                        </span>
+                        {% if thisOneHasBeenDone %}
+                            <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                        {% else %}
+                            <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                        {% endif %}
+                    </li>
+
+                </ul>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
+
+                    <span class="sub-button">
+                        {{ components.link(text='Cancel', url="/prototypes/opportunity/setup", extraClass="")}}
+                    </span>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+
+    <script src="/javascripts/date-picker.js"></script>
+
+    <script>
+      /*Zepto(function($){
+        $('#showInviteRow').on('click', function(event) {
+          $('#hiddenInviteRow').removeClass('govuk-visually-hidden');
+          $('#hiddenPendingRow').addClass('govuk-visually-hidden');
+          event.preventDefault();
+        });
+      })*/
+    </script>
+{% endblock %}
+
