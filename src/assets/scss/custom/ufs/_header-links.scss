@@ -1,5 +1,4 @@
 .top-links {
-  // width:100%;
   display: flex;
   -webkit-box-pack: center;
   justify-content: center;
@@ -24,15 +23,10 @@
   }
 
   &__link {
-    // display: flex;
-    // -webkit-box-align: center;
-    // align-items: center;
     color: govuk-colour("white");
     line-height: 1.2em;
-    // vertical-align: middle;
-    // flex-flow: row wrap;
     border-left: 1px solid rgb(153, 153, 153);
-    padding: 10px 19px;
+    padding: 10px 12px;
     text-decoration: none;
     display: block;
 
