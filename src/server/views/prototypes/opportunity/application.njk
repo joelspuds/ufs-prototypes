@@ -36,6 +36,15 @@
 
             {{ components.captionHeading(text='Funders', caption=opportunityID + ': ' + opportunityName) }}
 
+
+            <br>
+
+            {#<div class="form-control-3-4">
+                <div id="event-start-date">
+                    <div data-reactroot=""><div><input type="text" class="govuk-input govuk-input--width-7 form-control bpk-popover-tether-target bpk-popover-tether-element-attached-top bpk-popover-tether-target-attached-bottom bpk-popover-tether-element-attached-center bpk-popover-tether-target-attached-center bpk-popover-tether-enabled" aria-invalid="false" id="event-start-date_datepicker__input" name="event-start-date" value="" aria-live="assertive" aria-atomic="true" aria-label="" autocorrect="off" autocapitalize="off" spellcheck="false"></div></div></div>
+            </div>#}
+
+
         {%- endcall %}
 
     {%- endcall %}
@@ -50,8 +59,11 @@
 
                     {{ components.captionHeading(text='Application opens', size='s', tag='h2') }}
 
-                    <div class="date-time__date">
-                        {{ components.field(label='Date', id='applicationOpenDate', hint='DD/MM/YYYY', value='', extraClass='', inputWidthClass='govuk-input--width-7') }}
+                    <div class="date-time__date"  id="event-start-date">
+                        {#{{ components.field(label='Date', id='applicationOpenDate', hint='DD/MM/YYYY', value='', extraClass='', inputWidthClass='govuk-input--width-7') }}#}
+
+                        <label class="govuk-label" for="applicationOpenDate">Date<span class="govuk-hint">DD/MM/YYYY</span></label>
+                        <div data-reactroot=""><div><input type="text" class="govuk-input govuk-input--width-7 form-control bpk-popover-tether-target bpk-popover-tether-element-attached-top bpk-popover-tether-target-attached-bottom bpk-popover-tether-element-attached-center bpk-popover-tether-target-attached-center" aria-invalid="false" id="event-start-date_datepicker__input" name="event-start-date" value="" aria-live="assertive" aria-atomic="true" aria-label=""></div></div>
                     </div>
 
                     <div class="date-time__time">
@@ -157,20 +169,43 @@
 
     {%- endcall %}
 
+    <link href="https://govuk-temporary-event-notice.herokuapp.com/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <style>
+        .datepicker-no-arrows div[class^='bpk-calendar-nav__nudger'] button, .datepicker-no-arrows div[class*=' bpk-calendar-nav__nudger'] button {
+            pointer-events: none;
+            cursor: default;
+        }
+        .datepicker-no-arrows div[class^='bpk-calendar-nav__nudger'] button svg, .datepicker-no-arrows div[class*=' bpk-calendar-nav__nudger'] button svg {
+            fill: #fff!important;
+        }
+    </style>
+
+
 {% endblock %}
 
 {% block bodyScripts %}
 
-    <script src="/javascripts/date-picker.js"></script>
+    {#<script src="/javascripts/date-picker.js"></script>#}
+
+    {#<script src="https://govuk-temporary-event-notice.herokuapp.com/public/javascripts/vendor/preact.js"></script>
+    <script src="https://govuk-temporary-event-notice.herokuapp.com/public/javascripts/date-picker.js"></script>#}
+
+    <script src="/javascripts/preact.js"></script>
+    <script src="/javascripts/date-picker.min.js"></script>
+
 
     <script>
-      /*Zepto(function($){
-        $('#showInviteRow').on('click', function(event) {
-          $('#hiddenInviteRow').removeClass('govuk-visually-hidden');
-          $('#hiddenPendingRow').addClass('govuk-visually-hidden');
-          event.preventDefault();
-        });
-      })*/
+      Zepto(function($){
+        console.log('loading');
+        let labelMarkup = '<label class="govuk-label" for="applicationOpenDate">Date<span class="govuk-hint">DD/MM/YYYY</span></label>';
+        setTimeout(function(){
+          $('#event-start-date_datepicker__input').before(labelMarkup);
+          $('#event-start-date_datepicker__input').removeClass('form-control');
+          $('#event-start-date_datepicker__input').addClass('govuk-input govuk-input--width-7');
+          // console.log('timeout');
+        }, 500);
+
+      })
     </script>
 {% endblock %}
 
