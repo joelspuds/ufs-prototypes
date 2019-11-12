@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  {{ components.heading(text='Visual Data', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Visual Data', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
     <div class="data">
@@ -20,7 +20,7 @@
     </div>
   {%- endcall %}
 
-  {{ components.heading(text='Numeric tabular data', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Numeric tabular data', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
     <table>
@@ -56,7 +56,7 @@
     </table>
   {%- endcall %}
 
-  {{ components.heading(text='Data in a table', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Data in a table', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
     <table>

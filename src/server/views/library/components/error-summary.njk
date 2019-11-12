@@ -4,10 +4,10 @@
 
 {% block content %}
 
-  {{ components.heading(
+  {{ components.captionHeading(
     text='Error Summary',
     tag='h2',
-    size='medium'
+    size='m'
   ) }}
 
   {{ components.errorSummary(
@@ -26,10 +26,10 @@
     ]
   ) | prism }}
 
-  {{ components.heading(
+  {{ components.captionHeading(
     text='Error Summary - With description',
     tag='h2',
-    size='medium'
+    size='m'
   ) }}
 
   {{ components.errorSummary(

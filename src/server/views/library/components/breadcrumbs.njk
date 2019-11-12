@@ -16,11 +16,11 @@
 
 {% block content %}
 
-  {{ components.heading(text='Breadcrumbs', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Breadcrumbs', tag='h2', size='m') }}
 
   {{ components.breadcrumb(items=pageBreadcrumbItems) | prism }}
 
-  {{ components.heading(text='Breadcrumbs (Muted)', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Breadcrumbs (Muted)', tag='h2', size='m') }}
 
   {{ components.breadcrumb(items=defectSearchHistory, muted=true) | prism }}
 

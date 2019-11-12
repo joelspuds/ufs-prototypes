@@ -4,15 +4,15 @@
 
 {% block content %}
 
-  {{ components.heading(text='Button text', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Button text', tag='h2', size='m') }}
 
   {{ components.button(text='Save and continue') | prism }}
 
-  {{ components.heading(text='Button text (Disabled)', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Button text (Disabled)', tag='h2', size='m') }}
 
   {{ components.button(text='Save and continue', disabled=true) | prism }}
 
-  {{ components.heading(text='Start now button', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Start now button', tag='h2', size='m') }}
 
   {{ components.button(text='Save and continue', url='#', start=true) | prism }}
 

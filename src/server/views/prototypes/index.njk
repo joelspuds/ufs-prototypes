@@ -20,7 +20,7 @@
 
         {% call components.columnHalf() %}
 
-            {{ components.heading(text='Work in progress', tag='h3', size='medium') }}
+            {{ components.captionHeading(text='Work in progress', tag='h3', size='m') }}
 
             {{ components.list(items=listItemsWIP, type='bullet')}}
 
@@ -28,7 +28,7 @@
 
         {% call components.columnHalf() %}
 
-            {{ components.heading(text='Production ready', tag='h3', size='medium') }}
+            {{ components.captionHeading(text='Production ready', tag='h3', size='m') }}
 
             {{ components.list(items=listItemsFinal, type='bullet')}}
 

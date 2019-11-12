@@ -13,20 +13,20 @@
   {% call components.gridRow() %}
 
     {% call components.columnOneThird() %}
-      {{ components.heading(text='White', secondary='Colour', tag='h2', size='medium', extraClass='heading--no-margin-top heading--small-margin-bottom') }}
+      {{ components.captionHeading(text='White', secondary='Colour', tag='h2', size='m', extraClass='heading--no-margin-top heading--small-margin-bottom') }}
     {%- endcall %}
 
     {% call components.columnOneThird() %}
-      {{ components.heading(text='Petrol', secondary='Fuel type', tag='h2', size='medium', extraClass='heading--no-margin-top heading--small-margin-bottom') }}
+      {{ components.captionHeading(text='Petrol', secondary='Fuel type', tag='h2', size='m', extraClass='heading--no-margin-top heading--small-margin-bottom') }}
     {%- endcall %}
 
     {% call components.columnOneThird() %}
-      {{ components.heading(text='2013 (13 reg)', secondary='Year of manufacture', tag='h2', size='medium', extraClass='heading--no-margin-top heading--small-margin-bottom') }}
+      {{ components.captionHeading(text='2013 (13 reg)', secondary='Year of manufacture', tag='h2', size='m', extraClass='heading--no-margin-top heading--small-margin-bottom') }}
     {%- endcall %}
 
   {%- endcall %}
 
-  {{ components.heading(text='9 February 2018', secondary='MOT valid until', tag='h2', size='large', extraClass='heading--no-margin-top') }}
+  {{ components.captionHeading(text='9 February 2018', secondary='MOT valid until', tag='h2', size='l', extraClass='heading--no-margin-top') }}
 
   <p>
     <a href="#">Get an MOT reminder</a> by email or text
@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="js-accordion__content" id="vehicle-recalls-content">
-          
+
           <div class="recalls-accordion recalls-accordion--no-js">
 
             <div class="recalls-accordion__error-message">

@@ -4,11 +4,11 @@
 
 {% block content %}
 
-  {{ components.heading(text='Legal Text', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Legal Text', tag='h2', size='m') }}
 
   {{ components.notice(text='You can be fined up to £5,000 if you don’t register.') | prism }}
 
-  {{ components.heading(text='Inset Text', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Inset Text', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
     <div class="panel panel-border-wide">

@@ -4,7 +4,7 @@
         {{ '<a href="' + url +'">' + text + '</a>' if url else text }}
 
         {% if additionalLinkText %}
-            <span class="govuk-heading_additional-link">
+            <span class="govuk-heading_additional-link govuk-heading-m">
             <a href="{{ additionalLinkURL }}" class="govuk-link">
                 {{ additionalLinkText }}
                 {% if additionalLinkTextHidden %}

@@ -1,10 +1,4 @@
 {% macro pageHeading(heading='', secondary='', extraClass=false) %}
-
-  {% if heading %}
-    <h1 class="heading-xlarge heading heading--page-heading {{ extraClass if extraClass }}">
-      {% if secondary %}<span class="heading-secondary">{{ secondary }}</span>{% endif %}
-      {{ heading }}
-    </h1>
-  {% endif %}
-
+    <span class="govuk-caption-xl">{{ secondary }}</span>
+    <h1 class="govuk-heading-xl {{ extraClass if extraClass }}">{{ heading }}</h1>
 {% endmacro %}

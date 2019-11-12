@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  {{ components.heading(text='Stacked checkboxes', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Stacked checkboxes', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
   <form>
@@ -34,7 +34,7 @@
   </form>
   {%- endcall %}
 
-  {{ components.heading(text='Disabled checkbox', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Disabled checkbox', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
   <div class="multiple-choice">
@@ -43,7 +43,7 @@
   </div>
   {%- endcall %}
 
-  {{ components.heading(text='Conditionally revealing checkbox', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Conditionally revealing checkbox', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
   <form>

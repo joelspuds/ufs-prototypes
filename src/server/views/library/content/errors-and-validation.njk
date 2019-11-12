@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  {{ components.heading(text='Error message and summary box', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Error message and summary box', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
 
@@ -20,7 +20,7 @@
       ]
     ) }}
 
-    {{ components.heading(
+    {{ components.captionHeading(
       text='Check your personal details',
       tag='h2',
       size='large')
@@ -59,7 +59,7 @@
     {%- endcall %}
   {%- endcall %}
 
-  {{ components.heading(text='Highlight errors in forms', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Highlight errors in forms', tag='h2', size='m') }}
 
   {% call components.displayCode() %}
 
@@ -79,7 +79,7 @@
       ]
     ) }}
 
-    {{ components.heading(
+    {{ components.captionHeading(
       text='Your personal details',
       tag='h2',
       size='large')

@@ -4,16 +4,16 @@
 
 {% block content %}
 
-  {{ components.heading(text='Fileupload', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Fileupload', tag='h2', size='m') }}
   {{ components.field(label='Upload a file', id='file-upload', type='file', group=true) | prism }}
 
-  {{ components.heading(text='Fileupload with hint', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Fileupload with hint', tag='h2', size='m') }}
   {{ components.field(label='Upload a file', id='file-upload', type='file', hint='Hint message goes here', group=true) | prism }}
 
-  {{ components.heading(text='Fileupload with bold label', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Fileupload with bold label', tag='h2', size='m') }}
   {{ components.field(label='Upload a file', labelBold=true, id='file-upload', type='file', group=true) | prism }}
 
-  {{ components.heading(text='Fileupload with error', tag='h2', size='medium') }}
+  {{ components.captionHeading(text='Fileupload with error', tag='h2', size='m') }}
   {{ components.field(label='Upload a file', labelBold=true, id='file-upload', type='file', hint='Hint message goes here', group=true, error='Error message goes here') | prism }}
 
 {% endblock %}

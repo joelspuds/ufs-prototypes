@@ -81,13 +81,13 @@
 
             {{ components.alerts(text='This is how reviewers will see your proposal.')}}
 
-            {{ components.linkHeading(text='1. Case for support', tag='h2', size='m', extraClass='serif', id='marker_Case', additionalLinkText='Edit', additionalLinkTextHidden=' case for support', additionalLinkURL='/prototypes/example-journey/application/case-for-support') }}
+            {{ components.linkHeading(text='1. Case for support wrergerg ', tag='h2', size='m', extraClass='serif', id='marker_Case', additionalLinkText='Edit', additionalLinkTextHidden=' case for support', additionalLinkURL='/prototypes/example-journey/application/case-for-support') }}
 
             <div class="serif u-space-b30">
             {% if notesCaseForSupport %}
                 {{ notesCaseForSupport }}
             {% else %}
-                <div>No content has been added for this section yet.</div>
+                <p class='govuk-body-s'>No content has been added for this section yet.</p>
             {% endif %}
             </div>
 
@@ -102,7 +102,7 @@
             {% if notesCapability %}
                 {{ notesCapability }}
             {% else %}
-                <div>No content has been added for this section yet.</div>
+                <p class='govuk-body-s'>No content has been added for this section yet.</p>
             {% endif %}
             </div>
 
@@ -127,7 +127,7 @@
             </p>
             </div>
 
-            {{ components.linkHeading(text='Travel costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Travel costs', tag='h3', size='s', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.travelCostsText }}</p>
@@ -136,7 +136,7 @@
             </p>
             </div>
 
-            {{ components.linkHeading(text='Equipment costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Equipment costs', tag='h3', size='s', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.equipmentCostsText }}</p>
@@ -154,7 +154,7 @@
             </p>
             </div>
 
-            {{ components.linkHeading(text='Other indirect costs', tag='h3', size='small', extraClass='serif') }}
+            {{ components.linkHeading(text='Other indirect costs', tag='h3', size='s', extraClass='serif') }}
 
             <div class="serif u-space-b30">
             <p class="govuk-body">{{ allResourcesValues.indirectCostsText }}</p>
@@ -172,7 +172,7 @@
             </div>
 
             {% else %}
-                <div class="serif">No content has been added for this section yet.</div>
+                <p class='govuk-body-s'>No content has been added for this section yet.</p>
             {% endif %}
 
             <div class="u-align-right">
@@ -196,7 +196,7 @@
             {% if notesEthical %}
                 {{ notesEthical }}
             {% else %}
-                <div>No content has been added for this section yet.</div>
+                <p class='govuk-body-s'>No content has been added for this section yet.</p>
             {% endif %}
             </div>
 

@@ -5,23 +5,23 @@
 
 {% block content %}
 
-    {{ components.captionHeading(text='Default alert', tag='h2', size='medium') }}
+    {{ components.captionHeading(text='Default alert', tag='h2', size='m') }}
 
     {{ components.alerts(text='This contains some important information') | prism }}
 
-    {{ components.captionHeading(text='Alert with a title', tag='h2', size='medium') }}
+    {{ components.captionHeading(text='Alert with a title', tag='h2', size='m') }}
 
     {{ components.alerts(text='This contains some important information', title='This is really important') | prism }}
 
-    {{ components.captionHeading(text='Success alert', tag='h2', size='medium') }}
+    {{ components.captionHeading(text='Success alert', tag='h2', size='m') }}
 
     {{ components.alerts(text='You have successfully updated your application', type='success') | prism }}
 
-    {{ components.captionHeading(text='Danger alert', tag='h2', size='medium') }}
+    {{ components.captionHeading(text='Danger alert', tag='h2', size='m') }}
 
     {{ components.alerts(text='There was an error updating your informaton. Try again later.', type='danger') | prism }}
 
-    {{ components.captionHeading(text='Warning alert', tag='h2', size='medium') }}
+    {{ components.captionHeading(text='Warning alert', tag='h2', size='m') }}
 
     {{ components.alerts(text='The effect of your action could be disasterous, are you sure you want to continue?', type='warning') | prism }}
 
