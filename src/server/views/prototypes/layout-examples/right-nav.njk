@@ -5,12 +5,12 @@
 {% block content %}
 
   {% call components.gridRow() %}
-  
+
     {% call components.columnFull() %}
 
     {{ components.pageHeading(heading='Layout with left nav') }}
 
-    {%- endcall %} 
+    {%- endcall %}
 
   {%- endcall %}
 
@@ -44,12 +44,12 @@
               </tr>
               </tbody>
             </table>
-            <p class="u-space-b30"><a href="#" class="font-xsmall">Action related to data</a> </p>
+            <p class="u-space-b30"><a href="#" class="font-xsmall govuk-link">Action related to data</a> </p>
 
             <h2 class="heading-small">Specific page actions</h2>
             <ul class="">
-              <li><a href="#">Do something</a> </li>
-              <li><a href="#">Do something else</a> </li>
+              <li><a href="#" class="govuk-link">Do something</a> </li>
+              <li><a href="#" class="govuk-link">Do something else</a> </li>
             </ul>
 
           </aside>
@@ -57,5 +57,5 @@
         {%- endcall %}
 
     {%- endcall %}
-  
+
 {% endblock %}

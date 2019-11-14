@@ -1,18 +1,10 @@
-/*@import "../../govuk-ordered/settings/all";
-@import "../../govuk-ordered/tools/all";
-@import "../../govuk-ordered/helpers/all";*/
-
 @import "../../govuk/settings/all";
 @import "../../govuk/tools/all";
 @import "../../govuk/helpers/all";
 
-
-// @import "../gds/mixins/partials/typography";
-
 @import './vars';
 @import 'utils/utils';
 
-// @import 'typography';
 @import 'ufs/ufs';
 @import 'ufs/application-tasks';
 @import 'ufs/tabs-alt';

@@ -44,10 +44,11 @@ export function createOpportunityPost(req, res) {
 }
 
 export function opportunitySetupGet(req, res) {
-  let viewData, opportunityName, opportunityID, fundersList;
+  let viewData, opportunityName, opportunityID, fundersList, fundersIsComplete;
 
   opportunityName = req.session.opportunityName;
   fundersList = req.session.funderslist;
+  fundersIsComplete = req.session.fundersIsComplete;
 
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
@@ -63,6 +64,7 @@ export function opportunitySetupGet(req, res) {
     opportunityName,
     opportunityID,
     fundersList,
+    fundersIsComplete,
   };
 
   return res.render('prototypes/opportunity/setup', viewData);
@@ -74,12 +76,13 @@ export function opportunitySetupPost(req, res) {
 
 // Funders
 export function opportunityFundersGet(req, res) {
-  let viewData, opportunityName, opportunityID, allCouncils, funderslist, fundersError;
+  let viewData, opportunityName, opportunityID, allCouncils, funderslist, fundersError, fundersIsComplete;
 
   allCouncils = generalData.allCouncils;
 
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
+  fundersIsComplete = req.session.fundersIsComplete;
 
   fundersError = req.session.fundersError;
   req.session.fundersError = null;
@@ -92,13 +95,14 @@ export function opportunityFundersGet(req, res) {
     allCouncils,
     funderslist,
     fundersError,
+    fundersIsComplete,
   };
 
   return res.render('prototypes/opportunity/funders', viewData);
 }
 
 export function opportunityFundersPost(req, res) {
-  const { funders } = req.body;
+  const { funders, isComplete } = req.body;
   console.log(funders);
 
   let fundersList, allCouncils;
@@ -107,6 +111,14 @@ export function opportunityFundersPost(req, res) {
 
   fundersList = funders;
   console.log(fundersList);
+
+  console.log('isComplete = ' + isComplete);
+
+  if(isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+  } else {
+    req.session.fundersIsComplete = null;
+  }
 
   req.session.funderslist = fundersList;
 
