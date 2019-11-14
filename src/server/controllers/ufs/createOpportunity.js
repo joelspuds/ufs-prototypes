@@ -114,7 +114,7 @@ export function opportunityFundersPost(req, res) {
 
   console.log('isComplete = ' + isComplete);
 
-  if(isComplete === 'on') {
+  if (isComplete === 'on') {
     req.session.fundersIsComplete = true;
   } else {
     req.session.fundersIsComplete = null;
