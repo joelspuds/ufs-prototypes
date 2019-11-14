@@ -1,0 +1,21 @@
+{#
+  Is the same as ufs-default.layout.njk
+#}
+
+{% extends './ufs-base.layout.njk' %}
+{% set mainContainerClass = 'new-gds' %}
+
+{% block bodyContentWrapper %}
+
+{% include './partials/ufs-breadcrumbs.njk' %}
+{% include './partials/ufs-backlink.njk' %}
+<main id="main-content" class="govuk-main-wrapper govuk-main-wrapper--auto-spacing {{ mainContainerClass if mainContainerClass }}">
+  {#{% filter prismFullpage %}#}
+    {% block content %}{% endblock %}
+  {#{% endfilter %}#}
+</main>
+{% if isAdminUser != true %}
+    {% include './partials/ufs-phase-banner.njk' %}
+{% endif %}
+{% endblock %}
+

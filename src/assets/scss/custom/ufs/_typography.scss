@@ -33,7 +33,8 @@ body.ufs {
   color: $govuk-link-hover-colour;
 }
 
-h1[class^="govuk-heading"] {
+h1.govuk-heading-xl {
+// h1[class^="govuk-heading"] {
   color: ufs-colour("ukri-blue");
 }
 

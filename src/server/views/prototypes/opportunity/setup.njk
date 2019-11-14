@@ -8,6 +8,7 @@
 {% set opportunityID = opportunityID %}
 {% set fundersList = fundersList %}
 {% set isAdminUser = true %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
 
 {% block content %}
 
@@ -25,7 +26,7 @@
 
         {% call components.columnTwoThirds() %}
 
-            <div class="application-item">
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
                 <div class="application-item__contents govuk-clearfix">
 
                     <div class="application-item__left">

@@ -1,0 +1,147 @@
+{#
+> container
+    > columns
+        > column
+#}
+
+
+{% macro bulmaContainer(extraClass)%}
+
+    {#
+        extraClass = is-fluid | not-fluid
+    #}
+
+    <div class="container {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumns(range='', extraClass)%}
+
+    {#
+        Cols maintained on/restricted to certain viewports, range: is-mobile | is-desktop
+    #}
+
+    <div class="columns {{ range }} {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaRow(extraClass)%}
+
+    <div class="container {{ extraClass }}">
+        <div class="columns">
+            {{ caller() }}
+        </div>
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumn(extraClass)%}
+
+    <div class="column {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnOneQuarter(extraClass)%}
+
+    <div class="column is-one-quarter {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnOneThird(extraClass)%}
+
+    <div class="column is-one-third {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnOneHalf(extraClass)%}
+
+    <div class="column is-half {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnTwoThirds(extraClass)%}
+
+    <div class="column is-two-thirds {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnThreeQuarters(extraClass)%}
+
+    <div class="column is-three-quarters {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnFull(extraClass)%}
+
+    <div class="column is-full {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnOneFifth(extraClass)%}
+
+    <div class="column is-one-fifth {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnTwoFifths(extraClass)%}
+
+    <div class="column is-two-fifths {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnThreeFifths(extraClass)%}
+
+    <div class="column is-three-fifths {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+{% macro bulmaColumnFourFifths(extraClass)%}
+
+    <div class="column is-four-fifths {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+
+{% macro bulmaColumnAny(size='', extraClass)%}
+
+    {# size:
+        is-1 | is-2 | is-3 | is-4 | is-5 is-6 | is-7 | is-8 | is-9 | is-10 | is-11 | is-12
+        is-one-quarter | is-one-third etc etc
+        only takes the space is needs: is-narrow | is-narrow-mobile | .is-narrow-tablet | .is-narrow-touch | .is-narrow-desktop | .is-narrow-widescreen | .is-narrow-fullhd
+
+    #}
+
+    <div class="column {{ size }} {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
+
+

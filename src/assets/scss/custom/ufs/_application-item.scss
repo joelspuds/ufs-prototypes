@@ -2,6 +2,7 @@
     background-color: govuk-colour("light-grey");
     margin-top: govuk-spacing(0);
     margin-bottom: govuk-spacing(2);
+    position: relative;
 
     &__contents {
         padding: govuk-spacing(4);
@@ -89,5 +90,19 @@
         padding: 10px;
         border-top: 1px solid #bfc1c3;
         border-bottom: 1px solid #bfc1c3;
+    }
+
+    &--complete {
+
+        &:before {
+            position: absolute;
+            right: -30px;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            content: " ";
+            background-image: url('/images/ufs/tick.svg');
+            background-size: 28px 28px;
+        }
     }
 }

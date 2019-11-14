@@ -9,6 +9,8 @@
 {% set allCouncils = allCouncils %}
 {% set funderslist = funderslist %}
 {% set fundersError = fundersError if fundersError %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
 {% set backLinkContents =  [{url:'/prototypes/opportunity/setup', text:'Back to opportunity setup'}] %}
 {% set isAdminUser = true %}
 
@@ -85,6 +87,32 @@
                         </div>
                     </fieldset>
                 </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
 
             {%- endcall %}
 
