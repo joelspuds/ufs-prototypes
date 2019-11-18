@@ -1,0 +1,75 @@
+<header id="_global-header" class="ufs-header" role="banner">
+  <div class="ufs-header__main govuk-width-container">
+    <div class="ufs-header__logo">
+      <img src="/images/ufs/ukri_logo_new.svg" title="UK Research and Innovation">
+    </div>
+
+    <div class="ufs-header__proposition">Funding service</div>
+
+    <div class="ufs-header__menu">
+      <span class="ufs-header__menu-link">
+        <a href="/" class="ufs-header__link">UKRI website</a>
+      </span>
+      <span class="ufs-header__menu-link">
+        <a href="#" class="ufs-header__link">Find finding opportunities</a>
+      </span>
+    </div>
+
+  </div>
+
+</header>
+
+<div class="ufs-header-bar"></div>
+
+{% if navType == 'admin' %}
+<div class="top-links">
+  <nav class="top-links__nav">
+    <a href="#" class="top-links__menu" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a>
+    <a href="/prototypes/dashboard/" class="top-links__link top-links__link--mobile-hidden">Home</a>
+    <a href="#" class="top-links__link top-links__link--mobile-hidden">Schedule</a>
+    <a href="/prototypes/opportunity/" class="top-links__link top-links__link--mobile-hidden">Opportunities</a>
+    <a href="#" class="top-links__link top-links__link--mobile-hidden">Award setup</a>
+    <a href="#" class="top-links__link top-links__link--mobile-hidden">Outcomes</a>
+    <a href="#" class="top-links__link top-links__link--mobile-hidden">Reporting</a>
+    <a href="#" class="top-links__link top-links__link--mobile-hidden">Users &amp; organisations</a>
+  </nav>
+</div>
+{% else %}
+  <div class="top-links">
+    <nav class="top-links__nav">
+      <a href="#" class="top-links__menu" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a>
+      <a href="/prototypes/dashboard/" class="top-links__link top-links__link--mobile-hidden">Home</a>
+      <a href="#" class="top-links__link top-links__link--mobile-hidden">Applications</a>
+      <a href="#" class="top-links__link top-links__link--mobile-hidden">Projects</a>
+      <a href="#" class="top-links__link top-links__link--mobile-hidden">Peer review</a>
+      <a href="#" class="top-links__link top-links__link--mobile-hidden">Panel</a>
+    </nav>
+  </div>
+{% endif %}
+<script>
+  window.onload = function(){
+    let allLinks = document.getElementsByClassName('top-links__link');
+    document.querySelector('.top-links__menu').onclick = function(){
+
+      this.classList.toggle('top-links__menu--open');
+
+      // TODO: toggle  aria-expanded attribute
+      this.setAttribute('aria-expanded', 'true');
+
+      Array.prototype.forEach.call(allLinks, function(allLinks) {
+
+        allLinks.classList.toggle('top-links__link--mobile-hidden');
+
+        // do it by CSS display property
+        /*let displayProperty = window.getComputedStyle(allLinks, null).getPropertyValue('display');
+        console.log(displayProperty);
+        if(displayProperty === 'none') {
+          allLinks.setAttribute("style", "display:block" );
+        } else {
+          allLinks.setAttribute("style", "display:none" );
+        }*/
+
+      });
+    };
+  };
+</script>
