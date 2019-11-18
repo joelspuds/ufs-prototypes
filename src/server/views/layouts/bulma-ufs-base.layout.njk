@@ -15,18 +15,18 @@
     {% block header %}{% endblock %}
 
   </head>
-  <body class="govuk-template__body ufs {{ bodyClass }}">
+  <body class="ufs {{ bodyClass }}">
 
     {% include './partials/no-js-fallback.njk' %}
     {% include './partials/skip-link.njk' %}
     {% include './partials/cookie-message.njk' %}
-    {% include './partials/ufs-header.njk' %}
+    {% include './partials/bulma-ufs-header.njk' %}
 
-    <div class="govuk-width-container">
+    <div class="" data-block>
         {% block bodyContentWrapper %}{% endblock %}
     </div>
 
-    {% include './partials/ufs-footer.njk' %}
+    {% include './partials/bulma-ufs-footer.njk' %}
     {% include './partials/ufs-body-scripts.njk' %}
 
     {% block bodyScripts %}{% endblock %}

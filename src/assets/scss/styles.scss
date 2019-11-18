@@ -10,7 +10,11 @@
 
 // overrides
 // without Bulma
-// @import 'custom/custom';
+@import 'custom/custom';
 
 // With Bulma
-@import 'custom/custom-with-bulma';
+/*body {
+  margin: 0;
+}
+@import 'custom/custom-with-bulma';*/
+

@@ -2,14 +2,14 @@
   Is the same as ufs-default.layout.njk
 #}
 
-{% extends './ufs-base.layout.njk' %}
-{% set mainContainerClass = 'new-gds' %}
+{% extends './bulma-ufs-base.layout.njk' %}
+{% set mainContainerClass = '' %}
 
 {% block bodyContentWrapper %}
 
 {% include './partials/ufs-breadcrumbs.njk' %}
 {% include './partials/ufs-backlink.njk' %}
-<main id="main-content" class="govuk-main-wrapper govuk-main-wrapper--auto-spacing {{ mainContainerClass if mainContainerClass }}">
+<main id="main-content" class="u-space-y30 {{ mainContainerClass if mainContainerClass }}">
   {#{% filter prismFullpage %}#}
     {% block content %}{% endblock %}
   {#{% endfilter %}#}
