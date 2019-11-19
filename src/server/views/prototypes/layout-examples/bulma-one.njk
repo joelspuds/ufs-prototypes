@@ -27,6 +27,124 @@
 
         {% call components.bulmaColumnAny(size='is-full') %}
 
+            {{ components.captionHeading(text='Quarter-three-quarters, snug', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-three-quarters') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Behold, a link', url='#', extraClass='govuk-body--s sub-button') }}
+                </p>
+
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Quarter-three-quarters, snug switcheroo', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Behold, a link', url='#', extraClass='govuk-body--s sub-button') }}
+                </p>
+
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-three-quarters') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
             {{ components.captionHeading(text='Two-thirds, one-third, snug', tag='h2', size='s', extraClass='u-space-t30') }}
 
         {%- endcall %}
