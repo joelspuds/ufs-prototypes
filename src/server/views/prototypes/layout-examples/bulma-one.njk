@@ -25,33 +25,25 @@
 
     {% call components.bulmaRow() %}
 
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Two-thirds, one-third, snug', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
 
             <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
                 <div class="application-item__contents govuk-clearfix">
 
                     <div class="application-item__left">
-                        {{ components.link(text="Funders", url='/prototypes/opportunity/funders') }}
+                        {{ components.link(text="A link in a box", url='#') }}
                     </div>
-                    {% if fundersList %}
-                        <div class="application-item__right">
-                            <span class="application-item__status">{{ fundersList }}</span>
-                        </div>
-                    {% else %}
-                        <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
-                        </div>
-                    {% endif %}
 
-                </div>
-            </div>
-
-            <div class="application-item">
-                <div class="application-item__contents govuk-clearfix">
-
-                    <div class="application-item__left">
-                        {{ components.link(text="Team", url='#') }}
-                    </div>
                     <div class="application-item__right">
                         <span class="application-item__status">Incomplete</span>
                     </div>
@@ -63,7 +55,7 @@
                 <div class="application-item__contents govuk-clearfix">
 
                     <div class="application-item__left">
-                        {{ components.link(text="Opportunity type and eligibility", url='#') }}
+                        {{ components.link(text="Another thing to fill space", url='#') }}
                     </div>
                     <div class="application-item__right">
                         <span class="application-item__status">Incomplete</span>
@@ -71,114 +63,384 @@
 
                 </div>
             </div>
-
-            {{ components.captionHeading(text='Workflow', tag='h2', size='s', extraClass='u-space-t30') }}
-
-            <div class="application-item application-item--workflow">
-                <div class="application-item__contents govuk-clearfix">
-
-                    <div class="application-item__left">
-                        {{ components.link(text="Website listing", url='#') }}
-                    </div>
-                    <div class="application-item__right">
-                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
-                        <span class="application-item__status">Incomplete</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="application-item application-item--workflow">
-                <div class="application-item__contents govuk-clearfix">
-
-                    <div class="application-item__left">
-                        {{ components.link(text="Application", url='/prototypes/opportunity/application') }}
-                    </div>
-                    <div class="application-item__right">
-                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
-                        <span class="application-item__status">Incomplete</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="application-item application-item--workflow">
-                <div class="application-item__contents govuk-clearfix">
-
-                    <div class="application-item__left">
-                        {{ components.link(text="Peer review", url='#') }}
-                    </div>
-                    <div class="application-item__right">
-                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
-                        <span class="application-item__status">Incomplete</span>
-                    </div>
-
-                </div>
-            </div>
-
-
 
         {%- endcall %}
 
         {% call components.bulmaColumnAny(size='is-one-third', extraClass='') %}
 
-            <div class="_govuk-related-items _govuk-related-items--flush" style="background-color: orange;">
+            <div class="govuk-related-items govuk-related-items--flush">
 
-                {#{{ components.captionHeading(text=opportunityID, tag='h2', size='xs', extraClass='u-space-y5') }}
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
                 <p class="govuk-body-s u-space-b5">
-                    {{ opportunityName }}
-                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                    Some modest content in a box.
+                    {{ components.link(text='Behold, a link', url='#', extraClass='govuk-body--s sub-button') }}
                 </p>
 
-                #}{#{{ components.captionHeading(text='Setup status', tag='h3', size='s', extraClass='u-space-b5') }}
-                <span class="badge badge--success badge--smaller u-space-b5">Item complete</span>
-                {{ components.link(text='Update status', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}#}{#
-
-                {{ components.captionHeading(text='Actions', tag='h3', size='xs', extraClass='u-space-b5 u-space-t15 govuk-visually-hidden') }}
-                <ul class="govuk-list u-space-t30">
-                    <li>
-                        {{ components.link(text='Delete opportunity', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
-                    </li>
-                    <li>
-                        {{ components.link(text='Opportunity setup guidance', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
-                    </li>
-                </ul>#}
-                <span> blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah </span>
             </div>
 
         {%- endcall %}
 
     {%- endcall %}
 
-    <div class="container ">
-        <div class="columns">
-            <div class="column is-two-thirds">
-                <div style="background-color:aliceblue; width: 100%; min-height: 40px;">fwef ewfw ef wef wef wef </div>
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Two-thirds, side-col with offset', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-8') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
             </div>
-            <div class="column is-one-third">
-                <div style="background-color:aliceblue; width: 100%; min-height: 40px;">fwef ewfw ef wef wef wef </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container ">
-        <div class="columns">
-            <div class="column is-one-quarter">
-                <div style="background-color:aliceblue; width: 100%; min-height: 40px;">fwef ewfw ef wef wef wef </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-3 is-offset-1', extraClass='') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                </p>
+
             </div>
-            <div class="column is-three-quarters">
-                <div style="background-color:aliceblue; width: 100%; min-height: 40px;">fwef ewfw ef wef wef wef </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Three-six-three razzle dazzle', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-3', extraClass='') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                </p>
+
             </div>
-        </div>
-    </div>
-    <div class="container ">
-        <div class="columns">
-            <div class="column ">
-                <div style="background-color:aliceblue; width: 100%; min-height: 40px;">fwef ewfw ef wef wef wef </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-6') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
             </div>
-            <div class="column ">
-                <div style="background-color:aliceblue; width: 100%; min-height: 40px;">fwef ewfw ef wef wef wef </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
             </div>
-        </div>
-    </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-3', extraClass='') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                </p>
+
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='One third, two thirds', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-4', extraClass='') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                </p>
+
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-8') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Half-half classic', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-6') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-6') %}
+
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="A link in a box", url='#') }}
+                    </div>
+
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="application-item">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Another thing to fill space", url='#') }}
+                    </div>
+                    <div class="application-item__right">
+                        <span class="application-item__status">Incomplete</span>
+                    </div>
+
+                </div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Dashboard', tag='h2', size='s', extraClass='u-space-t30') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-3') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text='A small sidebar title', tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">
+                    Some modest content in a box.
+                    {{ components.link(text='Edit name', url='/prototypes/opportunity/create?mode=edit', extraClass='govuk-body--s sub-button') }}
+                </p>
+
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-9') %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='is-3') %}
+
+                    <div class="box">
+
+                        {{ components.captionHeading(text='Task', tag='h3', size='xs', extraClass='') }}
+
+                        <div class="content">
+                            <p>Proin semper leo sit amet ligula viverra, eu iaculis diam maximus. Vivamus et dui leo. Phasellus ultrices tortor sem, maximus semper est rhoncus ac. In hac habitasse platea dictumst.</p>
+                        </div>
+
+                    </div>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='is-3') %}
+
+                    <div class="box">
+
+                        {{ components.captionHeading(text='Task', tag='h3', size='xs', extraClass='') }}
+
+                        <div class="content">
+                            <p>Proin semper leo sit amet ligula viverra, eu iaculis diam maximus. Vivamus et dui leo. Phasellus ultrices tortor sem, maximus semper est rhoncus ac. In hac habitasse platea dictumst.</p>
+                        </div>
+
+                    </div>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='is-3') %}
+
+                    <div class="box">
+
+                        {{ components.captionHeading(text='Task', tag='h3', size='xs', extraClass='') }}
+
+                        <div class="content">
+                            <p>Proin semper leo sit amet ligula viverra, eu iaculis diam maximus. Vivamus et dui leo. Phasellus ultrices tortor sem, maximus semper est rhoncus ac. In hac habitasse platea dictumst.</p>
+                        </div>
+
+                    </div>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='is-3') %}
+
+                    <div class="box">
+
+                        {{ components.captionHeading(text='Task', tag='h3', size='xs', extraClass='') }}
+
+                        <div class="content">
+                            <p>Proin semper leo sit amet ligula viverra, eu iaculis diam maximus. Vivamus et dui leo. Phasellus ultrices tortor sem, maximus semper est rhoncus ac. In hac habitasse platea dictumst.</p>
+                        </div>
+
+                    </div>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+
+        {%- endcall %}
+
+    {%- endcall %}
 
 {% endblock %}

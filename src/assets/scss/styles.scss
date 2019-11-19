@@ -10,11 +10,18 @@
 
 // overrides
 // without Bulma
-@import 'custom/custom';
+// @import 'custom/custom';
 
 // With Bulma
-/*body {
+body {
   margin: 0;
 }
-@import 'custom/custom-with-bulma';*/
+// @media only screen and (max-width: 768px)  {
+@media only screen and (max-width: 1024px)  {
+  .columns {
+    padding-left:8px;
+    padding-right:8px;
+  }
+}
+@import 'custom/custom-with-bulma';
 

@@ -10,9 +10,9 @@
 
   &__nav {
     // TAKE OUT FOR BULMA!
-    margin: 0px auto;
+    /*margin: 0px auto;
     width: 100%;
-    max-width: 960px;
+    max-width: 960px;*/
 
     @include govuk-media-query($from: desktop) {
       display: flex;
