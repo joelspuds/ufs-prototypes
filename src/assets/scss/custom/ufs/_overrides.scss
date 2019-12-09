@@ -59,3 +59,10 @@
   background: govuk-colour("white");
 }
 
+
+.govuk-checkboxes__label::after {
+  top: 10px;
+  left: 9px;
+  width: 24px;
+  height: 15px;
+}

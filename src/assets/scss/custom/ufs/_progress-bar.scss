@@ -1,11 +1,11 @@
-.progress {
+.progress-bar {
   width: 100%;
   height: 24px;
   position: relative;
   background-color: govuk-colour("light-grey");
 }
 
-.progress__text {
+.progress-bar__text {
   font-size: 14px;
   position: absolute;
   height: 24px;
@@ -14,21 +14,21 @@
   line-height: 24px;
 }
 
-.progress__text--back {
+.progress-bar__text--back {
   text-align: center;
   color: govuk-colour("black");
   width: 100%;
   z-index:1;
 }
 
-.progress__text--front {
+.progress-bar__text--front {
   text-align: center;
   color: govuk-colour("white");
   background-color: govuk-colour("green");
   width: 100%;
 }
 
-.progress__clipper {
+.progress-bar__clipper {
   position: absolute;
   left: 0;
   top: 0;

@@ -1,0 +1,314 @@
+{#{% extends 'layouts/ufs.layout.njk' %}#}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+
+{% set pageTitle = OPPORTUNITY_SETUP_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = 'Development of a Novel Inhibitor of Ricin' %}
+{% set opportunityID = 'OPP-25671' %}
+{% set fundersList = fundersList %}
+{% set isAdminUser = true %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
+{% block content %}
+
+    <style>
+        .fillers {
+            width:100%;
+            min-height: 100px;
+            padding:20px;
+            margin:0 0 40px 0;
+            font-size: 36px;
+            color: #333;
+            font-weight: bold;
+        }
+        .fillers-main {
+            background-color: pink;
+        }
+        .fillers-side {
+            background-color: cornflowerblue;
+        }
+        .filler-text {
+            font-size: 19px;
+            font-weight: normal;
+            /*margin-bottom: 20px;*/
+        }
+
+    </style>
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-full', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+          <div class="fillers fillers-main">
+              Main
+              <p class="filler-text">Used for enhanced textareas</p>
+          </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-default', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            <div class="fillers fillers-main">
+                Main
+                <p class="filler-text">Used for most forms and layouts, even when the smaller column is not required as line length becomes too long for easy readability</p>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-third', extraClass='') %}
+
+            <div class="fillers fillers-side">
+                Side
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-default-quarters', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-three-quarters') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="fillers fillers-side">
+                Side
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-list', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-one-third', extraClass='') %}
+
+            <div class="fillers fillers-side">
+                Side
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-list-quarters', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="fillers fillers-side">
+                Side
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-three-quarters') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-dashboard-quarters', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-quarter', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-dashboard-thirds', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-one-third', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-third', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-third', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Page-layout-dashboard-halves', caption='Layout options') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-one-half', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-one-half', extraClass='') %}
+
+            <div class="fillers fillers-main">
+                Main
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ---------- SPACER ----------  #}
+
+{% endblock %}

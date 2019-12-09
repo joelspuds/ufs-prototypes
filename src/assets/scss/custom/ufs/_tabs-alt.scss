@@ -22,20 +22,18 @@
 
   &__link {
     display: block;
-    margin-bottom: -1px;
-    height: 20px;
+    margin-bottom: 0px;
+    height: 42px;
     padding: 10px 10px;
     color: govuk-colour("black")!important;
     @include govuk-font($size: 19);
     background-color: govuk-colour("light-grey");
-
 
     &--active {
       background-color: govuk-colour("white");
       border: 1px solid $govuk-border-colour;
       border-bottom: 0;
     }
-
 
     &:hover {
       // color: lime;
