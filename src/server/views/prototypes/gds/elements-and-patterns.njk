@@ -1,0 +1,379 @@
+{#{% extends 'layouts/ufs.layout.njk' %}#}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{#{% set bodyClass = ' govuk-template__body--wide' %}#}
+
+{% set pageTitle = OPPORTUNITY_SETUP_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = 'Development of a Novel Inhibitor of Ricin' %}
+{% set opportunityID = 'OPP-25671' %}
+{% set fundersList = fundersList %}
+{% set isAdminUser = true %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
+{% block content %}
+    <link href="https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap" rel="stylesheet">
+    <style>
+        .fillers {
+            width:100%;
+            min-height: 100px;
+            padding:20px;
+            margin:0 0 40px 0;
+            font-size: 36px;
+            color: #333;
+            font-weight: bold;
+        }
+        .fillers-main {
+            background-color: pink;
+        }
+        .fillers-side {
+            background-color: cornflowerblue;
+        }
+        .filler-text {
+            font-size: 19px;
+            font-weight: normal;
+        }
+
+        .guidelines {
+            font-family: 'Kalam', cursive!important;
+            background: pink;
+            padding:10px;
+            margin-bottom: 30px;
+            font-size: 24px;
+            box-shadow: 0 5px 5px -5px #777;
+            border-bottom-left-radius: 100%/10px;
+            border-bottom-right-radius: 100%/10px;
+        }
+
+        .tag:not(body) {
+            padding-right: 0;
+            padding-left: 0;
+        }
+</style>
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text='Elements and patterns', caption='GDS stuff') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            <p class="govuk-body-m">The chances are, any uncertainty can be addressed here:
+                <a href="https://design-system.service.gov.uk/components/" target="_blank" class="govuk-link govuk-!-font-weight-bold">Full GDS guidelines and examples</a>
+            </p>
+
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-2', extraClass='') %}
+
+            <ul class="data-list">
+                <li><strong>Forms</strong></li>
+                <li class="u-space-t5"><a class="govuk-link" href="#affordance">Affordance</a></li>
+                <li class="u-space-t5"><a class="govuk-link" href="#fieldset">Fieldset</a></li>
+                <li class="u-space-t5"><a class="govuk-link" href="#formgroups">Form groups</a></li>
+                <li class="u-space-t5"><a class="govuk-link" href="#formlayout">Form layout</a></li>
+                <li class="u-space-t5"><a class="govuk-link" href="#grid">Grid</a></li>
+                <li class="u-space-t5"><a class="govuk-link" href=""></a></li>
+                <li class="u-space-t5"><a class="govuk-link" href=""></a></li>
+                {#<li><strong>Furniture</strong></li>#}
+            </ul>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-10') %}
+
+            <section id="affordance">
+
+                {{ components.captionHeading(text='Affordance', tag='h2', size='l') }}
+
+                <p class="guidelines">Make inputs the right width for the type of input.</p>
+
+                <p class="govuk-body-m u-space-b20"><strong>Further details:</strong> <a href="hhttps://design-system.service.gov.uk/components/text-input/" target="_blank">GDS Components text inputs</a> </p>
+
+                {% call components.displayCode() %}
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">Inputs for long strings, email addresses, phone numbers, postcodes, initials</legend>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="width-20">20 character width</label>
+                            <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="width-10">10 character width</label>
+                            <input class="govuk-input govuk-input--width-10" id="width-10" name="width-10" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="width-5">5 character width</label>
+                            <input class="govuk-input govuk-input--width-5" id="width-5" name="width-5" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="width-4">4 character width</label>
+                            <input class="govuk-input govuk-input--width-4" id="width-4" name="width-4" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="width-3">
+                                3 character width
+                            </label>
+                            <input class="govuk-input govuk-input--width-3" id="width-3" name="width-3" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="width-2">
+                                2 character width
+                            </label>
+                            <input class="govuk-input govuk-input--width-2" id="width-2" name="width-2" type="text">
+                        </div>
+
+                    </fieldset>
+                {%- endcall %}
+
+            </section>
+
+            <section id="fieldset">
+
+                {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+                <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+                <p class="govuk-body-m u-space-b20"><strong>Further details:</strong> <a href="https://design-system.service.gov.uk/components/fieldset/" class="govuk-link" target="_blank">GDS Components Fieldset</a> </p>
+
+                {% call components.displayCode() %}
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">What are your contact details?</legend>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="phone">Phone</label>
+                            <span class="govuk-hint">Enter a mobile or landline number</span>
+                            <input class="govuk-input govuk-input--width-10" id="phone" name="phone" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="email">Email</label>
+                            <span class="govuk-hint">Enter any email address where you can be contacted</span>
+                            <input class="govuk-input govuk-input--width-20" id="Email" name="email" type="text">
+                        </div>
+
+                    </fieldset>
+                {%- endcall %}
+
+            </section>
+
+            <section id="fieldset">
+
+                {{ components.captionHeading(text='Form groups', tag='h2', size='l') }}
+
+                <p class="guidelines">Use form groups <code class="govuk-body-s">.govuk-form-group</code> to provide consistent vertical spacing.</p>
+
+                <p class="govuk-body-m u-space-b20">Use a form group for a label/input combo, or a collection of related form items such as an array fo radios or checkboxes. This should be handled in Storybook ideally, but check your output.</p>
+
+                {% call components.displayCode() %}
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">What are your contact details?</legend>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="phone">Phone</label>
+                            <span class="govuk-hint">Enter a mobile or landline number</span>
+                            <input class="govuk-input govuk-input--width-10" id="phone" name="phone" type="text">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="email">Email</label>
+                            <span class="govuk-hint">Enter any email address where you can be contacted</span>
+                            <input class="govuk-input govuk-input--width-20" id="Email" name="email" type="text">
+                        </div>
+
+                    </fieldset>
+                {%- endcall %}
+
+            </section>
+
+            <section id="formlayout">
+
+                {{ components.captionHeading(text='Form layout', tag='h2', size='l') }}
+
+                <p class="guidelines">Put logical groups of form "things" in a new nested row.</p>
+
+                <p class="govuk-body-m u-space-b20">Use a form group for a label/input combo, or a collection of related form items such as an array fo radios or checkboxes. This should be handled in Storybook ideally, but check your output.</p>
+
+                {% call components.displayCode() %}
+
+                    {% call components.bulmaColumns() %}
+
+                        {% call components.bulmaColumnAny(size='is-full') %}
+
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">What are your contact details?</legend>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="phone">Phone</label>
+                                    <span class="govuk-hint">Enter a mobile or landline number</span>
+                                    <input class="govuk-input govuk-input--width-10" id="phone" name="phone" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="email">Email</label>
+                                    <span class="govuk-hint">Enter any email address where you can be contacted</span>
+                                    <input class="govuk-input govuk-input--width-20" id="Email" name="email" type="text">
+                                </div>
+
+                            </fieldset>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                    {% call components.bulmaColumns() %}
+
+                        {% call components.bulmaColumnAny(size='is-full') %}
+
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">What is your postal address</legend>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="house">House number</label>
+                                    <input class="govuk-input govuk-input--width-3" id="house" name="house" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="street">Street name</label>
+                                    <input class="govuk-input govuk-input--width-20" id="street" name="street" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="town">Town or city</label>
+                                    <input class="govuk-input govuk-input--width-20" id="town" name="town" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="postcode">Postcode</label>
+                                    <input class="govuk-input govuk-input--width-5" id="postcode" name="postcode" type="text">
+                                </div>
+
+                            </fieldset>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                    {% call components.bulmaColumns() %}
+
+                        {% call components.bulmaColumnAny(size='is-full') %}
+
+                            <div class="govuk-form-group">
+                                <button class="govuk-button" id="submit" name="submit">Submit</button>
+                            </div>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            </section>
+
+            <section id="grid">
+
+                {{ components.captionHeading(text='Grid', tag='h2', size='l') }}
+
+                <p class="guidelines">Go nuts!</p>
+
+                <p class="govuk-body-m u-space-b20">Use a form group for a label/input combo, or a collection of related form items such as an array fo radios or checkboxes. This should be handled in Storybook ideally, but check your output.</p>
+
+                {% call components.displayCode() %}
+
+                    {% call components.bulmaColumns() %}
+
+                        {% call components.bulmaColumnAny(size='is-full') %}
+
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">What are your contact details?</legend>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="phone">Phone</label>
+                                    <span class="govuk-hint">Enter a mobile or landline number</span>
+                                    <input class="govuk-input govuk-input--width-10" id="phone" name="phone" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="email">Email</label>
+                                    <span class="govuk-hint">Enter any email address where you can be contacted</span>
+                                    <input class="govuk-input govuk-input--width-20" id="Email" name="email" type="text">
+                                </div>
+
+                            </fieldset>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                    {% call components.bulmaColumns() %}
+
+                        {% call components.bulmaColumnAny(size='is-full') %}
+
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">What is your postal address</legend>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="house">House number</label>
+                                    <input class="govuk-input govuk-input--width-3" id="house" name="house" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="street">Street name</label>
+                                    <input class="govuk-input govuk-input--width-20" id="street" name="street" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="town">Town or city</label>
+                                    <input class="govuk-input govuk-input--width-20" id="town" name="town" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="postcode">Postcode</label>
+                                    <input class="govuk-input govuk-input--width-5" id="postcode" name="postcode" type="text">
+                                </div>
+
+                            </fieldset>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                    {% call components.bulmaColumns() %}
+
+                        {% call components.bulmaColumnAny(size='is-full') %}
+
+                            <div class="govuk-form-group">
+                                <button class="govuk-button" id="submit" name="submit">Submit</button>
+                            </div>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            </section>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

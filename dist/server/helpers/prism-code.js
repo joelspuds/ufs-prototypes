@@ -37,7 +37,7 @@ const highlightCode = exports.highlightCode = code => {
     'remove-trailing': true,
     'remove-indent': false,
     'left-trim': true,
-    'right-trim': true
+    'right-trim': true,
   });
 
   // Minifies the html code

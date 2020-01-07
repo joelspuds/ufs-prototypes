@@ -5,3 +5,4 @@ export * from './jwt';
 export * from './embeddedPDF';
 export * from './spreadsheet';
 export * from './createOpportunity';
+export * from './data-test';

@@ -7,8 +7,8 @@
 {% include './partials/breadcrumbs.njk' %}
 <main id="content" class="govuk-main-wrapper govuk-main-wrapper--auto-spacing {{ mainContainerClass if mainContainerClass }} ">
 
-  {% filter prismFullpage %}
+  {#{% filter prismFullpage %}#}
     {% block content %}{% endblock %}
-  {% endfilter %}
+  {#{% endfilter %}#}
 </main>
 {% endblock %}

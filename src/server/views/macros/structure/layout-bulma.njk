@@ -39,6 +39,14 @@
 
 {% endmacro %}
 
+{% macro bulmaColumns(extraClass)%}
+
+    <div class="columns {{ extraClass }}">
+        {{ caller() }}
+    </div>
+
+{% endmacro %}
+
 {% macro bulmaColumn(extraClass)%}
 
     <div class="column {{ extraClass }}">

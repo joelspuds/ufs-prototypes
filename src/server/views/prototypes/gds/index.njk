@@ -1,0 +1,31 @@
+{% extends 'layouts/default.layout.njk' %}
+
+{% set pageTitle = 'GDS bits and bobs' %}
+
+{% set listItems = [
+    { text: 'Forms', url: '/prototypes/gds/forms' }
+] %}
+
+{% block content %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.pageHeading(heading='GDS bits and bobs') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnTwoThirds() %}
+
+            {{ components.list(items=listItems, type='bullet')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

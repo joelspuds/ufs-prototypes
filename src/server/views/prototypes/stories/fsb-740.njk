@@ -1,0 +1,134 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+
+{% set pageTitle = OPPORTUNITY_SETUP_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = 'Development of a Novel Inhibitor of Ricin' %}
+{% set opportunityID = 'OPP-25671' %}
+{% set isAdminUser = true %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            {{ components.captionHeading(text='(Untitled question)', caption=opportunityID + ' ' + opportunityName) }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {#{% call components.displayCode() %}#}
+
+        {#{% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}#}
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">Question details</legend>
+
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-label--s" for="questionTitle">Question title</label>
+                                <span class="govuk-hint">This should be short e.g. Economic benefit</span>
+                                <input class="govuk-input" id="questionTitle" name="questionTitle" type="text" placeholder="(Untitled question)">
+                            </div>
+
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-label--s" for="questionDescription">Question description</label>
+                                <span class="govuk-hint">Elaborate and ask a question e.g. How will your project provide economic benefit to the UK?</span>
+                                <input class="govuk-input" id="questionDescription" name="questionDescription" type="text">
+                            </div>
+
+                            <div class="govuk-form-group">
+                                <label class="govuk-label govuk-label--s" for="questionGuidance">Question guidance</label>
+                                <span id="more-detail-hint" class="govuk-hint ">Include information about finances and employees</span>
+                                <textarea class="govuk-textarea" rows="8" id="questionGuidance" name="questionGuidance"></textarea></div>
+                        </fieldset>
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                        <details class="govuk-details u-space-b5" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">Guidance for setting word limits</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>All questions should include a word limit.</li>
+                                    <li>The word limit can be any number.</li>
+                                    <li>Word limits are important for the applicant as it indicates how much time and effort should go into their answers.</li>
+                                    <li>They also give a limit to the work the assessors will need to review and score.</li>
+                                    <li>We recommend around 300-500 words for a summary or description answer and 2000-3000 words for a longer essay based answer.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="wordLimit">Word limit</label>
+                            <input class="govuk-input govuk-input--width-4" id="wordLimit" name="wordLimit" type="number">
+                        </div>
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                        <div class="application-item">
+                            <div class="application-item__contents">
+                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">Mark as complete</legend>
+                                    <div class="govuk-checkboxes govuk-checkboxes--complete">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="markAsComplete" type="checkbox" value="isComplete">
+                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                        <div class="govuk-form-group">
+                            <button class="govuk-button" id="submit" name="submit">Save and return</button>
+                        </div>
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {#{%- endcall %}#}
+
+       {# {%- endcall %}
+
+    {%- endcall %}#}
+
+{% endblock %}

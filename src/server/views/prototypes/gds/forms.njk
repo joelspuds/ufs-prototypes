@@ -1,0 +1,279 @@
+{#{% extends 'layouts/default.layout.njk' %}#}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set pageTitle = 'GDS bits and bobs' %}
+
+{% set listItems = [
+    { text: 'Forms', url: '/prototypes/gds/forms' }
+] %}
+
+{% block content %}
+    {#<link href="https://fonts.googleapis.com/css?family=Caveat:400,700&display=swap" rel="stylesheet">#}
+    <link href="https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap" rel="stylesheet">
+    <style>
+        .guidelines {
+            font-family: 'Kalam', cursive!important;
+            background: pink;
+            padding:10px;
+            margin-bottom: 30px;
+            font-size: 24px;
+            box-shadow: 0 5px 5px -5px #777;
+            border-bottom-left-radius: 100%/10px;
+            border-bottom-right-radius: 100%/10px;
+        }
+    </style>
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Forms') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow(extraClass='u-space-y30') %}
+
+        {% call components.columnTwoThirds() %}
+
+            <a href="https://design-system.service.gov.uk/components/" target="_blank" class="govuk-link govuk-!-font-weight-bold">Full GDS guidelines and examples</a>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.displayCode() %}
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h2 class="govuk-fieldset__heading">What are your contact details?</h2>
+                </legend>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--s" for="phone">Phone</label>
+                    <span class="govuk-hint">Enter a mobile or landline number</span>
+                    <input class="govuk-input" id="phone" name="phone" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--s" for="email">Email</label>
+                    <span class="govuk-hint">Enter any email address where you can be contacted</span>
+                    <input class="govuk-input" id="Eemail" name="email" type="text">
+                </div>
+
+            </fieldset>
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {# ****************************************************** #}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.displayCode() %}
+
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ****************************************************** #}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.displayCode() %}
+
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ****************************************************** #}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.displayCode() %}
+
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ****************************************************** #}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.displayCode() %}
+
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {# ****************************************************** #}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {{ components.captionHeading(text='Fieldset', tag='h2', size='l') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            <p class="guidelines">Use a fieldset to group linked items such as; contact details, address, groups of checkboxes or radio buttons. </p>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnFull() %}
+
+            {% call components.displayCode() %}
+
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+
+
+{% endblock %}

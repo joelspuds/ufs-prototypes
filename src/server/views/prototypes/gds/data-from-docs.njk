@@ -1,0 +1,31 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set pageTitle = pageTitle if pageTitle %}
+
+{% set listItems = [
+    { text: 'Forms', url: '/prototypes/gds/forms' }
+] %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.captionHeading(text=pageTitle, caption='Testing testing 1 2 3') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {#{{ components.list(items=listItems, type='bullet')}}#}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
