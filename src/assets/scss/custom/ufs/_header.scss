@@ -3,31 +3,24 @@
   background-color: #fff;
   padding:10px 0;
 
-  @include govuk-media-query($from: tablet) {
-    //margin: 0;
-    //padding: 0;
-  }
-
   &__main {
     position: relative;
-    // width: 100%;
-    // max-width: 960px;
     margin: 0 15px;
     min-height: 61px;
 
-    @include govuk-media-query($from: mobile) {
+    /*@include govuk-media-query($from: mobile) {
       margin: 0 auto;
       padding:15px 15px;
-    }
+    }*/
   }
 
   &__logo {
     width: 208px;
     height: 61px;
 
-    @include govuk-media-query($from: tablet) {
+    /*@include govuk-media-query($from: tablet) {
       float: left;
-    }
+    }*/
   }
 
   &__proposition {
@@ -40,13 +33,13 @@
     width: 100%;
     clear: both;
 
-    @include govuk-media-query($from: tablet) {
+    /*@include govuk-media-query($from: tablet) {
       width:320px;
       height: 33px;
       margin: 14px 0 0 30px;
       float: left;
       clear: none;
-    }
+    }*/
 
   }
 
@@ -57,44 +50,20 @@
     margin-top: 10px;
     @extend %govuk-body-s;
 
-    @include govuk-media-query($from: mobile) {
+   /* @include govuk-media-query($from: mobile) {
       float: right;
       width:200px;
       display: inline-block;
-    }
+    }*/
   }
 
   &__menu-link{
-
-    display: inline;
-
-    @include govuk-media-query($from: mobile) {
-      display: block;
-    }
-
+    display: block;
   }
 
   &__link {
     @extend %govuk-body-s;
-    color: #6f777b;
+    color: ufs-colour("ukri-blue");
   }
-
-}
-
-.ufs-header-bar {
-  height: 10px;
-  margin: 0 auto;
-  background: linear-gradient(to right,
-      rgb(29,112,184) 0%,
-      rgb(29,112,184) 20%,
-      rgb(248,156,33) 20%,
-      rgb(248,156,33) 40%,
-      rgb(0, 167, 135) 40%,
-      rgb(0, 167, 135) 60%,
-      rgb(167, 68, 153) 60%,
-      rgb(167, 68, 153) 80%,
-      rgb(232, 77, 54) 80%,
-      rgb(232, 77, 54) 100%);
-  clear: both;
 }
 

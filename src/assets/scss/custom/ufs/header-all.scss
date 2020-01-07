@@ -3,4 +3,21 @@
   background-image: url("/images/ufs/contours.png");
   background-repeat: no-repeat;
   background-size: contain;
+
+  /*@include desktop {
+    background-size: cover;
+  }*/
+
+  /*@include widescreen-only {
+    background-size: cover;
+  }*/
+
+  /*@include from($tablet) {
+    background-size: contain;
+  }*/
 }
+
+
+
+
+

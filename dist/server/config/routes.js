@@ -82,6 +82,10 @@ router.post('/prototypes/example-journey/application/resources-and-cost', demosC
 router.get('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetGet);
 router.post('/prototypes/example-journey/application/spreadsheet', demosController.spreadSheetPost);
 
+// data from google docs
+router.get('/prototypes/gds/data-from-docs', demosController.dataTestGet);
+router.post('/prototypes/gds/data-from-docs', demosController.dataTestPost);
+
 // upload script
 router.get('/prototypes/uploadStuff', demosController.uploadStuffGet);
 router.post('/prototypes/uploadStuff', demosController.uploadStuffPost);

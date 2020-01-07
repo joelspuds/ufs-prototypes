@@ -1,6 +1,13 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.dataTestGet = dataTestGet;
+exports.dataTestPost = dataTestPost;
 // spreadsheet
 
-export function dataTestGet(req, res) {
+function dataTestGet(req, res) {
   let viewData, pageTitle;
 
   let credentials = {
@@ -11,8 +18,8 @@ export function dataTestGet(req, res) {
       token_uri: 'https://oauth2.googleapis.com/token',
       auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
       client_secret: 'bAk2gQfFgbJ1bA42HkSYefZs',
-      redirect_uris: ['urn:ietf:wg:oauth:2.0:oob', 'http://localhost'],
-    },
+      redirect_uris: ['urn:ietf:wg:oauth:2.0:oob', 'http://localhost']
+    }
   };
 
   const fs = require('fs');
@@ -59,12 +66,12 @@ export function dataTestGet(req, res) {
   function getNewToken(oAuth2Client, callback) {
     const authUrl = oAuth2Client.generateAuthUrl({
       access_type: 'offline',
-      scope: SCOPES,
+      scope: SCOPES
     });
     console.log('Authorize this app by visiting this url:', authUrl);
     const rl = readline.createInterface({
       input: process.stdin,
-      output: process.stdout,
+      output: process.stdout
     });
     rl.question('Enter the code from that page here: ', code => {
       rl.close();
@@ -88,36 +95,33 @@ export function dataTestGet(req, res) {
    */
   function listMajors(auth) {
     const sheets = google.sheets({ version: 'v4', auth });
-    sheets.spreadsheets.values.get(
-      {
-        spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
-        range: 'Class Data!A2:E',
-      },
-      (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        const rows = res.data.values;
-        if (rows.length) {
-          console.log('Name, Major:');
-          // Print columns A and E, which correspond to indices 0 and 4.
-          rows.map(row => {
-            console.log(`${row[0]}, ${row[4]}`);
-          });
-        } else {
-          console.log('No data found.');
-        }
+    sheets.spreadsheets.values.get({
+      spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+      range: 'Class Data!A2:E'
+    }, (err, res) => {
+      if (err) return console.log('The API returned an error: ' + err);
+      const rows = res.data.values;
+      if (rows.length) {
+        console.log('Name, Major:');
+        // Print columns A and E, which correspond to indices 0 and 4.
+        rows.map(row => {
+          console.log(`${row[0]}, ${row[4]}`);
+        });
+      } else {
+        console.log('No data found.');
       }
-    );
+    });
   }
 
   pageTitle = 'Data from google docs';
   viewData = {
-    pageTitle,
+    pageTitle
   };
 
   return res.render('prototypes/gds/data-from-docs', viewData);
 }
 
-export function dataTestPost(req, res) {
+function dataTestPost(req, res) {
   const {} = req.body;
 
   // console.log('formSpreadsheet = ' + formSpreadsheet);

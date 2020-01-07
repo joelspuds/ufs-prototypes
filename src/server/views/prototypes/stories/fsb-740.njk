@@ -2,7 +2,7 @@
 
 {% set navType = 'admin' %}
 
-{% set pageTitle = OPPORTUNITY_SETUP_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Custom section ' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set opportunityName = 'Development of a Novel Inhibitor of Ricin' %}
 {% set opportunityID = 'OPP-25671' %}
 {% set isAdminUser = true %}
@@ -14,7 +14,17 @@
 
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
 
-            {{ components.captionHeading(text='(Untitled question)', caption=opportunityID + ' ' + opportunityName) }}
+            {{ components.backLink(text='Back to application', url='#') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            {{ components.captionHeading(text='(Custom section)', caption=opportunityID + ' ' + opportunityName) }}
 
         {%- endcall %}
 
@@ -34,20 +44,20 @@
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">Question details</legend>
 
                             <div class="govuk-form-group">
-                                <label class="govuk-label govuk-label--s" for="questionTitle">Question title</label>
-                                <span class="govuk-hint">This should be short e.g. Economic benefit</span>
-                                <input class="govuk-input" id="questionTitle" name="questionTitle" type="text" placeholder="(Untitled question)">
+                                <label class="govuk-label govuk-label--s" for="questionTitle">Section topic</label>
+                                <span class="govuk-hint">Short description of the subject area. For example, ‘Economic benefits’</span>
+                                <input class="govuk-input" id="questionTitle" name="questionTitle" type="text" placeholder="(Custom section)">
                             </div>
 
                             <div class="govuk-form-group">
-                                <label class="govuk-label govuk-label--s" for="questionDescription">Question description</label>
-                                <span class="govuk-hint">Elaborate and ask a question e.g. How will your project provide economic benefit to the UK?</span>
+                                <label class="govuk-label govuk-label--s" for="questionDescription">Your question</label>
+                                <span class="govuk-hint">Ask a question about the specific area of the section topic you want to know about. For example, ‘How will your project economically benefit Scotland?’</span>
                                 <input class="govuk-input" id="questionDescription" name="questionDescription" type="text">
                             </div>
 
                             <div class="govuk-form-group">
                                 <label class="govuk-label govuk-label--s" for="questionGuidance">Question guidance</label>
-                                <span id="more-detail-hint" class="govuk-hint ">Include information about finances and employees</span>
+                                <span id="more-detail-hint" class="govuk-hint ">Describe what the applicant’s answer should cover and list the criteria by which itwill be assessed.</span>
                                 <textarea class="govuk-textarea" rows="8" id="questionGuidance" name="questionGuidance"></textarea></div>
                         </fieldset>
 
@@ -64,13 +74,7 @@
                                 <span class="govuk-details__summary-text">Guidance for setting word limits</span>
                             </summary>
                             <div class="govuk-details__text">
-                                <ul class="govuk-list govuk-list--bullet">
-                                    <li>All questions should include a word limit.</li>
-                                    <li>The word limit can be any number.</li>
-                                    <li>Word limits are important for the applicant as it indicates how much time and effort should go into their answers.</li>
-                                    <li>They also give a limit to the work the assessors will need to review and score.</li>
-                                    <li>We recommend around 300-500 words for a summary or description answer and 2000-3000 words for a longer essay based answer.</li>
-                                </ul>
+                                Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score. <br>A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
                             </div>
                         </details>
 

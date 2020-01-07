@@ -26,7 +26,6 @@
   &__link {
     color: govuk-colour("white");
     line-height: 1.2em;
-    border-left: 1px solid rgb(153, 153, 153);
     padding: 10px 12px;
     text-decoration: none;
     display: block;
@@ -37,10 +36,12 @@
       align-items: center;
       vertical-align: middle;
       flex-flow: row wrap;
+      /*border-left: 1px solid rgb(153, 153, 153);*/
+      border-right: 1px solid rgb(153, 153, 153);
     }
 
     &:last-of-type {
-      border-right: 1px solid rgb(153, 153, 153);
+      /*border-right: 1px solid rgb(153, 153, 153);*/
     }
 
     &:hover {
@@ -63,6 +64,11 @@
 
   a {
     color: govuk-colour("white");
+
+    &:hover {
+      text-decoration: underline;
+      color: govuk-colour("white");
+    }
   }
 
   &__menu {

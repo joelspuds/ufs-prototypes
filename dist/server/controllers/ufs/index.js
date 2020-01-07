@@ -87,3 +87,15 @@ Object.keys(_createOpportunity).forEach(function (key) {
     }
   });
 });
+
+var _dataTest = require('./data-test');
+
+Object.keys(_dataTest).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _dataTest[key];
+    }
+  });
+});
