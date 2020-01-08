@@ -1,12 +1,14 @@
+// @import url(../bulma-scss-0.8.0/utilities/_all.scss);
+
 .header {
   background-color: ufs-colour("jade");
   background-image: url("/images/ufs/contours.png");
   background-repeat: no-repeat;
   background-size: contain;
 
-  /*@include desktop {
+  @include desktop {
     background-size: cover;
-  }*/
+  }
 
   /*@include widescreen-only {
     background-size: cover;
@@ -15,9 +17,8 @@
   /*@include from($tablet) {
     background-size: contain;
   }*/
+
+  /*@include from($tablet) until($widescreen) {
+    border: 1px solid yellow;
+  }*/
 }
-
-
-
-
-

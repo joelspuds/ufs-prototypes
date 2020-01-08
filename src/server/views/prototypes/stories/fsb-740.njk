@@ -9,25 +9,15 @@
 {% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
 
 {% block content %}
-
     {% call components.bulmaRow() %}
-
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
             {{ components.backLink(text='Back to application', url='#') }}
-
         {%- endcall %}
-
     {%- endcall %}
-
     {% call components.bulmaRow() %}
-
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
-            {{ components.captionHeading(text='(Custom section)', caption=opportunityID + ' ' + opportunityName) }}
-
+            {{ components.captionHeading(text='(Section title)', caption=opportunityID + ' ' + opportunityName) }}
         {%- endcall %}
-
     {%- endcall %}
 
     {#{% call components.displayCode() %}#}
@@ -37,68 +27,52 @@
             {% call components.bulmaColumnAny(size='is-full') %}#}
 
                 {% call components.bulmaRow() %}
-
                     {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
                         <fieldset class="govuk-fieldset">
                             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m govuk-visually-hidden">Question details</legend>
 
                             <div class="govuk-form-group">
                                 <label class="govuk-label govuk-label--s" for="questionTitle">Section topic</label>
-                                <span class="govuk-hint">Short description of the subject area. For example, ‘Economic benefits’</span>
-                                <input class="govuk-input" id="questionTitle" name="questionTitle" type="text" placeholder="(Custom section)">
+                                <span class="govuk-hint">Enter a short description of the subject matter of this section – it will appear above as the section title. For example, 'Economic benefits'</span>
+                                <input class="govuk-input" id="questionTitle" name="questionTitle" type="text" placeholder="(Section title)">
                             </div>
 
                             <div class="govuk-form-group">
                                 <label class="govuk-label govuk-label--s" for="questionDescription">Your question</label>
-                                <span class="govuk-hint">Ask a question about the specific area of the section topic you want to know about. For example, ‘How will your project economically benefit Scotland?’</span>
+                                <span class="govuk-hint">Ask a question about the area of the section topic you want to know about. For example, ‘How will your project economically benefit to the UK?’</span>
                                 <input class="govuk-input" id="questionDescription" name="questionDescription" type="text">
                             </div>
 
                             <div class="govuk-form-group">
                                 <label class="govuk-label govuk-label--s" for="questionGuidance">Question guidance</label>
-                                <span id="more-detail-hint" class="govuk-hint ">Describe what the applicant’s answer should cover and list the criteria by which itwill be assessed.</span>
+                                <span id="more-detail-hint" class="govuk-hint ">Describe what the applicant's answer should cover and list the criteria by which it will be assessed.</span>
                                 <textarea class="govuk-textarea" rows="8" id="questionGuidance" name="questionGuidance"></textarea></div>
                         </fieldset>
-
                     {%- endcall %}
-
                 {%- endcall %}
-
                 {% call components.bulmaRow() %}
-
                     {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
                         <details class="govuk-details u-space-b5" data-module="govuk-details">
                             <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">Guidance for setting word limits</span>
+                                <span class="govuk-details__summary-text">Guidance for setting word count limits</span>
                             </summary>
                             <div class="govuk-details__text">
-                                Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score. <br>A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
+                                Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score.<br>
+                                A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
                             </div>
                         </details>
-
                     {%- endcall %}
-
                 {%- endcall %}
-
                 {% call components.bulmaRow() %}
-
                     {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="wordLimit">Word limit</label>
                             <input class="govuk-input govuk-input--width-4" id="wordLimit" name="wordLimit" type="number">
                         </div>
-
                     {%- endcall %}
-
                 {%- endcall %}
-
                 {% call components.bulmaRow() %}
-
                     {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
                         <div class="application-item">
                             <div class="application-item__contents">
                                 <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
@@ -112,21 +86,14 @@
                                 </fieldset>
                             </div>
                         </div>
-
                     {%- endcall %}
-
                 {%- endcall %}
-
                 {% call components.bulmaRow() %}
-
                     {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
                         <div class="govuk-form-group">
                             <button class="govuk-button" id="submit" name="submit">Save and return</button>
                         </div>
-
                     {%- endcall %}
-
                 {%- endcall %}
 
             {#{%- endcall %}#}
