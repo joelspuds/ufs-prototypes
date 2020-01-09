@@ -85,7 +85,7 @@
                 <li class="u-space-t5"><a class="govuk-link" href="#fieldset">Fieldset</a></li>
                 <li class="u-space-t5"><a class="govuk-link" href="#formgroups">Form groups</a></li>
                 <li class="u-space-t5"><a class="govuk-link" href="#formlayout">Form layout</a></li>
-                <li class="u-space-t5"><a class="govuk-link" href="#grid">Grid</a></li>
+                {#<li class="u-space-t5"><a class="govuk-link" href="#grid">Grid</a></li>#}
                 <li class="u-space-t5"><a class="govuk-link" href=""></a></li>
                 <li class="u-space-t5"><a class="govuk-link" href=""></a></li>
                 {#<li><strong>Furniture</strong></li>#}
@@ -288,11 +288,11 @@
 
             </section>
 
-            <section id="grid">
+            <section id="grid" class="govuk-visually-hidden">
 
                 {{ components.captionHeading(text='Grid', tag='h2', size='l') }}
 
-                <p class="guidelines">Go nuts!</p>
+                <p class="guidelines">WIP</p>
 
                 <p class="govuk-body-m u-space-b20">Use a form group for a label/input combo, or a collection of related form items such as an array fo radios or checkboxes. This should be handled in Storybook ideally, but check your output.</p>
 
