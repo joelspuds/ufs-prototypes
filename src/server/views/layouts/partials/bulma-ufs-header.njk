@@ -1,32 +1,27 @@
 <div class="header">
 
-<header class="container" role="banner">
-  <div class="columns">
-    <div class="column is-one-quarter">
-      <div class="ufs-header__logo">
-        <img src="/images/ufs/ukri_logo_new.svg" title="UK Research and Innovation">
+  <header class="container" role="banner">
+    <div class="columns">
+
+      <div class="column is-one-quarter is-half-tablet ufs-header__logo-wrapper">
+        <div class="ufs-header__logo"><img src="/images/ufs/ukri_logo_new.svg" title="UK Research and Innovation"></div>
       </div>
-    </div>
 
-    <div class="column is-one-half">
-      <div class="ufs-header__proposition">Funding service</div>
-    </div>
-
-    <div class="column is-one-quarter">
-      <div class="ufs-header__menu">
-        <span class="ufs-header__menu-link">
-          <a href="/" class="ufs-header__link">UKRI website</a>
-        </span>
-        <span class="ufs-header__menu-link">
-          <a href="#" class="ufs-header__link">Find finding opportunities</a>
-        </span>
+      <div class="column is-one-half is-half-tablet">
+        <div class="ufs-header__proposition">Funding service</div>
       </div>
-    </div>
+
+      <div class="column is-one-quarter is-full-tablet">
+        <div class="ufs-header__menu">
+          <span class="ufs-header__menu-link"><a href="/" class="ufs-header__link">UKRI website</a></span>
+          <span class="ufs-header__menu-link"><a href="#" class="ufs-header__link">Find finding opportunities</a></span>
+        </div>
+      </div>
 
     </div>
-</header>
+  </header>
 
-  <div class="container govuk-visually-hidden">
+  <div class="container">
     <div class="columns">
       <div class="column is-full " style="padding-bottom: 0;">
           {% if navType == 'admin' %}

@@ -8,6 +8,10 @@
   min-height: 39px;
   background-color: ufs-colour("ukri-blue");
 
+  @include desktop {
+    margin-bottom: 14px;
+  }
+
   &__nav {
     // TAKE OUT FOR BULMA!
     /*margin: 0px auto;

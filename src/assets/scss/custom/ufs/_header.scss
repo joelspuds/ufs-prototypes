@@ -23,11 +23,19 @@
     }*/
   }
 
+  &__logo-wrapper {
+    padding-bottom: 0;
+
+    /*@include govuk-media-query($from: tablet) {
+      float: left;
+    }*/
+  }
+
   &__proposition {
 
     @extend %govuk-heading-l;
     font-weight: 300;
-    color: ufs-colour("ukri-blue");
+    color: ufs-colour("midnight");
     float: none;
     margin: 12px 0 0;
     width: 100%;
@@ -63,7 +71,7 @@
 
   &__link {
     @extend %govuk-body-s;
-    color: ufs-colour("ukri-blue");
+    color: ufs-colour("midnight");
   }
 }
 

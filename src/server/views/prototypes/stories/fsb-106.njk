@@ -1,0 +1,78 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+
+{% set pageTitle = 'Custom section ' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = 'Development of a Novel Inhibitor of Ricin' %}
+{% set opportunityID = 'OPP-25671' %}
+{% set isAdminUser = true %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
+{% block content %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application', url='#') }}
+        {%- endcall %}
+    {%- endcall %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='Application dates', caption=opportunityID + ' ' + opportunityName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaContainer() %}
+        {% call components.bulmaColumns() %}
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Application opens</legend>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="openingDate">Date</label>
+                        <span class="govuk-hint">DD/MM/YYYY</span>
+                        <input class="govuk-input govuk-input--width-7" id="openingDate" name="openingDate" type="text">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="openingTime">Time</label>
+                        <span class="govuk-hint">For example, 9:00am or 12:00pm</span>
+                        <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text">
+                        <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
+                        <select class="govuk-select" id="openingTimeMeridian">
+                            <option value="am">am</option>
+                            <option value="pm">pm</option>
+                        </select>
+                    </div>
+                </fieldset>
+            {%- endcall %}
+        {%- endcall %}
+        {% call components.bulmaColumns() %}
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Application closes</legend>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="closingDate">Date</label>
+                        <span class="govuk-hint">DD/MM/YYYY</span>
+                        <input class="govuk-input govuk-input--width-7" id="closingDate" name="closingDate" type="text">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="closingTime">Time</label>
+                        <span class="govuk-hint">For example, 12:00pm or 4:00pm</span>
+                        <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text">
+                        <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
+                        <select class="govuk-select" id="closingTimeMeridian">
+                            <option value="am">am</option>
+                            <option value="pm">pm</option>
+                        </select>
+                    </div>
+                </fieldset>
+            {%- endcall %}
+        {%- endcall %}
+        {% call components.bulmaColumns() %}
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+                <div class="govuk-form-group">
+                    <button class="govuk-button" id="submit" name="submit">Save and return</button>
+                </div>
+            {%- endcall %}
+        {%- endcall %}
+    {%- endcall %}
+{% endblock %}

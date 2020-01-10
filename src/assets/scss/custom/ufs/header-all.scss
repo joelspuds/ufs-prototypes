@@ -4,10 +4,11 @@
   background-color: ufs-colour("jade");
   background-image: url("/images/ufs/contours.png");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  padding-top: 20px;
 
   @include desktop {
-    background-size: cover;
+    background-size: contain; // lower corner only
   }
 
   /*@include widescreen-only {
