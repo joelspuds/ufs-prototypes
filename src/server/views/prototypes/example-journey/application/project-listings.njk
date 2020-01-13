@@ -1,4 +1,4 @@
-{% extends 'layouts/ufs.layout.njk' %}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = PROJECT_LISTING_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectList = [{ title:'Biosensors for ribosome inactivating protiens', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' },
 { title:'Biosensors for ribosome inactivating protiens', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:'/prototypes/example-journey/application/' },
@@ -10,19 +10,20 @@
 
 {% block content %}
 
-    {% call components.gridRow() %}
-
-        {% call components.columnFull() %}
-
-            {{ components.captionHeading(text=PROJECT_LISTING_TITLE) }}
-
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application', url='#') }}
         {%- endcall %}
-
+    {%- endcall %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=PROJECT_LISTING_TITLE) }}
+        {%- endcall %}
     {%- endcall %}
 
-    {% call components.gridRow() %}
+    {% call components.bulmaRow() %}
 
-        {% call components.columnOneThird() %}
+        {% call components.bulmaColumnAny(size='is-3') %}
 
             [search]
             <br>
@@ -30,16 +31,9 @@
 
         {%- endcall %}
 
-        {% call components.columnTwoThirds() %}
+        {% call components.bulmaColumnAny(size='is-9') %}
 
-            {#{{ components.projectListing(title='awesome project', url='#', text='wef wef wef we wefwe wefwef we') }}#}
             {{ components.projectListing(items=projectList) }}
-
-            {#<div class="project-listing">
-                {{ components.captionHeading(text='Biosensors for ribosome inactivating protiens', tag='h2', size='m')}}
-                <p class="govuk-body">Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.</p>
-                <p>{{ components.button(text='Apply for this oportunity', url='/prototypes/example-journey/application/') }}</p>
-            </div>#}
 
         {%- endcall %}
 

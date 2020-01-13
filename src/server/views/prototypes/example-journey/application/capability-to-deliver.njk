@@ -1,22 +1,21 @@
 {% extends 'layouts/ufs.layout.njk' %}
 {% set pageTitle = APPLICATION_CAPABILITY_TO_DELIVER_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
-{% set showSimpleTinyMCEScripts = true %}
+{#{% set showSimpleTinyMCEScripts = true %}#}
 {% set capabilityToDeliverNotes = capabilityToDeliverNotes if capabilityToDeliverNotes %}
 {% set allCapabilityToDeliver = allCapabilityToDeliver if allCapabilityToDeliver %}
 
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
-
 {% block content %}
 
-    {% call components.gridRow() %}
-
-        {% call components.columnFull() %}
-
-            {{ components.captionHeading(text=APPLICATION_CAPABILITY_TO_DELIVER_TITLE, caption=projectName)}}
-
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application overview', url='/prototypes/example-journey/application/') }}
         {%- endcall %}
-
+    {%- endcall %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_CAPABILITY_TO_DELIVER_TITLE, caption=projectName) }}
+        {%- endcall %}
     {%- endcall %}
 
     {% call components.form(action='/prototypes/example-journey/application/capability-to-deliver', method='POST',name='formCapabilityToDeliver') %}
@@ -163,9 +162,9 @@
             {% call components.columnFull() %}
                 <div class="application-controls govuk-clearfix">
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
-                    <span class="sub-button">
+                    {#<span class="sub-button">
                         {{ components.link(text='Cancel', url='/prototypes/example-journey/application/')}}
-                    </span>
+                    </span>#}
                 </div>
             {%- endcall %}
 

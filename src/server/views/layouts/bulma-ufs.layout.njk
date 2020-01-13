@@ -9,7 +9,7 @@
 
 {% include './partials/ufs-breadcrumbs.njk' %}
 {% include './partials/ufs-backlink.njk' %}
-<main id="main-content" class="u-space-y30 {{ mainContainerClass if mainContainerClass }}">
+<main id="main-content" class=" {{ mainContainerClass if mainContainerClass }}">
   {#{% filter prismFullpage %}#}
     {% block content %}{% endblock %}
   {#{% endfilter %}#}

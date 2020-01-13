@@ -1,4 +1,4 @@
-{% extends 'layouts/ufs.layout.njk' %}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
 
 {% set showMathJAXscripts = true %}
 {% set showSmoothScrollscripts = true %}
@@ -33,19 +33,20 @@
 
 {% block content %}
 
-    {% call components.gridRow() %}
-
-        {% call components.columnFull() %}
-
-            {{ components.linkHeading(text='Application preview', caption=proejctName)}}
-
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application overview', url='#') }}
         {%- endcall %}
-
+    {%- endcall %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='Application preview', caption=projectName) }}
+        {%- endcall %}
     {%- endcall %}
 
-    {% call components.gridRow() %}
+    {% call components.bulmaRow() %}
 
-        {% call components.columnFull() %}
+        {% call components.bulmaColumnAny(size='is-full') %}
 
             <div class="tabs-alt govuk-clearfix">
                 <ul class="tabs-alt__list">
@@ -65,7 +66,7 @@
 
     {% call components.gridRow(extraClass='u-space-b30') %}
 
-        {% call components.columnOneQuarter() %}
+        {% call components.bulmaColumnAny(size='is-3') %}
 
             {{ components.linkHeading(text='Contents', tag='h2', size='s')}}
 
@@ -77,7 +78,7 @@
 
         {%- endcall %}
 
-        {% call components.columnThreeQuarters() %}
+        {% call components.bulmaColumnAny(size='is-9') %}
 
             {{ components.alerts(text='This is how reviewers will see your proposal.')}}
 

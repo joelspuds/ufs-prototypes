@@ -1,28 +1,26 @@
-{% extends 'layouts/ufs.layout.njk' %}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = APPLICATION_RESOURCES_COST_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allResourcesValues = allResourcesValues if allResourcesValues %}
 
-{#{% set showSimpleTinyMCEScripts = true %}#}
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
-
 {% block content %}
 
-    {% call components.gridRow() %}
-
-        {% call components.columnFull() %}
-
-            {{ components.captionHeading(text=APPLICATION_RESOURCES_COST_TITLE, caption=projectName)}}
-
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application overview', url='/prototypes/example-journey/application/') }}
         {%- endcall %}
-
+    {%- endcall %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_RESOURCES_COST_TITLE, caption=projectName) }}
+        {%- endcall %}
     {%- endcall %}
 
     {% call components.form(action='/prototypes/example-journey/application/resources-and-cost', method='POST',name='formResourcesTeam') %}
 
-        {% call components.gridRow(extraClass='u-space-b10') %}
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.captionHeading(text='Enter the total project costs for all organisations', tag='h2', size='s')}}
 
@@ -43,7 +41,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.captionHeading(text='Staff', tag='h3', size='s')}}
 
@@ -67,7 +65,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
@@ -82,7 +80,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.sectionBreak(size='s') }}
 
@@ -94,7 +92,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
 
@@ -108,7 +106,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
@@ -123,7 +121,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.sectionBreak(size='s') }}
 
@@ -135,7 +133,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
 
@@ -149,7 +147,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
@@ -164,7 +162,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.sectionBreak(size='s') }}
 
@@ -176,7 +174,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
 
@@ -190,7 +188,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
 
@@ -205,7 +203,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.sectionBreak(size='s') }}
 
@@ -218,7 +216,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
 
@@ -243,7 +241,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.sectionBreak(size='s') }}
 
@@ -271,7 +269,7 @@
 
         {% call components.gridRow(extraClass='u-space-b10') %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.sectionBreak(size='s') }}
 
@@ -279,9 +277,9 @@
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
+        {% call components.bulmaRow() %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
                     <div class="application-item">
@@ -305,8 +303,8 @@
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
-            {% call components.columnFull() %}
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
                 <div class="application-controls govuk-clearfix">
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     <span class="sub-button">

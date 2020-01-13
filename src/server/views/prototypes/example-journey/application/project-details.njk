@@ -1,8 +1,7 @@
-{% extends 'layouts/ufs.layout.njk' %}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = APPLICATION_PROJECT_DETAILS_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {#{% set showSimpleTinyMCEScripts = true %}#}
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application overview'}] %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 
 {% block content %}
@@ -11,21 +10,22 @@
         .tox-statusbar__wordcount, .tox-statusbar__branding { display: none!important}
     </style>
 
-    {% call components.gridRow() %}
-
-        {% call components.columnFull() %}
-
-            {{ components.captionHeading(text=APPLICATION_PROJECT_DETAILS_TITLE, caption=projectName)}}
-
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application', url='/prototypes/example-journey/application/') }}
         {%- endcall %}
-
+    {%- endcall %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_PROJECT_DETAILS_TITLE, caption=projectName) }}
+        {%- endcall %}
     {%- endcall %}
 
     {% call components.form(action='/prototypes/example-journey/application/project-details', method='POST',name='formProjectTeam') %}
 
-        {% call components.gridRow() %}
+        {% call components.bulmaRow() %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
 
@@ -37,9 +37,9 @@
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
+        {% call components.bulmaRow() %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
 
@@ -55,9 +55,9 @@
 
         {%- endcall %}
 
-         {% call components.gridRow() %}
+         {% call components.bulmaRow() %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020', monthValue=allProjectDetails.month, yearValue=allProjectDetails.year) }}
 
@@ -69,9 +69,9 @@
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
+        {% call components.bulmaRow() %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
                     <div class="application-item">
@@ -95,9 +95,9 @@
 
         {%- endcall %}
 
-        {% call components.gridRow() %}
+        {% call components.bulmaRow() %}
 
-            {% call components.columnFull() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">
