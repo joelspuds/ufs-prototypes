@@ -1,29 +1,19 @@
-<div class="header">
-
+<div class="header {% if navType == 'admin' %} header--admin {% else %} header--external {% endif %}">
   <header class="container" role="banner">
     <div class="columns">
-
-      <div class="column is-one-quarter is-half-tablet ufs-header__logo-wrapper">
+      <div class="column">
         <div class="ufs-header__logo"><img src="/images/ufs/ukri_logo_new.svg" title="UK Research and Innovation"></div>
-      </div>
-
-      <div class="column is-one-half is-half-tablet">
         <div class="ufs-header__proposition">Funding service</div>
-      </div>
-
-      <div class="column is-one-quarter is-full-tablet">
         <div class="ufs-header__menu">
           <span class="ufs-header__menu-link"><a href="/" class="ufs-header__link">UKRI website</a></span>
           <span class="ufs-header__menu-link"><a href="#" class="ufs-header__link">Find finding opportunities</a></span>
         </div>
       </div>
-
     </div>
   </header>
-
   <div class="container">
     <div class="columns">
-      <div class="column is-full " style="padding-bottom: 0;">
+      <div class="column is-full">
           {% if navType == 'admin' %}
             <div class="top-links">
               <nav class="top-links__nav">
@@ -52,10 +42,7 @@
       </div>
     </div>
   </div>
-
 </div>
-
-
 
 <script>
   window.onload = function(){

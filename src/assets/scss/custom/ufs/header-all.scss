@@ -1,8 +1,6 @@
-// @import url(../bulma-scss-0.8.0/utilities/_all.scss);
-
 .header {
   background-color: ufs-colour("jade");
-  background-image: url("/images/ufs/contours.png");
+  background-image: url("/images/ufs/green-contours.svg");
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 20px;
@@ -11,15 +9,12 @@
     background-size: contain; // lower corner only
   }
 
-  /*@include widescreen-only {
-    background-size: cover;
-  }*/
+  @include touch {
+    padding-right: 8px;
+  }
 
-  /*@include from($tablet) {
-    background-size: contain;
-  }*/
-
-  /*@include from($tablet) until($widescreen) {
-    border: 1px solid yellow;
-  }*/
+  &--admin {
+    background-color: ufs-colour("sand");
+    background-image: url("/images/ufs/orange-contours.svg");
+  }
 }

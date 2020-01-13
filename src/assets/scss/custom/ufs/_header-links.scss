@@ -13,12 +13,7 @@
   }
 
   &__nav {
-    // TAKE OUT FOR BULMA!
-    /*margin: 0px auto;
-    width: 100%;
-    max-width: 960px;*/
-
-    @include govuk-media-query($from: desktop) {
+    @include desktop {
       display: flex;
       -webkit-box-align: stretch;
       align-items: stretch;
@@ -34,18 +29,18 @@
     text-decoration: none;
     display: block;
 
-    @include govuk-media-query($from: desktop) {
+    @include desktop {
+      background-size: contain; // lower corner only
       display: flex;
       -webkit-box-align: center;
       align-items: center;
       vertical-align: middle;
       flex-flow: row wrap;
-      /*border-left: 1px solid rgb(153, 153, 153);*/
       border-right: 1px solid rgb(153, 153, 153);
     }
 
-    &:last-of-type {
-      /*border-right: 1px solid rgb(153, 153, 153);*/
+    @include touch {
+      border-bottom: 1px solid fuchsia;
     }
 
     &:hover {
@@ -60,8 +55,8 @@
     }
 
     &--mobile-hidden {
-      @include govuk-media-query($until: desktop) {
-        display: none!important;
+      @include touch {
+        display: none !important;
       }
     }
   }
@@ -83,7 +78,7 @@
     padding: 10px 19px;
     text-decoration: none;
 
-    @include govuk-media-query($from: desktop) {
+    @include desktop {
       display: none;
     }
 
