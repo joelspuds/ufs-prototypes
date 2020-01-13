@@ -72,7 +72,7 @@
 
             {% call components.bulmaColumnAny(size='is-full') %}
 
-                {{ components.textarea(options=selectOptions, label='How will the selected issues be managed?', labelBold=true, id='ethicalNotes',  group=false, size='', value=allEthicalAndSocietal.ethicalNotes, extraClass='') }}
+                {{ components.textarea(options=selectOptions, label='How will the selected issues be managed?', labelBold=true, id='ethicalNotes',  group=false, size='', value=allEthicalAndSocietal.ethicalNotes, extraClass='', rows='18') }}
 
             {%- endcall %}
 
