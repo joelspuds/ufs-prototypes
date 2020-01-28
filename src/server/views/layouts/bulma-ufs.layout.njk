@@ -1,21 +1,17 @@
-{#
-  Is the same as ufs-default.layout.njk
-#}
-
+{#   Is the same as ufs-default.layout.njk #}
 {% extends './bulma-ufs-base.layout.njk' %}
 {% set mainContainerClass = '' %}
 
 {% block bodyContentWrapper %}
-
-{% include './partials/ufs-breadcrumbs.njk' %}
-{% include './partials/ufs-backlink.njk' %}
-<main id="main-content" class=" {{ mainContainerClass if mainContainerClass }}">
-  {#{% filter prismFullpage %}#}
-    {% block content %}{% endblock %}
-  {#{% endfilter %}#}
-</main>
-{% if isAdminUser != true %}
-    {% include './partials/bulma-phase-banner.njk' %}
-{% endif %}
+    {% include './partials/ufs-breadcrumbs.njk' %}
+    {% include './partials/ufs-backlink.njk' %}
+    <main id="main-content" class=" u-space-b30 {{ mainContainerClass if mainContainerClass }}">
+      {#{% filter prismFullpage %}#}
+        {% block content %}{% endblock %}
+      {#{% endfilter %}#}
+    </main>
+    {% if isAdminUser != true %}
+        {% include './partials/bulma-phase-banner.njk' %}
+    {% endif %}
 {% endblock %}
 

@@ -2,7 +2,7 @@
   <header class="container" role="banner">
     <div class="columns">
       <div class="column">
-        <div class="ufs-header__logo"><img src="/images/ufs/ukri_logo_new.svg" title="UK Research and Innovation"></div>
+        <div class="ufs-header__logo"><img src="/images/ufs/{% if navType == 'admin' %}ukri_logo_blue.svg{% else %}ukri_logo_white.svg{% endif %}" title="UK Research and Innovation"></div>
         <div class="ufs-header__proposition">Funding service</div>
         <div class="ufs-header__menu">
           <span class="ufs-header__menu-link"><a href="/" class="ufs-header__link">UKRI website</a></span>

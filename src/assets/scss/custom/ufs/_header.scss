@@ -26,7 +26,7 @@
     font-size: 2.25rem;
     line-height: 1.11111;
     font-weight: 300;
-    color: ufs-colour("midnight");
+    color: govuk-colour("white");
     float: left;
     margin: 15px 0 0 40px;
     width: 248px;
@@ -74,7 +74,13 @@
 
   &__link {
     @extend %govuk-body-s;
-    color: ufs-colour("midnight");
+    color: govuk-colour("white");
   }
 }
 
+.header--admin {
+  .ufs-header__proposition,
+  .ufs-header__link {
+    color: ufs-colour("midnight");
+  }
+}

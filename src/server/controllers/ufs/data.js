@@ -98,3 +98,36 @@ let ethical = [
   },
 ];
 export const ethicalReasons = ethical;
+
+let applicantTypes = [
+  {
+    name: 'Lead applicant',
+    index: 0,
+  },
+  {
+    name: 'Principal investigator',
+    index: 1,
+  },
+  {
+    name: 'Co-investigator',
+    index: 2,
+  },
+  {
+    name: 'Researcher',
+    index: 3,
+  },
+  {
+    name: 'Business partner',
+    index: 4,
+  },
+  {
+    name: 'Technician',
+    index: 5,
+  },
+  {
+    name: 'Fellow',
+    index: 6,
+  }
+];
+
+export const allApplicantTypes = applicantTypes;

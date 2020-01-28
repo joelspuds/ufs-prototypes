@@ -12,7 +12,7 @@ let contentItems = {
   CREATE_NEW_OPPORTUNITY_TITLE_TAG: 'Create new opportunity',
   CREATE_NEW_OPPORTUNITY_TITLE: 'Create new opportunity',
   CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL: 'Opportunity name',
-  CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT: 'This name will be used to identify the opportunity internally and publicly.',
+  CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT: 'This is how your opportunity will be known internally and publicly. ',
   CREATE_NEW_OPPORTUNITY_FORM_CTA: 'Save and continue',
   OPPORTUNITY_SETUP_TITLE_TAG: 'Opportunity setup',
   OPPORTUNITY_SETUP__TITLE: 'Opportunity setup',

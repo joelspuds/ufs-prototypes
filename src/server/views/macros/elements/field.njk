@@ -3,6 +3,7 @@
 {% macro field(label='',
     labelVisuallyHidden=false,
     labelBold=false,
+    labelClass='govuk-label--s',
     id='',
     type='text',
     name='',
@@ -18,7 +19,7 @@
     {% if group or error %}
       <div class="govuk-form-group {{ 'form-group-compound' if groupCompound }} {{ 'form-group-error' if error }}">
     {% endif %}
-    {{ formLabel(label=label, visuallyHidden=labelVisuallyHidden, id=id, bold=labelBold, hint=hint, error=error) }}
+    {{ formLabel(label=label, labelClass=labelClass, visuallyHidden=labelVisuallyHidden, id=id, bold=labelBold, hint=hint, error=error) }}
     <input
     {{ 'class="govuk-input ' + (inputWidthClass if inputWidthClass) + ( ' form-control-error' if error ) + '"' if type !== 'file' }}
     {{ 'id="' + id + '"' if id }}

@@ -2,12 +2,9 @@
   background-color: ufs-colour("jade");
   background-image: url("/images/ufs/green-contours.svg");
   background-repeat: no-repeat;
-  background-size: cover;
   padding-top: 20px;
+  background-size: 580px auto;
 
-  @include desktop {
-    background-size: contain; // lower corner only
-  }
 
   @include touch {
     padding-right: 8px;

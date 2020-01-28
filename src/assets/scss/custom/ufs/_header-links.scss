@@ -8,10 +8,6 @@
   min-height: 39px;
   background-color: ufs-colour("ukri-blue");
 
-  @include desktop {
-    margin-bottom: 14px;
-  }
-
   &__nav {
     @include desktop {
       display: flex;
@@ -39,12 +35,10 @@
       border-right: 1px solid rgb(153, 153, 153);
     }
 
-    @include touch {
-      border-bottom: 1px solid fuchsia;
-    }
-
-    &:hover {
-      text-decoration: underline;
+    &--active {
+      background-color: govuk-colour("white")!important;
+      color: govuk-colour("black")!important;
+      text-decoration: none!important;
     }
 
     &:focus {
@@ -65,8 +59,9 @@
     color: govuk-colour("white");
 
     &:hover {
-      text-decoration: underline;
-      color: govuk-colour("white");
+      background-color: govuk-colour("white");
+      color: govuk-colour("black");
+      text-decoration: none;
     }
   }
 
