@@ -116,6 +116,24 @@ router.post('/prototypes/opportunity/funders', demosController.opportunityFunder
 router.get('/prototypes/opportunity/application', demosController.opportunityApplicationGet);
 router.post('/prototypes/opportunity/application', demosController.opportunityApplicationPost);
 
+/* *************************************************************** *
+
+    Create opportunity V2
+
+ * *************************************************************** */
+// Create new opportunity
+router.get('/prototypes/opportunity-v2/', demosController.opportunityGetV2);
+router.get('/prototypes/opportunity-v2/create', demosController.createOpportunityGetV2);
+router.post('/prototypes/opportunity-v2/create', demosController.createOpportunityPostV2);
+router.get('/prototypes/opportunity-v2/setup', demosController.opportunitySetupGetV2);
+router.post('/prototypes/opportunity-v2/setup', demosController.opportunitySetupPostV2);
+router.get('/prototypes/opportunity-v2/funders', demosController.opportunityFundersGetV2);
+router.post('/prototypes/opportunity-v2/funders', demosController.opportunityFundersPostV2);
+router.get('/prototypes/opportunity-v2/application', demosController.opportunityApplicationGetV2);
+router.post('/prototypes/opportunity-v2/application', demosController.opportunityApplicationPostV2);
+router.get('/prototypes/opportunity-v2/applicants', demosController.opportunityApplicantsGetV2);
+router.post('/prototypes/opportunity-v2/applicants', demosController.opportunityApplicantsPostV2);
+
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 

@@ -127,7 +127,7 @@ let applicantTypes = [
   {
     name: 'Fellow',
     index: 6,
-  }
+  },
 ];
 
 export const allApplicantTypes = applicantTypes;

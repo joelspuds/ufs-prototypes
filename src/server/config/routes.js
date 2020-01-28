@@ -114,7 +114,6 @@ router.post('/prototypes/opportunity-v2/application', demosController.opportunit
 router.get('/prototypes/opportunity-v2/applicants', demosController.opportunityApplicantsGetV2);
 router.post('/prototypes/opportunity-v2/applicants', demosController.opportunityApplicantsPostV2);
 
-
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 
