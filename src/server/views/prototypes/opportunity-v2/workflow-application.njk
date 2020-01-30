@@ -58,7 +58,7 @@
 
             {% call components.bulmaColumnAny(size='is-4') %}
 
-                {{ components.link(text=APPLICATION_EDIT_DATES_LINK, url='#', size='s') }}
+                {{ components.link(text=APPLICATION_EDIT_DATES_LINK, url='/prototypes/opportunity-v2/application-dates', size='s') }}
 
             {%- endcall %}
 
@@ -89,7 +89,7 @@
                     <div class="application-item__contents govuk-clearfix">
 
                         <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
+                            {{ components.link(text="Details", url='/prototypes/opportunity-v2/details') }}
                         </div>
                         {% if fundersList %}
                         <div class="application-item__right">

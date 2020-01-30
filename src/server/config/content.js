@@ -4,6 +4,7 @@ let contentItems = {
   // generic pages
   DASHBOARD_TITLE_TAG: 'Dashboard',
   DASHBOARD_TITLE: 'Dashboard',
+  GENERIC_SAVE_AND_RETURN_CTA: 'Save and return',
   // page-specific items
   // Opportunity list
   OPPORTUNITY_TITLE_TAG: 'Opportunities',

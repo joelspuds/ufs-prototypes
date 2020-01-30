@@ -1,0 +1,92 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Details' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application', url='/prototypes/opportunity-v2/workflow-application') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Details', caption=opportunityID + ': ' + opportunityName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    <section class="section" id="tabsNav">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                <ul class="govuk-tabs__list" role="tablist">
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                        <a class="govuk-tabs__tab" href="#resourcesContent" id="tabEdit" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">Edit setion</a>
+                    </li>
+                    <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#applicantView" id="tabView" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">Applicant view</a>
+                    </li>
+                </ul>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    {% call components.form(action='/prototypes/opportunity-v2/resources-and-costs', method='POST',name='manageResources') %}
+
+    <section class="section" id="resourcesContent">
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                [big form]
+
+            {%- endcall %}
+        {%- endcall %}
+    </section>
+
+    <section class="section" id="submitSection">
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                {% call components.formGroup() %}
+                    {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
+                {%- endcall %}
+            {%- endcall %}
+        {%- endcall %}
+    </section>
+
+    {%- endcall %} {# end form #}
+
+{% endblock %}

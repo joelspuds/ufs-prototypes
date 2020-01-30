@@ -9,10 +9,14 @@
     { text: 'Cut and paste into spreadsheet', url: '/prototypes/example-journey/application/spreadsheet/' }
 ] %}
 
-{% set listItemsJourneys = [
-    { text: 'Apply for opportunity as user', url: '/prototypes/example-journey/application/project-listings' },
-    { text: 'Create new opportunity', url: '/prototypes/opportunity/' },
+{% set listItemsInternalJourneys = [
+    { text: 'Create new opportunity (v1 PoC)', url: '/prototypes/opportunity/' },
+    { text: 'Create new opportunity (v2 minimal pilot)', url: '/prototypes/opportunity-v2/' },
     { text: 'Admin dashboard (fairly empty atm!)', url: '/prototypes/dashboard/' }
+] %}
+
+{% set listItemsExternalJourneys = [
+    { text: 'Apply for opportunity as user', url: '/prototypes/example-journey/application/project-listings' }
 ] %}
 
 {% block content %}
@@ -29,13 +33,25 @@
 
   {%- endcall %}
 
+    {% call components.gridRow() %}
+
+        {% call components.columnHalf() %}
+
+            {{ components.captionHeading(text='Internal journeys', tag='h2', size='m') }}
+
+            {{ components.list(items=listItemsInternalJourneys, type='bullet')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
   {% call components.gridRow() %}
 
       {% call components.columnHalf() %}
 
-        {{ components.captionHeading(text='Journeys', tag='h2', size='m') }}
+        {{ components.captionHeading(text='External journeys', tag='h2', size='m') }}
 
-        {{ components.list(items=listItemsJourneys, type='bullet')}}
+        {{ components.list(items=listItemsExternalJourneys, type='bullet')}}
 
       {%- endcall %}
 

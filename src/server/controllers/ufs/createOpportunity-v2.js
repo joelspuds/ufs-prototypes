@@ -305,6 +305,10 @@ export function opportunityResourcesGetV2(req, res) {
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
 
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
   viewData = {
     opportunityName,
     opportunityID,
@@ -333,4 +337,75 @@ export function opportunityResourcesPostV2(req, res) {
     req.session.fundersError = true;
     return res.redirect('/prototypes/opportunity-v2/resources-and-costs');
   }*/
+}
+
+// Application dates
+export function opportunityApplicationsDatesGetV2(req, res) {
+  let viewData, opportunityName, opportunityID, allApplicantTypes;
+
+  allApplicantTypes = generalData.allApplicantTypes;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+    allApplicantTypes,
+  };
+
+  return res.render('prototypes/opportunity-v2/application-dates', viewData);
+}
+
+export function opportunityApplicationsDatesPostV2(req, res) {
+  const { isComplete } = req.body;
+
+  console.log('isComplete = ' + isComplete);
+
+  if (isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+  } else {
+    req.session.fundersIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+}
+
+// Details input page big form
+export function opportunityDetailsGetV2(req, res) {
+  let viewData, opportunityName, opportunityID;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+  };
+
+  console.log('opportunityName = ' + opportunityName);
+
+  return res.render('prototypes/opportunity-v2/details', viewData);
+}
+
+export function opportunityDetailsPostV2(req, res) {
+  const { isComplete } = req.body;
+
+  console.log('isComplete = ' + isComplete);
+
+  if (isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+  } else {
+    req.session.fundersIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/opportunity-v2/workflow-application');
 }

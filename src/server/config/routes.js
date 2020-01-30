@@ -117,11 +117,12 @@ router.get('/prototypes/opportunity-v2/workflow-application', demosController.op
 router.post('/prototypes/opportunity-v2/workflow-application', demosController.opportunityWorkflowApplicationPostV2);
 router.get('/prototypes/opportunity-v2/resources-and-costs', demosController.opportunityResourcesGetV2);
 router.post('/prototypes/opportunity-v2/resources-and-costs', demosController.opportunityResourcesPostV2);
+router.get('/prototypes/opportunity-v2/application-dates', demosController.opportunityApplicationsDatesGetV2);
+router.post('/prototypes/opportunity-v2/application-dates', demosController.opportunityApplicationsDatesPostV2);
+router.get('/prototypes/opportunity-v2/details', demosController.opportunityDetailsGetV2);
+router.post('/prototypes/opportunity-v2/details', demosController.opportunityDetailsPostV2);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
-
-// MOT history vehicle type
-// router.post('/prototypes/mot-history-data/cvs/what-vehicle', mothController.postMothType);
 
 export const allRoutes = router;
