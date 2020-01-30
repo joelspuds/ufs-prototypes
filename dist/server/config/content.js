@@ -50,7 +50,7 @@ let contentItems = {
   CASE_FOR_SUPPORT_TITLE: 'Case for support',
   // DATES
   APPLICATIONS_OPENING_DATE_TITLE: 'Application opens',
-  APPLICATIONS_CLOSING_DATE_TITLE: 'Application opens',
+  APPLICATIONS_CLOSING_DATE_TITLE: 'Application closes',
   OPENING_DATE_NOT_ADDED: 'No opening date added',
   CLOSING_DATE_NOT_ADDED: 'No closing date added',
   APPLICATION_EDIT_DATES_LINK: 'Edit application dates'
