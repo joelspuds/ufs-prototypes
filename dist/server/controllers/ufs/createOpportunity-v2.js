@@ -14,6 +14,10 @@ exports.opportunityApplicationGetV2 = opportunityApplicationGetV2;
 exports.opportunityApplicationPostV2 = opportunityApplicationPostV2;
 exports.opportunityApplicantsGetV2 = opportunityApplicantsGetV2;
 exports.opportunityApplicantsPostV2 = opportunityApplicantsPostV2;
+exports.opportunityWorkflowApplicationGetV2 = opportunityWorkflowApplicationGetV2;
+exports.opportunityWorkflowApplicationPostV2 = opportunityWorkflowApplicationPostV2;
+exports.opportunityResourcesGetV2 = opportunityResourcesGetV2;
+exports.opportunityResourcesPostV2 = opportunityResourcesPostV2;
 let generalData = require('./data');
 
 function opportunityGetV2(req, res) {
@@ -59,11 +63,18 @@ function createOpportunityPostV2(req, res) {
 }
 
 function opportunitySetupGetV2(req, res) {
-  let viewData, opportunityName, opportunityID, fundersList, fundersIsComplete;
+  let viewData, opportunityName, opportunityID, fundersList, fundersIsComplete, workFlowItemAdded, removeItem;
+
+  removeItem = req.param('removeItem');
 
   opportunityName = req.session.opportunityName;
   fundersList = req.session.funderslist;
   fundersIsComplete = req.session.fundersIsComplete;
+
+  if (removeItem === 'true') {
+    req.session.workFlowItemAdded = null;
+  }
+  workFlowItemAdded = req.session.workFlowItemAdded;
 
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
@@ -79,15 +90,24 @@ function opportunitySetupGetV2(req, res) {
     opportunityName,
     opportunityID,
     fundersList,
-    fundersIsComplete
+    fundersIsComplete,
+    workFlowItemAdded
   };
 
   return res.render('prototypes/opportunity-v2/setup', viewData);
 }
 
-function opportunitySetupPostV2(req, res) {}
-// return res.redirect('/prototypes/opportunity-v2/setup');
+function opportunitySetupPostV2(req, res) {
+  const { addWorkflowItem } = req.body;
 
+  console.log('addWorkflowItem = ' + addWorkflowItem);
+
+  if (addWorkflowItem === 'application') {
+    req.session.workFlowItemAdded = true;
+  }
+
+  return res.redirect('/prototypes/opportunity-v2/setup');
+}
 
 // Funders
 function opportunityFundersGetV2(req, res) {
@@ -187,6 +207,9 @@ function opportunityApplicantsGetV2(req, res) {
 
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
   // fundersIsComplete = req.session.fundersIsComplete;
 
   // fundersError = req.session.fundersError;
@@ -207,15 +230,112 @@ function opportunityApplicantsGetV2(req, res) {
 }
 
 function opportunityApplicantsPostV2(req, res) {
-  const { funders, isComplete } = req.body;
-  console.log(funders);
+  const { applicantRoles, isComplete } = req.body;
+  console.log(applicantRoles);
 
-  let fundersList, allCouncils;
+  let rolesList, allCouncils;
 
   allCouncils = generalData.allCouncils;
 
-  fundersList = funders;
-  console.log(fundersList);
+  rolesList = applicantRoles;
+  console.log(rolesList);
+
+  // console.log('isComplete = ' + isComplete);
+
+  if (isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+  } else {
+    req.session.fundersIsComplete = null;
+  }
+
+  req.session.rolesList = rolesList;
+
+  if (rolesList) {
+    return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  } else {
+    req.session.fundersError = true;
+    return res.redirect('/prototypes/opportunity-v2/applicants');
+  }
+}
+
+// Workflow application
+function opportunityWorkflowApplicationGetV2(req, res) {
+  let viewData, opportunityName, opportunityID, workFlowItemAdded, removeItem;
+
+  removeItem = req.param('removeItem');
+
+  opportunityName = req.session.opportunityName;
+
+  let applicantSectionAdded = req.session.applicantSectionAdded;
+  let resourcesSectionAdded = req.session.resourcesSectionAdded;
+  let customSectionAdded = req.session.customSectionAdded;
+
+  /*if (removeItem === 'true') {
+    req.session.workFlowItemAdded = null;
+  }*/
+  workFlowItemAdded = req.session.workFlowItemAdded;
+
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
+  opportunityID = req.session.opportunityID;
+  if (!opportunityID) {
+    opportunityID = 'OPP-' + Math.floor(Math.random() * 10000) + 1;
+    req.session.opportunityID = opportunityID;
+  }
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+    applicantSectionAdded,
+    resourcesSectionAdded,
+    customSectionAdded
+  };
+
+  return res.render('prototypes/opportunity-v2/workflow-application', viewData);
+}
+
+function opportunityWorkflowApplicationPostV2(req, res) {
+  const { addNewSection } = req.body;
+
+  // console.log('addNewSection = ' + addNewSection);
+
+  if (addNewSection === 'applicants') {
+    req.session.applicantSectionAdded = true;
+  }
+
+  if (addNewSection === 'resources') {
+    req.session.resourcesSectionAdded = true;
+  }
+
+  if (addNewSection === 'custom') {
+    req.session.customSectionAdded = true;
+  }
+
+  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+}
+
+// Resources and costs
+function opportunityResourcesGetV2(req, res) {
+  let viewData, opportunityName, opportunityID, allApplicantTypes;
+
+  allApplicantTypes = generalData.allApplicantTypes;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+    allApplicantTypes
+  };
+
+  return res.render('prototypes/opportunity-v2/resources-and-costs', viewData);
+}
+
+function opportunityResourcesPostV2(req, res) {
+  const { isComplete } = req.body;
 
   console.log('isComplete = ' + isComplete);
 
@@ -225,12 +345,12 @@ function opportunityApplicantsPostV2(req, res) {
     req.session.fundersIsComplete = null;
   }
 
-  req.session.funderslist = fundersList;
+  return res.redirect('/prototypes/opportunity-v2/workflow-application');
 
-  if (fundersList) {
+  /*if (isComplete) {
     return res.redirect('/prototypes/opportunity-v2/setup');
   } else {
     req.session.fundersError = true;
-    return res.redirect('/prototypes/opportunity-v2/funders');
-  }
+    return res.redirect('/prototypes/opportunity-v2/resources-and-costs');
+  }*/
 }

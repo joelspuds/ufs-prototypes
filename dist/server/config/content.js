@@ -13,19 +13,22 @@ let contentItems = {
   // Opportunity list
   OPPORTUNITY_TITLE_TAG: 'Opportunities',
   OPPORTUNITY_TITLE: 'Opportunities',
-  // create opportunity
-  CREATE_NEW_OPPORTUNITY_TITLE_TAG: 'Create new opportunity',
-  CREATE_NEW_OPPORTUNITY_TITLE: 'Create new opportunity',
+  // create Opportunity
+  CREATE_NEW_OPPORTUNITY_TITLE_TAG: 'Create new Opportunity',
+  CREATE_NEW_OPPORTUNITY_TITLE: 'Create new Opportunity',
   CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL: 'Opportunity name',
   CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT: 'This is how your opportunity will be known internally and publicly. ',
   CREATE_NEW_OPPORTUNITY_FORM_CTA: 'Save and continue',
-  OPPORTUNITY_SETUP_TITLE_TAG: 'Opportunity setup',
-  OPPORTUNITY_SETUP__TITLE: 'Opportunity setup',
-  ADD_FUNDERS_TO_OPPORTUNITY_TITLE_TAG: 'Manage opportunity funders',
-  ADD_FUNDERS_TO_OPPORTUNITY_TITLE: 'Manage opportunity funders',
+  OPPORTUNITY_SETUP_TITLE_TAG: 'Opportunity set-up',
+  OPPORTUNITY_SETUP__TITLE: 'Opportunity set-up',
+  OPPORTUNITY_SETUP_COMPLETE_CTA: 'Complete Opportunity set-up',
+  ADD_FUNDERS_TO_OPPORTUNITY_TITLE_TAG: 'Manage Opportunity funders',
+  ADD_FUNDERS_TO_OPPORTUNITY_TITLE: 'Manage Opportunity funders',
   ADD_FUNDERS_TO_OPPORTUNITY_NAME_LABEL: 'Select the funding bodies',
-  ADD_FUNDERS_TO_OPPORTUNITY_NAME_HINT: 'This will be shared internally and publicly when the opportunity is launched.',
+  ADD_FUNDERS_TO_OPPORTUNITY_NAME_HINT: 'This will be shared internally and publicly when the Opportunity is launched.',
   ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA: 'Save and return',
+  BACK_TO_OPPORTUNITY_DASHBOARD_LINK: 'Back to all Opportunities',
+  BACK_TO_OPPORTUNITY_SETUP_LINK: 'Back to Opportunity',
   // Application journey
   APPLICATION_OVERVIEW_TITLE_TAG: 'Application overview',
   APPLICATION_OVERVIEW_TITLE: 'Application overview',
@@ -41,10 +44,16 @@ let contentItems = {
   APPLICATION_ETHICAL_TITLE: 'Ethical and societal issues',
   ADD_ETHICAL_LABEL: 'Does you project involve activities that may give rise to any societal and/or ethical issues? ',
   ADD_ETHICAL_HINT: 'Select all the reasons that apply',
-  PROJECT_LISTING_TITLE_TAG: 'All opportunities',
-  PROJECT_LISTING_TITLE: 'All opportunities',
+  PROJECT_LISTING_TITLE_TAG: 'All Opportunities',
+  PROJECT_LISTING_TITLE: 'All Opportunities',
   CASE_FOR_SUPPORT_TITLE_TAG: 'Case for support',
-  CASE_FOR_SUPPORT_TITLE: 'Case for support'
+  CASE_FOR_SUPPORT_TITLE: 'Case for support',
+  // DATES
+  APPLICATIONS_OPENING_DATE_TITLE: 'Application opens',
+  APPLICATIONS_CLOSING_DATE_TITLE: 'Application opens',
+  OPENING_DATE_NOT_ADDED: 'No opening date added',
+  CLOSING_DATE_NOT_ADDED: 'No closing date added',
+  APPLICATION_EDIT_DATES_LINK: 'Edit application dates'
 };
 
 const content = exports.content = contentItems;

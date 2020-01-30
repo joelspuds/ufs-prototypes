@@ -36,7 +36,7 @@
     &__status {
         display: block;
         text-align: right;
-        @include govuk-font($size: 14);
+        @include govuk-font($size: 16);
         margin-top: 5px;
     }
 

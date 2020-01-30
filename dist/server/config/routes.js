@@ -133,6 +133,10 @@ router.get('/prototypes/opportunity-v2/application', demosController.opportunity
 router.post('/prototypes/opportunity-v2/application', demosController.opportunityApplicationPostV2);
 router.get('/prototypes/opportunity-v2/applicants', demosController.opportunityApplicantsGetV2);
 router.post('/prototypes/opportunity-v2/applicants', demosController.opportunityApplicantsPostV2);
+router.get('/prototypes/opportunity-v2/workflow-application', demosController.opportunityWorkflowApplicationGetV2);
+router.post('/prototypes/opportunity-v2/workflow-application', demosController.opportunityWorkflowApplicationPostV2);
+router.get('/prototypes/opportunity-v2/resources-and-costs', demosController.opportunityResourcesGetV2);
+router.post('/prototypes/opportunity-v2/resources-and-costs', demosController.opportunityResourcesPostV2);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

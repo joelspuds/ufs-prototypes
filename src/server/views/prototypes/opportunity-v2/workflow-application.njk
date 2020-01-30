@@ -1,0 +1,216 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Application' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+
+{% set isAdminUser = true %}
+{#
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+#}
+
+{% set applicantSectionAdded = applicantSectionAdded if applicantSectionAdded %}
+{% set resourcesSectionAdded = resourcesSectionAdded if resourcesSectionAdded %}
+{% set customSectionAdded = customSectionAdded if customSectionAdded %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.backLink(text=BACK_TO_OPPORTUNITY_SETUP_LINK, url='/prototypes/opportunity-v2/setup') }}
+        {%- endcall %}
+    {%- endcall %}
+
+
+  {% call components.bulmaRow() %}
+
+      {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+        {{ components.captionHeading(text='Application', caption=opportunityID + ': ' +opportunityName) }}
+
+      {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="dates">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-4') %}
+
+                {{ components.captionHeading(text=APPLICATIONS_OPENING_DATE_TITLE, size='m') }}
+
+                <p>{{ OPENING_DATE_NOT_ADDED }}</p>
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='is-4') %}
+
+                {{ components.captionHeading(text=APPLICATIONS_CLOSING_DATE_TITLE, size='m') }}
+
+                <p>{{ CLOSING_DATE_NOT_ADDED }}</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-4') %}
+
+                {{ components.link(text=APPLICATION_EDIT_DATES_LINK, url='#', size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    <section class="section" id="sections">
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Sections', size='m') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            <div class="application-items u-space-b30">
+
+                <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        {% if fundersList %}
+                        <div class="application-item__right">
+                            <span class="application-item__status">&nbsp;</span>
+                        </div>
+                        {% else %}
+                            <div class="application-item__right">
+                                <span class="application-item__status">Incomplete</span>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                {% if applicantSectionAdded %}
+
+                    <div class="application-item application-item--workflow">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Applicants", url='/prototypes/opportunity-v2/applicants') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=applicants') }} </span>
+                                <span class="application-item__status">Incomplete</span>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {% if resourcesSectionAdded %}
+                    <div class="application-item application-item--workflow">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Resources and costs", url='/prototypes/opportunity-v2/resources-and-costs') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=resources') }} </span>
+                                <span class="application-item__status">Incomplete</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if customSectionAdded %}
+                    <div class="application-item application-item--workflow">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="(Untitled section)", url='/prototypes/opportunity-v2/custom-section') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=custom') }} </span>
+                                <span class="application-item__status">Incomplete</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            {% call components.form(action='/prototypes/opportunity-v2/workflow-application', method='POST',name='addNewSection') %}
+
+                <div class="govuk-form-group ">
+                    <label class="govuk-label govuk-label--s" for="select-box">Add section</label>
+                    <div class="select-iterator">
+                        <select class="govuk-select " id="select-box" name="addNewSection">
+                            <option>Select type of section</option>
+                            <option value="applicants">Applicants</option>
+                            <option value="resources">Resources and cost</option>
+                            <option value="custom">Custom section</option>
+                        </select>
+                        {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        </section>
+
+        <section class="section" id="submitSection">
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+                        <div class="application-item">
+                            <div class="application-item__contents">
+                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                        <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                    </legend>
+                                    <div class="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+                        {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+        </section>
+
+    {%- endcall %}
+
+{% endblock %}

@@ -6,12 +6,13 @@
 {% set fundersList = fundersList %}
 {% set isAdminUser = true %}
 {% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+{% set workFlowItemAdded = workFlowItemAdded if workFlowItemAdded %}
 
 {% block content %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to all opportunities', url='/prototypes/opportunity-v2/') }}
+            {{ components.backLink(text=BACK_TO_OPPORTUNITY_DASHBOARD_LINK, url='/prototypes/opportunity-v2/') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -28,6 +29,8 @@
     {% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='is-7') %}
+
+            <section class="section" id="defaultItems">
 
             <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
                 <div class="application-item__contents govuk-clearfix">
@@ -48,60 +51,35 @@
                 </div>
             </div>
 
-            {{ components.captionHeading(text='Workflow', tag='h2', size='s', extraClass='u-space-t30') }}
+            </section>
 
-           {# <div class="application-item application-item--workflow">
-                <div class="application-item__contents govuk-clearfix">
+            <section class="section" id="workflow">
 
-                    <div class="application-item__left">
-                        {{ components.link(text="Website listing", url='#') }}
+            {{ components.captionHeading(text='Workflow', tag='h2', size='m', extraClass='u-space-t30') }}
+
+            {% if workFlowItemAdded %}
+                <div class="application-items">
+                    <div class="application-item application-item--workflow u-space-b30">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Application", url='/prototypes/opportunity-v2/workflow-application') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
+                                <span class="application-item__status">No dates set</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="application-item__right">
-                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
-                        <span class="application-item__status">Incomplete</span>
-                    </div>
-
                 </div>
-            </div>#}
+            {% endif %}
 
-           {# <div class="application-item application-item--workflow">
-                <div class="application-item__contents govuk-clearfix">
-
-                    <div class="application-item__left">
-                        {{ components.link(text="Application", url='/prototypes/opportunity-v2/application') }}
-                    </div>
-                    <div class="application-item__right">
-                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
-                        <span class="application-item__status">Incomplete</span>
-                    </div>
-
-                </div>
-            </div>#}
-
-           {# <div class="application-item application-item--workflow">
-                <div class="application-item__contents govuk-clearfix">
-
-                    <div class="application-item__left">
-                        {{ components.link(text="Peer review", url='#') }}
-                    </div>
-                    <div class="application-item__right">
-                        <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
-                        <span class="application-item__status">Incomplete</span>
-                    </div>
-
-                </div>
-            </div>#}
-
-            {#<div class="">
-                {{ components.select(options=selectWorkflowOptions, label='Add workflow item', id='select-box', group=true) }}
-            </div>#}
 
             {% call components.form(action='/prototypes/opportunity-v2/setup', method='POST',name='addWorkflowItem') %}
 
                 <div class="govuk-form-group ">
                     <label class="govuk-label govuk-label--s" for="select-box">Add workflow item</label>
                     <div class="select-iterator">
-                        <select class="govuk-select " id="select-box" name="select-box">
+                        <select class="govuk-select " id="select-box" name="addWorkflowItem">
                             <option>Select workflow item</option>
                             <option value="application">Application</option>
                         </select>
@@ -110,6 +88,18 @@
                 </div>
 
             {%- endcall %}
+
+            </section>
+
+            <section class="section" id="completeAction">
+
+                {% call components.formGroup() %}
+
+                    {{ components.button(text=OPPORTUNITY_SETUP_COMPLETE_CTA, extraClass="application-controls__submit")}}
+
+                {%- endcall %}
+
+            </section>
 
         {%- endcall %}
 

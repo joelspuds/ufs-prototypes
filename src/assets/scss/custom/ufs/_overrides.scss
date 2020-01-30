@@ -71,3 +71,25 @@
     text-decoration: underline;
   }
 }
+
+.govuk-link {
+  text-decoration-color: govuk-colour("blue");
+  text-decoration-line:underline;
+  text-decoration-style:solid;
+}
+
+.section {
+  padding-top: 0;
+}
+
+.column > .section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.select-iterator {
+
+  .govuk-button {
+    margin-bottom: 0;
+  }
+}

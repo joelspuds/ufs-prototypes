@@ -15,14 +15,14 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to all opportunity setup', url='/prototypes/opportunity-v2/setup') }}
+            {{ components.backLink(text='Back to application', url='/prototypes/opportunity-v2/workflow-application') }}
         {%- endcall %}
     {%- endcall %}
 
     {% if fundersError %}
 
         {% call components.bulmaRow() %}
-
+\
             {% call components.bulmaColumnAny(size='is-full') %}
 
                 <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
@@ -45,23 +45,23 @@
     {% endif %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
             {{ components.captionHeading(text='Applicants', caption=opportunityID + ': ' + opportunityName) }}
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/opportunity-v2/funders', method='POST',name='manageFunders') %}
+    {% call components.form(action='/prototypes/opportunity-v2/applicants', method='POST',name='manageApplicants') %}
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
                 <div class="govuk-form-group {% if fundersError %} govuk-form-group--error {% endif %}">
-                    <fieldset class="govuk-fieldset" aria-describedby="funders-hint">
+                    <fieldset class="govuk-fieldset" aria-describedby="applicants-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                             <h2 class="govuk-fieldset__heading"   {% if fundersError %}id="fundersError" {% endif %}>Roles</h2>
                         </legend>
-                        <span id="funders-hint" class="govuk-hint">Select the roles that can be nominated as part of the application.</span>
+                        <span id="applicants-hint" class="govuk-hint">Select the roles that can be nominated as part of the application.</span>
 
                         {% if fundersError %}
                         <span class="govuk-error-message">
@@ -73,7 +73,7 @@
                             {% for item in allApplicantTypes %}
 
                                 <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="council_{{ item.index }}" name="funders" type="checkbox" value="{{ item.value }}"
+                                    <input class="govuk-checkboxes__input" id="roles_{{ item.index }}" name="applicantRoles" type="checkbox" value="{{ item.index }}"
                                     {% for match in funderslist %}
                                         {# DIRTY DIRTY DIRTY #}
                                         {% if (match == item.name) or (match == item.short) %}
@@ -81,7 +81,7 @@
                                         {% endif %}
                                     {% endfor %}
                                     >
-                                    <label class="govuk-label govuk-checkboxes__label" for="council_{{ item.index }}">
+                                    <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">
                                         {% if item.short %}
                                             {{ item.short }},
                                         {% endif %}
@@ -101,7 +101,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
                     <div class="application-item">
@@ -127,7 +127,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
                     {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
