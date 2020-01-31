@@ -3,7 +3,7 @@
  *   Name: dvsa-front-end/vendor
  *   Version: 1.3.15
  *   Contributors: Martin D Marriott <martind@kainos.com>, James Nelson <j.nelson@kainos.com>, Tameem Safi <https://github.com/tameemsafi>
- *   Timestamp: January 30th 2020, 2:26:47 pm
+ *   Timestamp: January 31st 2020, 12:48:17 pm
  *   Source: https://github.com/dvsa/front-end
  * 
  */

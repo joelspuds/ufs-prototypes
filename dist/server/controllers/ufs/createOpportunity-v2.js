@@ -22,6 +22,8 @@ exports.opportunityApplicationsDatesGetV2 = opportunityApplicationsDatesGetV2;
 exports.opportunityApplicationsDatesPostV2 = opportunityApplicationsDatesPostV2;
 exports.opportunityDetailsGetV2 = opportunityDetailsGetV2;
 exports.opportunityDetailsPostV2 = opportunityDetailsPostV2;
+exports.opportunityCustomSectionGetV2 = opportunityCustomSectionGetV2;
+exports.opportunityCustomSectionPostV2 = opportunityCustomSectionPostV2;
 let generalData = require('./data');
 
 function opportunityGetV2(req, res) {
@@ -102,7 +104,7 @@ function opportunitySetupGetV2(req, res) {
 }
 
 function opportunitySetupPostV2(req, res) {
-  const { addWorkflowItem } = req.body;
+  const { addWorkflowItem, submitApplication } = req.body;
 
   console.log('addWorkflowItem = ' + addWorkflowItem);
 
@@ -301,9 +303,10 @@ function opportunityWorkflowApplicationGetV2(req, res) {
 }
 
 function opportunityWorkflowApplicationPostV2(req, res) {
-  const { addNewSection } = req.body;
+  const { addNewSection, submitApplication } = req.body;
 
-  // console.log('addNewSection = ' + addNewSection);
+  console.log('addNewSection = ' + addNewSection);
+  console.log('submitApplication = ' + submitApplication);
 
   if (addNewSection === 'applicants') {
     req.session.applicantSectionAdded = true;
@@ -317,7 +320,11 @@ function opportunityWorkflowApplicationPostV2(req, res) {
     req.session.customSectionAdded = true;
   }
 
-  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  if (!addNewSection) {
+    return res.redirect('/prototypes/opportunity-v2/setup');
+  } else {
+    return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  }
 }
 
 // Resources and costs
@@ -415,12 +422,43 @@ function opportunityDetailsGetV2(req, res) {
     opportunityID
   };
 
-  console.log('opportunityName = ' + opportunityName);
-
   return res.render('prototypes/opportunity-v2/details', viewData);
 }
 
 function opportunityDetailsPostV2(req, res) {
+  const { isComplete } = req.body;
+
+  console.log('isComplete = ' + isComplete);
+
+  if (isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+  } else {
+    req.session.fundersIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+}
+
+// Custom section question
+function opportunityCustomSectionGetV2(req, res) {
+  let viewData, opportunityName, opportunityID;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
+  viewData = {
+    opportunityName,
+    opportunityID
+  };
+
+  return res.render('prototypes/opportunity-v2/custom-section', viewData);
+}
+
+function opportunityCustomSectionPostV2(req, res) {
   const { isComplete } = req.body;
 
   console.log('isComplete = ' + isComplete);

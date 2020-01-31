@@ -121,6 +121,8 @@ router.get('/prototypes/opportunity-v2/application-dates', demosController.oppor
 router.post('/prototypes/opportunity-v2/application-dates', demosController.opportunityApplicationsDatesPostV2);
 router.get('/prototypes/opportunity-v2/details', demosController.opportunityDetailsGetV2);
 router.post('/prototypes/opportunity-v2/details', demosController.opportunityDetailsPostV2);
+router.get('/prototypes/opportunity-v2/custom-section', demosController.opportunityCustomSectionGetV2);
+router.post('/prototypes/opportunity-v2/custom-section', demosController.opportunityCustomSectionPostV2);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

@@ -80,6 +80,11 @@
 
 .section {
   padding-top: 0;
+
+  @include touch {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .column > .section {
@@ -91,5 +96,9 @@
 
   .govuk-button {
     margin-bottom: 0;
+
+    @include touch {
+      width: auto;
+    }
   }
 }

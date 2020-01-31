@@ -1,13 +1,8 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'admin' %}
-
-{% set pageTitle = 'Resources and costs' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = '(Untitled section)' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set opportunityName = opportunityName %}
 {% set opportunityID = opportunityID %}
-{% set allApplicantTypes = allApplicantTypes %}
-{% set funderslist = funderslist %}
-{% set fundersError = fundersError if fundersError %}
-{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
 
 {% set isAdminUser = true %}
 
@@ -21,7 +16,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-            {{ components.captionHeading(text='Resources and cost', caption=opportunityID + ': ' + opportunityName) }}
+            {{ components.captionHeading(text='(Untitled section)', caption=opportunityID + ': ' + opportunityName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -48,31 +43,64 @@
 
     {% call components.form(action='/prototypes/opportunity-v2/resources-and-costs', method='POST',name='manageResources') %}
 
-        <section class="section" id="detailsInput">
-
+        <section class="section" id="resourcesContent">
             {% call components.bulmaRow() %}
-
                 {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-                    <p class="govuk-body">These are the cost types the applicant will need to provide totals for: </p>
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-visually-hidden">Custom section details</legend>
 
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>directly incurred</li>
-                        <li>directly allocated</li>
-                        <li>indirect costs</li>
-                        <li>exceptions</li>
-                    </ul>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="sectionTitle">Section title</label>
+                            <span class="govuk-hint">Enter a short description of the subject matter of this section – it will appear above as the
+section title. For example, ‘Economic benefits’</span>
+                            <input class="govuk-input" id="sectionTitle" name="sectionTitle" type="text">
+                        </div>
 
-                    <p class="govuk-body">Mark as complete to continue.</p>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="yourQuestion">Your question</label>
+                            <span class="govuk-hint">Ask a question about the area of the section topic you want to know about. For example, ‘How
+will your project economically benefit to the UK?’</span>
+                            <input class="govuk-input" id="yourQuestion" name="yourQuestion" type="text">
+                        </div>
 
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="questionGuidance">Question guidance</label>
+                            <span class="govuk-hint">Describe what the applicant’s answer should cover and list the criteria by which it will be assessed.</span>
+                            <textarea class="govuk-textarea" id="questionGuidance" name="questionGuidance" rows="8"></textarea>
+                        </div>
+                    </fieldset>
                 {%- endcall %}
-
             {%- endcall %}
+        </section>
 
+        <section class="section" id="wordcount">
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Word count limit</legend>
+                        <details class="govuk-details u-space-b10" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">Guidance for setting word count limits</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score. <br><br> A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
+                            </div>
+                        </details>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s govuk-visually-hidden" for="wordcount">Wordcount</label>
+                            <input class="govuk-input govuk-input--width-4" id="wordcount" name="wordcount" type="text" value="400">
+                        </div>
+
+
+                    </fieldset>
+                {%- endcall %}
+            {%- endcall %}
         </section>
 
         <section class="section" id="submitSection">
-
             {% call components.bulmaRow() %}
                 {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
                     {% call components.formGroup() %}
@@ -104,7 +132,6 @@
                     {%- endcall %}
                 {%- endcall %}
             {%- endcall %}
-
         </section>
 
     {%- endcall %} {# end form #}

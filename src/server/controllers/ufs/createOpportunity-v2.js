@@ -78,7 +78,7 @@ export function opportunitySetupGetV2(req, res) {
 }
 
 export function opportunitySetupPostV2(req, res) {
-  const { addWorkflowItem } = req.body;
+  const { addWorkflowItem, submitApplication } = req.body;
 
   console.log('addWorkflowItem = ' + addWorkflowItem);
 
@@ -277,9 +277,10 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
 }
 
 export function opportunityWorkflowApplicationPostV2(req, res) {
-  const { addNewSection } = req.body;
+  const { addNewSection, submitApplication } = req.body;
 
-  // console.log('addNewSection = ' + addNewSection);
+  console.log('addNewSection = ' + addNewSection);
+  console.log('submitApplication = ' + submitApplication);
 
   if (addNewSection === 'applicants') {
     req.session.applicantSectionAdded = true;
@@ -293,7 +294,11 @@ export function opportunityWorkflowApplicationPostV2(req, res) {
     req.session.customSectionAdded = true;
   }
 
-  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  if (!addNewSection) {
+    return res.redirect('/prototypes/opportunity-v2/setup');
+  } else {
+    return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  }
 }
 
 // Resources and costs
@@ -391,12 +396,43 @@ export function opportunityDetailsGetV2(req, res) {
     opportunityID,
   };
 
-  console.log('opportunityName = ' + opportunityName);
-
   return res.render('prototypes/opportunity-v2/details', viewData);
 }
 
 export function opportunityDetailsPostV2(req, res) {
+  const { isComplete } = req.body;
+
+  console.log('isComplete = ' + isComplete);
+
+  if (isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+  } else {
+    req.session.fundersIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+}
+
+// Custom section question
+export function opportunityCustomSectionGetV2(req, res) {
+  let viewData, opportunityName, opportunityID;
+
+  opportunityName = req.session.opportunityName;
+  opportunityID = req.session.opportunityID;
+
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+  };
+
+  return res.render('prototypes/opportunity-v2/custom-section', viewData);
+}
+
+export function opportunityCustomSectionPostV2(req, res) {
   const { isComplete } = req.body;
 
   console.log('isComplete = ' + isComplete);
