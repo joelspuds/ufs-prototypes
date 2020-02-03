@@ -30,7 +30,7 @@
 
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-            {{ components.captionHeading(text='Sections', size='m') }}
+            {{ components.captionHeading(text='Sections in two-thirds row', size='m') }}
 
         {%- endcall %}
 
@@ -42,127 +42,163 @@
 
             <div class="application-items u-space-b30">
 
-                <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item">
                     <div class="application-item__contents govuk-clearfix">
 
                         <div class="application-item__left">
-                            {{ components.link(text="Details", url='/prototypes/opportunity-v2/details') }}
+                            {{ components.link(text="Details", url='#') }}
                         </div>
-                        {% if fundersList %}
+
                         <div class="application-item__right">
-                            <span class="application-item__status">&nbsp;</span>
+                            <span class="application-item__status">Incomplete</span>
                         </div>
-                        {% else %}
-                            <div class="application-item__right">
-                                <span class="application-item__status">Incomplete</span>
-                            </div>
-                        {% endif %}
 
                     </div>
                 </div>
 
-                    <div class="application-item application-item--workflow">
-                        <div class="application-item__contents govuk-clearfix">
-                            <div class="application-item__left">
-                                {{ components.link(text="Applicants", url='/prototypes/opportunity-v2/applicants') }}
-                            </div>
-                            <div class="application-item__right">
-                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=applicants') }} </span>
-                                <span class="application-item__status">Incomplete</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="application-item application-item--complete ">
+                    <div class="application-item__contents govuk-clearfix">
 
-                    <div class="application-item application-item--workflow">
-                        <div class="application-item__contents govuk-clearfix">
-                            <div class="application-item__left">
-                                {{ components.link(text="Resources and costs", url='/prototypes/opportunity-v2/resources-and-costs') }}
-                            </div>
-                            <div class="application-item__right">
-                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=resources') }} </span>
-                                <span class="application-item__status">Incomplete</span>
-                            </div>
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status">
+                                EPSRC, NERC, Inovate UK
+                            </span>
                         </div>
                     </div>
-                    <div class="application-item application-item--incomplete application-item--workflow">
-                        <div class="application-item__contents govuk-clearfix">
-                            <div class="application-item__left">
-                                {{ components.link(text="(Untitled section)", url='/prototypes/opportunity-v2/custom-section') }}
-                            </div>
-                            <div class="application-item__right">
-                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=custom') }} </span>
-                                <span class="application-item__status">Incomplete</span>
-                            </div>
+                </div>
+
+                <div class="application-item application-item--complete ">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Very long title for a custom section that will wrap. ", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status">
+                                Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                            </span>
                         </div>
                     </div>
+                </div>
+
+                <div class="application-item application-item--complete ">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Application open and close dates", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__control">{{ components.link(text="Change", url='#') }} </span>
+                            <span class="application-item__status">
+                                Opening date:<br>
+                                <strong>9 April 2020</strong><br>
+                                Closing date:<br>
+                                <strong>21 Monthtember 2020</strong><br>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--workflow">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Applicants", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--workflow">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Resources and costs", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-item application-item--incomplete application-item--workflow">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-
-            {% call components.form(action='/prototypes/opportunity-v2/workflow-application', method='POST',name='addNewSection') %}
-
-                <div class="govuk-form-group ">
-                    <label class="govuk-label govuk-label--s" for="select-box">Add section</label>
-                    <div class="select-iterator">
-                        <select class="govuk-select " id="select-box" name="addNewSection">
-                            <option>Select</option>
-                            <option value="applicants">Applicants</option>
-                            <option value="resources">Resources and cost</option>
-                            <option value="custom">Custom section</option>
-                        </select>
-                        {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
-                    </div>
-                </div>
-
-            {%- endcall %}
 
         {%- endcall %}
 
         </section>
 
-        <section class="section" id="submitSection">
+        <section class="section" id="altRows">
 
-        {% call components.form(action='/prototypes/opportunity-v2/workflow-application', method='POST', name='submitApplication') %}
             {% call components.bulmaRow() %}
 
                 {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-                    {% call components.formGroup() %}
-                        <div class="application-item">
-                            <div class="application-item__contents">
-                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
-                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">
-                                        <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
-                                    </legend>
-                                    <div class="govuk-checkboxes">
-                                        <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
-                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
-                                        </div>
-                                    </div>
-                                </fieldset>
+                    {{ components.captionHeading(text='Sections in three-quarters row', size='m') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-8') %}
+
+                    <div class="application-items u-space-b30">
+
+                        <div class="application-item application-item--incomplete">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text="Details", url='#') }}
+                                </div>
+                                <div class="application-item__right">
+                                    <span class="application-item__status">Incomplete</span>
+                                </div>
                             </div>
                         </div>
-                    {%- endcall %}
+
+                        <div class="application-item application-item--incomplete application-item--workflow">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
+                                </div>
+                                <div class="application-item__right">
+                                    <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                                    <span class="application-item__status">Incomplete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 {%- endcall %}
 
-            {%- endcall %}
-
-            {% call components.bulmaRow() %}
-
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                    {% call components.formGroup() %}
-                        {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
-                    {%- endcall %}
-
+                {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+                    <div class="govuk-related-items govuk-related-items--flush">
+                        <h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
+                        <p class="govuk-body-s u-space-b5">Really long title for this exciting new opportunity</p>
+                        <ul class="govuk-list u-space-t10">
+                            <li><a href="/prototypes/opportunity-v2/create?mode=edit" class="govuk-link govuk-body--s sub-button">Edit opportunity name</a></li>
+                        </ul>
+                    </div>
                 {%- endcall %}
-
             {%- endcall %}
-
-        {%- endcall %} {# end 2nd form #}
         </section>
-
+        
     {%- endcall %}
 
 {% endblock %}
