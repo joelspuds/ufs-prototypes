@@ -19,6 +19,10 @@
     { text: 'Apply for opportunity as user', url: '/prototypes/example-journey/application/project-listings' }
 ] %}
 
+{% set listItemsMolecules = [
+    { text: 'Application item variants', url: '/prototypes/molecules/application-items' }
+] %}
+
 {% block content %}
 
   {% call components.gridRow() %}
@@ -56,5 +60,17 @@
       {%- endcall %}
 
   {%- endcall %}
+
+    {% call components.gridRow() %}
+
+        {% call components.columnHalf() %}
+
+            {{ components.captionHeading(text='Molecules', tag='h2', size='m') }}
+
+            {{ components.list(items=listItemsMolecules, type='bullet')}}
+
+        {%- endcall %}
+
+    {%- endcall %}
 
 {% endblock %}

@@ -1,17 +1,8 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'admin' %}
 {% set pageTitle = 'Application' + GLOBAL_TAG_TITLE_SUFFIX %}
-{% set opportunityName = opportunityName %}
-{% set opportunityID = opportunityID %}
 
 {% set isAdminUser = true %}
-{#
-{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
-#}
-
-{% set applicantSectionAdded = applicantSectionAdded if applicantSectionAdded %}
-{% set resourcesSectionAdded = resourcesSectionAdded if resourcesSectionAdded %}
-{% set customSectionAdded = customSectionAdded if customSectionAdded %}
 
 {% block content %}
 
@@ -26,45 +17,11 @@
 
       {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-        {{ components.captionHeading(text='Application', caption=opportunityID + ': ' +opportunityName) }}
+        {{ components.captionHeading(text='Application items variants') }}
 
       {%- endcall %}
 
     {%- endcall %}
-
-    <section class="section" id="dates">
-
-        {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='is-4') %}
-
-                {{ components.captionHeading(text=APPLICATIONS_OPENING_DATE_TITLE, size='m') }}
-
-                <p>{{ OPENING_DATE_NOT_ADDED }}</p>
-
-            {%- endcall %}
-
-            {% call components.bulmaColumnAny(size='is-4') %}
-
-                {{ components.captionHeading(text=APPLICATIONS_CLOSING_DATE_TITLE, size='m') }}
-
-                <p>{{ CLOSING_DATE_NOT_ADDED }}</p>
-
-            {%- endcall %}
-
-        {%- endcall %}
-
-        {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='is-4') %}
-
-                {{ components.link(text=APPLICATION_EDIT_DATES_LINK, url='/prototypes/opportunity-v2/application-dates', size='s') }}
-
-            {%- endcall %}
-
-        {%- endcall %}
-
-    </section>
 
     <section class="section" id="sections">
 
@@ -104,8 +61,6 @@
                     </div>
                 </div>
 
-                {% if applicantSectionAdded %}
-
                     <div class="application-item application-item--workflow">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
@@ -118,9 +73,6 @@
                         </div>
                     </div>
 
-                {% endif %}
-
-                {% if resourcesSectionAdded %}
                     <div class="application-item application-item--workflow">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
@@ -132,9 +84,6 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
-
-                {% if customSectionAdded %}
                     <div class="application-item application-item--incomplete application-item--workflow">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
@@ -146,7 +95,6 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
 
             </div>
 
@@ -156,7 +104,7 @@
                     <label class="govuk-label govuk-label--s" for="select-box">Add section</label>
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addNewSection">
-                            <option>Select type of section</option>
+                            <option>Select</option>
                             <option value="applicants">Applicants</option>
                             <option value="resources">Resources and cost</option>
                             <option value="custom">Custom section</option>
