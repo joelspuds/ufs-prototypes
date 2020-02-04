@@ -3,6 +3,8 @@
 {% set pageTitle = 'Details' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set opportunityName = opportunityName %}
 {% set opportunityID = opportunityID %}
+{% set detailsIsComplete = detailsIsComplete if detailsIsComplete %}
+
 
 {% set isAdminUser = true %}
 
@@ -41,7 +43,7 @@
 
     </section>
 
-    {% call components.form(action='/prototypes/opportunity-v2/resources-and-costs', method='POST',name='manageResources') %}
+    {% call components.form(action='/prototypes/opportunity-v2/details', method='POST',name='manageDetails') %}
 
         <section class="section" id="resourcesContent">
             {% call components.bulmaRow() %}
@@ -67,7 +69,9 @@
 
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="summaryText">Summary text</label>
-                            <input class="govuk-input" id="summaryText" name="summaryText" type="text" value="Provide a synopsis of your proposed project, which potential reviewers will see in an email inviting them to assess it">
+                            {#<input class="govuk-input" id="summaryText" name="summaryText" type="text" value="Provide a synopsis of your proposed project, which potential reviewers will see in an email inviting them to assess it">#}
+                            <textarea class="govuk-textarea" id="summaryText" name="summaryGuidanceText" rows="4">Provide a synopsis of your proposed project, which potential reviewers will see in an email inviting them to assess it.</textarea>
+
                         </div>
 
                         <div class="govuk-form-group">
@@ -144,7 +148,7 @@
                                     </legend>
                                     <div class="govuk-checkboxes">
                                         <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="markAsComplete" type="checkbox" {% if detailsIsComplete %} checked {% endif %}>
                                             <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                         </div>
                                     </div>

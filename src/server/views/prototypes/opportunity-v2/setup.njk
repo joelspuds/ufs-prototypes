@@ -32,7 +32,7 @@
 
             <section class="section" id="defaultItems">
 
-            <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                 <div class="application-item__contents govuk-clearfix">
 
                     <div class="application-item__left">
@@ -65,8 +65,8 @@
                                 {{ components.link(text="Application", url='/prototypes/opportunity-v2/workflow-application') }}
                             </div>
                             <div class="application-item__right">
-                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
                                 <span class="application-item__status">No dates set</span>
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
                     <label class="govuk-label govuk-label--s" for="select-box">Add workflow item</label>
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addWorkflowItem">
-                            <option>Select workflow item</option>
+                            <option>Select</option>
                             <option value="application">Application</option>
                         </select>
                         {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
@@ -108,14 +108,10 @@
             <div class="govuk-related-items govuk-related-items--flush">
 
                 {{ components.captionHeading(text=opportunityID, tag='h2', size='xs', extraClass='u-space-y5') }}
-                <p class="govuk-body-s u-space-b5">
-                    {{ opportunityName }}
-                </p>
+                <p class="govuk-body-s u-space-b5">{{ opportunityName }}</p>
 
                 <ul class="govuk-list u-space-t10">
-                    <li>
-                        {{ components.link(text='Edit opportunity name', url='/prototypes/opportunity-v2/create?mode=edit', extraClass='govuk-body--s sub-button') }}
-                    </li>
+                    <li>{{ components.link(text='Edit Opportunity name', url='/prototypes/opportunity-v2/create?mode=edit', extraClass='govuk-body--s sub-button') }}</li>
                 </ul>
             </div>
 

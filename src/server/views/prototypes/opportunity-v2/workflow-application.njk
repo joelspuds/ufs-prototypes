@@ -3,15 +3,25 @@
 {% set pageTitle = 'Application' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set opportunityName = opportunityName %}
 {% set opportunityID = opportunityID %}
-
 {% set isAdminUser = true %}
 {#
 {% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
 #}
-
 {% set applicantSectionAdded = applicantSectionAdded if applicantSectionAdded %}
 {% set resourcesSectionAdded = resourcesSectionAdded if resourcesSectionAdded %}
 {% set customSectionAdded = customSectionAdded if customSectionAdded %}
+{% set applicationIsComplete = applicationIsComplete if applicationIsComplete %}
+
+{% set openingDate = openingDate if openingDate %}
+{% set openingTime = openingTime if openingTime %}
+{% set closingDate = closingDate if closingDate %}
+{% set closingTime = closingTime if closingTime %}
+{% set openingTimeMeridian = openingTimeMeridian if openingTimeMeridian %}
+{% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
+{% set openDay = openDay if openDay %}
+{% set closingDay = closingDay if closingDay %}
+
+{% set detailsIsComplete = detailsIsComplete if detailsIsComplete %}
 
 {% block content %}
 
@@ -37,19 +47,21 @@
         {% call components.bulmaRow() %}
 
             {% call components.bulmaColumnAny(size='is-4') %}
-
                 {{ components.captionHeading(text=APPLICATIONS_OPENING_DATE_TITLE, size='m') }}
-
-                <p>{{ OPENING_DATE_NOT_ADDED }}</p>
-
+                {% if openingDate %}
+                    {{ openDay }}, {{ openingDate }}, {{ openingTime }} {{ openingTimeMeridian }}
+                {% else %}
+                    <p>{{ OPENING_DATE_NOT_ADDED }}</p>
+                {% endif %}
             {%- endcall %}
 
             {% call components.bulmaColumnAny(size='is-4') %}
-
                 {{ components.captionHeading(text=APPLICATIONS_CLOSING_DATE_TITLE, size='m') }}
-
-                <p>{{ CLOSING_DATE_NOT_ADDED }}</p>
-
+                {% if closingDate %}
+                    {{ closingDay }}, {{ closingDate }}, {{ closingTime }} {{ closingTimeMeridian }}
+                {% else %}
+                    <p>{{ CLOSING_DATE_NOT_ADDED }}</p>
+                {% endif %}
             {%- endcall %}
 
         {%- endcall %}
@@ -84,29 +96,26 @@
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
             <div class="application-items u-space-b30">
-
-                <div class="application-item {% if fundersIsComplete %} application-item--complete {% endif %}">
+                <div class="application-item {% if detailsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                     <div class="application-item__contents govuk-clearfix">
 
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='/prototypes/opportunity-v2/details') }}
                         </div>
-                        {% if fundersList %}
-                        <div class="application-item__right">
-                            <span class="application-item__status">&nbsp;</span>
-                        </div>
-                        {% else %}
-                            <div class="application-item__right">
-                                <span class="application-item__status">Incomplete</span>
-                            </div>
-                        {% endif %}
 
+                        <div class="application-item__right">
+                            {% if detailsIsComplete %}
+                                <span class="application-item__status">Complete</span>
+                            {% else %}
+                                <span class="application-item__status">Incomplete</span>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
 
                 {% if applicantSectionAdded %}
 
-                    <div class="application-item application-item--workflow">
+                    <div class="application-item application-item--workflow {% if applicantsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
                                 {{ components.link(text="Applicants", url='/prototypes/opportunity-v2/applicants') }}
@@ -121,7 +130,7 @@
                 {% endif %}
 
                 {% if resourcesSectionAdded %}
-                    <div class="application-item application-item--workflow">
+                    <div class="application-item application-item--workflow {% if resourcesIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
                                 {{ components.link(text="Resources and costs", url='/prototypes/opportunity-v2/resources-and-costs') }}
@@ -135,7 +144,7 @@
                 {% endif %}
 
                 {% if customSectionAdded %}
-                    <div class="application-item application-item--incomplete application-item--workflow">
+                    <div class="application-item application-item--workflow {% if customIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
                                 {{ components.link(text="(Untitled section)", url='/prototypes/opportunity-v2/custom-section') }}

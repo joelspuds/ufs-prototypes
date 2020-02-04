@@ -250,6 +250,13 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
   let resourcesSectionAdded = req.session.resourcesSectionAdded;
   let customSectionAdded = req.session.customSectionAdded;
 
+  let openingDate = req.session.openingDate;
+  let openingTime = req.session.openingTime;
+  let closingDate = req.session.closingDate;
+  let closingTime = req.session.closingTime;
+  let openingTimeMeridian = req.session.openingTimeMeridian;
+  let closingTimeMeridian = req.session.closingTimeMeridian;
+
   /*if (removeItem === 'true') {
     req.session.workFlowItemAdded = null;
   }*/
@@ -265,12 +272,30 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
     req.session.opportunityID = opportunityID;
   }
 
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  const openDayDate = new Date(openingDate);
+  const openDay = days[openDayDate.getDay()];
+  const closingDayDate = new Date(closingDate);
+  const closingDay = days[closingDayDate.getDay()];
+
+  let detailsIsComplete = req.session.detailsIsComplete;
+
   viewData = {
     opportunityName,
     opportunityID,
     applicantSectionAdded,
     resourcesSectionAdded,
     customSectionAdded,
+    openingDate,
+    openingTime,
+    closingDate,
+    closingTime,
+    openingTimeMeridian,
+    closingTimeMeridian,
+    openDay,
+    closingDay,
+    detailsIsComplete,
   };
 
   return res.render('prototypes/opportunity-v2/workflow-application', viewData);
@@ -353,6 +378,13 @@ export function opportunityApplicationsDatesGetV2(req, res) {
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
 
+  let openingDate = req.session.openingDate;
+  let openingTime = req.session.openingTime;
+  let closingDate = req.session.closingDate;
+  let closingTime = req.session.closingTime;
+  let openingTimeMeridian = req.session.openingTimeMeridian;
+  let closingTimeMeridian = req.session.closingTimeMeridian;
+
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
   }
@@ -361,21 +393,28 @@ export function opportunityApplicationsDatesGetV2(req, res) {
     opportunityName,
     opportunityID,
     allApplicantTypes,
+    openingDate,
+    openingTime,
+    closingDate,
+    closingTime,
+    openingTimeMeridian,
+    closingTimeMeridian,
   };
 
   return res.render('prototypes/opportunity-v2/application-dates', viewData);
 }
 
 export function opportunityApplicationsDatesPostV2(req, res) {
-  const { isComplete } = req.body;
+  const { openingDate, openingTime, closingDate, closingTime, openingTimeMeridian, closingTimeMeridian } = req.body;
 
-  console.log('isComplete = ' + isComplete);
+  console.log('openingDate = ' + openingDate);
 
-  if (isComplete === 'on') {
-    req.session.fundersIsComplete = true;
-  } else {
-    req.session.fundersIsComplete = null;
-  }
+  req.session.openingDate = openingDate;
+  req.session.openingTime = openingTime;
+  req.session.closingDate = closingDate;
+  req.session.closingTime = closingTime;
+  req.session.openingTimeMeridian = openingTimeMeridian;
+  req.session.closingTimeMeridian = closingTimeMeridian;
 
   return res.redirect('/prototypes/opportunity-v2/workflow-application');
 }
@@ -387,27 +426,34 @@ export function opportunityDetailsGetV2(req, res) {
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
 
+  let detailsIsComplete = req.session.detailsIsComplete;
+
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
   }
 
+  console.log('detailsIsComplete = ' + detailsIsComplete);
+
   viewData = {
     opportunityName,
     opportunityID,
+    detailsIsComplete,
   };
 
   return res.render('prototypes/opportunity-v2/details', viewData);
 }
 
 export function opportunityDetailsPostV2(req, res) {
-  const { isComplete } = req.body;
+  const { markAsComplete } = req.body;
 
-  console.log('isComplete = ' + isComplete);
+  console.log('this is the right controller');
 
-  if (isComplete === 'on') {
-    req.session.fundersIsComplete = true;
+  console.log('details page isComplete = ' + markAsComplete);
+
+  if (markAsComplete === 'on') {
+    req.session.detailsIsComplete = true;
   } else {
-    req.session.fundersIsComplete = null;
+    req.session.detailsIsComplete = null;
   }
 
   return res.redirect('/prototypes/opportunity-v2/workflow-application');

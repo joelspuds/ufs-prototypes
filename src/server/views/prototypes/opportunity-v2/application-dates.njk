@@ -5,9 +5,16 @@
 {% set opportunityName = opportunityName %}
 {% set opportunityID = opportunityID %}
 {#{% set allApplicantTypes = allApplicantTypes %}#}
-{#{% set funderslist = funderslist %}
-{% set fundersError = fundersError if fundersError %}
-{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}#}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
+{% set datesError = datesError if datesError %}
+
+{% set openingDate = openingDate if openingDate %}
+{% set openingTime = openingTime if openingTime %}
+{% set closingDate = closingDate if closingDate %}
+{% set closingTime = closingTime if closingTime %}
+{% set openingTimeMeridian = openingTimeMeridian if openingTimeMeridian %}
+{% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
 
 {% set isAdminUser = true %}
 
@@ -19,7 +26,7 @@
         {%- endcall %}
     {%- endcall %}
 
-   {# {% if fundersError %}
+    {% if datesError %}
 
         {% call components.bulmaRow() %}
 
@@ -32,7 +39,7 @@
                     <div class="govuk-error-summary__body">
                         <ul class="govuk-list govuk-error-summary__list">
                             <li>
-                                <a href="#fundersError">You have not selected a funder for your opportunity</a>
+                                <a href="#fundersError">You have not selected a funder for your Opportunity</a>
                             </li>
                         </ul>
                     </div>
@@ -42,7 +49,7 @@
 
         {%- endcall %}
 
-    {% endif %}#}
+    {% endif %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
@@ -62,16 +69,16 @@
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="openingDate">Date</label>
                             <span class="govuk-hint">DD/MM/YYYY</span>
-                            <input class="govuk-input govuk-input--width-7" id="openingDate" name="openingDate" type="text">
+                            <input class="govuk-input govuk-input--width-7" id="openingDate" name="openingDate" type="text" value="{{ openingDate }}">
                         </div>
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="openingTime">Time</label>
                             <span class="govuk-hint">For example, 9:00am or 12:00pm</span>
-                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text">
+                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text" value="{{ openingTime }}">
                             <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
-                            <select class="govuk-select" id="openingTimeMeridian">
-                                <option value="am" >am</option>
-                                <option value="pm">pm</option>
+                            <select class="govuk-select" id="openingTimeMeridian" name="openingTimeMeridian">
+                                <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %}>am</option>
+                                <option value="pm" {% if openingTimeMeridian === 'pm'%}selected{% endif %} >pm</option>
                             </select>
                         </div>
                     </fieldset>
@@ -89,16 +96,16 @@
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="closingDate">Date</label>
                             <span class="govuk-hint">DD/MM/YYYY</span>
-                            <input class="govuk-input govuk-input--width-7" id="closingDate" name="closingDate" type="text">
+                            <input class="govuk-input govuk-input--width-7" id="closingDate" name="closingDate" type="text" value="{{ closingTime }}">
                         </div>
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="closingTime">Time</label>
                             <span class="govuk-hint">For example, 12:00pm or 4:00pm</span>
-                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text">
+                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{{ closingTime }}">
                             <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
-                            <select class="govuk-select" id="closingTimeMeridian">
-                                <option value="am">am</option>
-                                <option value="pm">pm</option>
+                            <select class="govuk-select" id="closingTimeMeridian" name="closingTimeMeridian">
+                                <option value="am" {% if closingTimeMeridian === 'am'%}selected{% endif %}>am</option>
+                                <option value="pm" {% if closingTimeMeridian === 'pm'%}selected{% endif %} >pm</option>
                             </select>
                         </div>
                     </fieldset>

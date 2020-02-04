@@ -33,6 +33,13 @@
         position: absolute;
         left: 0;
         top: 3px;
+
+        @include touch {
+            position: relative;
+            display: block;
+            left: auto;
+            top: auto;
+        }
     }
 
     &__status {
@@ -106,6 +113,10 @@
             content: " ";
             background-image: url('/images/ufs/tick.svg');
             background-size: 38px 28px;
+
+            @include mobile {
+                display: none;
+            }
         }
     }
 
@@ -119,8 +130,10 @@
             content: " ";
             background-image: url('/images/ufs/pencil.svg');
             background-size: 30px 24px;
+
+            @include mobile {
+                display: none;
+            }
         }
-
-
     }
 }
