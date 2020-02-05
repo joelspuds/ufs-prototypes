@@ -42,7 +42,7 @@
 
             <div class="application-items u-space-b30">
 
-                <div class="application-item">
+                <div class="application-item application-item--incomplete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='#') }}
@@ -53,26 +53,48 @@
                     </div>
                 </div>
 
-                <div class="application-item application-item--complete ">
+                <div class="application-item application-item--complete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">
+                            <span class="application-item__status">Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Has no icon", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">No icon required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
                                 EPSRC, NERC, Inovate UK
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="application-item application-item--complete ">
+                <div class="application-item application-item--complete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Very long title for a custom section that will wrap. ", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">
+                            <span class="application-item__meta">
                                 Excessive amount of meta going into this one, just a tiny bit more so it wraps.
                             </span>
                             <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
@@ -80,14 +102,14 @@
                     </div>
                 </div>
 
-                <div class="application-item application-item--complete ">
+                <div class="application-item application-item--complete">
                     <div class="application-item__contents govuk-clearfix">
 
                         <div class="application-item__left">
                             {{ components.link(text="Application open and close dates", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">
+                            <span class="application-item__meta">
                                 Opening date:<br>
                                 <strong>9 April 2020</strong><br>
                                 Closing date:<br>
@@ -98,7 +120,7 @@
                     </div>
                 </div>
 
-                <div class="application-item application-item--workflow">
+                <div class="application-item application-item--workflow application-item--incomplete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Applicants", url='#') }}
@@ -110,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="application-item application-item--workflow">
+                <div class="application-item application-item--workflow application-item--incomplete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Resources and costs", url='#') }}

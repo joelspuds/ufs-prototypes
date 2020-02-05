@@ -207,7 +207,7 @@ function opportunityApplicationPostV2(req, res) {
 
 // Applicants
 function opportunityApplicantsGetV2(req, res) {
-  let viewData, opportunityName, opportunityID, allApplicantTypes, funderslist, fundersError, fundersIsComplete;
+  let viewData, opportunityName, opportunityID, allApplicantTypes, rolesList, applicantsError, applicantsIsComplete;
 
   allApplicantTypes = generalData.allApplicantTypes;
 
@@ -216,20 +216,18 @@ function opportunityApplicantsGetV2(req, res) {
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
   }
-  // fundersIsComplete = req.session.fundersIsComplete;
-
-  // fundersError = req.session.fundersError;
-  // req.session.fundersError = null;
-
-  funderslist = req.session.funderslist;
+  applicantsIsComplete = req.session.applicantsIsComplete;
+  rolesList = req.session.rolesList;
+  applicantsError = req.session.applicantsError;
+  req.session.applicantsError = null;
 
   viewData = {
     opportunityName,
     opportunityID,
     allApplicantTypes,
-    funderslist,
-    fundersError,
-    fundersIsComplete
+    applicantsIsComplete,
+    rolesList,
+    applicantsError
   };
 
   return res.render('prototypes/opportunity-v2/applicants', viewData);
@@ -237,31 +235,39 @@ function opportunityApplicantsGetV2(req, res) {
 
 function opportunityApplicantsPostV2(req, res) {
   const { applicantRoles, isComplete } = req.body;
-  console.log(applicantRoles);
+  let rolesList = applicantRoles;
+  let redirectURL;
 
-  let rolesList, allCouncils;
-
-  allCouncils = generalData.allCouncils;
-
-  rolesList = applicantRoles;
-  console.log(rolesList);
-
-  // console.log('isComplete = ' + isComplete);
-
-  if (isComplete === 'on') {
-    req.session.fundersIsComplete = true;
-  } else {
-    req.session.fundersIsComplete = null;
-  }
-
+  // save choices whatever
   req.session.rolesList = rolesList;
 
-  if (rolesList) {
+  console.log('isComplete = ' + isComplete);
+
+  if (isComplete === 'on') {
+    req.session.applicantsIsComplete = true;
+    // validate here
+
+    if (!rolesList || rolesList.length < 1) {
+      console.log('no items added');
+      redirectURL = '/prototypes/opportunity-v2/applicants';
+    } else {
+      // all good
+      redirectURL = '/prototypes/opportunity-v2/workflow-application';
+    }
+  } else {
+    // not being validated as not complete, just save and
+    req.session.applicantsIsComplete = null;
+    redirectURL = '/prototypes/opportunity-v2/workflow-application';
+  }
+
+  return res.redirect(redirectURL);
+
+  /*if (rolesList) {
     return res.redirect('/prototypes/opportunity-v2/workflow-application');
   } else {
     req.session.fundersError = true;
     return res.redirect('/prototypes/opportunity-v2/applicants');
-  }
+  }*/
 }
 
 // Workflow application
@@ -306,6 +312,7 @@ function opportunityWorkflowApplicationGetV2(req, res) {
   const closingDay = days[closingDayDate.getDay()];
 
   let detailsIsComplete = req.session.detailsIsComplete;
+  let applicantsIsComplete = req.session.applicantsIsComplete;
 
   viewData = {
     opportunityName,
@@ -321,7 +328,8 @@ function opportunityWorkflowApplicationGetV2(req, res) {
     closingTimeMeridian,
     openDay,
     closingDay,
-    detailsIsComplete
+    detailsIsComplete,
+    applicantsIsComplete
   };
 
   return res.render('prototypes/opportunity-v2/workflow-application', viewData);

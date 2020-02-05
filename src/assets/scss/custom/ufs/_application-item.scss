@@ -32,7 +32,7 @@
     &__control {
         position: absolute;
         left: 0;
-        top: 3px;
+        top: 2px;
 
         @include touch {
             position: relative;
@@ -42,7 +42,8 @@
         }
     }
 
-    &__status {
+    &__status,
+    &__meta {
         display: block;
         text-align: right;
         @include govuk-font($size: 16);
@@ -117,6 +118,10 @@
             @include mobile {
                 display: none;
             }
+        }
+
+        .application-item__status {
+            color: ufs-colour("forest");
         }
     }
 

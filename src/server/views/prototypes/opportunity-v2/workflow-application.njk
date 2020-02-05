@@ -22,6 +22,8 @@
 {% set closingDay = closingDay if closingDay %}
 
 {% set detailsIsComplete = detailsIsComplete if detailsIsComplete %}
+{% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
+
 
 {% block content %}
 
@@ -98,11 +100,9 @@
             <div class="application-items u-space-b30">
                 <div class="application-item {% if detailsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                     <div class="application-item__contents govuk-clearfix">
-
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='/prototypes/opportunity-v2/details') }}
                         </div>
-
                         <div class="application-item__right">
                             {% if detailsIsComplete %}
                                 <span class="application-item__status">Complete</span>
@@ -114,7 +114,6 @@
                 </div>
 
                 {% if applicantSectionAdded %}
-
                     <div class="application-item application-item--workflow {% if applicantsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
@@ -122,7 +121,11 @@
                             </div>
                             <div class="application-item__right">
                                 <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=applicants') }} </span>
-                                <span class="application-item__status">Incomplete</span>
+                                {% if applicantsIsComplete %}
+                                    <span class="application-item__status">Complete</span>
+                                {% else %}
+                                    <span class="application-item__status">Incomplete</span>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
