@@ -26,6 +26,10 @@ body.ufs {
   }
 }
 
+.govuk-link {
+  text-decoration: underline;
+}
+
 .govuk-link:visited {
   color: $govuk-link-colour;
 }
@@ -43,7 +47,7 @@ h1.govuk-heading-xl {
 }
 
 .govuk-heading-xs {
-  @include govuk-font($size: 16, $weight: bold) ;
+  @include govuk-font($size: 16, $weight: bold);
 }
 
 #global-header #logo {
@@ -60,6 +64,7 @@ h1.govuk-heading-xl {
 
 .sub-button {
   display: block;
+  @include govuk-font($size: 16);
   //margin: 20px 0 10px;
 }
 

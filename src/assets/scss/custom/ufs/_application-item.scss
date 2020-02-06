@@ -5,8 +5,16 @@
     position: relative;
     padding-right: 20px;
 
+    @include touch {
+        padding-right: 0;
+    }
+
     &__contents {
         padding: govuk-spacing(4);
+
+        @include touch {
+            padding: govuk-spacing(2);
+        }
     }
 
     &__link {
@@ -20,6 +28,10 @@
         float: left;
         @include govuk-font($size: 19);
         padding-right: 20px;
+
+        @include touch {
+            padding-right: 0;
+        }
     }
 
     &__right {
@@ -49,6 +61,10 @@
         @include govuk-font($size: 16);
         margin-top: 5px;
         padding-left: 70px;
+
+        @include touch {
+            padding-left: 20px;
+        }
     }
 
     &__list {
@@ -108,20 +124,22 @@
         &:before {
             position: absolute;
             right: 10px;
-            top: 26px;
+            // top: 26px;
+            top: 44%;
             width: 20px;
             height: 20px;
             content: " ";
             background-image: url('/images/ufs/tick.svg');
             background-size: 38px 28px;
 
-            @include mobile {
+            @include touch {
                 display: none;
             }
         }
 
         .application-item__status {
-            color: ufs-colour("forest");
+            // color: ufs-colour("forest");
+            color: govuk-colour("green");
         }
     }
 
@@ -130,13 +148,14 @@
             position: absolute;
             right: 10px;
             top: 26px;
+            // top: 44%;
             width: 20px;
             height: 20px;
             content: " ";
             background-image: url('/images/ufs/pencil.svg');
             background-size: 30px 24px;
 
-            @include mobile {
+            @include touch {
                 display: none;
             }
         }

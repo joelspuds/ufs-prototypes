@@ -7,7 +7,7 @@
 {% set allApplicantTypes = allApplicantTypes %}
 {% set funderslist = funderslist %}
 {% set fundersError = fundersError if fundersError %}
-{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+{% set resourcesIsComplete = resourcesIsComplete if resourcesIsComplete %}
 
 {% set isAdminUser = true %}
 
@@ -84,7 +84,7 @@
                                     </legend>
                                     <div class="govuk-checkboxes">
                                         <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if resourcesIsComplete %} checked{% endif %}>
                                             <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                         </div>
                                     </div>

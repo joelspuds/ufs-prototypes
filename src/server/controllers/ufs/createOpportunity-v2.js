@@ -1,7 +1,13 @@
 let generalData = require('./data');
+let genericFunctions = require('./generic');
 
 export function opportunityGetV2(req, res) {
-  let viewData;
+  let viewData, clearSession;
+  clearSession = req.param('clearSession');
+  if (clearSession === 'true') {
+    req.session.destroy();
+  }
+
   viewData = {};
   return res.render('prototypes/opportunity-v2/index', viewData);
 }
@@ -181,7 +187,7 @@ export function opportunityApplicationPostV2(req, res) {
 
 // Applicants
 export function opportunityApplicantsGetV2(req, res) {
-  let viewData, opportunityName, opportunityID, allApplicantTypes, rolesList, applicantsError, applicantsIsComplete;
+  let viewData, opportunityName, opportunityID, allApplicantTypes, rolesList, applicantsError, applicantsIsComplete, applicantsErrorMessage;
 
   allApplicantTypes = generalData.allApplicantTypes;
 
@@ -193,7 +199,21 @@ export function opportunityApplicantsGetV2(req, res) {
   applicantsIsComplete = req.session.applicantsIsComplete;
   rolesList = req.session.rolesList;
   applicantsError = req.session.applicantsError;
+  applicantsErrorMessage = req.session.applicantsErrorMessage;
+
+  req.session.applicantsErrorMessage = null;
   req.session.applicantsError = null;
+
+  /*//
+  let roleTitles = [];
+  if(rolesList) {
+    for(let i = 0; i < rolesList.length; i++ ) {
+      roleTitles.push(allApplicantTypes[rolesList]);
+    }
+  }*/
+
+  console.log('rolesList = ');
+  console.log(rolesList);
 
   viewData = {
     opportunityName,
@@ -202,6 +222,7 @@ export function opportunityApplicantsGetV2(req, res) {
     applicantsIsComplete,
     rolesList,
     applicantsError,
+    applicantsErrorMessage,
   };
 
   return res.render('prototypes/opportunity-v2/applicants', viewData);
@@ -210,12 +231,13 @@ export function opportunityApplicantsGetV2(req, res) {
 export function opportunityApplicantsPostV2(req, res) {
   const { applicantRoles, isComplete } = req.body;
   let rolesList = applicantRoles;
-  let redirectURL;
+  let redirectURL, applicantError;
 
   // save choices whatever
   req.session.rolesList = rolesList;
 
   console.log('isComplete = ' + isComplete);
+  console.log(rolesList);
 
   if (isComplete === 'on') {
     req.session.applicantsIsComplete = true;
@@ -223,6 +245,8 @@ export function opportunityApplicantsPostV2(req, res) {
 
     if (!rolesList || rolesList.length < 1) {
       console.log('no items added');
+      req.session.applicantsError = true;
+      req.session.applicantsErrorMessage = 'You must add at least one role.';
       redirectURL = '/prototypes/opportunity-v2/applicants';
     } else {
       // all good
@@ -287,6 +311,9 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
 
   let detailsIsComplete = req.session.detailsIsComplete;
   let applicantsIsComplete = req.session.applicantsIsComplete;
+  let resourcesIsComplete = req.session.resourcesIsComplete;
+  let customIsComplete = req.session.customIsComplete;
+  let customSectionTitle = req.session.customSectionTitle;
 
   viewData = {
     opportunityName,
@@ -304,13 +331,16 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
     closingDay,
     detailsIsComplete,
     applicantsIsComplete,
+    resourcesIsComplete,
+    customIsComplete,
+    customSectionTitle,
   };
 
   return res.render('prototypes/opportunity-v2/workflow-application', viewData);
 }
 
 export function opportunityWorkflowApplicationPostV2(req, res) {
-  const { addNewSection, submitApplication } = req.body;
+  const { addNewSection, submitApplication, isComplete } = req.body;
 
   console.log('addNewSection = ' + addNewSection);
   console.log('submitApplication = ' + submitApplication);
@@ -327,6 +357,11 @@ export function opportunityWorkflowApplicationPostV2(req, res) {
     req.session.customSectionAdded = true;
   }
 
+  let detailsIsComplete = req.session.detailsIsComplete;
+  let applicantsIsComplete = req.session.applicantsIsComplete;
+  let resourcesIsComplete = req.session.resourcesIsComplete;
+  let customIsComplete = req.session.customIsComplete;
+
   if (!addNewSection) {
     return res.redirect('/prototypes/opportunity-v2/setup');
   } else {
@@ -336,12 +371,14 @@ export function opportunityWorkflowApplicationPostV2(req, res) {
 
 // Resources and costs
 export function opportunityResourcesGetV2(req, res) {
-  let viewData, opportunityName, opportunityID, allApplicantTypes;
+  let viewData, opportunityName, opportunityID, allApplicantTypes, resourcesIsComplete;
 
   allApplicantTypes = generalData.allApplicantTypes;
 
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
+
+  resourcesIsComplete = req.session.resourcesIsComplete;
 
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
@@ -351,6 +388,7 @@ export function opportunityResourcesGetV2(req, res) {
     opportunityName,
     opportunityID,
     allApplicantTypes,
+    resourcesIsComplete,
   };
 
   return res.render('prototypes/opportunity-v2/resources-and-costs', viewData);
@@ -359,22 +397,13 @@ export function opportunityResourcesGetV2(req, res) {
 export function opportunityResourcesPostV2(req, res) {
   const { isComplete } = req.body;
 
-  console.log('isComplete = ' + isComplete);
-
   if (isComplete === 'on') {
-    req.session.fundersIsComplete = true;
+    req.session.resourcesIsComplete = true;
   } else {
-    req.session.fundersIsComplete = null;
+    req.session.resourcesIsComplete = null;
   }
 
   return res.redirect('/prototypes/opportunity-v2/workflow-application');
-
-  /*if (isComplete) {
-    return res.redirect('/prototypes/opportunity-v2/setup');
-  } else {
-    req.session.fundersError = true;
-    return res.redirect('/prototypes/opportunity-v2/resources-and-costs');
-  }*/
 }
 
 // Application dates
@@ -469,33 +498,98 @@ export function opportunityDetailsPostV2(req, res) {
 
 // Custom section question
 export function opportunityCustomSectionGetV2(req, res) {
-  let viewData, opportunityName, opportunityID;
+  let viewData, opportunityName, opportunityID, sectionTitle, yourQuestion, questionGuidance, wordcount, customIsComplete;
 
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
+  sectionTitle = req.session.customSectionTitle;
+  yourQuestion = req.session.customYourQuestion;
+  questionGuidance = req.session.customQuestionGuidance;
+  wordcount = req.session.customWordcount;
+  customIsComplete = req.session.customIsComplete;
+
+  let customSectionError = req.session.customSectionError;
+  let customSectionTitleError = req.session.customSectionTitleError;
+  let customSectionQuestionError = req.session.customSectionQuestionError;
+  let customSectionGuidanceError = req.session.customSectionGuidanceError;
+  let customSectionWordcountError = req.session.customSectionWordcountError;
+
+  req.session.customSectionError = null;
+  req.session.customSectionTitleError = null;
+  req.session.customSectionQuestionError = null;
+  req.session.customSectionGuidanceError = null;
+  req.session.customSectionWordcountError = null;
+
+  /*req.session.customSectionTitle = null;
+  req.session.customYourQuestion = null;
+  req.session.customQuestionGuidance = null;
+  req.session.customWordcount = null;*/
 
   if (!opportunityName) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
   }
 
+  console.log('sectionTitle = ' + sectionTitle);
   viewData = {
     opportunityName,
     opportunityID,
+    sectionTitle,
+    yourQuestion,
+    questionGuidance,
+    wordcount,
+    customIsComplete,
+    customSectionError,
+    customSectionTitleError,
+    customSectionQuestionError,
+    customSectionGuidanceError,
+    customSectionWordcountError,
   };
 
   return res.render('prototypes/opportunity-v2/custom-section', viewData);
 }
 
 export function opportunityCustomSectionPostV2(req, res) {
-  const { isComplete } = req.body;
+  const { isComplete, sectionTitle, yourQuestion, questionGuidance, wordcount } = req.body;
+  let redirectURL, hasAnError;
 
-  console.log('isComplete = ' + isComplete);
+  req.session.customSectionTitle = sectionTitle;
+  req.session.customYourQuestion = yourQuestion;
+  req.session.customQuestionGuidance = questionGuidance;
+  req.session.customWordcount = wordcount;
+
+  // console.log(genericFunctions.isNumeric(parseInt(wordcount)));
 
   if (isComplete === 'on') {
-    req.session.fundersIsComplete = true;
-  } else {
-    req.session.fundersIsComplete = null;
+    req.session.customIsComplete = true;
+    // validate here
+    if (sectionTitle.length > 100 || sectionTitle.length <= 0) {
+      // req.session.customSectionError = true;
+      req.session.customSectionTitleError = true;
+      hasAnError = true;
+    }
+    if (yourQuestion.length > 200 || yourQuestion.length <= 0) {
+      // req.session.customSectionError = true;
+      hasAnError = true;
+      req.session.customSectionQuestionError = true;
+    }
+    if (questionGuidance.length > 200 || questionGuidance.length <= 0) {
+      // req.session.customSectionError = true;
+      hasAnError = true;
+      req.session.customSectionGuidanceError = true;
+    }
+    if (genericFunctions.isNumeric(parseInt(wordcount)) === false) {
+      // req.session.customSectionError = true;
+      hasAnError = true;
+      req.session.customSectionWordcountError = true;
+    }
   }
 
-  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  if (hasAnError === true) {
+    req.session.customSectionError = true;
+    redirectURL = '/prototypes/opportunity-v2/custom-section';
+  } else {
+    // req.session.customIsComplete = null;
+    redirectURL = '/prototypes/opportunity-v2/workflow-application';
+  }
+  return res.redirect(redirectURL);
 }

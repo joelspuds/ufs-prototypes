@@ -23,7 +23,7 @@
 
 {% set detailsIsComplete = detailsIsComplete if detailsIsComplete %}
 {% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
-
+{% set resourcesIsComplete = resourcesIsComplete if resourcesIsComplete %}
 
 {% block content %}
 
@@ -140,7 +140,11 @@
                             </div>
                             <div class="application-item__right">
                                 <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=resources') }} </span>
-                                <span class="application-item__status">Incomplete</span>
+                                {% if resourcesIsComplete %}
+                                    <span class="application-item__status">Complete</span>
+                                {% else %}
+                                    <span class="application-item__status">Incomplete</span>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -150,11 +154,16 @@
                     <div class="application-item application-item--workflow {% if customIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
-                                {{ components.link(text="(Untitled section)", url='/prototypes/opportunity-v2/custom-section') }}
+                                {% set customSectionTitle = customSectionTitle if customSectionTitle else '(Untitled section)' %}
+                                {{ components.link(text=customSectionTitle, url='/prototypes/opportunity-v2/custom-section') }}
                             </div>
                             <div class="application-item__right">
                                 <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=custom') }} </span>
-                                <span class="application-item__status">Incomplete</span>
+                                {% if customIsComplete %}
+                                    <span class="application-item__status">Complete</span>
+                                {% else %}
+                                    <span class="application-item__status">Incomplete</span>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -169,9 +178,9 @@
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addNewSection">
                             <option>Select</option>
-                            <option value="applicants">Applicants</option>
-                            <option value="resources">Resources and cost</option>
-                            <option value="custom">Custom section</option>
+                            {% if not applicantSectionAdded %}<option value="applicants">Applicants</option>{% endif %}
+                            {% if not resourcesSectionAdded %}<option value="resources">Resources and cost</option>{% endif %}
+                            {% if not customSectionAdded %}<option value="custom">Custom section</option>{% endif %}
                         </select>
                         {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
                     </div>

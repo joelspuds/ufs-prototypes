@@ -7,6 +7,7 @@
 {% set allApplicantTypes = allApplicantTypes %}
 {% set roleslist = roleslist if roleslist %}
 {% set applicantsError = applicantsError if applicantsError %}
+{% set applicantsErrorMessage = applicantsErrorMessage if applicantsErrorMessage %}
 {% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
 
 {% set isAdminUser = true %}
@@ -19,10 +20,10 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% if fundersError %}
+    {% if applicantsError %}
 
         {% call components.bulmaRow() %}
-\
+
             {% call components.bulmaColumnAny(size='is-full') %}
 
                 <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
@@ -32,7 +33,7 @@
                     <div class="govuk-error-summary__body">
                         <ul class="govuk-list govuk-error-summary__list">
                             <li>
-                                <a href="#fundersError">You have not selected a funder for your opportunity</a>
+                                <a href="#applicantsError">{{ applicantsErrorMessage }}</a>
                             </li>
                         </ul>
                     </div>
@@ -50,6 +51,27 @@
         {%- endcall %}
     {%- endcall %}
 
+    <section class="section" id="tabsNav">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                <ul class="govuk-tabs__list" role="tablist">
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                        <a class="govuk-tabs__tab" href="#resourcesContent" id="tabEdit" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">Edit section</a>
+                    </li>
+                    <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#applicantView" id="tabView" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">Applicant view</a>
+                    </li>
+                </ul>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
     {% call components.form(action='/prototypes/opportunity-v2/applicants', method='POST',name='manageApplicants') %}
 
         <section class="class" id="applicantRoles">
@@ -58,16 +80,16 @@
 
             {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-                <div class="govuk-form-group {% if fundersError %} govuk-form-group--error {% endif %}">
+                <div class="govuk-form-group {% if applicantsError %} govuk-form-group--error {% endif %}">
                     <fieldset class="govuk-fieldset" aria-describedby="applicants-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                            <h2 class="govuk-fieldset__heading"   {% if fundersError %}id="fundersError" {% endif %}>Roles</h2>
+                            <h2 class="govuk-fieldset__heading" {% if applicantsError %}id="applicantsError" {% endif %}>Roles</h2>
                         </legend>
                         <span id="applicants-hint" class="govuk-hint">Select the roles that can be nominated as part of the application.</span>
 
-                        {% if fundersError %}
+                        {% if applicantsError %}
                         <span class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span>Select one or more funders for this opportunity
+                            <span class="govuk-visually-hidden">Error:</span>Select one or more roles for this opportunity
                         </span>
                         {% endif %}
                         <div class="govuk-checkboxes">
@@ -76,19 +98,18 @@
 
                                 <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="roles_{{ item.index }}" name="applicantRoles" type="checkbox" value="{{ item.index }}"
-                                    {% for match in funderslist %}
-                                        {# DIRTY DIRTY DIRTY #}
-                                        {% if (match == item.name) or (match == item.short) %}
-                                            checked
-                                        {% endif %}
+                                    {% for match in roleslist %}
+                                        {% if (match == item.index) %}checked{% endif %}
                                     {% endfor %}
                                     >
-                                    <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">
-                                        {% if item.short %}
-                                            {{ item.short }},
-                                        {% endif %}
-                                        {{ item.name }}
-                                    </label>
+
+                                    <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">{{ item.name }}</label>
+
+                                    <p>
+                                        {% for match in roleslist %}
+                                            {% if (match == item.index) %}MATCH!{% endif %}
+                                        {% endfor %}
+                                    </p>
                                 </div>
 
                             {% endfor %}
@@ -118,7 +139,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if applicantsIsComplete %} checked{% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>

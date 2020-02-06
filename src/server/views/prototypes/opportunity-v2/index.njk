@@ -26,15 +26,106 @@
 
     {% call components.bulmaRow() %}
 
-        {% call components.bulmaColumnAny(size='is-8') %}
+        {% call components.bulmaColumnAny(size='is-3') %}
 
-          {{ components.list(items=listItemsOpportunities, type='bullet')}}
+            {#{{ components.list(items=listItemsActions, type='bullet')}}#}
+
+            <div class="govuk-related-items govuk-related-items--flush u-space-t15">
+
+                <p class="govuk-body u-space-t20">
+                    <a href="/prototypes/opportunity-v2/create" class="govuk-button ">Create new Opportunity</a>
+                </p>
+            </div>
+
 
         {%- endcall %}
 
-        {% call components.bulmaColumnAny(size='is-3 is-offset-1') %}
+        {% call components.bulmaColumnAny(size='is-9') %}
 
-            {{ components.list(items=listItemsActions, type='bullet')}}
+            {#{{ components.list(items=listItemsOpportunities, type='bullet')}}#}
+
+            <table class="govuk-table">
+                <thead>
+                    <tr class="govuk-table__header">
+                        <th class="govuk-table__header">ID: Name</th>
+                        <th class="govuk-table__header">Funder</th>
+                        <th class="govuk-table__header">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP561: UK-Canada Diabetes Research Team Grants</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP8962: Strength in places Round 3</a></td>
+                        <td class="govuk-table__cell">UKRI</td>
+                        <td class="govuk-table__cell">OPEN</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP563: Responsive mode</a></td>
+                        <td class="govuk-table__cell">BBSRC</td>
+                        <td class="govuk-table__cell">Ready to open</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP564: UK-Canada Diabetes Research Team Grants</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Pre-panel</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP565: UK social research for the next decade Part III</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP566: Electric battery innovation for land-based travel</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP567: Entomophagy - acceptable levels of crunchiness for a post-apocalyptic world</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP567: Salt-water gill adaptations in special transmorphogenic augementation</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP568: Re-icing polar regions feasibility Part IV</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP569: Reforestation and carbon capture</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP570: Hydro-batteries and green energy storage in the environment</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP571: Public transport infrastructure development: widening the networks Part II</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP572: Public transport infrastructure development: tariff reduction and inter-connectivity Part III</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP573: Public transport infrastructure development: green power Part IV</a></td>
+                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">Draft</td>
+                    </tr>
+                </tbody>
+
+            </table>
 
         {%- endcall %}
 

@@ -119,6 +119,7 @@ const startApp = exports.startApp = async () => {
   // Add lodash as a global for view templates
   env.addGlobal('_', _lodash2.default);
 
+  // Load externally managed content from resources file
   if (_content.content) {
     for (let key in _content.content) {
       // console.log('key ' + key + ' has value ' + content[key]);

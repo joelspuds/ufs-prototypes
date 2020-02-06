@@ -40,7 +40,9 @@
                     </div>
                     {% if fundersList %}
                     <div class="application-item__right">
-                        <span class="application-item__status">{{ fundersList }}</span>
+                        <span class="application-item__meta">
+                            {% set comma = joiner() %}{% for item in fundersList %}{{ comma() }} {{ item }}{% endfor %}
+                        </span>
                     </div>
                     {% else %}
                         <div class="application-item__right">
@@ -111,7 +113,7 @@
                 <p class="govuk-body-s u-space-b5">{{ opportunityName }}</p>
 
                 <ul class="govuk-list u-space-t10">
-                    <li>{{ components.link(text='Edit Opportunity name', url='/prototypes/opportunity-v2/create?mode=edit', extraClass='govuk-body--s sub-button') }}</li>
+                    <li>{{ components.link(text='Edit Opportunity name', url='/prototypes/opportunity-v2/create?mode=edit', extraClass='sub-button') }}</li>
                 </ul>
             </div>
 
