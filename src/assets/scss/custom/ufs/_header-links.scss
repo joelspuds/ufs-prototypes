@@ -16,6 +16,10 @@
       flex-flow: row wrap;
       flex: 1 1 0%;
     }
+
+    @include touch {
+      width: 100%;
+    }
   }
 
   &__link {
@@ -49,24 +53,30 @@
     }
 
     &--mobile-hidden {
-      @include touch {
-        display: none !important;
-      }
+      // handled separately at the bottom of the page as too complex to compile class here with .je-enabled
     }
   }
 
   a {
     color: govuk-colour("white");
 
+    @include touch {
+      display: block;
+    }
+
     &:hover {
       background-color: govuk-colour("white");
       color: govuk-colour("black");
       text-decoration: none;
+
+      &:after {
+        color: govuk-colour("black");
+      }
     }
   }
 
   &__menu {
-    display: block;
+    display: none !important;
     position: relative;
     color: govuk-colour("white");
     line-height: 1.2em;
@@ -91,6 +101,28 @@
       &:after {
         content:"\25B2";
       }
+    }
+
+    &:hover {
+      &--open {
+        &:after {
+          color: govuk-colour("black");
+        }
+      }
+    }
+  }
+}
+
+.js-enabled {
+  .top-links__link--mobile-hidden {
+    @include touch {
+      display: none !important;
+    }
+  }
+
+  .top-links__menu {
+    @include touch {
+      display: block !important;
     }
   }
 }

@@ -244,17 +244,20 @@ export function opportunityApplicantsPostV2(req, res) {
     // validate here
 
     if (!rolesList || rolesList.length < 1) {
-      console.log('no items added');
+      // console.log('no items added');
       req.session.applicantsError = true;
       req.session.applicantsErrorMessage = 'You must add at least one role.';
       redirectURL = '/prototypes/opportunity-v2/applicants';
     } else {
       // all good
-      redirectURL = '/prototypes/opportunity-v2/workflow-application';
+      // TODO FIX THIS BACK TO WHAT IT SHOULD BE
+      // redirectURL = '/prototypes/opportunity-v2/workflow-application';
+      redirectURL = '/prototypes/opportunity-v2/applicants';
     }
   } else {
     // not being validated as not complete, just save and
     req.session.applicantsIsComplete = null;
+
     redirectURL = '/prototypes/opportunity-v2/workflow-application';
   }
 

@@ -194,12 +194,13 @@
     <script src="https://govuk-temporary-event-notice.herokuapp.com/public/javascripts/date-picker.js"></script>#}
 
     <script src="/javascripts/preact.js"></script>
-    <script src="/javascripts/date-picker.min.js"></script>
+{#    <script src="/javascripts/date-picker.min.js"></script>#}
+    <script src="/javascripts/date-picker.js"></script>
 
 
     <script>
       Zepto(function($){
-        console.log('loading');
+        // console.log('loading');
         let labelMarkup = '<label class="govuk-label" for="applicationOpenDate">Date<span class="govuk-hint">DD/MM/YYYY</span></label>';
         setTimeout(function(){
           $('#event-start-date_datepicker__input').before(labelMarkup);

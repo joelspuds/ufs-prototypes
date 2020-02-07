@@ -102,14 +102,7 @@
                                         {% if (match == item.index) %}checked{% endif %}
                                     {% endfor %}
                                     >
-
                                     <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">{{ item.name }}</label>
-
-                                    <p>
-                                        {% for match in roleslist %}
-                                            {% if (match == item.index) %}MATCH!{% endif %}
-                                        {% endfor %}
-                                    </p>
                                 </div>
 
                             {% endfor %}
@@ -117,6 +110,27 @@
                         </div>
                     </fieldset>
                 </div>
+
+
+                <div class="section">
+                    {{ rolesList }}
+                    {% for item in allApplicantTypes %}
+
+                        <div>
+                            item.index = {{ item.index }}<br>
+                            item.name = {{ item.name }} <br>
+
+                            {% for match in roleslist %}
+                                <span>{{ match }}</span><br>
+                                {% if (match === item.index) %}<strong>should be checked</strong>{% endif %}
+                            {% endfor %}
+
+                            <hr>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
 
             {%- endcall %}
 
