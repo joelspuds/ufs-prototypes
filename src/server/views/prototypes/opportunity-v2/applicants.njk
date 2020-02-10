@@ -5,7 +5,7 @@
 {% set opportunityName = opportunityName %}
 {% set opportunityID = opportunityID %}
 {% set allApplicantTypes = allApplicantTypes %}
-{% set roleslist = roleslist if roleslist %}
+{% set rolesList = rolesList if rolesList %}
 {% set applicantsError = applicantsError if applicantsError %}
 {% set applicantsErrorMessage = applicantsErrorMessage if applicantsErrorMessage %}
 {% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
@@ -98,8 +98,10 @@
 
                                 <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="roles_{{ item.index }}" name="applicantRoles" type="checkbox" value="{{ item.index }}"
-                                    {% for match in roleslist %}
-                                        {% if (match == item.index) %}checked{% endif %}
+                                    {% for match in rolesList %}
+                                        {% if (match == item.index) %}
+                                            checked
+                                        {% endif %}
                                     {% endfor %}
                                     >
                                     <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">{{ item.name }}</label>
@@ -112,7 +114,7 @@
                 </div>
 
 
-                <div class="section">
+                {#<div class="section">
                     {{ rolesList }}
                     {% for item in allApplicantTypes %}
 
@@ -129,7 +131,7 @@
                         </div>
                     {% endfor %}
 
-                </div>
+                </div>#}
 
 
             {%- endcall %}

@@ -72,12 +72,32 @@ export function opportunitySetupGetV2(req, res) {
     req.session.opportunityID = opportunityID;
   }
 
+  let openingDate = req.session.openingDate;
+  let openingTime = req.session.openingTime;
+  let closingDate = req.session.closingDate;
+  let closingTime = req.session.closingTime;
+  let openingTimeMeridian = req.session.openingTimeMeridian;
+  let closingTimeMeridian = req.session.closingTimeMeridian;
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const openDayDate = new Date(openingDate);
+  const openDay = days[openDayDate.getDay()];
+  const closingDayDate = new Date(closingDate);
+  const closingDay = days[closingDayDate.getDay()];
+
   viewData = {
     opportunityName,
     opportunityID,
     fundersList,
     fundersIsComplete,
     workFlowItemAdded,
+    openingDate,
+    openingTime,
+    closingDate,
+    closingTime,
+    openingTimeMeridian,
+    closingTimeMeridian,
+    openDay,
+    closingDay,
   };
 
   return res.render('prototypes/opportunity-v2/setup', viewData);
@@ -173,9 +193,7 @@ export function opportunityApplicationGetV2(req, res) {
 
 export function opportunityApplicationPostV2(req, res) {
   const {} = req.body;
-  console.log('');
-
-  // let ;
+  // console.log('');
 
   if (1 > 0) {
     return res.redirect('/prototypes/opportunity-v2/setup');
@@ -251,8 +269,8 @@ export function opportunityApplicantsPostV2(req, res) {
     } else {
       // all good
       // TODO FIX THIS BACK TO WHAT IT SHOULD BE
-      // redirectURL = '/prototypes/opportunity-v2/workflow-application';
-      redirectURL = '/prototypes/opportunity-v2/applicants';
+      redirectURL = '/prototypes/opportunity-v2/workflow-application';
+      // redirectURL = '/prototypes/opportunity-v2/applicants';
     }
   } else {
     // not being validated as not complete, just save and
@@ -290,6 +308,8 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
   let openingTimeMeridian = req.session.openingTimeMeridian;
   let closingTimeMeridian = req.session.closingTimeMeridian;
 
+  console.log(req.session);
+
   /*if (removeItem === 'true') {
     req.session.workFlowItemAdded = null;
   }*/
@@ -305,12 +325,35 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
     req.session.opportunityID = opportunityID;
   }
 
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let openDay, closingDay, openingMonth, closingMonth;
 
-  const openDayDate = new Date(openingDate);
-  const openDay = days[openDayDate.getDay()];
-  const closingDayDate = new Date(closingDate);
-  const closingDay = days[closingDayDate.getDay()];
+  if (openingDate) {
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    let splitOpenDate = openingDate.split('/');
+    console.log('splitOpenDate = ' + splitOpenDate);
+    let newOpenDate = new Date(splitOpenDate[0], splitOpenDate[1], splitOpenDate[2]);
+    openDay = days[newOpenDate.getDay()];
+    openingMonth = months[parseInt(splitOpenDate[1] - 1)];
+    const closingDayDate = new Date(closingDate);
+    closingDay = days[closingDayDate.getDay()];
+
+    console.log('openingMonth = ' + openingMonth);
+  }
 
   let detailsIsComplete = req.session.detailsIsComplete;
   let applicantsIsComplete = req.session.applicantsIsComplete;
@@ -337,6 +380,8 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
     resourcesIsComplete,
     customIsComplete,
     customSectionTitle,
+    openingMonth,
+    closingMonth,
   };
 
   return res.render('prototypes/opportunity-v2/workflow-application', viewData);

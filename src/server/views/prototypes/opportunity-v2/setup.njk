@@ -8,6 +8,15 @@
 {% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
 {% set workFlowItemAdded = workFlowItemAdded if workFlowItemAdded %}
 
+{% set openingDate = openingDate if openingDate %}
+{% set openingTime = openingTime if openingTime %}
+{% set closingDate = closingDate if closingDate %}
+{% set closingTime = closingTime if closingTime %}
+{% set openingTimeMeridian = openingTimeMeridian if openingTimeMeridian %}
+{% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
+{% set openDay = openDay if openDay %}
+{% set closingDay = closingDay if closingDay %}
+
 {% block content %}
 
     {% call components.bulmaRow() %}
@@ -67,7 +76,17 @@
                                 {{ components.link(text="Application", url='/prototypes/opportunity-v2/workflow-application') }}
                             </div>
                             <div class="application-item__right">
+                                {% if not openingDate %}
                                 <span class="application-item__status">No dates set</span>
+                                {% else %}
+                                <span class="application-item__status">
+                                   Opening date:<br>
+                                    <strong> {{ openingDate }}</strong><br>
+                                    Closing date:<br>
+                                    <strong> {{ closingDate }}</strong>
+                                </span>
+                                {% endif %}
+
                                 <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
                             </div>
                         </div>
