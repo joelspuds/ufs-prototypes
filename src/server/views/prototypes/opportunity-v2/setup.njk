@@ -50,7 +50,18 @@
                     {% if fundersList %}
                     <div class="application-item__right">
                         <span class="application-item__meta">
-                            {% set comma = joiner() %}{% for item in fundersList %}{{ comma() }} {{ item }}{% endfor %}
+                            {#fundersList|length = {{ fundersList|length }}#}
+
+                            {#{% if fundersList|length >= 2 %}
+                                {% set comma = joiner() %}
+                                {% for item in fundersList %}
+                                    {{ comma() }}
+                                    {{ item }}
+                                {% endfor %}
+                            {% else %}
+                                {% for item in fundersList %}{{ item }}{% endfor %}
+                            {% endif %}#}
+                            {% for item in fundersList %}{{ item }}, {% endfor %}
                         </span>
                     </div>
                     {% else %}
