@@ -56,6 +56,7 @@ export function opportunitySetupGetV2(req, res) {
   opportunityName = req.session.opportunityName;
   fundersList = req.session.funderslist;
   fundersIsComplete = req.session.fundersIsComplete;
+  req.session.fundersIsComplete = null;
 
   if (removeItem === 'true') {
     req.session.workFlowItemAdded = null;
@@ -135,6 +136,7 @@ export function opportunityFundersGetV2(req, res) {
   opportunityName = req.session.opportunityName;
   opportunityID = req.session.opportunityID;
   fundersIsComplete = req.session.fundersIsComplete;
+  req.session.fundersIsComplete = null;
 
   fundersError = req.session.fundersError;
   req.session.fundersError = null;
@@ -167,19 +169,23 @@ export function opportunityFundersPostV2(req, res) {
     fundersList = [funders];
   }
 
-  if (isComplete === 'on') {
-    req.session.fundersIsComplete = true;
-  } else {
-    req.session.fundersIsComplete = null;
-  }
-
   req.session.funderslist = fundersList;
 
-  if (fundersList) {
-    return res.redirect('/prototypes/opportunity-v2/setup');
+  console.log(fundersList);
+
+  if (isComplete === 'on') {
+    req.session.fundersIsComplete = true;
+
+    if (fundersList && fundersList[0] !== undefined) {
+      req.session.fundersIsComplete = null;
+      return res.redirect('/prototypes/opportunity-v2/setup');
+    } else {
+      req.session.fundersError = true;
+      return res.redirect('/prototypes/opportunity-v2/funders');
+    }
   } else {
-    req.session.fundersError = true;
-    return res.redirect('/prototypes/opportunity-v2/funders');
+    req.session.fundersIsComplete = null;
+    return res.redirect('/prototypes/opportunity-v2/setup');
   }
 }
 
