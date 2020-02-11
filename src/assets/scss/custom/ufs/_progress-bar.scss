@@ -3,7 +3,7 @@
   height: 24px;
   margin-bottom: 10px;
   position: relative;
-  background-color: lightgrey;
+  background-color: #f3f2f1;
   border-radius: 0;
 }
 
@@ -21,7 +21,6 @@
   text-align: center;
   color: black;
   width: 100%;
-  z-index:1;
 }
 
 .progress-meter__text--front {
@@ -33,12 +32,10 @@
 
 .progress-meter__clipper {
   position: absolute;
-  -webkit-transform:translateZ(1px);
   left: 0;
   top: 0;
   height: 24px;
   width: 100%;
   clip-path: inset(0% 100% 0% 0%);
-  z-index:2;
 }
-  
+

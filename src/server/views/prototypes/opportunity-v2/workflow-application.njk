@@ -182,7 +182,7 @@
                             <option>Select</option>
                             {% if not applicantSectionAdded %}<option value="applicants">Applicants</option>{% endif %}
                             {% if not resourcesSectionAdded %}<option value="resources">Resources and cost</option>{% endif %}
-                            {% if not customSectionAdded %}<option value="custom">Custom section</option>{% endif %}
+                            <option value="custom">Custom section</option>
                         </select>
                         {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
                     </div>
