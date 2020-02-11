@@ -84,6 +84,8 @@ export function opportunitySetupGetV2(req, res) {
   const closingDayDate = new Date(closingDate);
   const closingDay = days[closingDayDate.getDay()];
 
+  let setupComplete = req.session.setupComplete;
+
   viewData = {
     opportunityName,
     opportunityID,
@@ -98,6 +100,7 @@ export function opportunitySetupGetV2(req, res) {
     closingTimeMeridian,
     openDay,
     closingDay,
+    setupComplete,
   };
 
   return res.render('prototypes/opportunity-v2/setup', viewData);
@@ -150,10 +153,11 @@ export function opportunityFundersPostV2(req, res) {
 
   allCouncils = generalData.allCouncils;
 
-  fundersList = funders;
-  console.log(fundersList);
-
-  console.log('isComplete = ' + isComplete);
+  if (Array.isArray(funders)) {
+    fundersList = funders;
+  } else {
+    fundersList = [funders];
+  }
 
   if (isComplete === 'on') {
     req.session.fundersIsComplete = true;
@@ -411,7 +415,17 @@ export function opportunityWorkflowApplicationPostV2(req, res) {
   let customIsComplete = req.session.customIsComplete;
 
   if (!addNewSection) {
-    return res.redirect('/prototypes/opportunity-v2/setup');
+    let detailsIsComplete = req.session.detailsIsComplete;
+    let applicantsIsComplete = req.session.applicantsIsComplete;
+    let resourcesIsComplete = req.session.resourcesIsComplete;
+    let customIsComplete = req.session.customIsComplete;
+
+    if (isComplete && detailsIsComplete && applicantsIsComplete && resourcesIsComplete && customIsComplete) {
+      req.session.setupComplete = true;
+      return res.redirect('/prototypes/opportunity-v2/setup');
+    } else {
+      return res.redirect('/prototypes/opportunity-v2/setup');
+    }
   } else {
     return res.redirect('/prototypes/opportunity-v2/workflow-application');
   }

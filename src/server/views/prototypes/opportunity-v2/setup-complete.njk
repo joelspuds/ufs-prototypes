@@ -16,7 +16,6 @@
 {% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
 {% set openDay = openDay if openDay %}
 {% set closingDay = closingDay if closingDay %}
-{% set setupComplete = setupComplete if setupComplete %}
 
 {% block content %}
 
@@ -76,7 +75,7 @@
 
             {% if workFlowItemAdded %}
                 <div class="application-items">
-                    <div class="application-item application-item--workflow u-space-b30 {% if setupComplete %}application-item--complete{% endif %}">
+                    <div class="application-item application-item--workflow u-space-b30">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
                                 {{ components.link(text="Application", url='/prototypes/opportunity-v2/workflow-application') }}
@@ -85,13 +84,14 @@
                                 {% if not openingDate %}
                                 <span class="application-item__status">No dates set</span>
                                 {% else %}
-                                <span class="application-item__meta">
+                                <span class="application-item__status">
                                    Opening date:<br>
                                     <strong> {{ openingDate }}</strong><br>
                                     Closing date:<br>
                                     <strong> {{ closingDate }}</strong>
                                 </span>
                                 {% endif %}
+
                                 <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
                             </div>
                         </div>
