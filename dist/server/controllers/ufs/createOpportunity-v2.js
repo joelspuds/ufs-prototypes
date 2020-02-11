@@ -82,7 +82,6 @@ function opportunitySetupGetV2(req, res) {
   opportunityName = req.session.opportunityName;
   fundersList = req.session.funderslist;
   fundersIsComplete = req.session.fundersIsComplete;
-  req.session.fundersIsComplete = null;
 
   if (removeItem === 'true') {
     req.session.workFlowItemAdded = null;
@@ -203,7 +202,6 @@ function opportunityFundersPostV2(req, res) {
     req.session.fundersIsComplete = true;
 
     if (fundersList && fundersList[0] !== undefined) {
-      req.session.fundersIsComplete = null;
       return res.redirect('/prototypes/opportunity-v2/setup');
     } else {
       req.session.fundersError = true;
