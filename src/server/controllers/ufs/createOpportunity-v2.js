@@ -103,6 +103,14 @@ export function opportunitySetupGetV2(req, res) {
     setupComplete,
   };
 
+  /*console.log(genericFunctions.convertDate('12/1/2020', true));
+  console.log("\n" + "\n" + "\n");
+  console.log(genericFunctions.convertDate('12/1/2020', false));
+  console.log("\n" + "\n" + "\n");*/
+  console.log(genericFunctions.convertDate('11/2/2020', true));
+  console.log('\n' + '\n' + '\n');
+  console.log(genericFunctions.convertDate('11/2/2020', false));
+
   return res.render('prototypes/opportunity-v2/setup', viewData);
 }
 

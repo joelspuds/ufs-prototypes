@@ -129,6 +129,14 @@ function opportunitySetupGetV2(req, res) {
     setupComplete
   };
 
+  /*console.log(genericFunctions.convertDate('12/1/2020', true));
+  console.log("\n" + "\n" + "\n");
+  console.log(genericFunctions.convertDate('12/1/2020', false));
+  console.log("\n" + "\n" + "\n");*/
+  console.log(genericFunctions.convertDate('11/2/2020', true));
+  console.log("\n" + "\n" + "\n");
+  console.log(genericFunctions.convertDate('11/2/2020', false));
+
   return res.render('prototypes/opportunity-v2/setup', viewData);
 }
 
@@ -428,7 +436,6 @@ function opportunityWorkflowApplicationPostV2(req, res) {
   let customIsComplete = req.session.customIsComplete;
 
   if (!addNewSection) {
-
     let detailsIsComplete = req.session.detailsIsComplete;
     let applicantsIsComplete = req.session.applicantsIsComplete;
     let resourcesIsComplete = req.session.resourcesIsComplete;
