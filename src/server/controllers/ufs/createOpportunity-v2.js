@@ -57,6 +57,14 @@ export function opportunitySetupGetV2(req, res) {
   fundersList = req.session.funderslist;
   fundersIsComplete = req.session.fundersIsComplete;
 
+  console.log('fundersIsComplete = ' + fundersIsComplete);
+  console.log('fundersList = ');
+  console.log(fundersList);
+
+  if (fundersList && fundersList[0] === null) {
+    console.log('list is null');
+  }
+
   if (removeItem === 'true') {
     req.session.workFlowItemAdded = null;
   }
@@ -106,10 +114,10 @@ export function opportunitySetupGetV2(req, res) {
   /*console.log(genericFunctions.convertDate('12/1/2020', true));
   console.log("\n" + "\n" + "\n");
   console.log(genericFunctions.convertDate('12/1/2020', false));
-  console.log("\n" + "\n" + "\n");*/
+  console.log("\n" + "\n" + "\n");
   console.log(genericFunctions.convertDate('11/2/2020', true));
   console.log('\n' + '\n' + '\n');
-  console.log(genericFunctions.convertDate('11/2/2020', false));
+  console.log(genericFunctions.convertDate('11/2/2020', false));*/
 
   return res.render('prototypes/opportunity-v2/setup', viewData);
 }
@@ -141,7 +149,6 @@ export function opportunityFundersGetV2(req, res) {
   req.session.fundersError = null;
 
   funderslist = req.session.funderslist;
-
   viewData = {
     opportunityName,
     opportunityID,

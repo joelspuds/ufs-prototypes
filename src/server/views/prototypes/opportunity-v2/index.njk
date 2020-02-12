@@ -4,14 +4,6 @@
 {% set isAdminUser = true %}
 
 {% set pageTitle = OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
-{% set listItemsOpportunities = [
-    { text: 'Example Opportunity one', url: '#' },
-    { text: 'Example Opportunity two', url: '#' },
-    { text: 'Example Opportunity three', url: '#' },
-    { text: 'Example Opportunity four', url: '#' },
-    { text: 'Example Opportunity five', url: '#' }
-] %}
-
 {% set listItemsActions = [
     { text: 'Create new Opportunity', url: '/prototypes/opportunity-v2/create' }
 ] %}
@@ -40,8 +32,6 @@
 
         {% call components.bulmaColumnAny(size='is-9') %}
 
-            {#{{ components.list(items=listItemsOpportunities, type='bullet')}}#}
-
             <table class="govuk-table">
                 <thead>
                     <tr class="govuk-table__header">
@@ -52,73 +42,73 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP561: UK-Canada Diabetes Research Team Grants</a></td>
-                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP561: UK-Canada Social Research Team Grants</a></td>
+                        <td class="govuk-table__cell">AHRC, ESRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP8962: Strength in places Round 3</a></td>
-                        <td class="govuk-table__cell">UKRI</td>
+                        <td class="govuk-table__cell">ARC, ESRC, Innovate UK</td>
                         <td class="govuk-table__cell">OPEN</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP563: Responsive mode</a></td>
-                        <td class="govuk-table__cell">BBSRC</td>
+                        <td class="govuk-table__cell">BBSRC, MRC</td>
                         <td class="govuk-table__cell">Ready to open</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP564: UK-Canada Diabetes Research Team Grants</a></td>
-                        <td class="govuk-table__cell">EPSRC, BBSRC</td>
+                        <td class="govuk-table__cell">ARC, ESRC</td>
                         <td class="govuk-table__cell">Pre-panel</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP565: UK social research for the next decade Part III</a></td>
-                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">ARC, ESRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP566: Electric battery innovation for land-based travel</a></td>
-                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">EPSRC, STFC, MRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP567: Entomophagy - acceptable levels of crunchiness for a post-apocalyptic world</a></td>
-                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">ESRC, MRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP567: Salt-water gill adaptations in special transmorphogenic augementation</a></td>
-                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">BBSRC, MRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP568: Re-icing polar regions feasibility Part IV</a></td>
-                        <td class="govuk-table__cell">UKRI, EPSRC</td>
+                        <td class="govuk-table__cell">BBSRC, UKRI, EPSRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP569: Reforestation and carbon capture</a></td>
-                        <td class="govuk-table__cell">UKRI</td>
+                        <td class="govuk-table__cell">NERC, Research England, UKRI</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP570: Hydro-batteries and green energy storage in the environment</a></td>
-                        <td class="govuk-table__cell">NERC, Innovate UK</td>
+                        <td class="govuk-table__cell">NERC, STFC, EPSRC</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP571: Public transport infrastructure development: widening the networks Part II</a></td>
-                        <td class="govuk-table__cell">BBSRC, NERC</td>
+                        <td class="govuk-table__cell">STFC, EPSRC, Innovate UK</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP572: Public transport infrastructure development: tariff reduction and inter-connectivity Part III</a></td>
-                        <td class="govuk-table__cell">MRC</td>
+                        <td class="govuk-table__cell">STFC, EPSRC, Innovate UK</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                     <tr>
                         <td class="govuk-table__cell"><a href="#" class="govuk-link">OPP573: Public transport infrastructure development: green power Part IV</a></td>
-                        <td class="govuk-table__cell">EPSRC, Innovate UK</td>
+                        <td class="govuk-table__cell">STFC, EPSRC, Innovate UK</td>
                         <td class="govuk-table__cell">Draft</td>
                     </tr>
                 </tbody>

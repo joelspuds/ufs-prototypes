@@ -41,7 +41,7 @@
         {% call components.bulmaColumnAny(size='is-8') %}
 
             <section class="section" id="defaultItems">
-
+            {#<div>fundersIsComplete = {{ fundersIsComplete }}</div>#}
             <div class="application-item {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                 <div class="application-item__contents govuk-clearfix">
 
@@ -49,16 +49,16 @@
                         {{ components.link(text="Funders", url='/prototypes/opportunity-v2/funders') }}
                     </div>
                     {% if fundersList %}
-                    <div class="application-item__right">
-                        <span class="application-item__meta">
-                            {#{% for item in fundersList %}<span>{{ item }}</span>, {% endfor %}#}
-                            <span>{{ fundersList[0] }}</span>
-                            {% if fundersList[1]%}, <span>{{ fundersList[1] }}</span>{% endif %}
-                            {% if fundersList[2]%}, <span>{{ fundersList[2] }}</span>{% endif %}
-                            {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
-                            {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
-                        </span>
-                    </div>
+                       <div class="application-item__right">
+                            <span class="application-item__meta">
+                                {#{% for item in fundersList %}<span>{{ item }}</span>, {% endfor %}#}
+                                <span>{{ fundersList[0] }}</span>
+                                {% if fundersList[1]%}, <span>{{ fundersList[1] }}</span>{% endif %}
+                                {% if fundersList[2]%}, <span>{{ fundersList[2] }}</span>{% endif %}
+                                {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
+                                {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
+                            </span>
+                        </div>
                     {% else %}
                         <div class="application-item__right">
                             <span class="application-item__status">Incomplete</span>
