@@ -57,6 +57,12 @@
                 {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
                     <div class="govuk-related-items govuk-related-items--flush">
 
+                        <div class="progress-meter">
+                            <div class="progress-meter__text progress-meter__text--back" role="progress-bar" aria-valuenow="100%"><span class="govuk-visually-hidden">Your application is</span> 0% complete</div>
+                            <div class="progress-meter__clipper progress-meter__clipper--width" aria-hidden="true" style="clip-path: inset(0% 100% 0% 0%); -webkit-clip-path: inset(0% 100% 0% 0%)">
+                                <div class="progress-meter__text progress-meter__text--front">0% complete</div>
+                            </div>
+                        </div>
 
                         <div class="progress-meter">
                             <div class="progress-meter__text progress-meter__text--back" role="progress-bar" aria-valuenow="51%"><span class="govuk-visually-hidden">Your application is</span> 51% complete</div>

@@ -42,7 +42,36 @@
 
             <div class="application-items u-space-b30">
 
+                <div class="application2-item application2-item--incomplete application2-item--error">
+                    <div class="application2-item__error-message">
+                        You must complete this thing to continue.
+                    </div>
+                    <div class="application2-item__contents govuk-clearfix">
+                        <div class="application2-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application2-item__right">
+                            <span class="application2-item__status">Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message">
+                        You must complete this thing to continue.
+                    </div>
+
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='#') }}
