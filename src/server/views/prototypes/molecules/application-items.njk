@@ -42,16 +42,16 @@
 
             <div class="application-items u-space-b30">
 
-                <div class="application2-item application2-item--incomplete application2-item--error">
-                    <div class="application2-item__error-message">
-                        You must complete this thing to continue.
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message">
+                        You must select [Custom/chosen section title] to mark this section as complete
                     </div>
-                    <div class="application2-item__contents govuk-clearfix">
-                        <div class="application2-item__left">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
                             {{ components.link(text="Details", url='#') }}
                         </div>
-                        <div class="application2-item__right">
-                            <span class="application2-item__status">Incomplete</span>
+                        <div class="application-item__right">
+                            <span class="application-item__status">Incomplete</span>
                         </div>
                     </div>
                 </div>
@@ -69,9 +69,45 @@
 
                 <div class="application-item application-item--incomplete application-item--error">
                     <div class="application-item__error-message">
-                        You must complete this thing to continue.
+                        You must select [Custom/chosen section title] to mark this section as complete
                     </div>
 
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status">Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status">Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='#') }}
@@ -143,6 +179,23 @@
                                 <strong>9 April 2020</strong><br>
                                 Closing date:<br>
                                 <strong>21 Monthtember 2020</strong><br>
+                            </span>
+                            <span class="application-item__control">{{ components.link(text="Change", url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--error">
+                    <div class="application-item__error-message">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Application open and close dates", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Excessive amount of meta going into this one, just a tiny bit more so it wraps.
                             </span>
                             <span class="application-item__control">{{ components.link(text="Change", url='#') }} </span>
                         </div>
