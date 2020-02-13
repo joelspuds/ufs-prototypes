@@ -51,7 +51,7 @@
                             {{ components.link(text="Details", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                         </div>
                     </div>
                 </div>
@@ -62,22 +62,7 @@
                             {{ components.link(text="Details", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="application-item application-item--incomplete application-item--error">
-                    <div class="application-item__error-message">
-                        You must select [Custom/chosen section title] to mark this section as complete
-                    </div>
-
-                    <div class="application-item__contents govuk-clearfix">
-                        <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
-                        </div>
-                        <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                         </div>
                     </div>
                 </div>
@@ -88,43 +73,7 @@
                             {{ components.link(text="Details", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">Complete</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="application-item application-item--complete">
-                    <div class="application-item__contents govuk-clearfix">
-                        <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
-                        </div>
-                        <div class="application-item__right">
-                            <span class="application-item__status">Complete</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="application-item application-item--incomplete application-item--error">
-                    <div class="application-item__error-message">
-                        You must select [Custom/chosen section title] to mark this section as complete
-                    </div>
-                    <div class="application-item__contents govuk-clearfix">
-                        <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
-                        </div>
-                        <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="application-item application-item--complete">
-                    <div class="application-item__contents govuk-clearfix">
-                        <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
-                        </div>
-                        <div class="application-item__right">
-                            <span class="application-item__status">Complete</span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
                         </div>
                     </div>
                 </div>
@@ -147,7 +96,7 @@
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__meta">
-                                EPSRC, NERC, Inovate UK
+                                <span class="govuk-visually-hidden">The finders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
                             </span>
                         </div>
                     </div>
@@ -162,7 +111,7 @@
                             <span class="application-item__meta">
                                 Excessive amount of meta going into this one, just a tiny bit more so it wraps.
                             </span>
-                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
@@ -180,7 +129,7 @@
                                 Closing date:<br>
                                 <strong>21 Monthtember 2020</strong><br>
                             </span>
-                            <span class="application-item__control">{{ components.link(text="Change", url='#') }} </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
@@ -197,7 +146,24 @@
                             <span class="application-item__meta">
                                 Excessive amount of meta going into this one, just a tiny bit more so it wraps.
                             </span>
-                            <span class="application-item__control">{{ components.link(text="Change", url='#') }} </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--error application-item--incomplete">
+                    <div class="application-item__error-message">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Application open and close dates", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
@@ -208,8 +174,8 @@
                             {{ components.link(text="Applicants", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
-                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
@@ -220,8 +186,8 @@
                             {{ components.link(text="Resources and costs", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
-                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
@@ -231,8 +197,8 @@
                             {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
-                            <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
@@ -266,7 +232,7 @@
                                     {{ components.link(text="Details", url='#') }}
                                 </div>
                                 <div class="application-item__right">
-                                    <span class="application-item__status">Incomplete</span>
+                                    <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +243,7 @@
                                     {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
                                 </div>
                                 <div class="application-item__right">
-                                    <span class="application-item__status">Incomplete</span>
+                                    <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                                     <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
                                 </div>
                             </div>
