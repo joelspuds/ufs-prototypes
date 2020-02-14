@@ -13,7 +13,7 @@
         padding: 20px 40px 20px 20px;
 
         @include touch {
-            padding: govuk-spacing(2);
+            // padding: govuk-spacing(2);
         }
     }
 
@@ -133,9 +133,9 @@
                 background-image: url('/images/ufs/tick.svg');
                 background-size: 38px 28px;
 
-                @include touch {
+                /*@include touch {
                     display: none;
-                }
+                }*/
             }
 
             .application-item__status {
@@ -158,9 +158,9 @@
                 background-image: url('/images/ufs/pencil.svg');
                 background-size: 30px 24px;
 
-                @include touch {
-                    display: none;
-                }
+                /*@include touch {
+                   display: none;
+                }*/
             }
         }
     }
