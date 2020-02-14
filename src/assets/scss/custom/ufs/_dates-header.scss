@@ -1,0 +1,19 @@
+.dates-header {
+  margin-bottom: 30px;
+
+  &--error {
+    border-left: 5px solid govuk-colour("red");
+    padding-left: 20px;
+    padding-bottom: 10px;
+
+    [class="column"] {
+      padding-bottom: 0;
+    }
+  }
+
+  &__error-message {
+    @include govuk-font($size: 19, $weight: bold);
+    color: govuk-colour("red");
+    margin-bottom: 10px;
+  }
+}

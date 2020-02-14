@@ -12,6 +12,30 @@
         {%- endcall %}
     {%- endcall %}
 
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                <h2 class="govuk-error-summary__title" id="error-summary-title">
+                    There is a problem
+                </h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                            <a href="#datesSectionLink">You must complete the dates section</a>
+                        </li>
+                        <li>
+                            <a href="#detailSectionLink">You must complete the details section</a>
+                        </li>
+                        <li>
+                            <a href="#openCloseDates">You must complete the open and close dates</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        {%- endcall %}
+    {%- endcall %}
 
   {% call components.bulmaRow() %}
 
@@ -26,11 +50,61 @@
     <section class="section" id="sections">
 
 
+    <div class="container">
+
+        <div class="columns">
+            <div class="column">
+                <div class="dates-header">
+                    <div class="columns">
+                        <div class="column is-4 ">
+                            <h2 class="govuk-heading-m ">Application opens</h2>
+                            <p>No opening date added</p>
+                        </div>
+                        <div class="column is-4 ">
+                            <h2 class="govuk-heading-m ">Application closes</h2>
+                            <p>No closing date added</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-4 ">
+                            <a href="/prototypes/opportunity-v2/application-dates" class="govuk-link">Edit application dates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <div class="dates-header dates-header--error">
+                    <span class="dates-header__error-message" id="datesSectionLink">You must select 'Edit application dates'</span>
+                    <div class="columns">
+                        <div class="column is-4 ">
+                            <h2 class="govuk-heading-m ">Application opens</h2>
+                            <p>No opening date added</p>
+                        </div>
+                        <div class="column is-4 ">
+                            <h2 class="govuk-heading-m ">Application closes</h2>
+                            <p>No closing date added</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <a href="/prototypes/opportunity-v2/application-dates" class="govuk-link">Edit application dates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
     {% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-            {{ components.captionHeading(text='Sections in two-thirds row', size='m') }}
+            {{ components.captionHeading(text='Sections in two-thirds row', tag='h2', size='m') }}
 
         {%- endcall %}
 
@@ -43,12 +117,12 @@
             <div class="application-items u-space-b30">
 
                 <div class="application-item application-item--incomplete application-item--error">
-                    <div class="application-item__error-message">
+                    <div class="application-item__error-message" id="detailSectionLink">
                         You must select [Custom/chosen section title] to mark this section as complete
                     </div>
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
+                            <a href="#" class="govuk-link" id="detailSectionLink">Details</a>
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
@@ -135,12 +209,13 @@
                 </div>
 
                 <div class="application-item application-item--error">
-                    <div class="application-item__error-message">
+                    <div class="application-item__error-message" id="openCloseDates">
                         You must select [Custom/chosen section title] to mark this section as complete
                     </div>
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
-                            {{ components.link(text="Application open and close dates", url='#') }}
+                            {#{{ components.link(text="Application open and close dates", url='#') }}#}
+                            <a href="#" class="govuk-link" >Application open and close dates</a>
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__meta">
