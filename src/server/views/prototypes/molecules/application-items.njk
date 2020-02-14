@@ -5,6 +5,20 @@
 {% set isAdminUser = true %}
 
 {% block content %}
+    <link href="https://fonts.googleapis.com/css?family=Kalam:400,700&display=swap" rel="stylesheet">
+    <style>
+       .guidelines {
+            font-family: 'Kalam', cursive!important;
+            background: pink;
+            padding:10px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            box-shadow: 0 5px 5px -5px #777;
+            border-bottom-left-radius: 100%/10px;
+            border-bottom-right-radius: 100%/10px;
+        }
+    </style>
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
@@ -54,6 +68,11 @@
 
         <div class="columns">
             <div class="column">
+
+                <div class="guidelines">
+                    Dates, no error
+                </div>
+
                 <div class="dates-header">
                     <div class="columns">
                         <div class="column is-4 ">
@@ -76,6 +95,11 @@
 
         <div class="columns">
             <div class="column">
+
+                <div class="guidelines">
+                    Dates, with error on either
+                </div>
+
                 <div class="dates-header dates-header--error">
                     <span class="dates-header__error-message" id="datesSectionLink">You must select 'Edit application dates'</span>
                     <div class="columns">
@@ -116,6 +140,25 @@
 
             <div class="application-items u-space-b30">
 
+                <div class="guidelines">
+                    Standard item, no data &amp; incomplete
+                </div>
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Standard item, no data &amp; incomplete and with error
+                </div>
+
                 <div class="application-item application-item--incomplete application-item--error">
                     <div class="application-item__error-message" id="detailSectionLink">
                         You must select [Custom/chosen section title] to mark this section as complete
@@ -130,15 +173,8 @@
                     </div>
                 </div>
 
-                <div class="application-item application-item--incomplete">
-                    <div class="application-item__contents govuk-clearfix">
-                        <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
-                        </div>
-                        <div class="application-item__right">
-                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
-                        </div>
-                    </div>
+                <div class="guidelines">
+                    Standard item, no data &amp; complete
                 </div>
 
                 <div class="application-item application-item--complete">
@@ -152,49 +188,121 @@
                     </div>
                 </div>
 
-                <div class="application-item">
+
+
+                <div class="guidelines">
+                    Funders item (takes data), no data &amp; incomplete
+                </div>
+
+                <div class="application-item application-item--incomplete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
-                            {{ components.link(text="Has no icon", url='#') }}
+                            {{ components.link(text="Funders", url='#') }}
                         </div>
                         <div class="application-item__right">
-                            <span class="application-item__meta">No icon required</span>
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="application-item application-item--complete">
+                <div class="guidelines">
+                    Funders item (takes data), with data &amp; incomplete
+                </div>
+
+                <div class="application-item application-item--incomplete">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
-                            {{ components.link(text="Details", url='#') }}
+                            {{ components.link(text="Funders", url='#') }}
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__meta">
-                                <span class="govuk-visually-hidden">The finders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                                <span class="govuk-visually-hidden">This section is incomplete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="application-item application-item--complete">
+                <div class="guidelines">
+                    Funders item (takes data), with data &amp; incomplete and with error
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        [Error message]
+                    </div>
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
-                            {{ components.link(text="Very long title for a custom section that will wrap. ", url='#') }}
+                            {{ components.link(text="Funders", url='#') }}
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__meta">
-                                Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                                <span class="govuk-visually-hidden">This section is incomplete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
                             </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Funders item (takes data), no data &amp; incomplete and with error
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Funders item (takes data), with data &amp; is complete
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is complete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Dates item (takes data), with no data &amp; is incomplete
+                </div>
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                             <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
                 </div>
 
-                <div class="application-item application-item--complete">
+                <div class="guidelines">
+                    Dates item (takes data), with dates data &amp; is incomplete
+                </div>
+
+                <div class="application-item application-item--incomplete">
                     <div class="application-item__contents govuk-clearfix">
 
                         <div class="application-item__left">
-                            {{ components.link(text="Application open and close dates", url='#') }}
+                            {{ components.link(text="Application", url='#') }}
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__meta">
@@ -206,6 +314,60 @@
                             <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
+                </div>
+
+                <div class="guidelines">
+                    Dates item (takes data), with dates data &amp; is incomplete, has error
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="openCloseDates">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Opening date:<br>
+                                <strong>9 April 2020</strong><br>
+                                Closing date:<br>
+                                <strong>21 Monthtember 2020</strong><br>
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Dates item (takes data), with dates data &amp; is complete
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Opening date:<br>
+                                <strong>9 April 2020</strong><br>
+                                Closing date:<br>
+                                <strong>21 Monthtember 2020</strong><br>
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="guidelines">
+                    <strong>You can ignore everything below this...</strong>
                 </div>
 
                 <div class="application-item application-item--error">
@@ -277,6 +439,31 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="application-item">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Has no icon", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">No icon required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                  <div class="application-item__contents govuk-clearfix">
+                      <div class="application-item__left">
+                          {{ components.link(text="Very long title for a custom section that will wrap. ", url='#') }}
+                      </div>
+                      <div class="application-item__right">
+                          <span class="application-item__meta">
+                              Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                          </span>
+                          <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                      </div>
+                  </div>
+              </div>
 
             </div>
 
