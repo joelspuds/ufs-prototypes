@@ -117,7 +117,7 @@
 
 {% endblock %}
 {% block bodyScripts %}
-    <script src="https://cdn.tiny.cloud/1/07mujqe21skvbb0u24f0w3wkj0mqp5fv09jygkbui3xcuimo/tinymce/5/tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       let wordy, count, newCount, overCount;
       let limit = 400;
@@ -142,7 +142,8 @@
             wordy = editor.plugins.wordcount;
             count = parseInt(wordy.body.getWordCount());
             newCount = limit - count;
-            overCount =  limit + count;
+            // overCount =  limit + count;
+            overCount =  count - limit;
             if (newCount < 0) {
               countOutput.innerHTML = '<span style="font-weight:700;color:red">You have ' +  overCount + ' words too many</span>'
             } else {
