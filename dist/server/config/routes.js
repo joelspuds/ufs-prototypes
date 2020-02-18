@@ -144,6 +144,34 @@ router.post('/prototypes/opportunity-v2/details', demosController.opportunityDet
 router.get('/prototypes/opportunity-v2/custom-section', demosController.opportunityCustomSectionGetV2);
 router.post('/prototypes/opportunity-v2/custom-section', demosController.opportunityCustomSectionPostV2);
 
+/* *************************************************************** *
+
+    Create opportunity V3
+
+ * *************************************************************** */
+// Create new opportunity
+router.get('/prototypes/opportunity-v3/', demosController.opportunityGetV3);
+router.get('/prototypes/opportunity-v3/create', demosController.createOpportunityGetV3);
+router.post('/prototypes/opportunity-v3/create', demosController.createOpportunityPostV3);
+router.get('/prototypes/opportunity-v3/setup', demosController.opportunitySetupGetV3);
+router.post('/prototypes/opportunity-v3/setup', demosController.opportunitySetupPostV3);
+router.get('/prototypes/opportunity-v3/funders', demosController.opportunityFundersGetV3);
+router.post('/prototypes/opportunity-v3/funders', demosController.opportunityFundersPostV3);
+router.get('/prototypes/opportunity-v3/application', demosController.opportunityApplicationGetV3);
+router.post('/prototypes/opportunity-v3/application', demosController.opportunityApplicationPostV3);
+router.get('/prototypes/opportunity-v3/applicants', demosController.opportunityApplicantsGetV3);
+router.post('/prototypes/opportunity-v3/applicants', demosController.opportunityApplicantsPostV3);
+router.get('/prototypes/opportunity-v3/workflow-application', demosController.opportunityWorkflowApplicationGetV3);
+router.post('/prototypes/opportunity-v3/workflow-application', demosController.opportunityWorkflowApplicationPostV3);
+router.get('/prototypes/opportunity-v3/resources-and-costs', demosController.opportunityResourcesGetV3);
+router.post('/prototypes/opportunity-v3/resources-and-costs', demosController.opportunityResourcesPostV3);
+router.get('/prototypes/opportunity-v3/application-dates', demosController.opportunityApplicationsDatesGetV3);
+router.post('/prototypes/opportunity-v3/application-dates', demosController.opportunityApplicationsDatesPostV3);
+router.get('/prototypes/opportunity-v3/details', demosController.opportunityDetailsGetV3);
+router.post('/prototypes/opportunity-v3/details', demosController.opportunityDetailsPostV3);
+router.get('/prototypes/opportunity-v3/custom-section', demosController.opportunityCustomSectionGetV3);
+router.post('/prototypes/opportunity-v3/custom-section', demosController.opportunityCustomSectionPostV3);
+
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 
