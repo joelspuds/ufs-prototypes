@@ -3,19 +3,10 @@
 
 // GOVUK new GDS stuff, as it comes
 // with grid
-// @import '../govuk/all';
+@import '../govuk/all';
 
-
-
-
-
-
-
-
-
-// without grid
-@import '../govuk/all-no-grid';
-
+// without grid - can't do this, we still need the grid for the other stuff!
+// @import '../govuk/all-no-grid';
 
 // overrides
 // without Bulma

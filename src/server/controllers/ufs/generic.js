@@ -71,53 +71,36 @@ let convertDate = function(crapDate, isAmerican = true, separatorChar = '/') {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   let dataAsArray, newDayNumber, newDayName, newMonth, newYear, dateParts;
   dataAsArray = crapDate.split(separatorChar);
-  // console.log('0 = ' + dataAsArray[0], '1 = ' + dataAsArray[1],'2 = ' + dataAsArray[2]);
-  // console.log('dataAsArray = ');
-  // console.log(dataAsArray);
+
   if (isAmerican) {
-    newDayName = days[dataAsArray[1] + 1];
     newDayNumber = dataAsArray[1];
     newMonth = months[dataAsArray[0] - 1];
     newYear = dataAsArray[2];
-    console.log(
-      'Is American, newDayNumber = ' + newDayNumber + ' newDayName = ' + newDayName,
-      '  newMonth = ' + newMonth,
-      '  newYear = ' + newYear
-    );
   } else {
-    newDayName = days[dataAsArray[0] + 1];
     newDayNumber = dataAsArray[0];
     newMonth = months[dataAsArray[1] - 1];
     newYear = dataAsArray[2];
-    console.log(
-      'Is NOT American, newDayNumber = ' + newDayNumber + ' newDayName = ' + newDayName,
-      '  newMonth = ' + newMonth,
-      '  newYear = ' + newYear
-    );
   }
 
+  if (parseInt(newDayNumber.charAt(0)) === 0) {
+    console.log('first char is zero');
+    newDayNumber = newDayNumber.charAt(1);
+  }
+
+  let d = new Date(+newDayNumber + '/' + newMonth + '/' + newYear);
+  let n = d.getDay();
+  newDayName = days[n];
+  // console.log('day = ' + newDayName);
+
+  // console.log(newDayName + ', ' + newDayNumber + ' ' + newMonth + ' ' + newYear);
   dateParts = {
     dayName: newDayName,
     dayNumber: newDayNumber,
     month: newMonth,
     year: newYear,
+    asString: newDayName + ', ' + newDayNumber + ' ' + newMonth + ' ' + newYear,
   };
-
   return dateParts;
 };
 
 module.exports.convertDate = convertDate;
-
-/*
-*   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-    let splitOpenDate = openingDate.split('/');
-    console.log('splitOpenDate = ' + splitOpenDate);
-    let newOpenDate = new Date(splitOpenDate[0], splitOpenDate[1], splitOpenDate[2]);
-    openDay = days[newOpenDate.getDay()];
-    openingMonth = months[parseInt(splitOpenDate[1] - 1)];
-    const closingDayDate = new Date(closingDate);
-    closingDay = days[closingDayDate.getDay()];
-*
-* */

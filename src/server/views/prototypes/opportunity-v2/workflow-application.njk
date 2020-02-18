@@ -27,6 +27,10 @@
 {% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
 {% set resourcesIsComplete = resourcesIsComplete if resourcesIsComplete %}
 
+{% set openingDateTidyAsString = openingDateTidyAsString if openingDateTidyAsString %}
+{% set closingDateTidyAsString = closingDateTidyAsString if closingDateTidyAsString %}
+
+
 {% block content %}
 
     {% call components.bulmaRow() %}
@@ -53,7 +57,7 @@
             {% call components.bulmaColumnAny(size='is-4') %}
                 {{ components.captionHeading(text=APPLICATIONS_OPENING_DATE_TITLE, size='m') }}
                 {% if openingDate %}
-                    {{ openDay }}, {{ openingDate }}, {{ openingTime }} {{ openingTimeMeridian }}
+                    {#{{ openDay }}, {{ openingDate }}#} {{ openingDateTidyAsString }}, {{ openingTime }} {{ openingTimeMeridian }}
                 {% else %}
                     <p>{{ OPENING_DATE_NOT_ADDED }}</p>
                 {% endif %}
@@ -62,7 +66,7 @@
             {% call components.bulmaColumnAny(size='is-4') %}
                 {{ components.captionHeading(text=APPLICATIONS_CLOSING_DATE_TITLE, size='m') }}
                 {% if closingDate %}
-                    {{ closingDay }}, {{ closingDate }}, {{ closingTime }} {{ closingTimeMeridian }}
+                    {#{{ closingDay }}, {{ closingDate }}#} {{ closingDateTidyAsString }}, {{ closingTime }} {{ closingTimeMeridian }}
                 {% else %}
                     <p>{{ CLOSING_DATE_NOT_ADDED }}</p>
                 {% endif %}

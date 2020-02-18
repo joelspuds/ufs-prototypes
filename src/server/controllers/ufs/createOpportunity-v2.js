@@ -57,12 +57,14 @@ export function opportunitySetupGetV2(req, res) {
   fundersList = req.session.funderslist;
   fundersIsComplete = req.session.fundersIsComplete;
 
-  console.log('fundersIsComplete = ' + fundersIsComplete);
-  console.log('fundersList = ');
-  console.log(fundersList);
+  //console.log('fundersIsComplete = ' + fundersIsComplete);
+  //console.log('fundersList = ');
+  //console.log(fundersList);
 
   if (fundersList && fundersList[0] === null) {
     console.log('list is null');
+    fundersIsComplete = null;
+    fundersList = null;
   }
 
   if (removeItem === 'true') {
@@ -94,6 +96,14 @@ export function opportunitySetupGetV2(req, res) {
 
   let setupComplete = req.session.setupComplete;
 
+  let openingDateTidy, openingDateTidyAsString, closingDateTidy, closingDateTidyAsString;
+  if (openingDate && closingDate) {
+    openingDateTidy = genericFunctions.convertDate(openingDate, true);
+    openingDateTidyAsString = openingDateTidy.asString;
+    closingDateTidy = genericFunctions.convertDate(closingDate, true);
+    closingDateTidyAsString = closingDateTidy.asString;
+  }
+
   viewData = {
     opportunityName,
     opportunityID,
@@ -109,15 +119,18 @@ export function opportunitySetupGetV2(req, res) {
     openDay,
     closingDay,
     setupComplete,
+    openingDateTidyAsString,
+    closingDateTidyAsString,
   };
 
-  /*console.log(genericFunctions.convertDate('12/1/2020', true));
-  console.log("\n" + "\n" + "\n");
-  console.log(genericFunctions.convertDate('12/1/2020', false));
-  console.log("\n" + "\n" + "\n");
-  console.log(genericFunctions.convertDate('11/2/2020', true));
+  // console.log(genericFunctions.convertDate('12/1/2020', true));
+  /*let demoDate1 = genericFunctions.convertDate('12/01/2020', true);
+  console.log('demoDate1.asString = ' + demoDate1.asString);
+  console.log('Should be: Tuesday, 1 December 2020');
   console.log('\n' + '\n' + '\n');
-  console.log(genericFunctions.convertDate('11/2/2020', false));*/
+  let demoDate2 = genericFunctions.convertDate('12/01/2020', false);
+  console.log('demoDate2.asString = ' + demoDate2.asString);
+  console.log('Should be: Sunday, 12 January 2020');*/
 
   return res.render('prototypes/opportunity-v2/setup', viewData);
 }
@@ -384,6 +397,14 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
   let customIsComplete = req.session.customIsComplete;
   let customSectionTitle = req.session.customSectionTitle;
 
+  let openingDateTidy, openingDateTidyAsString, closingDateTidy, closingDateTidyAsString;
+  if (openingDate && closingDate) {
+    openingDateTidy = genericFunctions.convertDate(openingDate, true);
+    openingDateTidyAsString = openingDateTidy.asString;
+    closingDateTidy = genericFunctions.convertDate(closingDate, true);
+    closingDateTidyAsString = closingDateTidy.asString;
+  }
+
   viewData = {
     opportunityName,
     opportunityID,
@@ -405,6 +426,8 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
     customSectionTitle,
     openingMonth,
     closingMonth,
+    openingDateTidyAsString,
+    closingDateTidyAsString,
   };
 
   return res.render('prototypes/opportunity-v2/workflow-application', viewData);

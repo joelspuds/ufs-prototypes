@@ -18,6 +18,9 @@
 {% set closingDay = closingDay if closingDay %}
 {% set setupComplete = setupComplete if setupComplete %}
 
+{% set openingDateTidyAsString = openingDateTidyAsString if openingDateTidyAsString %}
+{% set closingDateTidyAsString = closingDateTidyAsString if closingDateTidyAsString %}
+
 {% block content %}
 
     {% call components.bulmaRow() %}
@@ -76,20 +79,20 @@
 
             {% if workFlowItemAdded %}
                 <div class="application-items">
-                    <div class="application-item application-item--workflow u-space-b30 {% if setupComplete %}application-item--complete{% endif %}">
+                    <div class="application-item application-item--workflow u-space-b30 {% if setupComplete %}application-item--complete{% else %}application-item--incomplete{% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
                                 {{ components.link(text="Application", url='/prototypes/opportunity-v2/workflow-application') }}
                             </div>
                             <div class="application-item__right">
                                 {% if not openingDate %}
-                                <span class="application-item__status">No dates set</span>
+                                <span class="application-item__status">Incomplete</span>
                                 {% else %}
                                 <span class="application-item__meta">
                                    Opening date:<br>
-                                    <strong> {{ openingDate }}</strong><br>
+                                    <strong> {{ openingDateTidyAsString }}</strong><br>
                                     Closing date:<br>
-                                    <strong> {{ closingDate }}</strong>
+                                    <strong> {{ closingDateTidyAsString }}</strong>
                                 </span>
                                 {% endif %}
                                 <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
