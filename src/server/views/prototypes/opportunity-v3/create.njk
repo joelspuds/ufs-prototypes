@@ -1,0 +1,90 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{% set isAdminUser = true %}
+
+{% set pageTitle = CREATE_NEW_OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text=BACK_TO_OPPORTUNITY_DASHBOARD_LINK, url='/prototypes/opportunity-v3/') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            {% if createOpportunityError %}
+
+                {{ components.errorSummary(
+                    heading='There is a problem with your information',
+                    headingId='createOpportunityError',
+                    description='',
+                    items=[{
+                            link: '#opportunityName',
+                            text: 'Your Opportunity name is not valid'
+                        }]
+                ) }}
+
+            {% endif %}
+
+            {{ components.captionHeading(text=CREATE_NEW_OPPORTUNITY_TITLE) }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            {% call components.form(action='/prototypes/opportunity-v3/create', method='POST',name='createOpportunity') %}
+
+                {#{% call components.formGroup(extraClass='') %}
+
+                    {% if createOpportunityError %}
+                        {{ components.field(label=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL, id='opportunityName',  hint=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT, value=opportunityName) }}
+                    {% else %}
+                        {{ components.field(label=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL, id='opportunityName', hint=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT, value=opportunityName) }}
+                    {% endif %}
+
+                {%- endcall %}#}
+
+                <details class="govuk-details u-space-b10" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Naming Opportunities - best practice</span>
+                    </summary>
+                    <div class="govuk-details__text">Give your Opportunity a title that describes, as briefly as possible, exactly what it is.</div>
+                </details>
+
+                <div class="govuk-form-group {% if createOpportunityError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="opportunityName">Opportunity name
+                        <span class="govuk-hint">This is how your Opportunity will be known internally and publicly. </span>
+                        {% if createOpportunityError %}
+                            <span class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid Opportunity name
+                            </span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input " id="opportunityName" type="text" name="opportunityName" value="">
+                </div>
+
+                {% call components.formGroup() %}
+
+                    {{ components.button(text=CREATE_NEW_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
+
+                {%- endcall %}
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

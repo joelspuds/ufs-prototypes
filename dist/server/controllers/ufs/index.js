@@ -100,6 +100,18 @@ Object.keys(_createOpportunityV).forEach(function (key) {
   });
 });
 
+var _createOpportunityV2 = require('./createOpportunity-v3');
+
+Object.keys(_createOpportunityV2).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _createOpportunityV2[key];
+    }
+  });
+});
+
 var _dataTest = require('./data-test');
 
 Object.keys(_dataTest).forEach(function (key) {

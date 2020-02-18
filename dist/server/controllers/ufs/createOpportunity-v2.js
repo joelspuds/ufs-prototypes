@@ -88,7 +88,7 @@ function opportunitySetupGetV2(req, res) {
   //console.log(fundersList);
 
   if (fundersList && fundersList[0] === null) {
-    console.log('list is null');
+    // console.log('list is null');
     fundersIsComplete = null;
     fundersList = null;
   }
@@ -164,7 +164,7 @@ function opportunitySetupGetV2(req, res) {
 function opportunitySetupPostV2(req, res) {
   const { addWorkflowItem, submitApplication } = req.body;
 
-  console.log('addWorkflowItem = ' + addWorkflowItem);
+  // console.log('addWorkflowItem = ' + addWorkflowItem);
 
   if (addWorkflowItem === 'application') {
     req.session.workFlowItemAdded = true;
@@ -202,7 +202,7 @@ function opportunityFundersGetV2(req, res) {
 
 function opportunityFundersPostV2(req, res) {
   const { funders, isComplete } = req.body;
-  console.log(funders);
+  // console.log(funders);
 
   let fundersList, allCouncils;
 
@@ -216,7 +216,7 @@ function opportunityFundersPostV2(req, res) {
 
   req.session.funderslist = fundersList;
 
-  console.log(fundersList);
+  // console.log(fundersList);
 
   if (isComplete === 'on') {
     req.session.fundersIsComplete = true;
@@ -284,16 +284,8 @@ function opportunityApplicantsGetV2(req, res) {
   req.session.applicantsErrorMessage = null;
   req.session.applicantsError = null;
 
-  /*//
-  let roleTitles = [];
-  if(rolesList) {
-    for(let i = 0; i < rolesList.length; i++ ) {
-      roleTitles.push(allApplicantTypes[rolesList]);
-    }
-  }*/
-
-  console.log('rolesList = ');
-  console.log(rolesList);
+  // console.log('rolesList = ');
+  // console.log(rolesList);
 
   viewData = {
     opportunityName,
@@ -316,8 +308,8 @@ function opportunityApplicantsPostV2(req, res) {
   // save choices whatever
   req.session.rolesList = rolesList;
 
-  console.log('isComplete = ' + isComplete);
-  console.log(rolesList);
+  // console.log('isComplete = ' + isComplete);
+  // console.log(rolesList);
 
   if (isComplete === 'on') {
     req.session.applicantsIsComplete = true;
@@ -370,7 +362,7 @@ function opportunityWorkflowApplicationGetV2(req, res) {
   let openingTimeMeridian = req.session.openingTimeMeridian;
   let closingTimeMeridian = req.session.closingTimeMeridian;
 
-  console.log(req.session);
+  // console.log(req.session);
 
   /*if (removeItem === 'true') {
     req.session.workFlowItemAdded = null;
@@ -394,14 +386,14 @@ function opportunityWorkflowApplicationGetV2(req, res) {
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     let splitOpenDate = openingDate.split('/');
-    console.log('splitOpenDate = ' + splitOpenDate);
+    // console.log('splitOpenDate = ' + splitOpenDate);
     let newOpenDate = new Date(splitOpenDate[0], splitOpenDate[1], splitOpenDate[2]);
     openDay = days[newOpenDate.getDay()];
     openingMonth = months[parseInt(splitOpenDate[1] - 1)];
     const closingDayDate = new Date(closingDate);
     closingDay = days[closingDayDate.getDay()];
 
-    console.log('openingMonth = ' + openingMonth);
+    // console.log('openingMonth = ' + openingMonth);
   }
 
   let detailsIsComplete = req.session.detailsIsComplete;
@@ -438,7 +430,7 @@ function opportunityWorkflowApplicationGetV2(req, res) {
     customIsComplete,
     customSectionTitle,
     openingMonth,
-    closingMonth,
+    // closingMonth,
     openingDateTidyAsString,
     closingDateTidyAsString
   };
@@ -449,8 +441,8 @@ function opportunityWorkflowApplicationGetV2(req, res) {
 function opportunityWorkflowApplicationPostV2(req, res) {
   const { addNewSection, submitApplication, isComplete } = req.body;
 
-  console.log('addNewSection = ' + addNewSection);
-  console.log('submitApplication = ' + submitApplication);
+  // console.log('addNewSection = ' + addNewSection);
+  // console.log('submitApplication = ' + submitApplication);
 
   if (addNewSection === 'applicants') {
     req.session.applicantSectionAdded = true;
@@ -561,7 +553,7 @@ function opportunityApplicationsDatesGetV2(req, res) {
 function opportunityApplicationsDatesPostV2(req, res) {
   const { openingDate, openingTime, closingDate, closingTime, openingTimeMeridian, closingTimeMeridian } = req.body;
 
-  console.log('openingDate = ' + openingDate);
+  // console.log('openingDate = ' + openingDate);
 
   req.session.openingDate = openingDate;
   req.session.openingTime = openingTime;
@@ -586,7 +578,7 @@ function opportunityDetailsGetV2(req, res) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
   }
 
-  console.log('detailsIsComplete = ' + detailsIsComplete);
+  // console.log('detailsIsComplete = ' + detailsIsComplete);
 
   viewData = {
     opportunityName,
@@ -600,9 +592,7 @@ function opportunityDetailsGetV2(req, res) {
 function opportunityDetailsPostV2(req, res) {
   const { markAsComplete } = req.body;
 
-  console.log('this is the right controller');
-
-  console.log('details page isComplete = ' + markAsComplete);
+  // console.log('details page isComplete = ' + markAsComplete);
 
   if (markAsComplete === 'on') {
     req.session.detailsIsComplete = true;
@@ -646,7 +636,7 @@ function opportunityCustomSectionGetV2(req, res) {
     opportunityName = 'Development of a Novel Inhibitor of Ricin';
   }
 
-  console.log('sectionTitle = ' + sectionTitle);
+  // console.log('sectionTitle = ' + sectionTitle);
   viewData = {
     opportunityName,
     opportunityID,

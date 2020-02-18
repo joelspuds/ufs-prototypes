@@ -1,0 +1,151 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = OPPORTUNITY_SETUP_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{% set fundersList = fundersList %}
+{% set isAdminUser = true %}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+{% set workFlowItemAdded = workFlowItemAdded if workFlowItemAdded %}
+
+{% set openingDate = openingDate if openingDate %}
+{% set openingTime = openingTime if openingTime %}
+{% set closingDate = closingDate if closingDate %}
+{% set closingTime = closingTime if closingTime %}
+{% set openingTimeMeridian = openingTimeMeridian if openingTimeMeridian %}
+{% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
+{% set openDay = openDay if openDay %}
+{% set closingDay = closingDay if closingDay %}
+{% set setupComplete = setupComplete if setupComplete %}
+
+{% set openingDateTidyAsString = openingDateTidyAsString if openingDateTidyAsString %}
+{% set closingDateTidyAsString = closingDateTidyAsString if closingDateTidyAsString %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text=BACK_TO_OPPORTUNITY_DASHBOARD_LINK, url='/prototypes/opportunity-v3/') }}
+        {%- endcall %}
+    {%- endcall %}
+
+  {% call components.bulmaRow() %}
+
+    {% call components.bulmaColumnAny(size='is-full') %}
+
+    {{ components.captionHeading(text=OPPORTUNITY_SETUP__TITLE, caption=opportunityID + ': ' +opportunityName) }}
+
+    {%- endcall %}
+
+  {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-8') %}
+
+            <section class="section" id="defaultItems">
+            {#<div>fundersIsComplete = {{ fundersIsComplete }}</div>#}
+            <div class="application-item {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
+
+                    <div class="application-item__left">
+                        {{ components.link(text="Funders", url='/prototypes/opportunity-v3/funders') }}
+                    </div>
+                    {% if fundersList %}
+                       <div class="application-item__right">
+                            <span class="application-item__meta">
+                                {#{% for item in fundersList %}<span>{{ item }}</span>, {% endfor %}#}
+                                <span>{{ fundersList[0] }}</span>
+                                {% if fundersList[1]%}, <span>{{ fundersList[1] }}</span>{% endif %}
+                                {% if fundersList[2]%}, <span>{{ fundersList[2] }}</span>{% endif %}
+                                {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
+                                {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
+                            </span>
+                        </div>
+                    {% else %}
+                        <div class="application-item__right">
+                            <span class="application-item__status">Incomplete</span>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            </section>
+
+            <section class="section" id="workflow">
+
+            {{ components.captionHeading(text='Workflow', tag='h2', size='m', extraClass='u-space-t30') }}
+
+            {% if workFlowItemAdded %}
+                <div class="application-items">
+                    <div class="application-item application-item--workflow u-space-b30 {% if setupComplete %}application-item--complete{% else %}application-item--incomplete{% endif %}">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Application", url='/prototypes/opportunity-v3/workflow-application') }}
+                            </div>
+                            <div class="application-item__right">
+                                {% if not openingDate %}
+                                <span class="application-item__status">Incomplete</span>
+                                {% else %}
+                                <span class="application-item__meta">
+                                   Opening date:<br>
+                                    <strong> {{ openingDateTidyAsString }}</strong><br>
+                                    Closing date:<br>
+                                    <strong> {{ closingDateTidyAsString }}</strong>
+                                </span>
+                                {% endif %}
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+
+            {% call components.form(action='/prototypes/opportunity-v3/setup', method='POST',name='addWorkflowItem') %}
+
+                <div class="govuk-form-group ">
+                    <label class="govuk-label govuk-label--s" for="select-box">Add workflow item</label>
+                    <div class="select-iterator">
+                        <select class="govuk-select " id="select-box" name="addWorkflowItem">
+                            <option>Select</option>
+                            <option value="application">Application</option>
+                        </select>
+                        {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+            </section>
+
+            <section class="section" id="submitSection">
+
+                {% call components.formGroup() %}
+
+                    {{ components.button(text=OPPORTUNITY_SETUP_COMPLETE_CTA, extraClass="application-controls__submit")}}
+
+                {%- endcall %}
+
+            </section>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-3 is-offset-1') %}
+
+            <div class="govuk-related-items govuk-related-items--flush">
+
+                {{ components.captionHeading(text=opportunityID, tag='h2', size='xs', extraClass='u-space-y5') }}
+                <p class="govuk-body-s u-space-b5">{{ opportunityName }}</p>
+
+                <ul class="govuk-list u-space-t10">
+                    <li>{{ components.link(text='Edit Opportunity name', url='/prototypes/opportunity-v3/create?mode=edit', extraClass='sub-button') }}</li>
+                </ul>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

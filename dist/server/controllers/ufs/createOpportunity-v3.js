@@ -1,7 +1,33 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.opportunityGetV3 = opportunityGetV3;
+exports.createOpportunityGetV3 = createOpportunityGetV3;
+exports.createOpportunityPostV3 = createOpportunityPostV3;
+exports.opportunitySetupGetV3 = opportunitySetupGetV3;
+exports.opportunitySetupPostV3 = opportunitySetupPostV3;
+exports.opportunityFundersGetV3 = opportunityFundersGetV3;
+exports.opportunityFundersPostV3 = opportunityFundersPostV3;
+exports.opportunityApplicationGetV3 = opportunityApplicationGetV3;
+exports.opportunityApplicationPostV3 = opportunityApplicationPostV3;
+exports.opportunityApplicantsGetV3 = opportunityApplicantsGetV3;
+exports.opportunityApplicantsPostV3 = opportunityApplicantsPostV3;
+exports.opportunityWorkflowApplicationGetV3 = opportunityWorkflowApplicationGetV3;
+exports.opportunityWorkflowApplicationPostV3 = opportunityWorkflowApplicationPostV3;
+exports.opportunityResourcesGetV3 = opportunityResourcesGetV3;
+exports.opportunityResourcesPostV3 = opportunityResourcesPostV3;
+exports.opportunityApplicationsDatesGetV3 = opportunityApplicationsDatesGetV3;
+exports.opportunityApplicationsDatesPostV3 = opportunityApplicationsDatesPostV3;
+exports.opportunityDetailsGetV3 = opportunityDetailsGetV3;
+exports.opportunityDetailsPostV3 = opportunityDetailsPostV3;
+exports.opportunityCustomSectionGetV3 = opportunityCustomSectionGetV3;
+exports.opportunityCustomSectionPostV3 = opportunityCustomSectionPostV3;
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
-export function opportunityGetV2(req, res) {
+function opportunityGetV3(req, res) {
   let viewData, clearSession;
   clearSession = req.param('clearSession');
   if (clearSession === 'true') {
@@ -9,10 +35,10 @@ export function opportunityGetV2(req, res) {
   }
 
   viewData = {};
-  return res.render('prototypes/opportunity-v2/index', viewData);
+  return res.render('prototypes/opportunity-v3/index', viewData);
 }
 
-export function createOpportunityGetV2(req, res) {
+function createOpportunityGetV3(req, res) {
   let viewData, createOpportunityError, createOpportunityErrorMessage, opportunityName, createOpportunityErrorMessageInputLevel;
 
   opportunityName = req.session.opportunityName;
@@ -28,12 +54,12 @@ export function createOpportunityGetV2(req, res) {
     createOpportunityError,
     createOpportunityErrorMessage,
     opportunityName,
-    createOpportunityErrorMessageInputLevel,
+    createOpportunityErrorMessageInputLevel
   };
-  return res.render('prototypes/opportunity-v2/create', viewData);
+  return res.render('prototypes/opportunity-v3/create', viewData);
 }
 
-export function createOpportunityPostV2(req, res) {
+function createOpportunityPostV3(req, res) {
   const { opportunityName } = req.body;
 
   req.session.opportunityName = opportunityName;
@@ -42,13 +68,13 @@ export function createOpportunityPostV2(req, res) {
     req.session.createOpportunityError = true;
     req.session.createOpportunityErrorMessage = 'You must enter an opportunity name';
     req.session.createOpportunityErrorMessageInputLevel = 'Your opportunity name must be at least 10 characters long';
-    return res.redirect('/prototypes/opportunity-v2/create');
+    return res.redirect('/prototypes/opportunity-v3/create');
   } else {
-    return res.redirect('/prototypes/opportunity-v2/setup');
+    return res.redirect('/prototypes/opportunity-v3/setup');
   }
 }
 
-export function opportunitySetupGetV2(req, res) {
+function opportunitySetupGetV3(req, res) {
   let viewData, opportunityName, opportunityID, fundersList, fundersIsComplete, workFlowItemAdded, removeItem;
 
   removeItem = req.param('removeItem');
@@ -120,7 +146,7 @@ export function opportunitySetupGetV2(req, res) {
     closingDay,
     setupComplete,
     openingDateTidyAsString,
-    closingDateTidyAsString,
+    closingDateTidyAsString
   };
 
   // console.log(genericFunctions.convertDate('12/1/2020', true));
@@ -132,10 +158,10 @@ export function opportunitySetupGetV2(req, res) {
   console.log('demoDate2.asString = ' + demoDate2.asString);
   console.log('Should be: Sunday, 12 January 2020');*/
 
-  return res.render('prototypes/opportunity-v2/setup', viewData);
+  return res.render('prototypes/opportunity-v3/setup', viewData);
 }
 
-export function opportunitySetupPostV2(req, res) {
+function opportunitySetupPostV3(req, res) {
   const { addWorkflowItem, submitApplication } = req.body;
 
   // console.log('addWorkflowItem = ' + addWorkflowItem);
@@ -144,11 +170,11 @@ export function opportunitySetupPostV2(req, res) {
     req.session.workFlowItemAdded = true;
   }
 
-  return res.redirect('/prototypes/opportunity-v2/setup');
+  return res.redirect('/prototypes/opportunity-v3/setup');
 }
 
 // Funders
-export function opportunityFundersGetV2(req, res) {
+function opportunityFundersGetV3(req, res) {
   let viewData, opportunityName, opportunityID, allCouncils, funderslist, fundersError, fundersIsComplete;
 
   allCouncils = generalData.allCouncils;
@@ -168,13 +194,13 @@ export function opportunityFundersGetV2(req, res) {
     allCouncils,
     funderslist,
     fundersError,
-    fundersIsComplete,
+    fundersIsComplete
   };
 
-  return res.render('prototypes/opportunity-v2/funders', viewData);
+  return res.render('prototypes/opportunity-v3/funders', viewData);
 }
 
-export function opportunityFundersPostV2(req, res) {
+function opportunityFundersPostV3(req, res) {
   const { funders, isComplete } = req.body;
   // console.log(funders);
 
@@ -196,19 +222,19 @@ export function opportunityFundersPostV2(req, res) {
     req.session.fundersIsComplete = true;
 
     if (fundersList && fundersList[0] !== undefined) {
-      return res.redirect('/prototypes/opportunity-v2/setup');
+      return res.redirect('/prototypes/opportunity-v3/setup');
     } else {
       req.session.fundersError = true;
-      return res.redirect('/prototypes/opportunity-v2/funders');
+      return res.redirect('/prototypes/opportunity-v3/funders');
     }
   } else {
     req.session.fundersIsComplete = null;
-    return res.redirect('/prototypes/opportunity-v2/setup');
+    return res.redirect('/prototypes/opportunity-v3/setup');
   }
 }
 
 // Application
-export function opportunityApplicationGetV2(req, res) {
+function opportunityApplicationGetV3(req, res) {
   let viewData, opportunityName, opportunityID;
 
   opportunityName = req.session.opportunityName;
@@ -221,26 +247,26 @@ export function opportunityApplicationGetV2(req, res) {
 
   viewData = {
     opportunityName,
-    opportunityID,
+    opportunityID
   };
 
-  return res.render('prototypes/opportunity-v2/application', viewData);
+  return res.render('prototypes/opportunity-v3/application', viewData);
 }
 
-export function opportunityApplicationPostV2(req, res) {
+function opportunityApplicationPostV3(req, res) {
   const {} = req.body;
   // console.log('');
 
   if (1 > 0) {
-    return res.redirect('/prototypes/opportunity-v2/setup');
+    return res.redirect('/prototypes/opportunity-v3/setup');
   } else {
     req.session.fundersError = true;
-    return res.redirect('/prototypes/opportunity-v2/application');
+    return res.redirect('/prototypes/opportunity-v3/application');
   }
 }
 
 // Applicants
-export function opportunityApplicantsGetV2(req, res) {
+function opportunityApplicantsGetV3(req, res) {
   let viewData, opportunityName, opportunityID, allApplicantTypes, rolesList, applicantsError, applicantsIsComplete, applicantsErrorMessage;
 
   allApplicantTypes = generalData.allApplicantTypes;
@@ -268,13 +294,13 @@ export function opportunityApplicantsGetV2(req, res) {
     applicantsIsComplete,
     rolesList,
     applicantsError,
-    applicantsErrorMessage,
+    applicantsErrorMessage
   };
 
-  return res.render('prototypes/opportunity-v2/applicants', viewData);
+  return res.render('prototypes/opportunity-v3/applicants', viewData);
 }
 
-export function opportunityApplicantsPostV2(req, res) {
+function opportunityApplicantsPostV3(req, res) {
   const { applicantRoles, isComplete } = req.body;
   let rolesList = applicantRoles;
   let redirectURL, applicantError;
@@ -293,32 +319,32 @@ export function opportunityApplicantsPostV2(req, res) {
       // console.log('no items added');
       req.session.applicantsError = true;
       req.session.applicantsErrorMessage = 'You must add at least one role.';
-      redirectURL = '/prototypes/opportunity-v2/applicants';
+      redirectURL = '/prototypes/opportunity-v3/applicants';
     } else {
       // all good
       // TODO FIX THIS BACK TO WHAT IT SHOULD BE
-      redirectURL = '/prototypes/opportunity-v2/workflow-application';
-      // redirectURL = '/prototypes/opportunity-v2/applicants';
+      redirectURL = '/prototypes/opportunity-v3/workflow-application';
+      // redirectURL = '/prototypes/opportunity-v3/applicants';
     }
   } else {
     // not being validated as not complete, just save and
     req.session.applicantsIsComplete = null;
 
-    redirectURL = '/prototypes/opportunity-v2/workflow-application';
+    redirectURL = '/prototypes/opportunity-v3/workflow-application';
   }
 
   return res.redirect(redirectURL);
 
   /*if (rolesList) {
-    return res.redirect('/prototypes/opportunity-v2/workflow-application');
+    return res.redirect('/prototypes/opportunity-v3/workflow-application');
   } else {
     req.session.fundersError = true;
-    return res.redirect('/prototypes/opportunity-v2/applicants');
+    return res.redirect('/prototypes/opportunity-v3/applicants');
   }*/
 }
 
 // Workflow application
-export function opportunityWorkflowApplicationGetV2(req, res) {
+function opportunityWorkflowApplicationGetV3(req, res) {
   let viewData, opportunityName, opportunityID, workFlowItemAdded, removeItem;
 
   removeItem = req.param('removeItem');
@@ -356,20 +382,7 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
   let openDay, closingDay, openingMonth, closingMonth;
 
   if (openingDate) {
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     let splitOpenDate = openingDate.split('/');
@@ -419,13 +432,13 @@ export function opportunityWorkflowApplicationGetV2(req, res) {
     openingMonth,
     // closingMonth,
     openingDateTidyAsString,
-    closingDateTidyAsString,
+    closingDateTidyAsString
   };
 
-  return res.render('prototypes/opportunity-v2/workflow-application', viewData);
+  return res.render('prototypes/opportunity-v3/workflow-application', viewData);
 }
 
-export function opportunityWorkflowApplicationPostV2(req, res) {
+function opportunityWorkflowApplicationPostV3(req, res) {
   const { addNewSection, submitApplication, isComplete } = req.body;
 
   // console.log('addNewSection = ' + addNewSection);
@@ -456,17 +469,17 @@ export function opportunityWorkflowApplicationPostV2(req, res) {
 
     if (isComplete && detailsIsComplete && applicantsIsComplete && resourcesIsComplete && customIsComplete) {
       req.session.setupComplete = true;
-      return res.redirect('/prototypes/opportunity-v2/setup');
+      return res.redirect('/prototypes/opportunity-v3/setup');
     } else {
-      return res.redirect('/prototypes/opportunity-v2/setup');
+      return res.redirect('/prototypes/opportunity-v3/setup');
     }
   } else {
-    return res.redirect('/prototypes/opportunity-v2/workflow-application');
+    return res.redirect('/prototypes/opportunity-v3/workflow-application');
   }
 }
 
 // Resources and costs
-export function opportunityResourcesGetV2(req, res) {
+function opportunityResourcesGetV3(req, res) {
   let viewData, opportunityName, opportunityID, allApplicantTypes, resourcesIsComplete;
 
   allApplicantTypes = generalData.allApplicantTypes;
@@ -484,13 +497,13 @@ export function opportunityResourcesGetV2(req, res) {
     opportunityName,
     opportunityID,
     allApplicantTypes,
-    resourcesIsComplete,
+    resourcesIsComplete
   };
 
-  return res.render('prototypes/opportunity-v2/resources-and-costs', viewData);
+  return res.render('prototypes/opportunity-v3/resources-and-costs', viewData);
 }
 
-export function opportunityResourcesPostV2(req, res) {
+function opportunityResourcesPostV3(req, res) {
   const { isComplete } = req.body;
 
   if (isComplete === 'on') {
@@ -499,11 +512,11 @@ export function opportunityResourcesPostV2(req, res) {
     req.session.resourcesIsComplete = null;
   }
 
-  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  return res.redirect('/prototypes/opportunity-v3/workflow-application');
 }
 
 // Application dates
-export function opportunityApplicationsDatesGetV2(req, res) {
+function opportunityApplicationsDatesGetV3(req, res) {
   let viewData, opportunityName, opportunityID, allApplicantTypes;
 
   allApplicantTypes = generalData.allApplicantTypes;
@@ -531,13 +544,13 @@ export function opportunityApplicationsDatesGetV2(req, res) {
     closingDate,
     closingTime,
     openingTimeMeridian,
-    closingTimeMeridian,
+    closingTimeMeridian
   };
 
-  return res.render('prototypes/opportunity-v2/application-dates', viewData);
+  return res.render('prototypes/opportunity-v3/application-dates', viewData);
 }
 
-export function opportunityApplicationsDatesPostV2(req, res) {
+function opportunityApplicationsDatesPostV3(req, res) {
   const { openingDate, openingTime, closingDate, closingTime, openingTimeMeridian, closingTimeMeridian } = req.body;
 
   // console.log('openingDate = ' + openingDate);
@@ -549,11 +562,11 @@ export function opportunityApplicationsDatesPostV2(req, res) {
   req.session.openingTimeMeridian = openingTimeMeridian;
   req.session.closingTimeMeridian = closingTimeMeridian;
 
-  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  return res.redirect('/prototypes/opportunity-v3/workflow-application');
 }
 
 // Details input page big form
-export function opportunityDetailsGetV2(req, res) {
+function opportunityDetailsGetV3(req, res) {
   let viewData, opportunityName, opportunityID;
 
   opportunityName = req.session.opportunityName;
@@ -570,13 +583,13 @@ export function opportunityDetailsGetV2(req, res) {
   viewData = {
     opportunityName,
     opportunityID,
-    detailsIsComplete,
+    detailsIsComplete
   };
 
-  return res.render('prototypes/opportunity-v2/details', viewData);
+  return res.render('prototypes/opportunity-v3/details', viewData);
 }
 
-export function opportunityDetailsPostV2(req, res) {
+function opportunityDetailsPostV3(req, res) {
   const { markAsComplete } = req.body;
 
   // console.log('details page isComplete = ' + markAsComplete);
@@ -587,11 +600,11 @@ export function opportunityDetailsPostV2(req, res) {
     req.session.detailsIsComplete = null;
   }
 
-  return res.redirect('/prototypes/opportunity-v2/workflow-application');
+  return res.redirect('/prototypes/opportunity-v3/workflow-application');
 }
 
 // Custom section question
-export function opportunityCustomSectionGetV2(req, res) {
+function opportunityCustomSectionGetV3(req, res) {
   let viewData, opportunityName, opportunityID, sectionTitle, yourQuestion, questionGuidance, wordcount, customIsComplete;
 
   opportunityName = req.session.opportunityName;
@@ -636,13 +649,13 @@ export function opportunityCustomSectionGetV2(req, res) {
     customSectionTitleError,
     customSectionQuestionError,
     customSectionGuidanceError,
-    customSectionWordcountError,
+    customSectionWordcountError
   };
 
-  return res.render('prototypes/opportunity-v2/custom-section', viewData);
+  return res.render('prototypes/opportunity-v3/custom-section', viewData);
 }
 
-export function opportunityCustomSectionPostV2(req, res) {
+function opportunityCustomSectionPostV3(req, res) {
   const { isComplete, sectionTitle, yourQuestion, questionGuidance, wordcount } = req.body;
   let redirectURL, hasAnError;
 
@@ -680,10 +693,10 @@ export function opportunityCustomSectionPostV2(req, res) {
 
   if (hasAnError === true) {
     req.session.customSectionError = true;
-    redirectURL = '/prototypes/opportunity-v2/custom-section';
+    redirectURL = '/prototypes/opportunity-v3/custom-section';
   } else {
     // req.session.customIsComplete = null;
-    redirectURL = '/prototypes/opportunity-v2/workflow-application';
+    redirectURL = '/prototypes/opportunity-v3/workflow-application';
   }
   return res.redirect(redirectURL);
 }

@@ -1,0 +1,247 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Application' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{% set isAdminUser = true %}
+{#
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+#}
+{% set applicantSectionAdded = applicantSectionAdded if applicantSectionAdded %}
+{% set resourcesSectionAdded = resourcesSectionAdded if resourcesSectionAdded %}
+{% set customSectionAdded = customSectionAdded if customSectionAdded %}
+{% set applicationIsComplete = applicationIsComplete if applicationIsComplete %}
+
+{% set openingDate = openingDate if openingDate %}
+{% set openingTime = openingTime if openingTime %}
+{% set closingDate = closingDate if closingDate %}
+{% set closingTime = closingTime if closingTime %}
+{% set openingTimeMeridian = openingTimeMeridian if openingTimeMeridian %}
+{% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
+{% set openDay = openDay if openDay %}
+{% set closingDay = closingDay if closingDay %}
+{% set openingMonth = openingMonth if openingMonth %}
+{% set closingMonth = closingMonth if closingMonth %}
+
+{% set detailsIsComplete = detailsIsComplete if detailsIsComplete %}
+{% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
+{% set resourcesIsComplete = resourcesIsComplete if resourcesIsComplete %}
+
+{% set openingDateTidyAsString = openingDateTidyAsString if openingDateTidyAsString %}
+{% set closingDateTidyAsString = closingDateTidyAsString if closingDateTidyAsString %}
+
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.backLink(text=BACK_TO_OPPORTUNITY_SETUP_LINK, url='/prototypes/opportunity-v3/setup') }}
+        {%- endcall %}
+    {%- endcall %}
+
+
+  {% call components.bulmaRow() %}
+
+      {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+        {{ components.captionHeading(text='Application', caption=opportunityID + ': ' +opportunityName) }}
+
+      {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="dates">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-4') %}
+                {{ components.captionHeading(text=APPLICATIONS_OPENING_DATE_TITLE, size='m') }}
+                {% if openingDate %}
+                    {#{{ openDay }}, {{ openingDate }}#} {{ openingDateTidyAsString }}, {{ openingTime }} {{ openingTimeMeridian }}
+                {% else %}
+                    <p>{{ OPENING_DATE_NOT_ADDED }}</p>
+                {% endif %}
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='is-4') %}
+                {{ components.captionHeading(text=APPLICATIONS_CLOSING_DATE_TITLE, size='m') }}
+                {% if closingDate %}
+                    {#{{ closingDay }}, {{ closingDate }}#} {{ closingDateTidyAsString }}, {{ closingTime }} {{ closingTimeMeridian }}
+                {% else %}
+                    <p>{{ CLOSING_DATE_NOT_ADDED }}</p>
+                {% endif %}
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-4') %}
+
+                {{ components.link(text=APPLICATION_EDIT_DATES_LINK, url='/prototypes/opportunity-v3/application-dates', size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    <section class="section" id="sections">
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Sections', size='m') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            <div class="application-items u-space-b30">
+                <div class="application-item {% if detailsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='/prototypes/opportunity-v3/details') }}
+                        </div>
+                        <div class="application-item__right">
+                            {% if detailsIsComplete %}
+                                <span class="application-item__status">Complete</span>
+                            {% else %}
+                                <span class="application-item__status">Incomplete</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% if applicantSectionAdded %}
+                    <div class="application-item application-item--workflow {% if applicantsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Applicants", url='/prototypes/opportunity-v3/applicants') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=applicants') }} </span>
+                                {% if applicantsIsComplete %}
+                                    <span class="application-item__status">Complete</span>
+                                {% else %}
+                                    <span class="application-item__status">Incomplete</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {% if resourcesSectionAdded %}
+                    <div class="application-item application-item--workflow {% if resourcesIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Resources and costs", url='/prototypes/opportunity-v3/resources-and-costs') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=resources') }} </span>
+                                {% if resourcesIsComplete %}
+                                    <span class="application-item__status">Complete</span>
+                                {% else %}
+                                    <span class="application-item__status">Incomplete</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if customSectionAdded %}
+                    <div class="application-item application-item--workflow {% if customIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {% set customSectionTitle = customSectionTitle if customSectionTitle else '(Untitled section)' %}
+                                {{ components.link(text=customSectionTitle, url='/prototypes/opportunity-v3/custom-section') }}
+                            </div>
+                            <div class="application-item__right">
+                                <span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=custom') }} </span>
+                                {% if customIsComplete %}
+                                    <span class="application-item__status">Complete</span>
+                                {% else %}
+                                    <span class="application-item__status">Incomplete</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            {% call components.form(action='/prototypes/opportunity-v3/workflow-application', method='POST',name='addNewSection') %}
+
+                <div class="govuk-form-group ">
+                    <label class="govuk-label govuk-label--s" for="select-box">Add section</label>
+                    <div class="select-iterator">
+                        <select class="govuk-select " id="select-box" name="addNewSection">
+                            <option>Select</option>
+                            {% if not applicantSectionAdded %}<option value="applicants">Applicants</option>{% endif %}
+                            {% if not resourcesSectionAdded %}<option value="resources">Resources and cost</option>{% endif %}
+                            <option value="custom">Custom section</option>
+                        </select>
+                        {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        </section>
+
+        <section class="section" id="submitSection">
+
+        {% call components.form(action='/prototypes/opportunity-v3/workflow-application', method='POST', name='submitApplication') %}
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+                        <div class="application-item">
+                            <div class="application-item__contents">
+                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                        <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                    </legend>
+                                    <div class="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+                        {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit")}}
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %} {# end 2nd form #}
+        </section>
+
+    {%- endcall %}
+
+{% endblock %}

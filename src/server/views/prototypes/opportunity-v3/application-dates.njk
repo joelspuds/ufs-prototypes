@@ -1,0 +1,135 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+
+{% set pageTitle = 'Application dates' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{#{% set allApplicantTypes = allApplicantTypes %}#}
+{% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+
+{% set datesError = datesError if datesError %}
+
+{% set openingDate = openingDate if openingDate %}
+{% set openingTime = openingTime if openingTime %}
+{% set closingDate = closingDate if closingDate %}
+{% set closingTime = closingTime if closingTime %}
+{% set openingTimeMeridian = openingTimeMeridian if openingTimeMeridian %}
+{% set closingTimeMeridian = closingTimeMeridian if closingTimeMeridian %}
+
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application', url='/prototypes/opportunity-v3/workflow-application') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% if datesError %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            <li>
+                                <a href="#fundersError">You have not selected a funder for your Opportunity</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Application dates', caption=opportunityID + ': ' + opportunityName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/opportunity-v3/application-dates', method='POST',name='applicationDates') %}
+
+        <section class="section" id="openDates">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">{{ APPLICATIONS_OPENING_DATE_TITLE }}</legend>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="openingDate">Date</label>
+                            <span class="govuk-hint">DD/MM/YYYY</span>
+                            <input class="govuk-input govuk-input--width-7" id="openingDate" name="openingDate" type="text" value="{{ openingDate }}">
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="openingTime">Time</label>
+                            <span class="govuk-hint">For example, 9:00am or 12:00pm</span>
+                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text" value="{{ openingTime }}">
+                            <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
+                            <select class="govuk-select" id="openingTimeMeridian" name="openingTimeMeridian">
+                                <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %}>am</option>
+                                <option value="pm" {% if openingTimeMeridian === 'pm'%}selected{% endif %} >pm</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
+        <section class="section" id="closeDates">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">{{ APPLICATIONS_CLOSING_DATE_TITLE }}</legend>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="closingDate">Date</label>
+                            <span class="govuk-hint">DD/MM/YYYY</span>
+                            <input class="govuk-input govuk-input--width-7" id="closingDate" name="closingDate" type="text" value="{{ closingTime }}">
+                        </div>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="closingTime">Time</label>
+                            <span class="govuk-hint">For example, 12:00pm or 4:00pm</span>
+                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{{ closingTime }}">
+                            <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
+                            <select class="govuk-select" id="closingTimeMeridian" name="closingTimeMeridian">
+                                <option value="am" {% if closingTimeMeridian === 'am'%}selected{% endif %}>am</option>
+                                <option value="pm" {% if closingTimeMeridian === 'pm'%}selected{% endif %} >pm</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        </section>
+        <section class="" id="subitSection">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+                        {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        </section>
+
+    {%- endcall %} {# end form #}
+
+{% endblock %}

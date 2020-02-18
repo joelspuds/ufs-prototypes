@@ -6,4 +6,5 @@ export * from './embeddedPDF';
 export * from './spreadsheet';
 export * from './createOpportunity';
 export * from './createOpportunity-v2';
+export * from './createOpportunity-v3';
 export * from './data-test';
