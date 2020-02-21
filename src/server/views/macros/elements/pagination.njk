@@ -1,0 +1,50 @@
+{% macro pagination(totalItems=99,itemsPerPage=10,currentPage=1) %}
+    {% set totalOverPerPage = totalItems/itemsPerPage %}
+    {% set totalOverPerPageFloor = totalOverPerPage | round(0, "floor")  %}
+
+    <div class="pager">
+
+        {% if totalItems < itemsPerPage %}
+            <div class="pager__summary">Showing {{ totalItems }} items</div>
+        {% else %}
+            <div class="pager__summary">Showing {{ (currentPage * 10)-9 }} –  {{ currentPage * 10 }} of {{ totalItems }} items</div>
+        {% endif %}
+
+        {% if totalItems > itemsPerPage %}
+            <div class="pager__controls">
+
+                <ul class="pager__list">
+
+                    {% if currentPage > 1 %}
+                        <li class="pager__list-item">
+                            <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                        </li>
+                    {% endif %}
+
+                    {% for i in range(0, totalItems/itemsPerPage) -%}
+                        {% set newI = i + 1 %}
+                        <li class="pager__list-item">
+                            {% if currentPage != newI %}
+                                <a href="#" class="pager__list-link govuk-link">
+                            {% else %}
+                                    <span class="pager__list-not-link">
+                            {% endif %}
+                                {{ newI }}
+                            {% if currentPage != newI %}
+                                </a>
+                            {% else %}
+                                </span>
+                            {% endif %}
+                        </li>
+                    {%- endfor %}
+                    {%  if currentPage < totalOverPerPageFloor %}
+                        <li class="pager__list-item">
+                            <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

@@ -1,0 +1,33 @@
+.search {
+  @include govuk-clearfix;
+
+  &__input {
+    display: inline-block;
+    float: left;
+    margin-right: 4px;
+  }
+
+  &__submit {
+    border: 0;
+    cursor: pointer;
+    border-radius: 0;
+    position: relative;
+    display: inline-block;
+    float:left;
+    margin-bottom: 2px;
+
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    background-image: url(/images/ufs/search-button.png);
+    background-repeat: no-repeat;
+    background-position: 2px 50%;
+    text-indent: -5000px;
+    overflow: hidden;
+    background-color: #0b0c0c;
+    color: #ffffff;
+  }
+
+}
+
+

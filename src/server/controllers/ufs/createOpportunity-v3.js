@@ -8,7 +8,11 @@ export function opportunityGetV3(req, res) {
     req.session.destroy();
   }
 
-  viewData = {};
+  let allCouncils = generalData.allCouncils;
+
+  viewData = {
+    allCouncils,
+  };
   return res.render('prototypes/opportunity-v3/index', viewData);
 }
 

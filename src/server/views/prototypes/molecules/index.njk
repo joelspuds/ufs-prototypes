@@ -1,0 +1,67 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Molecules' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.backLink(text='Back to prototypes', url='/prototypes/') }}
+        {%- endcall %}
+    {%- endcall %}
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Molecules', caption='In lieu of a proper pattern library') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                {{ components.captionHeading(text='Custom Funding Service molecules', size='m') }}
+
+                <ul class="govuk-list--bullet govuk-body">
+                    <li>
+                        <a href="/prototypes/molecules/application-items" class="govuk-link">Application items</a>
+                    </li>
+                    <li>
+                        <a href="/prototypes/molecules/filters" class="govuk-link">Filters</a>
+                    </li>
+                    <li>
+                        <a href="/prototypes/molecules/pagination" class="govuk-link">Pagination</a>
+                    </li>
+                    <li>
+                        <a href="/prototypes/molecules/progress-bars" class="govuk-link">Progress bars</a>
+                    </li>
+                    <li>
+                        <a href="/prototypes/molecules/secondary-buttons" class="govuk-link">Secondary buttons</a>
+                    </li>
+                </ul>
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-4') %}
+                <div class="govuk-related-items govuk-related-items--flush">
+
+                    {#<h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
+                    <p class="govuk-body-s u-space-b5">Really long title for this exciting new opportunity</p>
+                    <ul class="govuk-list u-space-t10">
+                        <li><a href="/prototypes/opportunity-v2/create?mode=edit" class="govuk-link govuk-body--s sub-button">Edit Opportunity name</a></li>
+                    </ul>#}
+                </div>
+            {%- endcall %}
+        {%- endcall %}
+    </section>
+
+{% endblock %}

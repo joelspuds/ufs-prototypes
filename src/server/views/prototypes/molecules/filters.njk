@@ -1,0 +1,122 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Filters and sorting' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% set allCouncils = allCouncils %}
+
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.backLink(text='Back to molecules', url='/prototypes/molecules') }}
+        {%- endcall %}
+    {%- endcall %}
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Filters and sorting') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+        <section class="section" id="main-content">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-4') %}
+                    <div class="govuk-related-items govuk-related-items--flush">
+
+                        {{ components.captionHeading(text='Filters and sorting', tag='h2', size='s') }}
+
+                        <div class="filter">
+                            <h2 class="filter__title">Filter by status</h2>
+                            <span class="filter__toggle"></span>
+                            <ul class="filter__list u-clearfix">
+                                <li class="filter__item filter__item--small">
+                                    <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                        <input class="govuk-checkboxes__input" id="filterDraft" type="checkbox" name="filterDraft" value="draft">
+                                        <label for="filterDraft" class="govuk-checkboxes__label u-display-ib">Draft</label>
+                                    </div>
+                                </li>
+                                <li class="filter__item filter__item--small">
+                                    <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                        <input class="govuk-checkboxes__input" id="filterReady" type="checkbox" name="filterReady" value="ready">
+                                        <label for="filterReady" class="govuk-checkboxes__label u-display-ib">Ready to open</label>
+                                    </div>
+                                </li>
+                                <li class="filter__item filter__item--small">
+                                    <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                        <input class="govuk-checkboxes__input" id="filterOpen" type="checkbox" name="filterOpen" value="open">
+                                        <label for="filterOpen" class="govuk-checkboxes__label u-display-ib">Open</label>
+                                    </div>
+                                </li>
+                                <li class="filter__item filter__item--small">
+                                    <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                        <input class="govuk-checkboxes__input" id="filterPrePanel" type="checkbox" name="prePanel" value="prePanel">
+                                        <label for="filterPrePanel" class="govuk-checkboxes__label u-display-ib">Pre-panel</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div class="filter filter-toggle __filter-toggle--shut">
+                            <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')" aria-expanded="false">Filter by council</button>
+                            {#<h2 class="filter__title" tabindex="0" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')">Filter by council</h2>#}
+                            <span class="filter__toggle"></span>
+                            <ul class="filter__list u-clearfix js-hidden" id="toggleCouncilsList">
+                                {% for item in allCouncils %}
+                                    <li class="filter__item filter__item--small govuk-clearfix">
+                                        <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                            <input class="govuk-checkboxes__input " id="filterCouncils_{{ item.index }}" type="checkbox" name="filterCouncils_{{ item.index }}" value="{{ item.name }}">
+                                            <label for="filterCouncils_{{ item.index }}" class="govuk-checkboxes__label u-display-ib">{{ item.value }}</label>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+
+                    </div>
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='column is-8') %}
+
+                    <p class="govuk-body"> 👈 Over there!</p>
+
+                {%- endcall %}
+
+            {%- endcall %}
+        </section>
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }
+    </script>
+{% endblock %}

@@ -1,4 +1,6 @@
 // UFS overrides
+@import './bem';
+@import './misc';
 @import './typography';
 @import './prototype-specific';
 @import './govuk-related-items';
@@ -20,3 +22,6 @@
 @import './application-tasks';
 @import './tabs-alt';
 @import './sticy-nav';
+@import './filters';
+@import './pagination';
+@import './search';

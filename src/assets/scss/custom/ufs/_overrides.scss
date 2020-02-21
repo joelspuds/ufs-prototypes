@@ -99,3 +99,11 @@
     }
   }
 }
+
+
+.govuk-checkboxes--small .govuk-checkboxes__label::after {
+  top: 15px;
+  left: 6px;
+  width: 12px;
+  height: 7px;
+}

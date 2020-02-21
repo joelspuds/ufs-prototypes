@@ -98,6 +98,16 @@ router.post('/prototypes/opportunity/application', demosController.opportunityAp
 
 /* *************************************************************** *
 
+    Molecules random stuff
+
+ * *************************************************************** */
+// filters
+router.get('/prototypes/molecules/filters', demosController.moleculesFiltersGet);
+
+
+
+/* *************************************************************** *
+
     Create opportunity V2
 
  * *************************************************************** */

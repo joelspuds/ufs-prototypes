@@ -1,47 +1,3 @@
-
-&-border {
-  &-bottom {
-   margin-bottom: $gutter/2;
-   padding-bottom: $gutter/2;
-   border-bottom: 1px solid $grey-2;
-  }
-}
-
-// Use for larger body text on mobile to reduce on desktop
-&-key-text {
- font-size: 19px;
- @include media(desktop){ 
-   font-size: 16px;
- }
-}
-
-&-tablet-button {
- display: block;
- text-align: center;
- @include media(tablet){
-   display: initial;
- }
-}
-
-// Constrain images to 50% for < tablet only
-&-mobile-img-50 {
-  @include media(false, $tablet-breakpoint) {
-    max-width: 50%;
-  }
-}
-
-.hide-large {
- @include media(false, false, 768px) {
-   display: none !important;
- }
-}
-
-.hide-small {
- @include media(false, 767px) {
-   display: none;
- }
-}
-
 .js-only,
 .js-only--block,
 .js-only--inline {
@@ -87,18 +43,4 @@
  &:before {
    content: '\25BC';
  }
-}
-
-// text align right when required (for example, some form elements)
-.a-r {
- text-align: right;
-}
-
-// Apply to container of items which fade out
-.u-fade-items { 
-   transition: all .5s ease-in-out; 
-}
-
-.u-text-break {
-  word-wrap: break-word;
 }

@@ -1,6 +1,6 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'admin' %}
-{% set pageTitle = 'Application' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Application items' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% set isAdminUser = true %}
 
@@ -22,7 +22,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-            {{ components.backLink(text=BACK_TO_OPPORTUNITY_SETUP_LINK, url='/prototypes/opportunity-v2/setup') }}
+            {{ components.backLink(text='Back to molecules', url='/prototypes/molecules') }}
         {%- endcall %}
     {%- endcall %}
 

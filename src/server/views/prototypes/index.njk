@@ -9,7 +9,7 @@
 ] %}
 
   {% set listItemsFinal = [
-      { text: 'Nothing made '}
+      { text: 'Molecules ', url: '/prototypes/molecules'}
   ] %}
 
 {% block content %}
@@ -29,7 +29,7 @@
 
         {% call components.columnHalf() %}
 
-            {{ components.captionHeading(text='Production ready', tag='h3', size='m') }}
+            {{ components.captionHeading(text='Other', tag='h3', size='m') }}
 
             {{ components.list(items=listItemsFinal, type='bullet')}}
 

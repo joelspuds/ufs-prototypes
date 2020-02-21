@@ -8,6 +8,7 @@
 {% set funderslist = funderslist %}
 {% set fundersError = fundersError if fundersError %}
 {% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
+{% set othersChecked = othersChecked if othersChecked %}
 
 {% set isAdminUser = true %}
 
@@ -90,6 +91,11 @@
                                 </div>
 
                             {% endfor %}
+
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="council_other" name="funders" type="checkbox" value="other" {% if othersChecked %} checked {% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label" for="council_other">Other</label>
+                            </div>
 
                         </div>
                     </fieldset>

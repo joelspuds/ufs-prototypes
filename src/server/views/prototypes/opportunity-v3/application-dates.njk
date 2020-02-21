@@ -74,7 +74,7 @@
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="openingTime">Time</label>
                             <span class="govuk-hint">For example, 9:00am or 12:00pm</span>
-                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text" value="{{ openingTime }}">
+                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text" value="{% if openingTime %}{{ openingTime }}{% else %}9{% endif %}">
                             <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
                             <select class="govuk-select" id="openingTimeMeridian" name="openingTimeMeridian">
                                 <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %}>am</option>
@@ -96,16 +96,16 @@
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="closingDate">Date</label>
                             <span class="govuk-hint">DD/MM/YYYY</span>
-                            <input class="govuk-input govuk-input--width-7" id="closingDate" name="closingDate" type="text" value="{{ closingTime }}">
+                            <input class="govuk-input govuk-input--width-7" id="closingDate" name="closingDate" type="text" value="{{ closingDate }}">
                         </div>
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="closingTime">Time</label>
                             <span class="govuk-hint">For example, 12:00pm or 4:00pm</span>
-                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{{ closingTime }}">
+                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{% if closingTime %}{{ closingTime }}{% else %}4{% endif %}">
                             <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
                             <select class="govuk-select" id="closingTimeMeridian" name="closingTimeMeridian">
-                                <option value="am" {% if closingTimeMeridian === 'am'%}selected{% endif %}>am</option>
-                                <option value="pm" {% if closingTimeMeridian === 'pm'%}selected{% endif %} >pm</option>
+                                <option value="am" {% if closingTimeMeridian === 'am' %}selected{% endif %}>am</option>
+                                <option value="pm" {% if closingTimeMeridian === 'pm' or not closingTime %}selected{% endif %} >pm</option>
                             </select>
                         </div>
                     </fieldset>
