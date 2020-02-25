@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                {% if applicantSectionAdded %}
+                {#{% if applicantSectionAdded %}#}
                     <div class="application-item application-item--workflow {% if applicantsIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
@@ -136,9 +136,9 @@
                         </div>
                     </div>
 
-                {% endif %}
+                {#{% endif %}#}
 
-                {% if resourcesSectionAdded %}
+                {#{% if resourcesSectionAdded %}#}
                     <div class="application-item application-item--workflow {% if resourcesIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
                         <div class="application-item__contents govuk-clearfix">
                             <div class="application-item__left">
@@ -154,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                {% endif %}
+                {#{% endif %}#}
 
                 {% if customSectionAdded %}
                     <div class="application-item application-item--workflow {% if customIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
@@ -184,8 +184,8 @@
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addNewSection">
                             <option>Select</option>
-                            {% if not applicantSectionAdded %}<option value="applicants">Applicants</option>{% endif %}
-                            {% if not resourcesSectionAdded %}<option value="resources">Resources and cost</option>{% endif %}
+                            {#{% if not applicantSectionAdded %}<option value="applicants">Applicants</option>{% endif %}
+                            {% if not resourcesSectionAdded %}<option value="resources">Resources and cost</option>{% endif %}#}
                             <option value="custom">Custom section</option>
                         </select>
                         {{ components.button(text='Add', extraClass='govuk-button--secondary') }}

@@ -33,7 +33,7 @@
 
     {% call components.bulmaColumnAny(size='is-full') %}
 
-    {{ components.captionHeading(text=OPPORTUNITY_SETUP__TITLE, caption=opportunityID + ': ' +opportunityName) }}
+        {{ components.captionHeading(text=OPPORTUNITY_SETUP__TITLE, caption=opportunityID + ': ' + opportunityName) }}
 
     {%- endcall %}
 
@@ -43,11 +43,13 @@
 
         {% call components.bulmaColumnAny(size='is-8') %}
 
-            <section class="section" id="defaultItems">
-            {#<div>fundersIsComplete = {{ fundersIsComplete }}</div>#}
-            <div class="application-item {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
-                <div class="application-item__contents govuk-clearfix">
+            <p class="govuk-body-l">Select 'Funders' to list the bodies supporting your Opportunity. Then add the modules you need to manage it.</p>
+            {#<p class="govuk-body-l">Add the funding bodies that are supporting your Opportunity, then add the modules you need to manage it.</p>#}
 
+            <section class="section" id="defaultItems">
+
+            <div class="application-item application-item--skinny {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                <div class="application-item__contents govuk-clearfix">
                     <div class="application-item__left">
                         {{ components.link(text="Funders", url='/prototypes/opportunity-v3/funders') }}
                     </div>
@@ -61,7 +63,7 @@
                                 {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
                                 {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
                             </span>
-                        </div>
+                        </  div>
                     {% else %}
                         <div class="application-item__right">
                             <span class="application-item__status">Incomplete</span>
@@ -75,7 +77,7 @@
 
             <section class="section" id="workflow">
 
-            {{ components.captionHeading(text='Workflow', tag='h2', size='m', extraClass='u-space-t30') }}
+            {{ components.captionHeading(text='Modules', tag='h2', size='m', extraClass='u-space-t30') }}
 
             {% if workFlowItemAdded %}
                 <div class="application-items">
@@ -106,11 +108,11 @@
             {% call components.form(action='/prototypes/opportunity-v3/setup', method='POST',name='addWorkflowItem') %}
 
                 <div class="govuk-form-group ">
-                    <label class="govuk-label govuk-label--s" for="select-box">Add workflow item</label>
+                    <label class="govuk-label govuk-label--s" for="select-box">Add modules to your Opportunity</label>
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addWorkflowItem">
                             <option>Select</option>
-                            <option value="application">Application</option>
+                            <option value="application">Create application</option>
                         </select>
                         {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
                     </div>

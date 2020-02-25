@@ -1,4 +1,5 @@
-.application-item {
+$module: 'application-item';
+.#{$module} {
     margin-top: govuk-spacing(0);
     margin-bottom: govuk-spacing(2);
     position: relative;
@@ -120,7 +121,7 @@
 
     &--complete {
 
-        .application-item__contents {
+        .#{$module}__contents {
 
             &:before {
                 position: absolute;
@@ -138,7 +139,7 @@
                 }*/
             }
 
-            .application-item__status {
+            .#{$module}__status {
                 color: govuk-colour("green");
             }
         }
@@ -146,7 +147,7 @@
 
     &--incomplete {
 
-        .application-item__contents {
+        .#{$module}__contents {
 
             &:before {
                 position: absolute;
@@ -177,6 +178,23 @@
 
         .application-item__contents {
             border: 4px solid govuk-colour("red");
+        }
+    }
+
+    &--skinny {
+        border-bottom: 1px solid govuk-colour("mid-grey");
+
+        &:first-of-type {
+            border-top: 1px solid govuk-colour("mid-grey");
+        }
+
+        .#{$module}__contents {
+            background-color: govuk-colour("white");
+            padding: 15px 30px 15px 0;
+
+            &:before {
+                right: 0;
+            }
         }
     }
 }

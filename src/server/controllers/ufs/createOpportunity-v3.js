@@ -162,11 +162,16 @@ export function opportunityFundersGetV3(req, res) {
   fundersIsComplete = req.session.fundersIsComplete;
   req.session.fundersIsComplete = null;
 
+  let fundersOther = req.session.fundersOther;
+  let otherFundingBody = req.session.otherFundingBody;
+
   fundersError = req.session.fundersError;
   req.session.fundersError = null;
 
   funderslist = req.session.funderslist;
   viewData = {
+    fundersOther,
+    otherFundingBody,
     opportunityName,
     opportunityID,
     allCouncils,
@@ -179,8 +184,10 @@ export function opportunityFundersGetV3(req, res) {
 }
 
 export function opportunityFundersPostV3(req, res) {
-  const { funders, isComplete } = req.body;
-  // console.log(funders);
+  const { funders, isComplete, fundersOther, otherFundingBody } = req.body;
+  console.log(funders);
+
+  console.log(req.body);
 
   let fundersList, allCouncils;
 
@@ -192,9 +199,13 @@ export function opportunityFundersPostV3(req, res) {
     fundersList = [funders];
   }
 
+  req.session.fundersOther = fundersOther;
+  req.session.otherFundingBody = otherFundingBody;
   req.session.funderslist = fundersList;
 
-  // console.log(fundersList);
+  if (otherFundingBody) {
+    fundersList.push(otherFundingBody);
+  }
 
   if (isComplete === 'on') {
     req.session.fundersIsComplete = true;

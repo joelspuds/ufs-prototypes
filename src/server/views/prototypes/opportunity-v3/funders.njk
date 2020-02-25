@@ -9,6 +9,9 @@
 {% set fundersError = fundersError if fundersError %}
 {% set fundersIsComplete = fundersIsComplete if fundersIsComplete %}
 {% set othersChecked = othersChecked if othersChecked %}
+{% set fundersOther = fundersOther if fundersOther %}
+{% set otherFundingBody = otherFundingBody if otherFundingBody %}
+
 
 {% set isAdminUser = true %}
 
@@ -57,6 +60,13 @@
 
             {% call components.bulmaColumnAny(size='is-two-thirds') %}
 
+                <details class="govuk-details u-space-b10" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Guidance for selecting funders</span>
+                    </summary>
+                    <div class="govuk-details__text">Select all the individual bodies who are contributing. If this is a UKRI-wide Opportunity, select that only and no individual bodies. If you need to add an external funder or contributing body, select ‘Add contributor’. At this stage, a lead funder does not need to be set.</div>
+                </details>
+
                 <div class="govuk-form-group {% if fundersError %} govuk-form-group--error {% endif %}">
                     <fieldset class="govuk-fieldset" aria-describedby="funders-hint">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -93,8 +103,14 @@
                             {% endfor %}
 
                             <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="council_other" name="funders" type="checkbox" value="other" {% if othersChecked %} checked {% endif %}>
-                                <label class="govuk-label govuk-checkboxes__label" for="council_other">Other</label>
+                                <input class="govuk-checkboxes__input govuk-checkboxes__input--toggle" id="council_other" name="fundersOther" type="checkbox" value="other" {% if othersChecked %} checked {% endif %} aria-controls="otherFunderInput" aria-expanded="false" {% if fundersOther %} checked {% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label progressive-disclosure" for="council_other">Add contributor</label>
+                            </div>
+                            <div class="govuk-checkboxes__conditional {% if not fundersOther %} govuk-checkboxes__conditional--hidden {% endif %}" id="otherFunderInput">
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="otherFundingBody">Enter contributing body</label>
+                                    <input class="govuk-input govuk-!-width-one-third" id="otherFundingBody" name="otherFundingBody" type="text" value="{{ otherFundingBody }}">
+                                </div>
                             </div>
 
                         </div>
@@ -143,6 +159,23 @@
 
         {%- endcall %}
 
-    {%- endcall %}
+    {%- endcall %} {# end form #}
 
+{% endblock %}
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $('.govuk-checkboxes__input--toggle').on('change', function() {
+          let targetID = $(this).attr('aria-controls');
+          let hiddenClass = 'govuk-checkboxes__conditional--hidden';
+          if($('#' + targetID).hasClass(hiddenClass) ){
+            $('#' + targetID).removeClass(hiddenClass);
+            $(this).attr('aria-expanded', true);
+          } else {
+            $('#' + targetID).addClass(hiddenClass);
+            $(this).attr('aria-expanded', false);
+          }
+        }).on('load');
+      });
+    </script>
 {% endblock %}
