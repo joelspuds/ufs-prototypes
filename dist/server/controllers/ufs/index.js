@@ -123,3 +123,15 @@ Object.keys(_dataTest).forEach(function (key) {
     }
   });
 });
+
+var _moleculesControllers = require('./moleculesControllers');
+
+Object.keys(_moleculesControllers).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _moleculesControllers[key];
+    }
+  });
+});

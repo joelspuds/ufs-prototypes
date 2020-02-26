@@ -3,6 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.createOpportunityConfigGetV3 = createOpportunityConfigGetV3;
+exports.createOpportunityConfigPostV3 = createOpportunityConfigPostV3;
 exports.opportunityGetV3 = opportunityGetV3;
 exports.createOpportunityGetV3 = createOpportunityGetV3;
 exports.createOpportunityPostV3 = createOpportunityPostV3;
@@ -24,8 +26,52 @@ exports.opportunityDetailsGetV3 = opportunityDetailsGetV3;
 exports.opportunityDetailsPostV3 = opportunityDetailsPostV3;
 exports.opportunityCustomSectionGetV3 = opportunityCustomSectionGetV3;
 exports.opportunityCustomSectionPostV3 = opportunityCustomSectionPostV3;
+
+var _index = require('./index');
+
+var demosController = _interopRequireWildcard(_index);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 let generalData = require('./data');
 let genericFunctions = require('./generic');
+
+// journey config
+function createOpportunityConfigGetV3(req, res) {
+  let viewData, clearSession;
+  clearSession = req.param('clearSession');
+
+  if (clearSession === 'true') {
+    req.session.destroy();
+  }
+
+  viewData = {};
+
+  return res.render('prototypes/opportunity-v3/config', viewData);
+}
+
+function createOpportunityConfigPostV3(req, res) {
+  const { completeConfig } = req.body;
+  console.log(completeConfig);
+  // console.log(req.session);
+  // req.session.destroy();
+  // req.session.create();
+
+
+  // existingSaveMethod
+  // newSaveMethod
+  // req.session.useAltSaveMethod =
+
+  if (completeConfig === 'newSaveMethod') {
+    req.session.useAltSaveMethod = true;
+  } else {
+    req.session.useAltSaveMethod = null;
+  }
+
+  console.log(req.session);
+
+  return res.redirect('/prototypes/opportunity-v3/');
+}
 
 function opportunityGetV3(req, res) {
   let viewData, clearSession;
@@ -34,7 +80,11 @@ function opportunityGetV3(req, res) {
     req.session.destroy();
   }
 
-  viewData = {};
+  let allCouncils = generalData.allCouncils;
+
+  viewData = {
+    allCouncils
+  };
   return res.render('prototypes/opportunity-v3/index', viewData);
 }
 
@@ -184,11 +234,16 @@ function opportunityFundersGetV3(req, res) {
   fundersIsComplete = req.session.fundersIsComplete;
   req.session.fundersIsComplete = null;
 
+  let fundersOther = req.session.fundersOther;
+  let otherFundingBody = req.session.otherFundingBody;
+
   fundersError = req.session.fundersError;
   req.session.fundersError = null;
 
   funderslist = req.session.funderslist;
   viewData = {
+    fundersOther,
+    otherFundingBody,
     opportunityName,
     opportunityID,
     allCouncils,
@@ -201,8 +256,10 @@ function opportunityFundersGetV3(req, res) {
 }
 
 function opportunityFundersPostV3(req, res) {
-  const { funders, isComplete } = req.body;
-  // console.log(funders);
+  const { funders, isComplete, fundersOther, otherFundingBody } = req.body;
+  console.log(funders);
+
+  console.log(req.body);
 
   let fundersList, allCouncils;
 
@@ -214,9 +271,13 @@ function opportunityFundersPostV3(req, res) {
     fundersList = [funders];
   }
 
+  req.session.fundersOther = fundersOther;
+  req.session.otherFundingBody = otherFundingBody;
   req.session.funderslist = fundersList;
 
-  // console.log(fundersList);
+  if (otherFundingBody) {
+    fundersList.push(otherFundingBody);
+  }
 
   if (isComplete === 'on') {
     req.session.fundersIsComplete = true;

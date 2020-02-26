@@ -104,8 +104,6 @@ router.post('/prototypes/opportunity/application', demosController.opportunityAp
 // filters
 router.get('/prototypes/molecules/filters', demosController.moleculesFiltersGet);
 
-
-
 /* *************************************************************** *
 
     Create opportunity V2
@@ -141,6 +139,8 @@ router.post('/prototypes/opportunity-v2/custom-section', demosController.opportu
  * *************************************************************** */
 // Create new opportunity
 router.get('/prototypes/opportunity-v3/', demosController.opportunityGetV3);
+router.get('/prototypes/opportunity-v3/config', demosController.createOpportunityConfigGetV3);
+router.post('/prototypes/opportunity-v3/config', demosController.createOpportunityConfigPostV3);
 router.get('/prototypes/opportunity-v3/create', demosController.createOpportunityGetV3);
 router.post('/prototypes/opportunity-v3/create', demosController.createOpportunityPostV3);
 router.get('/prototypes/opportunity-v3/setup', demosController.opportunitySetupGetV3);

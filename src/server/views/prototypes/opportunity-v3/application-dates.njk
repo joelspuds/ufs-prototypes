@@ -74,7 +74,7 @@
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="openingTime">Time</label>
                             <span class="govuk-hint">For example, 9:00am or 12:00pm</span>
-                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text" value="{% if openingTime %}{{ openingTime }}{% else %}9{% endif %}">
+                            <input class="govuk-input govuk-input--width-4" id="openingTime" name="openingTime" type="text" value="{% if openingTime %}{{ openingTime }}{% else %}9:00{% endif %}">
                             <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
                             <select class="govuk-select" id="openingTimeMeridian" name="openingTimeMeridian">
                                 <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %}>am</option>
@@ -101,7 +101,7 @@
                         <div class="govuk-form-group">
                             <label class="govuk-label govuk-label--s" for="closingTime">Time</label>
                             <span class="govuk-hint">For example, 12:00pm or 4:00pm</span>
-                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{% if closingTime %}{{ closingTime }}{% else %}4{% endif %}">
+                            <input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{% if closingTime %}{{ closingTime }}{% else %}4:00{% endif %}">
                             <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
                             <select class="govuk-select" id="closingTimeMeridian" name="closingTimeMeridian">
                                 <option value="am" {% if closingTimeMeridian === 'am' %}selected{% endif %}>am</option>

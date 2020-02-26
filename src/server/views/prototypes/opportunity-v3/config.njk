@@ -32,19 +32,27 @@
             {% call components.form(action='/prototypes/opportunity-v3/config', method='POST',name='createOpportunity') %}
 
                 <div class="govuk-form-group ">
-                    <fieldset class="govuk-fieldset" aria-describedby="funders-hint">
+                    <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                             <h2 class="govuk-fieldset__heading">How do you want uses to submit their forms?</h2>
                         </legend>
-                        <div class="govuk-checkboxes">
-                            <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="council_0" name="funders" type="checkbox" value="AHRC">
-                                <label class="govuk-label govuk-checkboxes__label" for="council_0">Use the "Save as draft" in place of "Mark as complete"</label>
-                                <span class="govuk-checkboxes__hint">This will also clear their session and take you back to the start</span>
+                        <p class="govuk-hint">Both methods will clear session and take you back to the start of the create opportunity journey</p>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="existingSaveMethod" name="completeConfig" type="radio" value="existingSaveMethod" checked>
+                                <label class="govuk-label govuk-radios__label" for="existingSaveMethod">Use the existing method</label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="newSaveMethod" name="completeConfig" type="radio" value="newSaveMethod">
+                                <label class="govuk-label govuk-radios__label" for="newSaveMethod">Use the secondary CTA "Save as draft" in place of "Mark as complete"</label>
                             </div>
                         </div>
                     </fieldset>
                 </div>
+
+                <p>
+                    {{ components.link(text='This is a test', url='#') }}
+                </p>
 
                 {% call components.formGroup() %}
 

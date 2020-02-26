@@ -1,5 +1,43 @@
+import * as demosController from './index';
+
 let generalData = require('./data');
 let genericFunctions = require('./generic');
+
+// journey config
+export function createOpportunityConfigGetV3(req, res) {
+  let viewData, clearSession;
+  clearSession = req.param('clearSession');
+
+  if (clearSession === 'true') {
+    req.session.destroy();
+  }
+
+  viewData = {};
+
+  return res.render('prototypes/opportunity-v3/config', viewData);
+}
+
+export function createOpportunityConfigPostV3(req, res) {
+  const { completeConfig } = req.body;
+  console.log(completeConfig);
+  // console.log(req.session);
+  // req.session.destroy();
+  // req.session.create();
+
+  // existingSaveMethod
+  // newSaveMethod
+  // req.session.useAltSaveMethod =
+
+  if (completeConfig === 'newSaveMethod') {
+    req.session.useAltSaveMethod = true;
+  } else {
+    req.session.useAltSaveMethod = null;
+  }
+
+  console.log(req.session);
+
+  return res.redirect('/prototypes/opportunity-v3/');
+}
 
 export function opportunityGetV3(req, res) {
   let viewData, clearSession;
