@@ -57,7 +57,6 @@ function createOpportunityConfigPostV3(req, res) {
   // req.session.destroy();
   // req.session.create();
 
-
   // existingSaveMethod
   // newSaveMethod
   // req.session.useAltSaveMethod =

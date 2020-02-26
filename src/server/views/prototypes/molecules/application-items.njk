@@ -18,6 +18,14 @@
             border-bottom-left-radius: 100%/10px;
             border-bottom-right-radius: 100%/10px;
         }
+
+        .toggle-postits {
+            display: none;
+        }
+
+        .js-enabled .toggle-postits {
+            display: inline-block;
+        }
     </style>
 
     {% call components.bulmaRow() %}
@@ -56,6 +64,8 @@
       {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
         {{ components.captionHeading(text='Application items variants') }}
+
+        <a href="#" class="toggle-postits" id="togglePostIts">Toggle post-it notes</a>
 
       {%- endcall %}
 
@@ -381,10 +391,6 @@
                     </div>
                 </div>
 
-
-
-
-
                 <div class="guidelines">
                     <strong>You can ignore everything below this...</strong>
                 </div>
@@ -547,4 +553,14 @@
 
     {%- endcall %}
 
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+       $('#togglePostIts').on('click', function() {
+         $('.guidelines').toggleClass('govuk-visually-hidden');
+       });
+      });
+    </script>
 {% endblock %}
