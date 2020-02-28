@@ -81,7 +81,7 @@
 
             <section class="section" id="workflow">
 
-            {{ components.captionHeading(text='Manage Opportunity', tag='h2', size='m', extraClass='u-space-t30') }}
+            {{ components.captionHeading(text='Manage your Opportunity', tag='h2', size='m', extraClass='u-space-t30') }}
 
             {% if workFlowItemAdded %}
                 <div class="application-items">
@@ -112,13 +112,13 @@
             {% call components.form(action='/prototypes/opportunity-v3/setup', method='POST',name='addWorkflowItem') %}
 
                 <div class="govuk-form-group ">
-                    <label class="govuk-label govuk-label--s" for="select-box">Add stages to your Opportunity</label>
+                    <label class="govuk-label {#govuk-label--s#} govuk-visually-hidden" for="select-box">Add stages to your Opportunity</label>
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addWorkflowItem">
                             <option>Select</option>
                             <option value="application">Application</option>
                         </select>
-                        {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
+                        {{ components.button(text='Add stages', extraClass='govuk-button--secondary') }}
                     </div>
                 </div>
 
