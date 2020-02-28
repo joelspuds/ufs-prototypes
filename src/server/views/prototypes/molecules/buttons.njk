@@ -1,0 +1,100 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Buttons' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% set allCouncils = allCouncils %}
+
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.backLink(text='Back to molecules', url='/prototypes/molecules') }}
+        {%- endcall %}
+    {%- endcall %}
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Buttons') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                {{ components.captionHeading(text='Normal', tag='h2', size='s') }}
+
+                <p>
+                    {{ components.button(text='Save and continue', extraClass='') }}
+                </p>
+
+                {{ components.captionHeading(text='Secondary', tag='h2', size='s') }}
+
+                <p>
+                    {{ components.button(text='Save as draft', extraClass='govuk-button--secondary') }}
+                </p>
+
+                {{ components.captionHeading(text='Warning', tag='h2', size='s') }}
+
+                <p>
+                    {{ components.button(text='Delete my profile', extraClass='govuk-button--warning') }}
+                </p>
+
+                {{ components.captionHeading(text='Disabled', tag='h2', size='s') }}
+
+                <p>
+                    {{ components.button(text='Save and continue', disabled=true) }}
+                </p>
+
+                {{ components.captionHeading(text='Start a journey', tag='h2', size='s') }}
+
+                <p>
+                    {{ components.button(text='Start your journey', url='#', start=true) }}
+                </p>
+
+                {{ components.captionHeading(text='Everything', tag='h2', size='s') }}
+
+                <p>
+                    {{ components.button(text='Lots of attributes', customID='customButtonID', customName='customButtoneName', type='button') }}
+                </p>
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }
+    </script>
+{% endblock %}

@@ -51,137 +51,163 @@
         {%- endcall %}
     {%- endcall %}
 
-    {#<section class="section" id="tabsNav">
 
-        {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-8') %}
 
-                <ul class="govuk-tabs__list" role="tablist">
-                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
-                        <a class="govuk-tabs__tab" href="#resourcesContent" id="tabEdit" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">Edit section</a>
-                    </li>
-                    <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#applicantView" id="tabView" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">Applicant view</a>
-                    </li>
-                </ul>
 
-            {%- endcall %}
+            {% call components.form(action='/prototypes/opportunity-v3/applicants', method='POST',name='manageApplicants') %}
 
-        {%- endcall %}
+                <section class="class" id="applicantRoles">
 
-    </section>#}
+                    {% call components.bulmaRow() %}
 
-    {% call components.form(action='/prototypes/opportunity-v3/applicants', method='POST',name='manageApplicants') %}
+                        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-        <section class="class" id="applicantRoles">
+                            <div class="govuk-form-group {% if applicantsError %} govuk-form-group--error {% endif %}">
+                                <fieldset class="govuk-fieldset" aria-describedby="applicants-hint">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                        <h2 class="govuk-fieldset__heading" {% if applicantsError %}id="applicantsError" {% endif %}>Roles</h2>
+                                    </legend>
+                                    <span id="applicants-hint" class="govuk-hint">Select the roles that can be nominated as part of the application.</span>
 
-        {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                <div class="govuk-form-group {% if applicantsError %} govuk-form-group--error {% endif %}">
-                    <fieldset class="govuk-fieldset" aria-describedby="applicants-hint">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                            <h2 class="govuk-fieldset__heading" {% if applicantsError %}id="applicantsError" {% endif %}>Roles</h2>
-                        </legend>
-                        <span id="applicants-hint" class="govuk-hint">Select the roles that can be nominated as part of the application.</span>
-
-                        {% if applicantsError %}
-                        <span class="govuk-error-message">
+                                    {% if applicantsError %}
+                                        <span class="govuk-error-message">
                             <span class="govuk-visually-hidden">Error:</span>Select one or more roles for this opportunity
                         </span>
-                        {% endif %}
-                        <div class="govuk-checkboxes">
+                                    {% endif %}
+                                    <div class="govuk-checkboxes">
 
-                            {% for item in allApplicantTypes %}
+                                        {% for item in allApplicantTypes %}
 
-                                <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="roles_{{ item.index }}" name="applicantRoles" type="checkbox" value="{{ item.index }}"
-                                    {% for match in rolesList %}
-                                        {% if (match == item.index) %}
-                                            checked
-                                        {% endif %}
-                                    {% endfor %}
-                                    >
-                                    <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">{{ item.name }}</label>
-                                </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="roles_{{ item.index }}" name="applicantRoles" type="checkbox" value="{{ item.index }}"
+                                                        {% for match in rolesList %}
+                                                            {% if (match == item.index) %}
+                                                                checked
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                >
+                                                <label class="govuk-label govuk-checkboxes__label" for="roles_{{ item.index }}">{{ item.name }}</label>
+                                            </div>
 
-                            {% endfor %}
+                                        {% endfor %}
 
-                        </div>
-                    </fieldset>
-                </div>
-
-
-                {#<div class="section">
-                    {{ rolesList }}
-                    {% for item in allApplicantTypes %}
-
-                        <div>
-                            item.index = {{ item.index }}<br>
-                            item.name = {{ item.name }} <br>
-
-                            {% for match in roleslist %}
-                                <span>{{ match }}</span><br>
-                                {% if (match === item.index) %}<strong>should be checked</strong>{% endif %}
-                            {% endfor %}
-
-                            <hr>
-                        </div>
-                    {% endfor %}
-
-                </div>#}
-
-
-            {%- endcall %}
-
-        {%- endcall %}
-
-        </section>
-
-        <section class="" id="completeAndSubmit">
-
-        {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                {% call components.formGroup() %}
-                    <div class="application-item">
-                        <div class="application-item__contents">
-                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
-                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
-                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
-                                </legend>
-                                <div class="govuk-checkboxes">
-                                    <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if applicantsIsComplete %} checked{% endif %}>
-                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
+                                </fieldset>
+                            </div>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                </section>
+
+                <section class="" id="completeAndSubmit">
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                        {% call components.formGroup() %}
+                            <div class="application-item">
+                                <div class="application-item__contents">
+                                    <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                        <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                            <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                        </legend>
+                                        <div class="govuk-checkboxes">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if applicantsIsComplete %} checked{% endif %}>
+                                                <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
                                 </div>
-                            </fieldset>
-                        </div>
-                    </div>
+                            </div>
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+                {% call components.bulmaRow() %}
+
+                    {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                        {% call components.formGroup() %}
+                            {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
+                        {%- endcall %}
+
+                    {%- endcall %}
+
                 {%- endcall %}
 
             {%- endcall %}
 
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         {%- endcall %}
 
-        {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+            <div class="govuk-related-items govuk-related-items--flush">
+                <h2 class="govuk-heading-xs u-space-y5">{{ opportunityID }}</h2>
+                <p class="govuk-body-s u-space-b5">{{opportunityName}}</p>
+                <ul class="govuk-list u-space-t10">
+                    <li><a href="/prototypes/opportunity-v3/create?mode=edit" class="govuk-link sub-button ">Edit Opportunity name</a></li>
+                </ul>
 
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                {% call components.formGroup() %}
-                    {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
-                {%- endcall %}
-
-            {%- endcall %}
-
-        {%- endcall %}
+                <h2 class="govuk-heading-xs u-space-y5">Preview application</h2>
+                <p class="govuk-body-s u-space-b5">You can preview the applicant’s view. You can continue to make changes before publishing. </p>
+                <ul class="govuk-list u-space-t10">
+                    <li><a href="#" class="govuk-link sub-button ">Applicant view (opens in a new window)</a></li>
+                </ul>
+            </div>
+        {% endcall %}
 
     {%- endcall %}
 
-    </section>
 
 {% endblock %}
+
+
+
+

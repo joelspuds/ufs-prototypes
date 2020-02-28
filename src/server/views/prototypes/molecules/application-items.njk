@@ -187,13 +187,101 @@
                     Standard item, no data &amp; complete
                 </div>
 
-                <div class="application-item application-item--complete">
+                <div class="application-item application-item--complete ">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="Details", url='#') }}
                         </div>
                         <div class="application-item__right">
                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="guidelines">
+                    Funders item (takes data), no data &amp; incomplete, skinny version
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--skinny application-item--skinny-last">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Funders item (takes data), no data &amp; complete, skinny version
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny application-item--skinny-last">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Funders item (takes data), with data &amp; complete, skinny version
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny application-item--skinny-last">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is complete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Funders item (takes data), with data &amp; incomplete, with error skinny version
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Somthing", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-item application-item--incomplete application-item--error application-item--skinny">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is incomplete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-item application-item--incomplete application-item--skinny application-item--skinny-last">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Another", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                         </div>
                     </div>
                 </div>
@@ -390,6 +478,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="guidelines">
                     <strong>You can ignore everything below this...</strong>

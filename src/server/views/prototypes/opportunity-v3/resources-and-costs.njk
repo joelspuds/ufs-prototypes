@@ -25,88 +25,90 @@
         {%- endcall %}
     {%- endcall %}
 
-    {#<section class="section" id="tabsNav">
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-8') %}
 
-        {% call components.bulmaRow() %}
+            {% call components.form(action='/prototypes/opportunity-v3/resources-and-costs', method='POST',name='manageResources') %}
 
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                <section class="section" id="detailsInput">
 
-                <ul class="govuk-tabs__list" role="tablist">
-                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
-                        <a class="govuk-tabs__tab" href="#resourcesContent" id="tabEdit" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">Edit section</a>
-                    </li>
-                    <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#applicantView" id="tabView" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">Applicant view</a>
-                    </li>
-                </ul>
+                    {% call components.bulmaRow() %}
 
-            {%- endcall %}
+                        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                            <p class="govuk-body">These are the cost types the applicant will need to provide totals for: </p>
+
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>directly incurred</li>
+                                <li>directly allocated</li>
+                                <li>indirect costs</li>
+                                <li>exceptions</li>
+                            </ul>
+
+                            <p class="govuk-body">Mark as complete to continue.</p>
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                </section>
+
+                <section class="section" id="submitSection">
+
+                    {% call components.bulmaRow() %}
+                        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                            {% call components.formGroup() %}
+                                <div class="application-item">
+                                    <div class="application-item__contents">
+                                        <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                            <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                                <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                            </legend>
+                                            <div class="govuk-checkboxes">
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if resourcesIsComplete %} checked{% endif %}>
+                                                    <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            {%- endcall %}
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                    {% call components.bulmaRow() %}
+                        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                            {% call components.formGroup() %}
+                                {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
+                            {%- endcall %}
+                        {%- endcall %}
+                    {%- endcall %}
+
+                </section>
+
+            {%- endcall %} {# end form #}
+
+
 
         {%- endcall %}
+        {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+            <div class="govuk-related-items govuk-related-items--flush">
+                <h2 class="govuk-heading-xs u-space-y5">{{ opportunityID }}</h2>
+                <p class="govuk-body-s u-space-b5">{{opportunityName}}</p>
+                <ul class="govuk-list u-space-t10">
+                    <li><a href="/prototypes/opportunity-v3/create?mode=edit" class="govuk-link sub-button ">Edit Opportunity name</a></li>
+                </ul>
 
-    </section>#}
-
-    {% call components.form(action='/prototypes/opportunity-v3/resources-and-costs', method='POST',name='manageResources') %}
-
-        <section class="section" id="detailsInput">
-
-            {% call components.bulmaRow() %}
-
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                    <p class="govuk-body">These are the cost types the applicant will need to provide totals for: </p>
-
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>directly incurred</li>
-                        <li>directly allocated</li>
-                        <li>indirect costs</li>
-                        <li>exceptions</li>
-                    </ul>
-
-                    <p class="govuk-body">Mark as complete to continue.</p>
-
-                {%- endcall %}
-
-            {%- endcall %}
-
-        </section>
-
-        <section class="section" id="submitSection">
-
-            {% call components.bulmaRow() %}
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-                    {% call components.formGroup() %}
-                        <div class="application-item">
-                            <div class="application-item__contents">
-                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
-                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">
-                                        <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
-                                    </legend>
-                                    <div class="govuk-checkboxes">
-                                        <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if resourcesIsComplete %} checked{% endif %}>
-                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    {%- endcall %}
-
-                {%- endcall %}
-
-            {%- endcall %}
-
-            {% call components.bulmaRow() %}
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-                    {% call components.formGroup() %}
-                        {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
-                    {%- endcall %}
-                {%- endcall %}
-            {%- endcall %}
-
-        </section>
-
-    {%- endcall %} {# end form #}
+                <h2 class="govuk-heading-xs u-space-y5">Preview application</h2>
+                <p class="govuk-body-s u-space-b5">You can preview the applicant’s view. You can continue to make changes before publishing. </p>
+                <ul class="govuk-list u-space-t10">
+                    <li><a href="#" class="govuk-link sub-button ">Applicant view (opens in a new window)</a></li>
+                </ul>
+            </div>
+        {% endcall %}
+    {%- endcall %}
 
 {% endblock %}

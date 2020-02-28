@@ -1,0 +1,175 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Details' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set opportunityName = opportunityName %}
+{% set opportunityID = opportunityID %}
+{% set detailsIsComplete = detailsIsComplete if detailsIsComplete %}
+
+
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to application', url='/prototypes/opportunity-v3/workflow-application') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Details', caption=opportunityID + ': ' + opportunityName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {#<section class="section" id="tabsNav">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                <ul class="govuk-tabs__list" role="tablist">
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                        <a class="govuk-tabs__tab" href="#resourcesContent" id="tabEdit" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">Edit section</a>
+                    </li>
+                    <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#applicantView" id="tabView" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">Applicant view</a>
+                    </li>
+                </ul>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>#}
+
+    {% call components.form(action='/prototypes/opportunity-v3/details', method='POST',name='manageDetails') %}
+
+        <section class="section" id="resourcesContent">
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-visually-hidden">Details content section</legend>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="headingSubtitle">Heading subtitle</label>
+                            <input class="govuk-input" id="headingSubtitle" name="headingSubtitle" type="text" value="Project name">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="headingtext">Heading text</label>
+                            <input class="govuk-input" id="headingSubtitle" name="headingtext" type="text" value="Enter the full name of your proposed project">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="summarySubTitle">Summary subtitle</label>
+                            <input class="govuk-input" id="headingSubtitle" name="summarySubTitle" type="text" value="Project summary">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="summaryText">Summary text</label>
+                            {#<input class="govuk-input" id="summaryText" name="summaryText" type="text" value="Provide a synopsis of your proposed project, which potential reviewers will see in an email inviting them to assess it">#}
+                            <textarea class="govuk-textarea" id="summaryText" name="summaryGuidanceText" rows="4">Provide a synopsis of your proposed project, which potential reviewers will see in an email inviting them to assess it.</textarea>
+
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="summaryGuidanceSubtitle">Summary guidance subtitle</label>
+                            <input class="govuk-input" id="summaryGuidanceSubtitle" name="summaryGuidanceSubtitle" type="text" value="Guidance to writing a summary">
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s" for="summaryGuidanceText">Summary guidance text</label>
+                            <textarea class="govuk-textarea" id="summaryGuidanceText" name="summaryGuidanceText" rows="8">Tailor this synopsis for your peers, or other experts in your field. Use simple language so a lay person could also understand its strengths. Write a clear overview of the whole project, including your vision; objectives; areas of focus; why it’s important and why it will succeed.</textarea>
+                        </div>
+                    </fieldset>
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
+        <section class="section" id="wordcount">
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Word count limit</legend>
+                        <details class="govuk-details u-space-b10" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">Guidance for setting word count limits</span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                Potential reviewers base their decision to assess projects on reading the application summary, which they will see in an email. Space is therefore at a premium, so setting a word count limit of no more than 400 words is recommended.
+                            </div>
+                        </details>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--s govuk-visually-hidden" for="wordcount">Wordcount</label>
+                            <input class="govuk-input govuk-input--width-4" id="wordcount" name="wordcount" type="text" value="400">
+                        </div>
+                    </fieldset>
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
+        <section class="section" id="dateRequirement">
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="isDateRequired">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                <h2 class="govuk-fieldset__heading">Is the applicant required to set a start date and duration?</h2>
+                            </legend>
+                            <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="requiredYes" name="dateRequired" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="requiredYes">Yes</label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="requiredNo" name="dateRequired" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="requiredNo">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
+        <section class="section" id="submitSection">
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                    {% call components.formGroup() %}
+                        <div class="application-item">
+                            <div class="application-item__contents">
+                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                        <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                    </legend>
+                                    <div class="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="markAsComplete" type="checkbox" {% if detailsIsComplete %} checked {% endif %}>
+                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+                    {% call components.formGroup() %}
+                        {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
+                    {%- endcall %}
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
+    {%- endcall %} {# end form #}
+
+{% endblock %}

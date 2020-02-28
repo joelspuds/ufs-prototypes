@@ -43,41 +43,45 @@
 
         {% call components.bulmaColumnAny(size='is-8') %}
 
-            <p class="govuk-body-l">Select 'Funders' to list the bodies supporting your Opportunity. Then add the modules you need to manage it.</p>
-            {#<p class="govuk-body-l">Add the funding bodies that are supporting your Opportunity, then add the modules you need to manage it.</p>#}
+            <p class="govuk-body-l">Select 'Funders' to list the bodies supporting your Opportunity. Then add the stages you need to manage it.</p>
+
 
             <section class="section" id="defaultItems">
 
-            <div class="application-item application-item--skinny {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
-                <div class="application-item__contents govuk-clearfix">
-                    <div class="application-item__left">
-                        {{ components.link(text="Funders", url='/prototypes/opportunity-v3/funders') }}
-                    </div>
-                    {% if fundersList %}
-                       <div class="application-item__right">
-                            <span class="application-item__meta">
-                                {#{% for item in fundersList %}<span>{{ item }}</span>, {% endfor %}#}
-                                <span>{{ fundersList[0] }}</span>
-                                {% if fundersList[1]%}, <span>{{ fundersList[1] }}</span>{% endif %}
-                                {% if fundersList[2]%}, <span>{{ fundersList[2] }}</span>{% endif %}
-                                {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
-                                {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
-                            </span>
-                        </  div>
-                    {% else %}
-                        <div class="application-item__right">
-                            <span class="application-item__status">Incomplete</span>
+                <div class="application-items">
+
+                    <div class="application-item application-item--skinny {% if fundersIsComplete %} application-item--complete {% else %} application-item--incomplete {% endif %}">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">
+                                {{ components.link(text="Funders", url='/prototypes/opportunity-v3/funders') }}
+                            </div>
+                            {% if fundersList %}
+                                <div class="application-item__right">
+                                    <span class="application-item__meta">
+                                        {#{% for item in fundersList %}<span>{{ item }}</span>, {% endfor %}#}
+                                        <span>{{ fundersList[0] }}</span>
+                                        {% if fundersList[1]%}, <span>{{ fundersList[1] }}</span>{% endif %}
+                                        {% if fundersList[2]%}, <span>{{ fundersList[2] }}</span>{% endif %}
+                                        {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
+                                        {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
+                                    </span>
+                                </div>
+                            {% else %}
+                                <div class="application-item__right">
+                                    <span class="application-item__status">Incomplete</span>
+                                </div>
+                            {% endif %}
+
                         </div>
-                    {% endif %}
+                    </div>
 
                 </div>
-            </div>
 
             </section>
 
             <section class="section" id="workflow">
 
-            {{ components.captionHeading(text='Modules', tag='h2', size='m', extraClass='u-space-t30') }}
+            {{ components.captionHeading(text='Manage Opportunity', tag='h2', size='m', extraClass='u-space-t30') }}
 
             {% if workFlowItemAdded %}
                 <div class="application-items">
@@ -108,11 +112,11 @@
             {% call components.form(action='/prototypes/opportunity-v3/setup', method='POST',name='addWorkflowItem') %}
 
                 <div class="govuk-form-group ">
-                    <label class="govuk-label govuk-label--s" for="select-box">Add modules to your Opportunity</label>
+                    <label class="govuk-label govuk-label--s" for="select-box">Add stages to your Opportunity</label>
                     <div class="select-iterator">
                         <select class="govuk-select " id="select-box" name="addWorkflowItem">
                             <option>Select</option>
-                            <option value="application">Create application</option>
+                            <option value="application">Application</option>
                         </select>
                         {{ components.button(text='Add', extraClass='govuk-button--secondary') }}
                     </div>
@@ -126,7 +130,7 @@
 
                 {% call components.formGroup() %}
 
-                    {{ components.button(text=OPPORTUNITY_SETUP_COMPLETE_CTA, extraClass="application-controls__submit")}}
+                    {{ components.button(text=OPPORTUNITY_SETUP_COMPLETE_CTA, url='/prototypes/opportunity-v3/setup-complete', extraClass="application-controls__submit")}}
 
                 {%- endcall %}
 

@@ -1,0 +1,9 @@
+{% call components.bulmaRow() %}
+    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+        {% call components.formGroup() %}
+            {{ components.button(text='Save as draft', extraClass="govuk-button--secondary application-controls__submit", customName='submitButtonPair', value='saveAsDraft')}}
+            &nbsp;&nbsp;
+            {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit u-space-x30", customName='submitButtonPair', value='saveAndComplete')}}
+        {%- endcall %}
+    {%- endcall %}
+{%- endcall %}

@@ -26,10 +26,14 @@ exports.opportunityDetailsGetV3 = opportunityDetailsGetV3;
 exports.opportunityDetailsPostV3 = opportunityDetailsPostV3;
 exports.opportunityCustomSectionGetV3 = opportunityCustomSectionGetV3;
 exports.opportunityCustomSectionPostV3 = opportunityCustomSectionPostV3;
+exports.opportunitySetupCompleteGetV3 = opportunitySetupCompleteGetV3;
+exports.opportunitySetupCompletePostV3 = opportunitySetupCompletePostV3;
 
 var _index = require('./index');
 
 var demosController = _interopRequireWildcard(_index);
+
+var _content = require('../../config/content');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -38,38 +42,43 @@ let genericFunctions = require('./generic');
 
 // journey config
 function createOpportunityConfigGetV3(req, res) {
-  let viewData, clearSession;
-  clearSession = req.param('clearSession');
+  let viewData;
 
-  if (clearSession === 'true') {
-    req.session.destroy();
-  }
+  let useAltSaveMethod = req.session.useAltSaveMethod;
+  let useComplexDetailsPage = req.session.useComplexDetailsPage;
 
-  viewData = {};
+  console.log('useAltSaveMethod = ' + useAltSaveMethod);
+
+  viewData = {
+    useAltSaveMethod,
+    useComplexDetailsPage
+  };
 
   return res.render('prototypes/opportunity-v3/config', viewData);
 }
 
 function createOpportunityConfigPostV3(req, res) {
-  const { completeConfig } = req.body;
-  console.log(completeConfig);
-  // console.log(req.session);
-  // req.session.destroy();
-  // req.session.create();
+  const { completeConfig, detailsPage } = req.body;
 
-  // existingSaveMethod
-  // newSaveMethod
-  // req.session.useAltSaveMethod =
+  // req.session.useComplexDetailsPage = detailsPage === 'complexDetailsPage';
+
+
+  if (detailsPage === 'complexDetailsPage') {
+    req.session.useComplexDetailsPage = true;
+  } else {
+    req.session.useComplexDetailsPage = false;
+  }
+
+  // req.session.useAltSaveMethod = completeConfig === 'newSaveMethod';
+  // req.session.useAltSaveMethod = completeConfig === 'newSaveMethod' ? req.session.useAltSaveMethod : false;
 
   if (completeConfig === 'newSaveMethod') {
     req.session.useAltSaveMethod = true;
   } else {
-    req.session.useAltSaveMethod = null;
+    req.session.useAltSaveMethod = false;
   }
 
-  console.log(req.session);
-
-  return res.redirect('/prototypes/opportunity-v3/');
+  return res.redirect('/prototypes/opportunity-v3/config');
 }
 
 function opportunityGetV3(req, res) {
@@ -131,10 +140,6 @@ function opportunitySetupGetV3(req, res) {
   opportunityName = req.session.opportunityName;
   fundersList = req.session.funderslist;
   fundersIsComplete = req.session.fundersIsComplete;
-
-  //console.log('fundersIsComplete = ' + fundersIsComplete);
-  //console.log('fundersList = ');
-  //console.log(fundersList);
 
   if (fundersList && fundersList[0] === null) {
     // console.log('list is null');
@@ -198,15 +203,6 @@ function opportunitySetupGetV3(req, res) {
     closingDateTidyAsString
   };
 
-  // console.log(genericFunctions.convertDate('12/1/2020', true));
-  /*let demoDate1 = genericFunctions.convertDate('12/01/2020', true);
-  console.log('demoDate1.asString = ' + demoDate1.asString);
-  console.log('Should be: Tuesday, 1 December 2020');
-  console.log('\n' + '\n' + '\n');
-  let demoDate2 = genericFunctions.convertDate('12/01/2020', false);
-  console.log('demoDate2.asString = ' + demoDate2.asString);
-  console.log('Should be: Sunday, 12 January 2020');*/
-
   return res.render('prototypes/opportunity-v3/setup', viewData);
 }
 
@@ -215,11 +211,17 @@ function opportunitySetupPostV3(req, res) {
 
   // console.log('addWorkflowItem = ' + addWorkflowItem);
 
+  let setupComplete = req.session.setupComplete;
+
   if (addWorkflowItem === 'application') {
     req.session.workFlowItemAdded = true;
   }
 
-  return res.redirect('/prototypes/opportunity-v3/setup');
+  if (setupComplete === true) {
+    return res.redirect('/prototypes/opportunity-v3/setup-complete');
+  } else {
+    return res.redirect('/prototypes/opportunity-v3/setup');
+  }
 }
 
 // Funders
@@ -240,6 +242,11 @@ function opportunityFundersGetV3(req, res) {
   req.session.fundersError = null;
 
   funderslist = req.session.funderslist;
+
+  // TODO this is merely in for testing!
+  // req.session.useAltSaveMethod = true;
+  let useAltSaveMethod = req.session.useAltSaveMethod;
+
   viewData = {
     fundersOther,
     otherFundingBody,
@@ -248,7 +255,8 @@ function opportunityFundersGetV3(req, res) {
     allCouncils,
     funderslist,
     fundersError,
-    fundersIsComplete
+    fundersIsComplete,
+    useAltSaveMethod
   };
 
   return res.render('prototypes/opportunity-v3/funders', viewData);
@@ -256,9 +264,10 @@ function opportunityFundersGetV3(req, res) {
 
 function opportunityFundersPostV3(req, res) {
   const { funders, isComplete, fundersOther, otherFundingBody } = req.body;
-  console.log(funders);
 
-  console.log(req.body);
+  let isCompleteSwitch = isComplete;
+  // console.log(funders);
+  // console.log(req.body);
 
   let fundersList, allCouncils;
 
@@ -274,11 +283,26 @@ function opportunityFundersPostV3(req, res) {
   req.session.otherFundingBody = otherFundingBody;
   req.session.funderslist = fundersList;
 
+  // TODO testing button name capture
+  // saveAndComplete
+  // saveAsDraft
+  // console.log(manageFunders);
+  let submitButtonValue = req.body.submitButtonPair;
+  console.log('submitButtonValue = ' + submitButtonValue);
+  // return res.redirect('/prototypes/opportunity-v3/funders');
+
+  /*let useAltSaveMethod = req.session.useAltSaveMethod;
+  if (submitButtonValue === 'saveAndComplete' && useAltSaveMethod === true ) {
+    isCompleteSwitch = 'on';
+  } else {
+    isCompleteSwitch = null;
+  }*/
+
   if (otherFundingBody) {
     fundersList.push(otherFundingBody);
   }
 
-  if (isComplete === 'on') {
+  if (isCompleteSwitch === 'on') {
     req.session.fundersIsComplete = true;
 
     if (fundersList && fundersList[0] !== undefined) {
@@ -302,8 +326,6 @@ function opportunityApplicationGetV3(req, res) {
 
   // fundersError = req.session.fundersError;
   req.session.fundersError = null;
-
-  // funderslist = req.session.funderslist;
 
   viewData = {
     opportunityName,
@@ -759,4 +781,97 @@ function opportunityCustomSectionPostV3(req, res) {
     redirectURL = '/prototypes/opportunity-v3/workflow-application';
   }
   return res.redirect(redirectURL);
+}
+
+// Setup complete!
+function opportunitySetupCompleteGetV3(req, res) {
+  let viewData, opportunityName, opportunityID, fundersList, fundersIsComplete, workFlowItemAdded, removeItem;
+
+  removeItem = req.param('removeItem');
+
+  opportunityName = req.session.opportunityName;
+  fundersList = req.session.funderslist;
+  fundersIsComplete = req.session.fundersIsComplete;
+
+  if (fundersList && fundersList[0] === null) {
+    // console.log('list is null');
+    fundersIsComplete = null;
+    fundersList = null;
+  }
+
+  if (removeItem === 'true') {
+    req.session.workFlowItemAdded = null;
+  }
+  workFlowItemAdded = req.session.workFlowItemAdded;
+
+  if (!opportunityName) {
+    opportunityName = 'Development of a Novel Inhibitor of Ricin';
+  }
+
+  opportunityID = req.session.opportunityID;
+  if (!opportunityID) {
+    opportunityID = 'OPP-' + Math.floor(Math.random() * 10000) + 1;
+    req.session.opportunityID = opportunityID;
+  }
+
+  let openingDate = req.session.openingDate;
+  let openingTime = req.session.openingTime;
+  let closingDate = req.session.closingDate;
+  let closingTime = req.session.closingTime;
+  let openingTimeMeridian = req.session.openingTimeMeridian;
+  let closingTimeMeridian = req.session.closingTimeMeridian;
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const openDayDate = new Date(openingDate);
+  const openDay = days[openDayDate.getDay()];
+  const closingDayDate = new Date(closingDate);
+  const closingDay = days[closingDayDate.getDay()];
+
+  let setupComplete = req.session.setupComplete;
+
+  let openingDateTidy, openingDateTidyAsString, closingDateTidy, closingDateTidyAsString;
+  if (openingDate && closingDate) {
+    openingDateTidy = genericFunctions.convertDate(openingDate, true);
+    openingDateTidyAsString = openingDateTidy.asString;
+    closingDateTidy = genericFunctions.convertDate(closingDate, true);
+    closingDateTidyAsString = closingDateTidy.asString;
+  }
+
+  viewData = {
+    opportunityName,
+    opportunityID,
+    fundersList,
+    fundersIsComplete,
+    workFlowItemAdded,
+    openingDate,
+    openingTime,
+    closingDate,
+    closingTime,
+    openingTimeMeridian,
+    closingTimeMeridian,
+    openDay,
+    closingDay,
+    setupComplete,
+    openingDateTidyAsString,
+    closingDateTidyAsString
+  };
+
+  return res.render('prototypes/opportunity-v3/setup-complete', viewData);
+}
+
+function opportunitySetupCompletePostV3(req, res) {
+  const { addWorkflowItem, submitApplication } = req.body;
+
+  // console.log('addWorkflowItem = ' + addWorkflowItem);
+
+  let setupComplete = req.session.setupComplete;
+
+  if (addWorkflowItem === 'application') {
+    req.session.workFlowItemAdded = true;
+  }
+
+  if (setupComplete === true) {
+    return res.redirect('/prototypes/opportunity-v3/setup-complete');
+  } else {
+    return res.redirect('/prototypes/opportunity-v3/setup');
+  }
 }

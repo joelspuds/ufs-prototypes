@@ -128,6 +128,14 @@ let applicantTypes = [
     name: 'Fellow',
     index: 6,
   },
+  {
+    name: 'Student',
+    index: 7,
+  },
+  {
+    name: 'Admin staff',
+    index: 8,
+  },
 ];
 
 export const allApplicantTypes = applicantTypes;

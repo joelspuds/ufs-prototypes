@@ -2,9 +2,11 @@
   background-color: ufs-colour("jade");
   background-image: url("/images/ufs/green-contours.svg");
   background-repeat: no-repeat;
-  padding-top: 20px;
   background-size: 580px auto;
 
+  header {
+    padding-top: 20px;
+  }
 
   @include touch {
     // padding-right: 8px;

@@ -181,6 +181,8 @@ router.get('/prototypes/opportunity-v3/details', demosController.opportunityDeta
 router.post('/prototypes/opportunity-v3/details', demosController.opportunityDetailsPostV3);
 router.get('/prototypes/opportunity-v3/custom-section', demosController.opportunityCustomSectionGetV3);
 router.post('/prototypes/opportunity-v3/custom-section', demosController.opportunityCustomSectionPostV3);
+router.get('/prototypes/opportunity-v3/setup-complete', demosController.opportunitySetupCompleteGetV3);
+router.post('/prototypes/opportunity-v3/setup-complete', demosController.opportunitySetupCompletePostV3);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

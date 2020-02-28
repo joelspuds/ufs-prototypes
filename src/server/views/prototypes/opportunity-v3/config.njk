@@ -6,6 +6,8 @@
 {% set opportunityName = opportunityName if opportunityName %}
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
 {% set isAdminUser = true %}
+{% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
+
 
 {% set pageTitle = 'Journey configuration ' + GLOBAL_TAG_TITLE_SUFFIX %}
 
@@ -26,29 +28,65 @@
 
     {%- endcall %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+    {% call components.form(action='/prototypes/opportunity-v3/config', method='POST',name='createOpportunity') %}
 
-            {% call components.form(action='/prototypes/opportunity-v3/config', method='POST',name='createOpportunity') %}
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
 
                 <div class="govuk-form-group ">
                     <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                            <h2 class="govuk-fieldset__heading">How do you want uses to submit their forms?</h2>
+                            <h2 class="govuk-fieldset__heading">How do you want users to submit their forms?</h2>
                         </legend>
-                        <p class="govuk-hint">Both methods will clear session and take you back to the start of the create opportunity journey</p>
+                        <p class="govuk-hint">You can change this any time you like and all your existing session data will be maintained. Do this in a different window, then return to your original page and refresh it to see the alternative save draft/complete method.</p>
                         <div class="govuk-radios">
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="existingSaveMethod" name="completeConfig" type="radio" value="existingSaveMethod" checked>
+                                <input class="govuk-radios__input" id="existingSaveMethod" name="completeConfig" type="radio" value="existingSaveMethod" {% if not useAltSaveMethod %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="existingSaveMethod">Use the existing method</label>
                             </div>
                             <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="newSaveMethod" name="completeConfig" type="radio" value="newSaveMethod">
+                                <input class="govuk-radios__input" id="newSaveMethod" name="completeConfig" type="radio" value="newSaveMethod" {% if useAltSaveMethod %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="newSaveMethod">Use the secondary CTA "Save as draft" in place of "Mark as complete"</label>
                             </div>
                         </div>
                     </fieldset>
                 </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                <div class="govuk-form-group ">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            <h2 class="govuk-fieldset__heading">Which details page do you want to show?</h2>
+                        </legend>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="simpleDetailsPage" name="detailsPage" type="radio" value="simpleDetailsPage" {% if not useComplexDetailsPage %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="simpleDetailsPage">Use the new minimal page</label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="complexDetailsPage" name="detailsPage" type="radio" value="complexDetailsPage" {% if useComplexDetailsPage %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="complexDetailsPage">Use the existing more-complex page</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
 
                 {% call components.formGroup() %}
 
@@ -61,6 +99,8 @@
 
         {%- endcall %}
 
-    {%- endcall %}
+    {%- endcall %} {# end form #}
+
+
 
 {% endblock %}

@@ -1,5 +1,26 @@
-<!-- cookie-message -->
-{#<div id="global-cookie-message">
-  <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
-</div>#}
-<!-- /cookie-message -->
+<div id="global-cookie-message" class="cookie-banner govuk-clearfix govuk-visually-hidden" role="region" aria-label="cookie banner">
+    <div class="container">
+        <div class="cookie-banner__wrapper columns">
+            <div class="column is-three-quarters">
+                <div class="cookie-banner__message">
+                    <span class="govuk-heading-m u-space-t20">Tell us whether you accept cookies</span>
+                    <p class="govuk-body">We use <a class="govuk-link" href="/help/cookies">cookies to collect information</a> about how you use GOV.UK. We use this information to make the website work as well as possible and improve government services.</p>
+                    <p>
+                        <button class="govuk-button button--inline cookie-banner__button" type="submit" >Accept all cookies</button>
+                        <a class="govuk-button button--inline cookie-banner__button" role="button" href="/help/cookies">Set cookie preferences</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="columns govuk-visually-hidden" id="finalConfirmationRow">
+            <div class="cookie-banner__confirmation column is-three-quarters" tabindex="-1">
+                <p class="govuk-body">You’ve accepted all cookies. You can <a class="govuk-link" href="/help/cookies">change your cookie settings</a> at any time.</p>
+            </div>
+            <div class="column is-one-quarter u-align-right">
+                <button class="govuk-button govuk-button--secondary" id="hideFinalCookieBanner">Hide</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

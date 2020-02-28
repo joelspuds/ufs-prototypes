@@ -45,11 +45,11 @@ let contentItems = {
   CASE_FOR_SUPPORT_TITLE_TAG: 'Case for support',
   CASE_FOR_SUPPORT_TITLE: 'Case for support',
   // DATES
-  APPLICATIONS_OPENING_DATE_TITLE: 'Application opens',
-  APPLICATIONS_CLOSING_DATE_TITLE: 'Application closes',
-  OPENING_DATE_NOT_ADDED: 'No opening date added',
-  CLOSING_DATE_NOT_ADDED: 'No closing date added',
-  APPLICATION_EDIT_DATES_LINK: 'Edit application dates',
+  APPLICATIONS_OPENING_DATE_TITLE: 'Applications open',
+  APPLICATIONS_CLOSING_DATE_TITLE: 'Applications close',
+  OPENING_DATE_NOT_ADDED: 'No date added',
+  CLOSING_DATE_NOT_ADDED: 'No date added',
+  APPLICATION_EDIT_DATES_LINK: 'Edit open and close dates',
 };
 
 export const content = contentItems;

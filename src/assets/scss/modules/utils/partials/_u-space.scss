@@ -12,7 +12,9 @@
   t = top
   b = bottom
   y = top & bottom
-*/
+  x = left and right
+ */
+
 
 // Margin
 
@@ -22,15 +24,23 @@
 }
 
 @each $value in $space-class-values {
-    .u-space-t#{$value} { margin-top: #{$value}px !important; }
-    .u-space-b#{$value} { margin-bottom: #{$value}px !important; }
+    .u-space-t#{$value} {
+        margin-top: #{$value}px !important;
+    }
+    .u-space-b#{$value} {
+        margin-bottom: #{$value}px !important;
+    }
 
     .u-space-y#{$value} {
         margin-top: #{$value}px !important;
         margin-bottom: #{$value}px !important;
     }
-}
 
+    .u-space-x#{$value} {
+        margin-left: #{$value}px !important;
+        margin-right: #{$value}px !important;
+    }
+}
 @media print {
     .u-space-b30 {
         margin-bottom: 15px !important;

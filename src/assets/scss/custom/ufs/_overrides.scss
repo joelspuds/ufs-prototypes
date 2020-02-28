@@ -84,9 +84,12 @@
   }
 }
 
-.column > .section {
+.column > .section,
+.column form > .section,
+.section--nested {
   padding-left: 0;
   padding-right: 0;
+
 }
 
 .select-iterator {
@@ -106,4 +109,11 @@
   left: 6px;
   width: 12px;
   height: 7px;
+}
+
+.govuk-skip-link:active,
+.govuk-skip-link:focus {
+  display: block;
+  min-height: 40px;
+  box-sizing: border-box;
 }

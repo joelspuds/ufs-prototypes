@@ -105,6 +105,12 @@ let applicantTypes = [{
 }, {
   name: 'Fellow',
   index: 6
+}, {
+  name: 'Student',
+  index: 7
+}, {
+  name: 'Admin staff',
+  index: 8
 }];
 
 const allApplicantTypes = exports.allApplicantTypes = applicantTypes;

@@ -54,164 +54,175 @@
     {% endif %}
 
     {% set mainTitle = sectionTitle if sectionTitle else '(Untitled section)' %}
+
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+        {% call components.bulmaColumnAny(size='column is-full') %}
             {{ components.captionHeading(text=mainTitle, caption=opportunityID + ': ' + opportunityName) }}
         {%- endcall %}
     {%- endcall %}
 
-   {# <section class="section" id="tabsNav">
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column is-8') %}
 
-        {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {% call components.form(action='/prototypes/opportunity-v3/custom-section', method='POST',name='manageCustom') %}
 
-                <ul class="govuk-tabs__list" role="tablist">
-                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
-                        <a class="govuk-tabs__tab" href="#resourcesContent" id="tabEdit" role="tab" aria-controls="past-day" aria-selected="true" tabindex="0">Edit section</a>
-                    </li>
-                    <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#applicantView" id="tabView" role="tab" aria-controls="past-week" aria-selected="false" tabindex="-1">Applicant view</a>
-                    </li>
-                </ul>
+                <p class="govuk-body-l">Use this page as a template for creating a bespoke section that applicants have to complete.</p>
 
-            {%- endcall %}
+                <section class="section" id="resourcesContent">
+                    {% call components.bulmaRow() %}
+                        {% call components.bulmaColumnAny(size='column is-full') %}
+
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">Custom section details</legend>
+
+                                <div class="govuk-form-group {% if customSectionTitleError %} govuk-form-group--error {% endif %}">
+                                    <label class="govuk-label govuk-label--s" for="sectionTitle" id="customTitleLabel">Section heading</label>
+                                    <span class="govuk-hint">Enter a few words below that best describes what this section is about – it will appear above as the page heading. For example, 'Economic benefits'.</span>
+                                    {% if customSectionTitleError %}
+                                        <span class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter a section title with fewer than 100 characters
+                                </span>
+                                    {% endif %}
+                                    <input class="govuk-input" id="sectionTitle" name="sectionTitle" type="text" value="{{sectionTitle}}" {% if not sectionTitle %} placeholder="(Untitled section)" {% endif %}>
+                                </div>
+
+                                <div class="govuk-form-group {% if customSectionQuestionError %} govuk-form-group--error {% endif %}">
+                                    <label class="govuk-label govuk-label--s" for="yourQuestion" id="customQuestionLabel">Section question</label>
+                                    <span class="govuk-hint">Enter a question about the specific area of this section’s subject matter you want the applicant to answer. For example, "How will your project increase employment prospects in deprived areas?"</span>
+                                    {% if customSectionQuestionError %}
+                                        <span class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter your question for this section
+                                </span>
+                                    {% endif %}
+                                    <input class="govuk-input" id="yourQuestion" name="yourQuestion" type="text" value="{{ yourQuestion }}">
+                                </div>
+
+                                <div class="govuk-form-group {% if customSectionGuidanceError %} govuk-form-group--error {% endif %}">
+                                    <label class="govuk-label govuk-label--s" for="questionGuidance" id="customGuidanceLabel">Question guidance</label>
+                                    <span class="govuk-hint">Describe what the applicant's answer should cover and list the criteria by which it will be assessed.</span>
+                                    {% if customSectionGuidanceError %}
+                                        <span class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter guidance to how applicants answer your question
+                                </span>
+                                    {% endif %}
+                                    <textarea class="govuk-textarea" id="questionGuidance" name="questionGuidance" rows="8">{{ questionGuidance }}</textarea>
+                                </div>
+                            </fieldset>
+                        {%- endcall %}
+                    {%- endcall %}
+                </section>
+
+                <section class="section" id="wordcountSection">
+                    {% call components.bulmaRow() %}
+                        {% call components.bulmaColumnAny(size='column is-full') %}
+
+                            <div class="govuk-form-group {% if customSectionWordcountError %} govuk-form-group--error {% endif %}">
+                                <label class="govuk-label govuk-label--s" for="wordcount" id="wordcountLabel">Wordcount</label>
+
+                                <details class="govuk-details u-space-b10" data-module="govuk-details">
+                                    <summary class="govuk-details__summary">
+                                        <span class="govuk-details__summary-text">Guidance for setting word count limits</span>
+                                    </summary>
+                                    <div class="govuk-details__text">
+                                        Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score. <br><br> A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
+                                    </div>
+                                </details>
+
+                                {% if customSectionWordcountError %}
+                                    <span class="govuk-error-message">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter a word limit
+                                </span>
+                                {% endif %}
+
+                                <input class="govuk-input govuk-input--width-4" id="wordcount" name="wordcount" type="text" value="{% if wordcount %}{{ wordcount }}{% else %}400{% endif %}">
+                            </div>
+
+
+                        {%- endcall %}
+                    {%- endcall %}
+                </section>
+
+                <section class="section" id="submitSection">
+                    {% call components.bulmaRow() %}
+                        {% call components.bulmaColumnAny(size='column is-full') %}
+                            {% call components.formGroup() %}
+                                <div class="application-item">
+                                    <div class="application-item__contents">
+                                        <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                            <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                                <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                            </legend>
+                                            <div class="govuk-checkboxes">
+                                                <div class="govuk-checkboxes__item">
+                                                    <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if customIsComplete %} checked{% endif %}>
+                                                    <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            {%- endcall %}
+
+                        {%- endcall %}
+
+                    {%- endcall %}
+
+                    {% call components.bulmaRow() %}
+                        {% call components.bulmaColumnAny(size='column is-full') %}
+                            {% call components.formGroup() %}
+                                {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
+                            {%- endcall %}
+                        {%- endcall %}
+                    {%- endcall %}
+                </section>
+
+            {%- endcall %} {# end form #}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         {%- endcall %}
 
-    </section>#}
+        {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+            <div class="govuk-related-items govuk-related-items--flush">
+                <h2 class="govuk-heading-xs u-space-y5">{{ opportunityID }}</h2>
+                <p class="govuk-body-s u-space-b5">{{opportunityName}}</p>
+                <ul class="govuk-list u-space-t10">
+                    <li><a href="/prototypes/opportunity-v3/create?mode=edit" class="govuk-link sub-button ">Edit Opportunity name</a></li>
+                </ul>
 
-    {% call components.form(action='/prototypes/opportunity-v3/custom-section', method='POST',name='manageCustom') %}
-
-        <section class="section" id="resourcesContent">
-            {% call components.bulmaRow() %}
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                    <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-visually-hidden">Custom section details</legend>
-
-                        <div class="govuk-form-group {% if customSectionTitleError %} govuk-form-group--error {% endif %}">
-                            <label class="govuk-label govuk-label--s" for="sectionTitle" id="customTitleLabel">Section title</label>
-                            <span class="govuk-hint">Enter a short description of the subject matter of this section – it will appear above as the
-section title. For example, ‘Economic benefits’</span>
-                            {% if customSectionTitleError %}
-                                <span class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> Enter a section title with fewer than 100 characters
-                                </span>
-                            {% endif %}
-                            <input class="govuk-input" id="sectionTitle" name="sectionTitle" type="text" value="{{sectionTitle}}" {% if not sectionTitle %} placeholder="(Untitled section)" {% endif %}>
-                        </div>
-
-                        <div class="govuk-form-group {% if customSectionQuestionError %} govuk-form-group--error {% endif %}">
-                            <label class="govuk-label govuk-label--s" for="yourQuestion" id="customQuestionLabel">Your question</label>
-                            <span class="govuk-hint">Ask a question about the area of the section topic you want to know about. For example, ‘How
-will your project economically benefit to the UK?’</span>
-                            {% if customSectionQuestionError %}
-                                <span class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> Enter your question for this section
-                                </span>
-                            {% endif %}
-                            <input class="govuk-input" id="yourQuestion" name="yourQuestion" type="text" value="{{ yourQuestion }}">
-                        </div>
-
-                        <div class="govuk-form-group {% if customSectionGuidanceError %} govuk-form-group--error {% endif %}">
-                            <label class="govuk-label govuk-label--s" for="questionGuidance" id="customGuidanceLabel">Question guidance</label>
-                            <span class="govuk-hint">Describe what the applicant’s answer should cover and list the criteria by which it will be assessed.</span>
-                            {% if customSectionGuidanceError %}
-                                <span class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> Enter guidance to how applicants answer your question
-                                </span>
-                            {% endif %}
-                            <textarea class="govuk-textarea" id="questionGuidance" name="questionGuidance" rows="8">{{ questionGuidance }}</textarea>
-                        </div>
-                    </fieldset>
-                {%- endcall %}
-            {%- endcall %}
-        </section>
-
-        <section class="section" id="wordcountSection">
-            {% call components.bulmaRow() %}
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-
-                   {# <fieldset class="govuk-fieldset govuk-form-group--error {% if customSectionGuidanceError %} govuk-form-group--error {% endif %}">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Word count limit</legend>
-                        <details class="govuk-details u-space-b10" data-module="govuk-details">
-                            <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">Guidance for setting word count limits</span>
-                            </summary>
-                            <div class="govuk-details__text">
-                                Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score. <br><br> A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
-                            </div>
-                        </details>
-
-                        <div class="govuk-form-group">
-                            <label class="govuk-label govuk-label--s govuk-visually-hidden" for="wordcount">Wordcount</label>
-                            <input class="govuk-input govuk-input--width-4" id="wordcount" name="wordcount" type="text" value="{% if wordcount %}{{ wordcount }}{% else %}400{% endif %}">
-                        </div>
-
-                    </fieldset>#}
-
-                    <div class="govuk-form-group {% if customSectionWordcountError %} govuk-form-group--error {% endif %}">
-                        <label class="govuk-label govuk-label--s" for="wordcount" id="wordcountLabel">Wordcount</label>
-
-                        <details class="govuk-details u-space-b10" data-module="govuk-details">
-                            <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">Guidance for setting word count limits</span>
-                            </summary>
-                            <div class="govuk-details__text">
-                                Setting a word count limit helps applicants to understand the effort and time they should put into an answer. They also aid assessors by limiting the work they need to review and score. <br><br> A word count limit must be set. Although it can be any number, we recommend between 300-500 words for a summary or description answer and 2000-3000 words for a longer, essay-style answer.
-                            </div>
-                        </details>
-
-                        {% if customSectionWordcountError %}
-                            <span class="govuk-error-message">
-                                    <span class="govuk-visually-hidden">Error:</span> Enter a word limit
-                                </span>
-                        {% endif %}
-
-                        <input class="govuk-input govuk-input--width-4" id="wordcount" name="wordcount" type="text" value="{% if wordcount %}{{ wordcount }}{% else %}400{% endif %}">
-                    </div>
-
-
-                {%- endcall %}
-            {%- endcall %}
-        </section>
-
-        <section class="section" id="submitSection">
-            {% call components.bulmaRow() %}
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-                    {% call components.formGroup() %}
-                        <div class="application-item">
-                            <div class="application-item__contents">
-                                <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
-                                    <legend class="govuk-fieldset__legend govuk-visually-hidden">
-                                        <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
-                                    </legend>
-                                    <div class="govuk-checkboxes">
-                                        <div class="govuk-checkboxes__item">
-                                            <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if customIsComplete %} checked{% endif %}>
-                                            <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    {%- endcall %}
-
-                {%- endcall %}
-
-            {%- endcall %}
-
-            {% call components.bulmaRow() %}
-                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-                    {% call components.formGroup() %}
-                        {{ components.button(text=GENERIC_SAVE_AND_RETURN_CTA, extraClass="application-controls__submit")}}
-                    {%- endcall %}
-                {%- endcall %}
-            {%- endcall %}
-        </section>
-
-    {%- endcall %} {# end form #}
+                <h2 class="govuk-heading-xs u-space-y5">Preview application</h2>
+                <p class="govuk-body-s u-space-b5">You can preview the applicant’s view. You can continue to make changes before publishing. </p>
+                <ul class="govuk-list u-space-t10">
+                    <li><a href="#" class="govuk-link sub-button ">Applicant view (opens in a new window)</a></li>
+                </ul>
+            </div>
+        {% endcall %}
+    {%- endcall %}
 
 {% endblock %}
 

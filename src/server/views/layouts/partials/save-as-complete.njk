@@ -1,0 +1,37 @@
+{% call components.bulmaRow() %}
+
+    {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+        {% call components.formGroup() %}
+            <div class="application-item">
+                <div class="application-item__contents">
+                    <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                        <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                            <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                        </legend>
+                        <div class="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        {%- endcall %}
+
+    {%- endcall %}
+
+{%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                {% call components.formGroup() %}
+                    {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit", name='saveAndComplete')}}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
