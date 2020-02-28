@@ -31,5 +31,21 @@
 
     {% block bodyScripts %}{% endblock %}
 
+      <script>
+        Zepto(function($){
+          if (!document.cookie.match('cookieBannerDismissed')) {
+            $('#global-cookie-message').removeClass('cookie-hidden');
+          }
+          let date = new Date();
+          let daysValidFor = 30;
+          date.setTime(date.getTime() + (daysValidFor*24*60*60*1000));
+          let expires = "expires="+ date.toUTCString();
+          $('#dismissCookieBanner').on('click', function(event) {
+            $('#global-cookie-message').hide().addClass('cookie-hidden');
+            document.cookie = 'cookieBannerDismissed=true;' + expires + '; path=/';
+          });
+        })
+      </script>
+
   </body>
 </html>
