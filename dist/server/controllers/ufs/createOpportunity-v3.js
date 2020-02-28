@@ -62,7 +62,6 @@ function createOpportunityConfigPostV3(req, res) {
 
   // req.session.useComplexDetailsPage = detailsPage === 'complexDetailsPage';
 
-
   if (detailsPage === 'complexDetailsPage') {
     req.session.useComplexDetailsPage = true;
   } else {
