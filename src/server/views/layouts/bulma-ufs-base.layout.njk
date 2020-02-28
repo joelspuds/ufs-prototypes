@@ -39,7 +39,7 @@
           let date = new Date();
           let daysValidFor = 30;
           date.setTime(date.getTime() + (daysValidFor*24*60*60*1000));
-          let expires = "expires="+ date.toUTCString();
+          let expires = 'expires='+ date.toUTCString();
           $('#dismissCookieBanner').on('click', function(event) {
             $('#global-cookie-message').hide().addClass('cookie-hidden');
             document.cookie = 'cookieBannerDismissed=true;' + expires + '; path=/';

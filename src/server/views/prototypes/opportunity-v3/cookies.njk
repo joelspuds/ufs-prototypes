@@ -1,0 +1,71 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{% set isAdminUser = true %}
+{% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
+
+
+{% set pageTitle = 'Cookies' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
+            {{ components.captionHeading(text='Cookies') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {#{% call components.form(action='/prototypes/opportunity-v3/config', method='POST',name='createOpportunity') %}#}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                <p class="govuk-body">Lots of helpful stuff about cookies that Stu's cobbling together with his quill.</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.button(text='Accept all cookies', extraClass="application-controls__submit", customID='acceptAllCookiesServerSide')}}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {#{%- endcall %}#} {# end form #}
+
+{% endblock %}
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        let count = 0;
+        $('#acceptAllCookiesServerSide').on('click', function() {
+          console.log(count);
+          if (count === 0) {
+            alert('Not sure what you were expecting but this button will set the cookie banner to hidden using a server-side function');
+            count ++;
+            console.log(count);
+          } else {
+            alert('Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It\'s not a story the Jedi would tell you. It\'s a Sith legend. Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying. The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did. Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.');
+          }
+        });
+      });
+
+
+    </script>
+{% endblock %}
+
+
