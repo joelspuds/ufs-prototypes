@@ -46,7 +46,7 @@
 
             <section class="section" id="workflow">
 
-                {{ components.captionHeading(text='Ready to open for applications', tag='h2', size='m', extraClass='u-space-t30') }}
+                {{ components.captionHeading(text='Ready to open for applications', tag='h2', size='m', extraClass='') }}
 
                 <p class="govuk-body-l">Opens tomorrow at 9:00am</p>
 
@@ -85,7 +85,7 @@
                     {% if fundersList[2]%}, <span>{{ fundersList[2] }}</span>{% endif %}
                     {% if fundersList[4]%}, <span>{{ fundersList[3] }}</span>{% endif %}
                     {% if fundersList[5]%}, <span>{{ fundersList[4] }}</span>{% endif %}
-                {% else %}
+                {% endif %}
             </div>
 
         {%- endcall %}
