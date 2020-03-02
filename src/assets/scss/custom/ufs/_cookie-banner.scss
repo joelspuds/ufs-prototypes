@@ -13,3 +13,8 @@
     max-width: 320px;
   }
 }
+
+.js-enabled .cookie-hidden { display: none!important }
+.cookie-banner__button { display: none; }
+.js-enabled .cookie-banner__button { display: block; }
+.js-enabled .cookie-banner__link { display: none; }
