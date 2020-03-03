@@ -87,4 +87,6 @@ h1.govuk-heading-xl {
   }
 }
 
-
+.item-successful, .item-successful strong {
+  color: govuk-colour("green")!important;
+}

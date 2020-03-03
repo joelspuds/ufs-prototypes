@@ -203,6 +203,39 @@ $module: 'application-item';
             }
         }
     }
+
+    &__mega-meta {
+        @include govuk-clearfix;
+        display: table-cell;
+        padding-top:15px;
+    }
+
+    &__mega-item {
+        display: inline-block;
+        border-bottom: 4px solid govuk-colour("blue");
+        min-width: 100px;
+        max-width: 100px;
+        vertical-align: bottom;
+        margin-right: 20px;
+        text-align: right;
+        padding-bottom: 6px;
+
+        @at-root {
+            a#{&} {
+                text-decoration: underline!important;
+            }
+        }
+    }
+
+    &__mega-stat {
+        display: block;
+        @include govuk-font($size: 16, $weight: bold);
+    }
+
+    &__mega-thing {
+        display: block;
+        @include govuk-font($size: 16, $weight: normal);
+    }
 }
 
 .application-items .application-item--skinny:last-of-type,
