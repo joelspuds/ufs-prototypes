@@ -68,39 +68,41 @@ $module: 'application-item';
         }
     }
 
-    &__list {
-    }
+   /* &__list {
+        //
+    }*/
 
-    &__key,
+   /* &__key,
     &__value {
         @include govuk-font($size: 16, $weight: normal);
-    }
+    }*/
 
-    &__key {
-    }
+    /*&__key {
+        //
+    }*/
 
-    &__value {
+    /*&__value {
 
         &--complete {
             color: #006435;
         }
-    }
+    }*/
 
-    &__bar {
+    /*&__bar {
         position: relative;
         background-color: #dee0e2;
         padding: 10px;
-    }
+    }*/
 
-    &--dar {
+    /*&--dar {
         background-color: #dee0e2;
-    }
+    }*/
 
-    &__bar-title {
+    /*&__bar-title {
         display: block;
         padding-right: 170px;
         @include govuk-font($size: 16, $weight: bold);
-    }
+    }*/
 
     &__char-count {
         display: block;
@@ -158,10 +160,6 @@ $module: 'application-item';
                 content: " ";
                 background-image: url('/images/ufs/pencil.svg');
                 background-size: 30px 24px;
-
-                /*@include touch {
-                   display: none;
-                }*/
             }
         }
     }
@@ -185,15 +183,6 @@ $module: 'application-item';
         border-top: 1px solid govuk-colour("mid-grey");
         margin-bottom: 0;
 
-        /*&:first-of-type {
-            // border-top: 1px solid govuk-colour("mid-grey");
-        }*/
-
-        /*&:last-of-type {
-            // border-top: 1px solid govuk-colour("mid-grey");
-            // background-color: orange;
-        }*/
-
         .#{$module}__contents {
             background-color: govuk-colour("white");
             padding: 15px 30px 15px 0;
@@ -204,13 +193,14 @@ $module: 'application-item';
         }
     }
 
-    &__mega-meta {
+   /* &__mega-meta {
         @include govuk-clearfix;
         display: table-cell;
         padding-top:15px;
-    }
+        min-height: 80px;
+    }*/
 
-    &__mega-item {
+    /*&__mega-item {
         display: inline-block;
         border-bottom: 4px solid govuk-colour("blue");
         min-width: 100px;
@@ -218,24 +208,172 @@ $module: 'application-item';
         vertical-align: bottom;
         margin-right: 20px;
         text-align: right;
+        padding-top: 6px;
         padding-bottom: 6px;
+    }*/
+
+    /*&__mega-meta-flex {
+        display: flex;
+        margin-top: 10px;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 4px solid govuk-colour("blue");
+            width: 100px;
+            // min-height: 80px;
+            margin-right: 20px;
+            text-align: right;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            margin-top: auto;
+
+            @at-root {
+                a#{&} {
+                    &:hover {
+                        background-color: govuk-colour("white");
+                    }
+                }
+            }
+        }
+
+        &__link {
+            display: block;
+            vertical-align: baseline;
+            height: 100px;
+
+            &:hover {
+                background-color: govuk-colour("white");
+            }
+        }
+    }*/
+
+   /* &__mega-meta-fix {
+        margin-top: 10px;
+        @include govuk-clearfix;
+
+        &__item {
+            display: block;
+            position: relative;
+            border-bottom: 4px solid govuk-colour("blue");
+            width: 100px;
+            // min-height: 80px;
+            margin-right: 20px;
+            text-align: right;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            margin-top: auto;
+
+            @at-root {
+                a#{&} {
+                    &:hover {
+                        background-color: govuk-colour("white");
+                    }
+                }
+            }
+        }
+
+        &__link {
+            display: block;
+            vertical-align: baseline;
+            height: 100px;
+
+            &:hover {
+                background-color: govuk-colour("white");
+            }
+        }
+
+        &__text {
+            display: block;
+            vertical-align: baseline;
+            height: 100px;
+
+        }
+    }*/
+
+   /* &__mega-link {
+        display: block;
+        width: 100px;
+        min-height: 80px;
+        vertical-align: bottom;
+
+        &:hover {
+            background-color: govuk-colour("white");
+        }
+    }*/
+
+    /*&__mega-stat {
+        display: block;
+        margin-top: auto;
+        @include govuk-font($size: 16, $weight: bold);
+    }*/
+
+    /*&__mega-thing {
+        display: block;
+        @include govuk-font($size: 16, $weight: normal);
+    }*/
+
+    &__data {
+        // display: flex;
+        /*align-items: center;
+        justify-content: center;*/
+    }
+
+    &__data-item {
+        // align-self: flex-end;
+        position: relative;
+        width: 100px;
+        height: 80px;
+        float: left;
+        padding: 6px;
+        margin-right: 12px;
+        border-bottom: 4px solid govuk-colour("blue");
+        margin-top: 10px;
 
         @at-root {
             a#{&} {
-                text-decoration: underline!important;
+                &:hover {
+                    background-color: govuk-colour("white");
+                }
             }
         }
     }
 
-    &__mega-stat {
+    &__data-link {
+        /*position: relative;
         display: block;
-        @include govuk-font($size: 16, $weight: bold);
+        width: 100px;
+        height: 80px;
+        padding: 20px 6px 10px;
+
+        margin-right: 10px;*/
+
+
     }
 
-    &__mega-thing {
+    /*&__data-stat {
+        @include govuk-font($size: 16, $weight: bold);
         display: block;
-        @include govuk-font($size: 16, $weight: normal);
+        text-align: right;
+
+    }*/
+
+
+    &__data-text {
+        @include govuk-font($size: 16);
+        position: absolute;
+        display: block;
+        text-align: right;
+        bottom: 6px;
+        right: 0;
+
     }
+
+   /* &__data-thing {
+        @include govuk-font($size: 16);
+        display: block;
+        text-align: right;
+    }*/
 }
 
 .application-items .application-item--skinny:last-of-type,
@@ -244,7 +382,6 @@ $module: 'application-item';
 }
 
 .application-item--skinny.application-item--error {
-    // border-bottom: 5px solid govuk-colour("red");
 
     .application-item__contents {
         border: none!important;
