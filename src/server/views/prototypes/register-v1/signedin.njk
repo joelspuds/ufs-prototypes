@@ -6,22 +6,22 @@
 {% set opportunityName = opportunityName if opportunityName %}
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
 {#{% set isAdminUser = true %}#}
-{%  set loggedOut = true %}
+{%  set loggedOut = false %}
 
 
-{% set pageTitle = 'Sign in to The UKRI Funding Service website' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Your Funding Service homepage' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
+    {#{% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.backLink(text='Back to Opportunity', url='/prototypes/register-v1/') }}
         {%- endcall %}
-    {%- endcall %}
+    {%- endcall %}#}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
-            {{ components.captionHeading(text='Sign in to The Funding Service') }}
+            {{ components.captionHeading(text='Home dashboard') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -31,7 +31,9 @@
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-                <fieldset class="govuk-fieldset">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+               {# <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-visually-hidden">Sign in to your UKRI Funding Service account</legend>
 
                     <div class="govuk-form-group">
@@ -48,13 +50,13 @@
                         <a href="#" class="govuk-link">I have forgotten my password</a>
                     </p>
 
-                </fieldset>
+                </fieldset>#}
 
             {%- endcall %}
 
         {%- endcall %}
 
-        {% call components.bulmaRow() %}
+      {#  {% call components.bulmaRow() %}
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
 
@@ -64,11 +66,11 @@
 
             {%- endcall %}
 
-        {%- endcall %}
+        {%- endcall %}#}
 
     {%- endcall %} {# end form #}
 
-    {% call components.bulmaRow(extraClass='') %}
+   {# {% call components.bulmaRow(extraClass='') %}
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
             <p class="govuk-body">
@@ -76,7 +78,7 @@
             </p>
         {%- endcall %}
 
-    {%- endcall %}
+    {%- endcall %}#}
 
 {% endblock %}
 {% block bodyScripts %}

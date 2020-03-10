@@ -3,6 +3,7 @@
   -webkit-box-pack: center;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
   width: 100%;
   flex-flow: column;
   min-height: 39px;
@@ -126,3 +127,66 @@
     }
   }
 }
+
+
+.user-header {
+  // wrapper for all
+  position: absolute;
+  right: 0;
+  top:0;
+
+  &__user {
+    // parent wrap for account stuff
+  }
+  &__organisation {
+    // parent wrap for org stuff
+  }
+
+  &__user-list {
+
+  }
+
+  &__controls {
+    display: none;
+  }
+
+  &__shower {
+    display: block;
+    margin: 0;
+    padding: 7px 19px 8px 4px;
+
+    &:after {
+      display: block;
+      position: absolute;
+      right: 4px;
+      top: 11px;
+      font-size: 12px;
+      content: "\25BC";
+      color: #ffffff;
+    }
+
+    &:hover,
+    &:focus {
+
+      > {
+        display: block;
+      }
+
+    }
+  }
+
+
+
+  &__controls {
+    display: none;
+  }
+
+  &__ist:hover,
+  &__list:focus {
+    &__controls {
+      display: block;
+    }
+  }
+
+}
+

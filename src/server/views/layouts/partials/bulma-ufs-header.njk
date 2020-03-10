@@ -27,8 +27,35 @@
                 <a href="#" class="top-links__link top-links__link--mobile-hidden">Reporting</a>
                 <a href="#" class="top-links__link top-links__link--mobile-hidden">Users and organisations</a>
               </nav>
+              {% if not loggedOut %}
+                <div class="user-header">
+                  <div class="user-header__user">
+                    <ul class="user-header__list">
+                      <li class="">
+                        <a href="#" class="user-header__shower">Arden Pimenta</a>
+                        <ul class="user-header__controls">
+                          <li><a href="#">Your profile</a></li>
+                          <li><a href="#">Sign out</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  {#<div class="user-header__organisation">
+                    <ul class="user-header__list">
+                      <li class="">
+                        <a href="#" class="user-header__shower">Arden Pimenta</a>
+                        <ul class="user-header__controls">
+                          <li><a href="#">Your profile</a></li>
+                          <li><a href="#">Sign out</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>#}
+                </div>
+              {% endif %}
             </div>
           {% else %}
+            {% if not loggedOut %}
             <div class="top-links">
               <nav class="top-links__nav">
                 <a href="#" class="top-links__menu" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a>
@@ -38,7 +65,34 @@
                 <a href="#" class="top-links__link top-links__link--mobile-hidden">Peer review</a>
                 <a href="#" class="top-links__link top-links__link--mobile-hidden">Panel</a>
               </nav>
+              {% if not loggedOut %}
+                <div class="user-header">
+                  <div class="user-header__user">
+                    <ul class="user-header__list">
+                      <li class="">
+                        <a href="#" class="user-header__shower">Arden Pimenta</a>
+                        <ul class="user-header__controls">
+                          <li><a href="#">Your profile</a></li>
+                          <li><a href="#">Sign out</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="user-header__organisation">
+                    <ul class="user-header__list">
+                      <li class="">
+                        <a href="#" class="user-header__shower">Arden Pimenta</a>
+                        <ul class="user-header__controls">
+                          <li><a href="#">Your profile</a></li>
+                          <li><a href="#">Sign out</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              {% endif %}
             </div>
+            {% endif %}
           {% endif %}
       </div>
     </div>
