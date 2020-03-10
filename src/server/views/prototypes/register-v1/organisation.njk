@@ -1,0 +1,83 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{#{% set navType = 'admin' %}#}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{#{% set isAdminUser = true %}#}
+{% set allOrgs = allOrgs if allOrgs %}
+
+
+{% set pageTitle = 'Sign in to The UKRI Funding Service website' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
+            {{ components.captionHeading(text='Organisation') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/register-v1/organisation', method='POST', name='selectOrganisation') %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-visually-hidden">Sign in to your UKRI Funding Service account</legend>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="organisation">Start entering your organisation's name</label>
+                        <span class="govuk-hint">Only organisations registered with the UKRI Funding Service can apply. </span>
+                        {#<input class="govuk-input govuk-input--width-20" id="organisation" name="organisation" type="text">#}
+                        <select name="organisation" class="govuk-select control" id="organisation">
+                            <option>Select your organisation</option>
+                            {% for item in allOrgs %}
+                                <option value="{{ item.name }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                </fieldset>
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+
+                {% call components.formGroup() %}
+                    {{ components.button(text='Continue', extraClass="application-controls__submit")}}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %} {# end form #}
+
+{% endblock %}
+{% block bodyScripts %}
+    {#<script>
+      Zepto(function($){
+        $('#thing').on('click', function() {
+        });
+      });
+    </script>#}
+    <script type="text/javascript" src="/javascripts/accessible-autocomplete/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+      var selectEl = document.querySelector('#organisation');
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
+        minLength: 1,
+        selectElement: selectEl
+      });
+    </script>
+{% endblock %}
+
+

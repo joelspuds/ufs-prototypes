@@ -135,3 +135,15 @@ Object.keys(_moleculesControllers).forEach(function (key) {
     }
   });
 });
+
+var _registerV = require('./register-v1');
+
+Object.keys(_registerV).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _registerV[key];
+    }
+  });
+});

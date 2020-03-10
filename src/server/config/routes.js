@@ -164,6 +164,16 @@ router.post('/prototypes/opportunity-v3/custom-section', demosController.opportu
 router.get('/prototypes/opportunity-v3/setup-complete', demosController.opportunitySetupCompleteGetV3);
 router.post('/prototypes/opportunity-v3/setup-complete', demosController.opportunitySetupCompletePostV3);
 
+/* *************************************************************** *
+
+Register  V1
+
+* *************************************************************** */
+router.get('/prototypes/register-v1/start', demosController.registerStartGetV1);
+router.post('/prototypes/register-v1/start', demosController.registerStartPostV1);
+router.get('/prototypes/register-v1/organisation', demosController.orgsGetV1);
+router.post('/prototypes/register-v1/organisation', demosController.orgsPostV1);
+
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 

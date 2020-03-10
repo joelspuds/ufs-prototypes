@@ -23,7 +23,7 @@
     {%- endcall %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column is-8') %}
+        {% call components.bulmaColumnAny(size='column is-8', customID='main-content') %}
 
             <p class="govuk-body-l">Users will be asked to enter a name for their application. They will then be asked to provide a summary, for which you can create guidance. Example text is provided below, which you can overwrite to fit your specific requirements.</p>
 
@@ -127,8 +127,6 @@
                 </section>
 
             {%- endcall %} {# end form #}
-
-
 
         {% endcall %}
 

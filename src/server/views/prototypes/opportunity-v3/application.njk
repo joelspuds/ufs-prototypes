@@ -36,15 +36,6 @@
 
             {{ components.captionHeading(text='Funders', caption=opportunityID + ': ' + opportunityName) }}
 
-
-            <br>
-
-            {#<div class="form-control-3-4">
-                <div id="event-start-date">
-                    <div data-reactroot=""><div><input type="text" class="govuk-input govuk-input--width-7 form-control bpk-popover-tether-target bpk-popover-tether-element-attached-top bpk-popover-tether-target-attached-bottom bpk-popover-tether-element-attached-center bpk-popover-tether-target-attached-center bpk-popover-tether-enabled" aria-invalid="false" id="event-start-date_datepicker__input" name="event-start-date" value="" aria-live="assertive" aria-atomic="true" aria-label="" autocorrect="off" autocapitalize="off" spellcheck="false"></div></div></div>
-            </div>#}
-
-
         {%- endcall %}
 
     {%- endcall %}
@@ -53,7 +44,7 @@
 
         {% call components.gridRow(extraClass='u-space-b30') %}
 
-            {% call components.columnTwoThirds() %}
+            {% call components.columnTwoThirds(customID='main-content') %}
 
                 <div class="date-time">
 

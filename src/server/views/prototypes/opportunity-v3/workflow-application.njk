@@ -54,7 +54,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='is-4') %}
+            {% call components.bulmaColumnAny(size='is-4', customID='main-content') %}
                 {{ components.captionHeading(text=APPLICATIONS_OPENING_DATE_TITLE, size='m') }}
                 {% if openingDate %}
                     {#{{ openDay }}, {{ openingDate }}#} {{ openingDateTidyAsString }}, {{ openingTime }}{{ openingTimeMeridian }}

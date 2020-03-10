@@ -41,8 +41,7 @@
 
     {% call components.bulmaRow() %}
 
-        {% call components.bulmaColumnAny(size='is-8') %}
-
+        {% call components.bulmaColumnAny(size='is-8', customID='main-content') %}
 
             <section class="section" id="workflow">
 
@@ -50,22 +49,22 @@
 
                 <p class="govuk-body-l">Opens tomorrow at 9:00am</p>
 
-                    <div class="application-items">
-                        <div class="application-item application-item--workflow u-space-b30">
-                            <div class="application-item__contents govuk-clearfix">
-                                <div class="application-item__left">Applications</div>
-                                <div class="application-item__right">
-                                    <span class="application-item__meta">
-                                       Opening date:<br>
-                                        <strong> {{ openingDateTidyAsString }}</strong><br>
-                                        Closing date:<br>
-                                        <strong> {{ closingDateTidyAsString }}</strong>
-                                    </span>
-                                    {#<span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>#}
-                                </div>
+                <div class="application-items">
+                    <div class="application-item application-item--workflow u-space-b30">
+                        <div class="application-item__contents govuk-clearfix">
+                            <div class="application-item__left">Applications</div>
+                            <div class="application-item__right">
+                                <span class="application-item__meta">
+                                   Opening date:<br>
+                                    <strong> {{ openingDateTidyAsString }}</strong><br>
+                                    Closing date:<br>
+                                    <strong> {{ closingDateTidyAsString }}</strong>
+                                </span>
+                                {#<span class="application-item__control">{{ components.link(text="Remove", url='?removeItem=true') }} </span>#}
                             </div>
                         </div>
                     </div>
+                </div>
 
             </section>
 

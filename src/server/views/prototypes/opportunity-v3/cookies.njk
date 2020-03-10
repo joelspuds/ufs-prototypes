@@ -19,33 +19,29 @@
         {%- endcall %}
     {%- endcall %}
 
-    {#{% call components.form(action='/prototypes/opportunity-v3/config', method='POST',name='createOpportunity') %}#}
+    {% call components.bulmaRow() %}
 
-        {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds', customID='main-content') %}
 
-            {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            <p class="govuk-body">Lots of helpful stuff about cookies that Stu's cobbling together with his quill.</p>
 
-                <p class="govuk-body">Lots of helpful stuff about cookies that Stu's cobbling together with his quill.</p>
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            {% call components.formGroup() %}
+
+                {{ components.button(text='Accept all cookies', extraClass="application-controls__submit", customID='acceptAllCookiesServerSide')}}
 
             {%- endcall %}
 
         {%- endcall %}
 
-        {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='is-two-thirds') %}
-
-                {% call components.formGroup() %}
-
-                    {{ components.button(text='Accept all cookies', extraClass="application-controls__submit", customID='acceptAllCookiesServerSide')}}
-
-                {%- endcall %}
-
-            {%- endcall %}
-
-        {%- endcall %}
-
-    {#{%- endcall %}#} {# end form #}
+    {%- endcall %}
 
 {% endblock %}
 {% block bodyScripts %}

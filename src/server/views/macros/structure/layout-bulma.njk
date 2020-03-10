@@ -5,7 +5,7 @@
 #}
 
 {# extraClass = is-fluid | not-fluid  #}
-{% macro bulmaContainer(extraClass)%}
+{% macro bulmaContainer(extraClass, customID)%}
     <div class="container {{ extraClass }}">{{ caller() }}</div>
 {% endmacro %}
 
@@ -14,58 +14,58 @@
     <div class="columns {{ range }} {{ extraClass }}">{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaRow(extraClass)%}
-    <div class="container {{ extraClass }}">
-        <div class="columns">{{ caller() }}</div>
+{% macro bulmaRow(extraClass, customID, containerID, columnsID)%}
+    <div class="container {{ extraClass }}" {% if containerID %}id="{{ containerID }}"{% endif %}>
+        <div class="columns" {% if columnsID %}id="{{ columnsID }}"{% endif %}>{{ caller() }}</div>
     </div>
 {% endmacro %}
 
-{#{% macro bulmaColumns(extraClass)%}
+{#{% macro bulmaColumns(extraClass, customID)%}
     <div class="columns {{ extraClass }}">{{ caller() }}</div>
 {% endmacro %}#}
 
-{% macro bulmaColumn(extraClass)%}
-    <div class="column {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumn(extraClass, customID)%}
+    <div class="column {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnOneQuarter(extraClass)%}
-    <div class="column is-one-quarter {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnOneQuarter(extraClass, customID)%}
+    <div class="column is-one-quarter {{ extraClass }} {% if customID %}id="{{ customID }}"{% endif %}">{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnOneThird(extraClass)%}
-    <div class="column is-one-third {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnOneThird(extraClass, customID)%}
+    <div class="column is-one-third {{ extraClass }} {% if customID %}id="{{ customID }}"{% endif %}">{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnOneHalf(extraClass)%}
-    <div class="column is-half {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnOneHalf(extraClass, customID)%}
+    <div class="column is-half {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnTwoThirds(extraClass)%}
-    <div class="column is-two-thirds {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnTwoThirds(extraClass, customID)%}
+    <div class="column is-two-thirds {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnThreeQuarters(extraClass)%}
-    <div class="column is-three-quarters {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnThreeQuarters(extraClass, customID)%}
+    <div class="column is-three-quarters {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnFull(extraClass)%}
-    <div class="column is-full {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnFull(extraClass, customID)%}
+    <div class="column is-full {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnOneFifth(extraClass)%}
-    <div class="column is-one-fifth {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnOneFifth(extraClass, customID)%}
+    <div class="column is-one-fifth {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnTwoFifths(extraClass)%}
-    <div class="column is-two-fifths {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnTwoFifths(extraClass, customID)%}
+    <div class="column is-two-fifths {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnThreeFifths(extraClass)%}
-    <div class="column is-three-fifths {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnThreeFifths(extraClass, customID)%}
+    <div class="column is-three-fifths {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaColumnFourFifths(extraClass)%}
-    <div class="column is-four-fifths {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumnFourFifths(extraClass, customID)%}
+    <div class="column is-four-fifths {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
 {# size:
@@ -74,8 +74,9 @@
     only takes the space is needs: is-narrow | is-narrow-mobile | .is-narrow-tablet | .is-narrow-touch | .is-narrow-desktop | .is-narrow-widescreen | .is-narrow-fullhd
 
 #}
-{% macro bulmaColumnAny(size='', extraClass)%}
-    <div class="column {{ size }} {{ extraClass }}">{{ caller() }}</div>
+
+{% macro bulmaColumnAny(size='', extraClass, customID)%}
+    <div class="column {{ size }} {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
 

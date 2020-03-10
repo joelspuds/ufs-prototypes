@@ -62,8 +62,7 @@
     {%- endcall %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column is-8') %}
-
+        {% call components.bulmaColumnAny(size='column is-8', customID='main-content') %}
 
             {% call components.form(action='/prototypes/opportunity-v3/custom-section', method='POST',name='manageCustom') %}
 

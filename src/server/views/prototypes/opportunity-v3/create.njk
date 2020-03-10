@@ -41,19 +41,9 @@
     {%- endcall %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+        {% call components.bulmaColumnAny(size='is-two-thirds', customID='main-content') %}
 
             {% call components.form(action='/prototypes/opportunity-v3/create', method='POST',name='createOpportunity') %}
-
-                {#{% call components.formGroup(extraClass='') %}
-
-                    {% if createOpportunityError %}
-                        {{ components.field(label=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL, id='opportunityName',  hint=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT, value=opportunityName) }}
-                    {% else %}
-                        {{ components.field(label=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_LABEL, id='opportunityName', hint=CREATE_NEW_OPPORTUNITY_OPPORTUNITY_NAME_HINT, value=opportunityName) }}
-                    {% endif %}
-
-                {%- endcall %}#}
 
                 <details class="govuk-details u-space-b10" data-module="govuk-details">
                     <summary class="govuk-details__summary">
