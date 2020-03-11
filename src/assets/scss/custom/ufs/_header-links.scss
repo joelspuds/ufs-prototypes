@@ -129,7 +129,7 @@
 }
 
 
-.user-header {
+/*.user-header {
   // wrapper for all
   position: absolute;
   right: 0;
@@ -167,18 +167,16 @@
 
     &:hover,
     &:focus {
-
-      > {
+      .user-header__controls {
         display: block;
       }
-
     }
   }
 
-
-
-  &__controls {
-    display: none;
+  &__control-link {
+    !*display: block;
+    margin: 0;
+    padding: 7px 19px 8px 4px;*!
   }
 
   &__ist:hover,
@@ -188,5 +186,5 @@
     }
   }
 
-}
+}*/
 

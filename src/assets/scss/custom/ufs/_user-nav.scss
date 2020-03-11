@@ -1,0 +1,136 @@
+.header {
+  overflow:visible;
+  z-index: 10!important;
+  margin-bottom: 30px;
+}
+
+main {
+  z-index: 1!important;
+}
+
+.lift-z {
+ z-index:100;
+}
+
+.user-header {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    // background: darkorange;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  li {
+    color: govuk-colour("black");
+    // background: darkorange;
+    background: ufs-colour("ukri-blue");
+    display: block;
+    float: left;
+    // padding: 1rem;
+    padding: 7px 24px 8px 10px;
+    position: relative;
+    text-decoration: none;
+    // transition-duration: 0.5s;
+
+    &:after {
+      display: block;
+      position: absolute;
+      right: 8px;
+      top: 11px;
+      font-size: 12px;
+      content:"\25BC";
+      color: govuk-colour("white");
+    }
+
+    &:hover,
+    &:focus {
+      &:after {
+        color: govuk-colour("black");
+      }
+    }
+  }
+
+  li a {
+    color: #fff;
+  }
+
+  li:hover,
+  li:focus-within {
+    // background: white;
+    // background: ufs-colour("ukri-blue");
+    // background-color: #ffdd00;
+    background-color: govuk-colour("white");
+    color: govuk-colour("black");
+    cursor: pointer;
+
+    a {
+      background-color: govuk-colour("white");
+      color: govuk-colour("black");
+    }
+  }
+
+  li:focus-within a {
+    outline: none;
+  }
+
+  ul li ul {
+    background: govuk-colour("yellow");
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    // transition: all 0.5s ease;
+    // margin-top: 1rem;
+    margin-top: 6px;
+    left: 0;
+    display: none;
+
+    li {
+      background: govuk-colour("yellow");
+      padding: 7px 10px 8px 10px;
+
+      &:after {
+       content: "";
+      }
+
+      a {
+        background-color: govuk-colour("yellow")!important;
+        color: govuk-colour("black");
+
+        &:hover,
+        &:focus {
+          background-color: govuk-colour("white")!important;
+        }
+      }
+    }
+  }
+
+  ul li:hover > ul,
+  ul li:focus-within > ul,
+  ul li ul:hover,
+  ul li ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+
+    a {
+      background-color: govuk-colour("white");
+      color: govuk-colour("black");
+    }
+  }
+
+  ul li ul li {
+    clear: both;
+    width: 100%;
+  }
+
+}

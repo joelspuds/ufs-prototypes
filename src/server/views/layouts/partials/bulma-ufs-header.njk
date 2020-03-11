@@ -12,7 +12,7 @@
       </div>
     </div>
   </header>
-  <div class="container">
+  <div class="container lift-z">
     <div class="columns">
       <div class="column is-full">
           {% if navType == 'admin' %}
@@ -30,15 +30,35 @@
               {% if not loggedOut %}
                 <div class="user-header">
                   <div class="user-header__user">
-                    <ul class="user-header__list">
-                      <li class="">
-                        <a href="#" class="user-header__shower">Arden Pimenta</a>
+                    {#<ul class="user-header__list">
+                      <li class="user-header__shower">
+                        <a href="#" class="user-header__control-link">Arden Pimenta</a>
                         <ul class="user-header__controls">
                           <li><a href="#">Your profile</a></li>
                           <li><a href="#">Sign out</a></li>
                         </ul>
                       </li>
+                    </ul>#}
+                    <ul class="user-header__list">
+
+                      <li class="user-header__switch">
+                        <a href="#" class="user-header__control">Arden Pimenta</a>
+                        <ul class="user-header__dropdown">
+                          <li><a href="#">Your profile</a></li>
+                          <li><a href="#">Sign out</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="user-header__switch">
+                        <a href="#" class="user-header__control">Organisations</a>
+                        <ul class="user-header__dropdown">
+                          <li><a href="#">UKRI</a></li>
+                          <li><a href="#">EPSRC</a></li>
+                        </ul>
+                      </li>
+
                     </ul>
+
                   </div>
                   {#<div class="user-header__organisation">
                     <ul class="user-header__list">
@@ -69,8 +89,8 @@
                 <div class="user-header">
                   <div class="user-header__user">
                     <ul class="user-header__list">
-                      <li class="">
-                        <a href="#" class="user-header__shower">Arden Pimenta</a>
+                      <li class="user-header__shower">
+                        <a href="#" class="">Arden Pimenta</a>
                         <ul class="user-header__controls">
                           <li><a href="#">Your profile</a></li>
                           <li><a href="#">Sign out</a></li>
