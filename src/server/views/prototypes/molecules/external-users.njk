@@ -1,0 +1,69 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{#{% set navType = 'admin' %}#}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{#{% set isAdminUser = true %}#}
+{%  set loggedOut = false %}
+
+
+{% set pageTitle = 'External user elements' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to molecules', url='/prototypes/molecules/') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
+            {{ components.captionHeading(text='External user elements') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+           <p class="govuk-body">Page showing furniture/elements for external users</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>User profile/orgs menu, above in right-hand end of nav bar</li>
+                <li>Beta banner (scroll down)</li>
+                <li>Contact info (scroll down)</li>
+            </ul>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow(extraClass='') %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            <details class="govuk-details govuk-details--contact u-space-b10 u-space-t30" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__plain">Need help with this service?</span> <span class="govuk-details__summary-text">Contact us</span>
+                </summary>
+                <div class="govuk-details__text">
+                    <p>You can either emails us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
+                    <p>Or phone the Funding Service helpline: <a href="tel:03003214357" class="govuk-link" >0300 321 4357</a></p>
+                </div>
+            </details>
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+{% block bodyScripts %}
+    {#<script>
+      Zepto(function($){
+        $('#thing').on('click', function() {
+        });
+      });
+    </script>#}
+{% endblock %}
+
+

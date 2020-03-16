@@ -117,3 +117,43 @@
   min-height: 40px;
   box-sizing: border-box;
 }
+
+.govuk-details {
+
+  &--contact {
+
+    /*@at-root {
+      #{&} {
+        &__summary {
+          background-color: lime;
+        }
+      }
+    }*/
+
+    .govuk-details__summary {
+      // background-color: lime;
+
+      padding-left: 0;
+
+      &:before {
+        border: 0;
+      }
+    }
+
+    &[open] {
+      .govuk-details__summary {
+        &:before {
+          border: 0;
+        }
+      }
+    }
+
+    .govuk-details__plain {
+      color: govuk-colour("black")
+    }
+
+
+  }
+
+
+}
