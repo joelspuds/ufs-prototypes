@@ -86,7 +86,8 @@ main {
     background: govuk-colour("yellow");
     visibility: hidden;
     opacity: 0;
-    min-width: 5rem;
+    // min-width: 5rem;
+    width: 100%;
     position: absolute;
     margin-top: 6px;
     left: 0;

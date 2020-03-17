@@ -43,29 +43,13 @@
     {% call components.bulmaRow(extraClass='') %}
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
-            <details class="govuk-details govuk-details--contact u-space-b10 u-space-t30" data-module="govuk-details">
-                <summary class="govuk-details__summary">
-                    <span class="govuk-details__plain">Need help with this service?</span> <span class="govuk-details__summary-text">Contact us</span>
-                </summary>
-                <div class="govuk-details__text">
-                    <p>You can either email us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
-                    <p>Or phone the Funding Service helpline: <a href="tel:03003214357" class="govuk-link" >0300 321 4357</a></p>
-                </div>
-            </details>
-        {%- endcall %}
-
-    {%- endcall %}
-
-    {% call components.bulmaRow(extraClass='') %}
-
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
-            <div class="service-help u-space-b20 u-space-t30">
+            <div class="service-help u-space-b20 u-space-t30" aria-expanded="false">
                 <h2 class="govuk-heading-s service-help__heading">
                     <span class="service-help__plain">Need help with this service?</span>
                     <a href="#" class="govuk-link service-help__link js-only">Contact us</a>
                 </h2>
 
-                <div class="service-help__text js-hidden">
+                <div class="service-help__text js-hidden" aria-hidden="true">
                     <p class="govuk-body">You can either email us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
                     <p class="govuk-body">Or phone the Funding Service helpline: <a href="tel:03003214357" class="govuk-link" >0300 321 4357</a></p>
                 </div>
@@ -79,7 +63,17 @@
     <script>
       Zepto(function($){
         $('.service-help__link').on('click', function() {
-          $('.service-help__text').toggleClass('js-hidden');
+          console.log('hello');
+          let everythingWrapper = $('.service-help');
+          let targetWrapper = $('.service-help__text');
+          $(targetWrapper).toggleClass('js-hidden');
+          if ($(targetWrapper).attr('aria-hidden') === 'true') {
+            $(everythingWrapper).attr('aria-expanded', 'true');
+            $(targetWrapper).attr('aria-hidden', 'false');
+          } else {
+            $(everythingWrapper).attr('aria-expanded', 'false');
+            $(targetWrapper).attr('aria-hidden', 'true');
+          }
         });
       });
     </script>
