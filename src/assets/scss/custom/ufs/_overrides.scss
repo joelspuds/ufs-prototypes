@@ -138,6 +138,13 @@
       &:before {
         border: 0;
       }
+
+      &:focus {
+        .govuk-details__plain {
+          /*background-color: govuk-colour("white");
+          box-shadow: none;*/
+        }
+      }
     }
 
     &[open] {
@@ -151,9 +158,16 @@
     .govuk-details__plain {
       color: govuk-colour("black")
     }
-
-
   }
+}
 
 
+// bulma reset reset
+table td:not([align]), table th:not([align]) {
+  text-align: unset;
+}
+
+.govuk-table__header--numeric,
+.govuk-table__cell--numeric {
+  text-align: right!important;
 }

@@ -1,0 +1,13 @@
+.responsive-table {
+  @include touch {
+
+    // background-color: lime;
+    width: 100%;
+    overflow-x:auto;
+  }
+
+  &__table {
+    min-width: 600px;
+  }
+
+}

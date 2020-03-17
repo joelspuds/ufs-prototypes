@@ -1,6 +1,6 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = CASE_FOR_SUPPORT_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
-{#{% set showTinyMCEScripts = true %}#}
+{% set showTinyMCEScripts = true %}
 {% set storedCaseForSupportNotes = storedCaseForSupportNotes if storedCaseForSupportNotes %}
 {% set projectName = projectName if projectName %}
 {% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
@@ -57,7 +57,7 @@
                 <style>
                     .tox-notification.tox-notification--in.tox-notification--error,
                     .tox-notifications-container {
-                        display: none!important;
+                        /*display: none!important;*/
                     }
                 </style>
 
@@ -106,4 +106,28 @@
 
     {%- endcall %}
 
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      /*function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }*/
+    </script>
 {% endblock %}

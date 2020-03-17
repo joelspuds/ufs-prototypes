@@ -48,7 +48,7 @@
                     <span class="govuk-details__plain">Need help with this service?</span> <span class="govuk-details__summary-text">Contact us</span>
                 </summary>
                 <div class="govuk-details__text">
-                    <p>You can either emails us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
+                    <p>You can either email us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
                     <p>Or phone the Funding Service helpline: <a href="tel:03003214357" class="govuk-link" >0300 321 4357</a></p>
                 </div>
             </details>
@@ -56,14 +56,33 @@
 
     {%- endcall %}
 
+    {% call components.bulmaRow(extraClass='') %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            <div class="service-help u-space-b20 u-space-t30">
+                <h2 class="govuk-heading-s service-help__heading">
+                    <span class="service-help__plain">Need help with this service?</span>
+                    <a href="#" class="govuk-link service-help__link js-only">Contact us</a>
+                </h2>
+
+                <div class="service-help__text js-hidden">
+                    <p class="govuk-body">You can either email us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
+                    <p class="govuk-body">Or phone the Funding Service helpline: <a href="tel:03003214357" class="govuk-link" >0300 321 4357</a></p>
+                </div>
+            </div>
+        {%- endcall %}
+
+    {%- endcall %}
+
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
+    <script>
       Zepto(function($){
-        $('#thing').on('click', function() {
+        $('.service-help__link').on('click', function() {
+          $('.service-help__text').toggleClass('js-hidden');
         });
       });
-    </script>#}
+    </script>
 {% endblock %}
 
 
