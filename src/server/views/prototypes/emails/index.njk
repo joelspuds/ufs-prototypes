@@ -1,0 +1,137 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{#{% set navType = 'admin' %}#}
+{#{% set isAdminUser = true %}#}
+{% set emailSent = emailSent if emailSent %}
+{% set emailError = emailError if emailError %}
+
+{%  set loggedOut = true %}
+
+{% set pageTitle = 'Send test email' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to Opportunity page', url='/prototypes/register-v1/organisation') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% if emailSent %}
+        {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+        <div class="alerts alerts--success">Your test email has been sent (hopefully - the next bit is out of my hands)</div>
+        {%- endcall %}
+
+        {%- endcall %}
+    {% endif %}
+
+    {% if emailError %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            <li>
+                                <a href="#emailError">The least you could do is add an email address so I know where to send the email</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='Send a test email') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/emails/', method='POST', name='emailDetails') %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <p class="govuk-body-l">Send a test email to the client of your choice</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+      {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <div class="govuk-form-group {% if emailError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="emailAddress" {% if emailError %}id="emailError"{% endif %}>
+                        Email address
+                        {% if emailError %}
+                            <span class="govuk-error-message">Enter a send-to email address</span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input govuk-input--width-30 {% if emailError %} govuk-input--error{% endif %}" id="emailAddress" type="text" name="emailAddress" value="{{ emailAddress }}">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--s" for="subject">Subject line</label>
+                    <span class="govuk-hint">This is optional and has a default if you can't be bothered to add your own.</span>
+                    <input class="govuk-input govuk-input--width-30" id="subject" type="text" name="subject" value="{{ fullName }}">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+
+                {% call components.formGroup() %}
+                    {{ components.button(text='Send test email', extraClass="application-controls__submit")}}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %} {# end form #}
+
+{% endblock %}
+{% block bodyScripts %}
+    {#<script>
+      Zepto(function($){
+        $('#thing').on('click', function() {
+        });
+      });
+    </script>#}
+    <script type="text/javascript" src="/javascripts/accessible-autocomplete/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+      var selectEl = document.querySelector('#organisation');
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
+        minLength: 1,
+        selectElement: selectEl
+      });
+    </script>
+{% endblock %}
+
+

@@ -10,7 +10,7 @@
 {%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Organisation' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Select an organisation' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
@@ -22,7 +22,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Organisation', caption='Apply to OPP123: Microbiotics in freshwater environments') }}
+            {{ components.captionHeading(text='Select an organisation', caption='Apply to OPP123: Microbiotics in freshwater environments') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -32,15 +32,18 @@
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
+                <p class="govuk-body-l">[add something saying it's the lead]</p>
+
+
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-visually-hidden">Sign in to your UKRI Funding Service account</legend>
 
                     <div class="govuk-form-group">
-                        <label class="govuk-label" for="organisation">Start entering your organisation's name</label>
+                        <label class="govuk-label" for="organisation">Begin by entering your organisation’s name</label>
                         <span class="govuk-hint">Only organisations registered with the UKRI Funding Service can apply. </span>
                         {#<input class="govuk-input govuk-input--width-20" id="organisation" name="organisation" type="text">#}
                         <select name="organisation" class="govuk-select control" id="organisation">
-                            <option>Select your organisation</option>
+                            <option></option>
                             {% for item in allOrgs %}
                                 <option value="{{ item.name }}">{{ item.name }}</option>
                             {% endfor %}

@@ -133,7 +133,7 @@ export function detailsPostV1(req, res) {
   let isError = false;
 
   req.session.firstName = firstName;
-  req.session.lastName = firstName;
+  req.session.lastName = lastName;
   req.session.emailAddress = emailAddress;
   req.session.password = password;
 

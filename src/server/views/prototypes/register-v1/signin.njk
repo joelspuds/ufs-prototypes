@@ -9,7 +9,7 @@
 {%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Sign in to The UKRI Funding Service website' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Sign in ' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
@@ -21,7 +21,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
-            {{ components.captionHeading(text='Sign in to The Funding Service') }}
+            {{ components.captionHeading(text='Sign in') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -44,9 +44,9 @@
                         <input class="govuk-input govuk-input--width-20" id="password" name="password" type="password">
                     </div>
 
-                    <p class="govuk-body">
+                    {#<p class="govuk-body">
                         <a href="#" class="govuk-link">I have forgotten my password</a>
-                    </p>
+                    </p>#}
 
                 </fieldset>
 
@@ -68,7 +68,7 @@
 
     {%- endcall %} {# end form #}
 
-    {% call components.bulmaRow(extraClass='') %}
+    {#{% call components.bulmaRow(extraClass='') %}
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
             <p class="govuk-body">
@@ -76,7 +76,7 @@
             </p>
         {%- endcall %}
 
-    {%- endcall %}
+    {%- endcall %}#}
 
 {% endblock %}
 {% block bodyScripts %}

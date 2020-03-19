@@ -147,3 +147,15 @@ Object.keys(_registerV).forEach(function (key) {
     }
   });
 });
+
+var _emailsController = require('./emailsController');
+
+Object.keys(_emailsController).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _emailsController[key];
+    }
+  });
+});

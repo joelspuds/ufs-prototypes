@@ -10,3 +10,4 @@ export * from './createOpportunity-v3';
 export * from './data-test';
 export * from './moleculesControllers';
 export * from './register-v1';
+export * from './emailsController';

@@ -34,6 +34,7 @@
     "npm": "5.6.0"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.5.5",
     "accessible-autocomplete": "^1.6.1",
     "axios": "^0.17.1",
     "basic-auth": "^2.0.0",

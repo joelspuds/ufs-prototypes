@@ -138,7 +138,7 @@
           '/stylesheets/tinymce.css'
         ],
         setup: function(editor) {
-          editor.on('change', function(e) {
+          editor.on('keyup', function(e) {
             wordy = editor.plugins.wordcount;
             count = parseInt(wordy.body.getWordCount());
             newCount = limit - count;

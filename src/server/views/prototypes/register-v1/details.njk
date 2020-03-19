@@ -42,7 +42,7 @@
                             </span>
                         {% endif %}
                     </label>
-                    <input class="govuk-input govuk-input--width-20" id="firstName" type="text" name="firstName" value="{{ fullName }}">
+                    <input class="govuk-input govuk-input--width-20" id="firstName" type="text" name="firstName" value="{{ firstName }}">
                 </div>
 
             {%- endcall %}
@@ -61,7 +61,7 @@
                             </span>
                         {% endif %}
                     </label>
-                    <input class="govuk-input govuk-input--width-20" id="lastName" type="text" name="lastName" value="{{ fullName }}">
+                    <input class="govuk-input govuk-input--width-20" id="lastName" type="text" name="lastName" value="{{ lastName }}">
                 </div>
 
             {%- endcall %}
@@ -121,6 +121,8 @@
 
                 <p class="govuk-body">UKRI abide by... using my personal data in accordance with current <a href="#" class="govuk-link">UK data protection legislation</a>.</p>
 
+                <p class="govuk-body-l">[ADD A MASSIVE CHECKBOX]</p>
+
                 {% call components.formGroup() %}
                     {{ components.button(text='Create account', extraClass="application-controls__submit")}}
                 {%- endcall %}
@@ -139,16 +141,6 @@
         });
       });
     </script>#}
-    <script type="text/javascript" src="/javascripts/accessible-autocomplete/accessible-autocomplete.min.js"></script>
-    <script type="text/javascript">
-      var selectEl = document.querySelector('#organisation');
-      accessibleAutocomplete.enhanceSelectElement({
-        autoselect: true,
-        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
-        minLength: 1,
-        selectElement: selectEl
-      });
-    </script>
 {% endblock %}
 
 
