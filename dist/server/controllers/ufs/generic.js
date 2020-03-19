@@ -8,6 +8,13 @@ let validatePassword = function (password) {
 
 module.exports.validatePassword = validatePassword;
 
+let validateWord = function (word) {
+  var regex = /^[A-Za-z\s]+$/;
+  return regex.test(word);
+};
+
+module.exports.validateWord = validateWord;
+
 // is it a number?
 let isNumeric = function (n) {
   // Passeth I an arguement and I shall telleth thee true if thine input ist numeric

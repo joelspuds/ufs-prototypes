@@ -62,8 +62,8 @@
 {% block bodyScripts %}
     <script>
       Zepto(function($){
+        // TODO: ideally, we should be adding these aria attributes with JavaScript as they only apply in a JS-enabled environment
         $('.service-help__link').on('click', function() {
-          console.log('hello');
           let everythingWrapper = $('.service-help');
           let targetWrapper = $('.service-help__text');
           $(targetWrapper).toggleClass('js-hidden');

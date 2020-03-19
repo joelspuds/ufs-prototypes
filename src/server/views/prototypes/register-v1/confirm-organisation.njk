@@ -7,48 +7,41 @@
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
 {#{% set isAdminUser = true %}#}
 {% set allOrgs = allOrgs if allOrgs %}
+{% set organisationName = organisationName if organisationName else 'You have not selected an organisation name' %}
+
 {%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Organisation' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Confirm organisation' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to Opportunity', url='/prototypes/register-v1/') }}
+            {{ components.backLink(text='Back to organisation', url='/prototypes/register-v1/organisation') }}
         {%- endcall %}
     {%- endcall %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Organisation', caption='Apply to OPP123: Microbiotics in freshwater environments') }}
+            {{ components.captionHeading(text='Confirm organisation', caption='Apply to OPP123: Microbiotics in freshwater environments') }}
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/register-v1/organisation', method='POST', name='selectOrganisation') %}
+    {% call components.form(action='/prototypes/register-v1/confirm-organisation', method='POST', name='confirmOrganisation') %}
 
         {% call components.bulmaRow() %}
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-                <fieldset class="govuk-fieldset">
-                    <legend class="govuk-fieldset__legend govuk-visually-hidden">Sign in to your UKRI Funding Service account</legend>
+                <p class="govuk-body-m">By clicking continue, you confirm that the organisation listed below is the lead organisation for this application. </p>
 
-                    <div class="govuk-form-group">
-                        <label class="govuk-label" for="organisation">Start entering your organisation's name</label>
-                        <span class="govuk-hint">Only organisations registered with the UKRI Funding Service can apply. </span>
-                        {#<input class="govuk-input govuk-input--width-20" id="organisation" name="organisation" type="text">#}
-                        <select name="organisation" class="govuk-select control" id="organisation">
-                            <option>Select your organisation</option>
-                            {% for item in allOrgs %}
-                                <option value="{{ item.name }}">{{ item.name }}</option>
-                            {% endfor %}
-                        </select>
+                <p class="govuk-body-m">
+                    <strong>Registered name:</strong>
+                    <Br>
+                    {{ organisationName }}
+                </p>
 
-                    </div>
-
-                </fieldset>
             {%- endcall %}
 
         {%- endcall %}

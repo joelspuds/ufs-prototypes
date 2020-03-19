@@ -26,7 +26,7 @@ export function registerStartPostV1(req, res) {
     return res.redirect('/prototypes/register-v1/signin');
   } else {
     req.session.hasExistingAccount = false;
-    return res.redirect('/prototypes/register-v1/register-start');
+    return res.redirect('/prototypes/register-v1/organisation');
   }
 }
 
@@ -56,8 +56,8 @@ export function orgsGetV1(req, res) {
   let viewData;
 
   const allOrgs = generalData.allOrgs2;
-  console.log('allOrgs = ');
-  console.log(allOrgs);
+  // console.log('allOrgs = ');
+  // console.log(allOrgs);
 
   viewData = {
     allOrgs,
@@ -68,12 +68,99 @@ export function orgsGetV1(req, res) {
 
 export function orgsPostV1(req, res) {
   const { organisation } = req.body;
+  console.log(organisation);
 
-  if (organisation !== '') {
-    req.session.organisationName = true;
-    return res.redirect('prototypes/register-v1/organisation');
+  if (!organisation || organisation === 'Select your organisation') {
+    req.session.organisationNameError = true;
+    return res.redirect('/prototypes/register-v1/organisation');
   } else {
-    // fail
-    return res.redirect('prototypes/register-v1/organisation');
+    // cool
+    req.session.organisationName = organisation;
+    res.redirect('/prototypes/register-v1/confirm-organisation');
+  }
+}
+
+// organisations confirma
+export function orgsConfirmGetV1(req, res) {
+  let viewData, organisationName;
+
+  organisationName = req.session.organisationName;
+
+  viewData = {
+    organisationName,
+  };
+
+  return res.render('prototypes/register-v1/confirm-organisation', viewData);
+}
+
+export function orgsConfirmPostV1(req, res) {
+  const {} = req.body;
+  return res.redirect('/prototypes/register-v1/details');
+}
+
+// details
+export function detailsGetV1(req, res) {
+  let viewData, firstName, lastName, emailAddress, firstNameError, lastNameError, emailError, passwordError, isDetailsError;
+
+  firstNameError = req.session.firstNameError;
+  lastNameError = req.session.lastNameError;
+  emailError = req.session.emailError;
+  passwordError = req.session.passwordError;
+  firstName = req.session.firstName;
+  lastName = req.session.lastName;
+  emailAddress = req.session.emailAddress;
+  isDetailsError = req.session.isDetailsError;
+
+  viewData = {
+    firstNameError,
+    lastNameError,
+    emailError,
+    passwordError,
+    firstName,
+    lastName,
+    emailAddress,
+    isDetailsError,
+  };
+
+  return res.render('prototypes/register-v1/details', viewData);
+}
+
+export function detailsPostV1(req, res) {
+  const { firstName, lastName, emailAddress, password } = req.body;
+
+  console.log(firstName, lastName, emailAddress, password);
+
+  let isError = false;
+
+  req.session.firstName = firstName;
+  req.session.lastName = firstName;
+  req.session.emailAddress = emailAddress;
+  req.session.password = password;
+
+  if (!genericFunctions.validateWord(firstName)) {
+    req.session.firstNameError = true;
+    isError = true;
+  }
+
+  if (!genericFunctions.validateWord(lastName)) {
+    req.session.lastNameError = true;
+    isError = true;
+  }
+
+  if (genericFunctions.validateEmail(password)) {
+    req.session.emailError = true;
+    isError = true;
+  }
+
+  if (!genericFunctions.validatePassword(password)) {
+    req.session.passwordError = true;
+    isError = true;
+  }
+
+  if (isError === true) {
+    req.session.isDetailsError = true;
+    return res.redirect('/prototypes/register-v1/details');
+  } else {
+    return res.redirect('/prototypes/register-v1/end');
   }
 }

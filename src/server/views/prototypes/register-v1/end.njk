@@ -1,0 +1,70 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{#{% set navType = 'admin' %}#}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{#{% set isAdminUser = true %}#}
+{% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
+{%  set loggedOut = true %}
+
+
+{% set pageTitle = 'Account created' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to sign in', url='/prototypes/register-v1/signin') }}
+        {%- endcall %}
+    {%- endcall %}
+
+   {# {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Account created') }}
+        {%- endcall %}
+    {%- endcall %}#}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">Account created</h1>
+                <div class="govuk-panel__body">
+                    <p class="govuk-!-font-size-24">You will receive an email to {{ emailAddress }} asking you to verify your details.  Select the attached link to sign into your UKRI Funding Service account and start your application for {{ opportunityName }}. Check your junk folder in case this email is sent there.</p>
+                    <p class="govuk-!-font-size-24"><a href="#">Re-send email</a></p>
+                </div>
+            </div>
+
+           {# <p class="govuk-body">We have sent you a confirmation email.</p>
+
+            <h2 class="govuk-heading-m">What happens next</h2>
+
+            <p class="govuk-body">
+                We’ve sent your application to Hackney Electoral Register Office.
+            </p>
+            <p class="govuk-body">
+                They will contact you either to confirm your registration, or to ask for more information.
+            </p>
+
+            <p class="govuk-body">
+                <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+            </p>#}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+{% block bodyScripts %}
+    {#<script>
+      Zepto(function($){
+        $('#thing').on('click', function() {
+        });
+      });
+    </script>#}
+{% endblock %}
+
+

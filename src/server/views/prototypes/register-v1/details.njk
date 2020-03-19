@@ -1,0 +1,154 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{#{% set navType = 'admin' %}#}
+{% set firstNameError = firstNameError if firstNameError %}
+{% set lastNameError = lastNameError if lastNameError %}
+{% set emailNameError = emailNameError if emailNameError %}
+{% set passwordError = passwordError if passwordError %}
+{#{% set isAdminUser = true %}#}
+{% set firstName = firstName if firstName %}
+{% set lastName = lastName if lastName %}
+{% set emailAddress = emailAddress if emailAddress %}
+
+{%  set loggedOut = true %}
+
+{% set pageTitle = 'Enter your details' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.backLink(text='Back to Opportunity page', url='/prototypes/register-v1/organisation') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='Enter your details',  caption='Apply to OPP123: Microbiotics in freshwater environments') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/register-v1/details', method='POST', name='details') %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <div class="govuk-form-group {% if firstNameError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="firstName">First name
+                        {% if firstNameError %}
+                            <span class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid first name
+                            </span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="firstName" type="text" name="firstName" value="{{ fullName }}">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <div class="govuk-form-group {% if lastNameError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="lastName">Last name
+                        {% if lastNameError %}
+                            <span class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid last name
+                            </span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="lastName" type="text" name="lastName" value="{{ fullName }}">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <div class="govuk-form-group {% if emailError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="emailAddress">Email address
+                        {% if emailError %}
+                            <span class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid email address
+                            </span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input govuk-input--width-30" id="emailAddress" type="text" name="emailAddress" value="{{ emailAddress }}">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <h2 class="govuk-heading-s">Create password</h2>
+
+                <p class="govuk-body">Your password is case-sensitive, can include spaces to make a phrase and must:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>be at least 8 characters long </li>
+                    <li>not be commonly used</li>
+                </ul>
+
+                <div class="govuk-form-group {% if fullPasswordError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="password"><span class="govuk-visually-hidden">Password</span>
+                        {% if fullPasswordError %}
+                            <span class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid email address
+                            </span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="password" type="password" name="password" value="">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+
+                <p class="govuk-body">UKRI abide by... using my personal data in accordance with current <a href="#" class="govuk-link">UK data protection legislation</a>.</p>
+
+                {% call components.formGroup() %}
+                    {{ components.button(text='Create account', extraClass="application-controls__submit")}}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %} {# end form #}
+
+{% endblock %}
+{% block bodyScripts %}
+    {#<script>
+      Zepto(function($){
+        $('#thing').on('click', function() {
+        });
+      });
+    </script>#}
+    <script type="text/javascript" src="/javascripts/accessible-autocomplete/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+      var selectEl = document.querySelector('#organisation');
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
+        minLength: 1,
+        selectElement: selectEl
+      });
+    </script>
+{% endblock %}
+
+

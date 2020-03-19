@@ -173,6 +173,10 @@ router.get('/prototypes/register-v1/start', demosController.registerStartGetV1);
 router.post('/prototypes/register-v1/start', demosController.registerStartPostV1);
 router.get('/prototypes/register-v1/organisation', demosController.orgsGetV1);
 router.post('/prototypes/register-v1/organisation', demosController.orgsPostV1);
+router.get('/prototypes/register-v1/confirm-organisation', demosController.orgsConfirmGetV1);
+router.post('/prototypes/register-v1/confirm-organisation', demosController.orgsConfirmPostV1);
+router.get('/prototypes/register-v1/details', demosController.detailsGetV1);
+router.post('/prototypes/register-v1/details', demosController.detailsPostV1);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
