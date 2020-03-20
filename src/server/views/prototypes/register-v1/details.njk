@@ -5,6 +5,7 @@
 {% set lastNameError = lastNameError if lastNameError %}
 {% set emailNameError = emailNameError if emailNameError %}
 {% set passwordError = passwordError if passwordError %}
+{% set isDetailsError = isDetailsError if isDetailsError %}
 {#{% set isAdminUser = true %}#}
 {% set firstName = firstName if firstName %}
 {% set lastName = lastName if lastName %}
@@ -22,6 +23,38 @@
         {%- endcall %}
     {%- endcall %}
 
+    {% if isDetailsError %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                    <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            {% if firstNameError %}
+                            <li><a href="#firstNameLabel">You have not entered a first name</a></li>
+                            {% endif %}
+                            {% if lastNameError %}
+                                <li><a href="#lastNameLabel">You have not entered a last name</a></li>
+                            {% endif %}
+                            {% if emailError %}
+                                <li><a href="#emailLabel">You have not entered an email address</a></li>
+                            {% endif %}
+                            {% if passwordError %}
+                                <li><a href="#passwordLabel">You have not entered a password</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
+
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text='Enter your details',  caption='Apply to OPP123: Microbiotics in freshwater environments') }}
@@ -35,7 +68,7 @@
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="govuk-form-group {% if firstNameError %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label govuk-label--s" for="firstName">First name
+                    <label class="govuk-label govuk-label--s" for="firstName" id="firstNameLabel">First name
                         {% if firstNameError %}
                             <span class="govuk-error-message">
                                 <span class="govuk-visually-hidden">Error:</span> Enter a valid first name
@@ -54,7 +87,7 @@
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="govuk-form-group {% if lastNameError %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label govuk-label--s" for="lastName">Last name
+                    <label class="govuk-label govuk-label--s" for="lastName" id="lastNameLabel">Last name
                         {% if lastNameError %}
                             <span class="govuk-error-message">
                                 <span class="govuk-visually-hidden">Error:</span> Enter a valid last name
@@ -73,7 +106,7 @@
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="govuk-form-group {% if emailError %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label govuk-label--s" for="emailAddress">Email address
+                    <label class="govuk-label govuk-label--s" for="emailAddress" id="emailLabel">Email address
                         {% if emailError %}
                             <span class="govuk-error-message">
                                 <span class="govuk-visually-hidden">Error:</span> Enter a valid email address
@@ -100,15 +133,15 @@
                     <li>not be commonly used</li>
                 </ul>
 
-                <div class="govuk-form-group {% if fullPasswordError %}govuk-form-group--error{% endif %}">
-                    <label class="govuk-label govuk-label--s" for="password"><span class="govuk-visually-hidden">Password</span>
-                        {% if fullPasswordError %}
+                <div class="govuk-form-group password-toggle {% if passwordError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="password" id="passwordLabel"><span class="govuk-visually-hidden">Password</span>
+                        {% if passwordError %}
                             <span class="govuk-error-message">
-                                <span class="govuk-visually-hidden">Error:</span> Enter a valid email address
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid password
                             </span>
                         {% endif %}
                     </label>
-                    <input class="govuk-input govuk-input--width-20" id="password" type="password" name="password" value="">
+                    <input class="govuk-input govuk-input--width-20" id="password" type="password" name="password" value=""><a href="#" class="password-toggle__link password-shown">Show <span class="govuk-visually-hidden">password</span></a>
                 </div>
 
             {%- endcall %}
@@ -135,12 +168,34 @@
 
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
-      Zepto(function($){
-        $('#thing').on('click', function() {
-        });
-      });
-    </script>#}
+    <script>
+      let shown = 'password-shown';
+      let hidden = 'password-hidden';
+      let hiddenText = 'Show <span class="govuk-visually-hidden">password</span>';
+      let shownText = 'Hide <span class="govuk-visually-hidden">password</span>';
+      let passwordField = document.getElementById('password');
+      let passwordToggleSwitch = document.getElementsByClassName('password-toggle__link');
+
+      // document.getElementById('passwordToggler').onclick = function() {
+      passwordToggleSwitch[0].onclick = function (e) {
+        e.preventDefault();
+        if(this.classList.contains(shown) ) {
+          passwordField.type="text";
+          this.classList.remove(shown);
+          this.className += ' '+hidden;
+          this.innerHTML = shownText;
+        } else if(this.classList.contains(hidden) ) {
+          passwordField.type="password";
+          this.classList.remove(hidden);
+          this.className += ' '+shown;
+          this.innerHTML = hiddenText;
+        }
+      }
+
+
+
+
+    </script>
 {% endblock %}
 
 

@@ -131,6 +131,14 @@ function detailsGetV1(req, res) {
   emailAddress = req.session.emailAddress;
   isDetailsError = req.session.isDetailsError;
 
+  req.session.isDetailsError = null;
+  req.session.firstNameError = null;
+  req.session.lastNameError = null;
+  req.session.emailError = null;
+  req.session.passwordError = null;
+
+  console.log(genericFunctions.validatePassword('Password1'));
+
   viewData = {
     firstNameError,
     lastNameError,
@@ -167,7 +175,7 @@ function detailsPostV1(req, res) {
     isError = true;
   }
 
-  if (genericFunctions.validateEmail(password)) {
+  if (!genericFunctions.validateEmail(emailAddress)) {
     req.session.emailError = true;
     isError = true;
   }

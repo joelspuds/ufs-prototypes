@@ -114,7 +114,7 @@
     </div>
   </div>
 </div>
-
+{% if not loggedOut %}
 <script>
   window.onload = function(){
     let allLinks = document.getElementsByClassName('top-links__link');
@@ -128,3 +128,4 @@
     };
   };
 </script>
+{% endif %}
