@@ -13,6 +13,7 @@ exports.orgsConfirmGetV1 = orgsConfirmGetV1;
 exports.orgsConfirmPostV1 = orgsConfirmPostV1;
 exports.detailsGetV1 = detailsGetV1;
 exports.detailsPostV1 = detailsPostV1;
+exports.endGetV1 = endGetV1;
 
 var _index = require('./index');
 
@@ -191,4 +192,18 @@ function detailsPostV1(req, res) {
   } else {
     return res.redirect('/prototypes/register-v1/end');
   }
+}
+
+// details
+function endGetV1(req, res) {
+  let viewData, emailAddress;
+
+  emailAddress = req.session.emailAddress;
+
+  viewData = {
+    emailAddress
+    // opportunityName: ''
+  };
+
+  return res.render('prototypes/register-v1/end', viewData);
 }

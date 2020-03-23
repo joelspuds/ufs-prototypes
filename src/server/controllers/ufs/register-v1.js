@@ -172,3 +172,17 @@ export function detailsPostV1(req, res) {
     return res.redirect('/prototypes/register-v1/end');
   }
 }
+
+// details
+export function endGetV1(req, res) {
+  let viewData, emailAddress;
+
+  emailAddress = req.session.emailAddress;
+
+  viewData = {
+    emailAddress,
+    // opportunityName: ''
+  };
+
+  return res.render('prototypes/register-v1/end', viewData);
+}

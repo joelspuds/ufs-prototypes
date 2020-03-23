@@ -6,7 +6,6 @@ let genericFunctions = require('./generic');
 
 // import * as sendGrid from '../../../../node_modules/@sendgrid/mail';
 const sgMail = require('../../../../node_modules/@sendgrid/mail');
-sgMail.setApiKey('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');
 
 // check for account
 export function emailsGet(req, res) {

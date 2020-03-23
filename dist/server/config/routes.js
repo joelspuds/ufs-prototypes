@@ -186,7 +186,7 @@ router.post('/prototypes/opportunity-v3/setup-complete', demosController.opportu
 
 /* *************************************************************** *
 
-Register  V1
+Register V1
 
 * *************************************************************** */
 router.get('/prototypes/register-v1/start', demosController.registerStartGetV1);
@@ -199,6 +199,7 @@ router.get('/prototypes/register-v1/details', demosController.detailsGetV1);
 router.post('/prototypes/register-v1/details', demosController.detailsPostV1);
 router.get('/prototypes/emails/', demosController.emailsGet);
 router.post('/prototypes/emails/', demosController.emailsPost);
+router.get('/prototypes/register-v1/end', demosController.endGetV1);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
