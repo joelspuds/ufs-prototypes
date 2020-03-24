@@ -7,11 +7,11 @@
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
 {#{% set isAdminUser = true %}#}
 {%  set loggedOut = true %}
-{% set signinError = signinError if signinError %}
-{% set savedEmail = savedEmail if savedEmail %}
+{#{% set signinError = signinError if signinError %}
+{% set savedEmail = savedEmail if savedEmail %}#}
 
 
-{% set pageTitle = 'Sign in ' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Reset your password ' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
@@ -21,7 +21,7 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% if signinError %}
+    {#{% if signinError %}
 
         {% call components.bulmaRow() %}
 
@@ -44,19 +44,21 @@
 
         {%- endcall %}
 
-    {% endif %}
+    {% endif %}#}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
-            {{ components.captionHeading(text='Sign in') }}
+            {{ components.captionHeading(text='Reset your password') }}
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/register-v1/signin', method='POST', name='signinToAccount') %}
+    {% call components.form(action='#', method='POST', name='signinToAccount') %}
 
         {% call components.bulmaRow() %}
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <p class="govuk-body">Enter the email address you used for this service. If it is associated with a UKRI Funding Service account, we will send you a link to reset your password.</p>
 
                 <fieldset class="govuk-fieldset signin-form">
                     <legend class="govuk-fieldset__legend govuk-visually-hidden">Sign in to your UKRI Funding Service account</legend>
@@ -65,15 +67,6 @@
                         <label class="govuk-label govuk-label--s" for="email" id="emailAddressInput">Email address</label>
                         <input class="govuk-input {% if signinError %} govuk-input--error{% endif %} govuk-input--width-20" id="email" name="email" type="text" value="{{ savedEmail }}">
                     </div>
-
-                    <div class="govuk-form-group {% if signinError %} govuk-form-group--error{% endif %} password-toggle">
-                        <label class="govuk-label govuk-label--s" for="password">Password</label>
-                        <input class="govuk-input {% if signinError %} govuk-input--error{% endif %} govuk-input--width-20" id="password" name="password" type="password"><a href="#" class="password-toggle__link password-shown">Show <span class="govuk-visually-hidden">password</span></a>
-                    </div>
-
-                    <p class="govuk-body">
-                        <a href="/prototypes/register-v1/forgotten" class="govuk-link">I have forgotten my password</a>
-                    </p>
 
                 </fieldset>
 
@@ -86,7 +79,7 @@
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
-                    {{ components.button(text='Sign in', extraClass="application-controls__submit")}}
+                    {{ components.button(text='Send email', extraClass="application-controls__submit")}}
                 {%- endcall %}
 
             {%- endcall %}
@@ -95,15 +88,6 @@
 
     {%- endcall %} {# end form #}
 
-    {#{% call components.bulmaRow(extraClass='') %}
-
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
-            <p class="govuk-body">
-                <a href="#" class="govuk-link">Need to create an account?</a>
-            </p>
-        {%- endcall %}
-
-    {%- endcall %}#}
     {% include '../../layouts/partials/user-contact.njk' %}
 {% endblock %}
 {% block bodyScripts %}

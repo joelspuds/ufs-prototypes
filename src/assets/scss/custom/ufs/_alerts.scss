@@ -1,7 +1,8 @@
 .alerts {
+  position: relative;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 10px 10px 10px 20px;
   @include govuk-font($size: 19);
   margin-bottom: govuk-spacing(4);
   border-left-width: 5px;
@@ -11,16 +12,29 @@
 
   &--success {
     border-color: govuk-colour("green");
-    background-color: rgba(govuk-colour("green"), .2);
+    //background-color: rgba(govuk-colour("green"), .2);
+    padding-left: 50px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 35%;
+      width: 20px;
+      height: 20px;
+      background-image: url(/images/ufs/tick.svg);
+      background-size: 38px 28px;
+      background-repeat: no-repeat
+    }
   }
 
   &--danger {
     border-color:  govuk-colour("red");
-    background-color: rgba(govuk-colour("red"), .2);
+    //background-color: rgba(govuk-colour("red"), .2);
   }
 
   &--warning {
     border-color: govuk-colour("yellow");
-    background-color: rgba(govuk-colour("yellow"), .2);
+    //background-color: rgba(govuk-colour("yellow"), .2);
   }
 }

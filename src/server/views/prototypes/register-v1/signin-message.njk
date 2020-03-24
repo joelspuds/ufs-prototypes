@@ -21,6 +21,26 @@
         {%- endcall %}
     {%- endcall %}
 
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+            <div class="alerts alerts--success">Your password has been reset</div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+            <div class="alerts alerts--success">Your email address has been confirmed. Sign in to apply for [Name of opportunity]</div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
     {% if signinError %}
 
         {% call components.bulmaRow() %}
@@ -52,7 +72,7 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/register-v1/signin', method='POST', name='signinToAccount') %}
+    {% call components.form(action='#', method='POST', name='signinToAccount') %}
 
         {% call components.bulmaRow() %}
 
@@ -95,7 +115,7 @@
 
     {%- endcall %} {# end form #}
 
-    {#{% call components.bulmaRow(extraClass='') %}
+   {# {% call components.bulmaRow(extraClass='') %}
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
             <p class="govuk-body">

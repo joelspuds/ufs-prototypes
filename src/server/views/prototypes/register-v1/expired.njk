@@ -10,7 +10,7 @@
 {%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Continue your application' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'This link has expired' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
@@ -22,7 +22,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
-            {{ components.captionHeading(text='Continue the application you have already started') }}
+            {{ components.captionHeading(text='This link has expired') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -30,10 +30,10 @@
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-            <p class="govuk-body">You cannot create another application for this Opportunity.</p>
+            <p class="govuk-body">To verify your details, we need to resend you the email.</p>
 
             <p class="govuk-body">
-                <a href="#" class="govuk-button">Continue</a>
+                <a href="#" class="govuk-button">Resend email</a>
             </p>
 
         {%- endcall %}
