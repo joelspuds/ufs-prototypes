@@ -32,19 +32,18 @@
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-                <p class="govuk-body-l">[add some explanatory content?]</p>
-
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-visually-hidden">Do you already have a UKRI account?</legend>
+                        <legend class="govuk-fieldset__legend govuk-visually-hidden">Do you have a UKRI Funding Service account?</legend>
+                        <p class="govuk-body-m">You cannot use your Je-s sign-in details to apply for this Opportunity.</p>
                         <div class="govuk-radios">
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="accountYes" name="existingAccount" type="radio" value="yes">
-                                <label class="govuk-label govuk-radios__label" for="accountYes">Yes, I would like to sign in</label>
+                                <label class="govuk-label govuk-radios__label" for="accountYes">Yes, I want to sign in</label>
                             </div>
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="accountNo" name="existingAccount" type="radio" value="no">
-                                <label class="govuk-label govuk-radios__label" for="accountNo">No, I need to create an account</label>
+                                <label class="govuk-label govuk-radios__label" for="accountNo">No, I want to create an account</label>
                             </div>
                         </div>
                     </fieldset>
@@ -67,15 +66,9 @@
         {%- endcall %}
 
     {%- endcall %} {# end form #}
-
+    {% include '../../layouts/partials/user-contact.njk' %}
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
-      Zepto(function($){
-        $('#thing').on('click', function() {
-        });
-      });
-    </script>#}
 {% endblock %}
 
 

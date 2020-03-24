@@ -34,20 +34,29 @@ export function registerStartPostV1(req, res) {
 export function signinGetV1(req, res) {
   let viewData;
 
-  viewData = {};
+  let signinError = req.session.signinError;
+  let savedEmail = req.session.savedEmail;
+  req.session.savedEmail = null;
+  req.session.signinError = null;
+
+  viewData = {
+    signinError,
+    savedEmail,
+  };
 
   return res.render('prototypes/register-v1/signin', viewData);
 }
 
 export function signinPostV1(req, res) {
-  const { signinForm } = req.body;
+  const { email, password } = req.body;
 
-  if (existingAccount === 'yes') {
-    req.session.hasExistingAccount = true;
-    return res.redirect('prototypes/register-v1/signin');
+  req.session.savedEmail = email;
+
+  if (!email || email.length < 1 || !password || password.length < 1) {
+    req.session.signinError = true;
+    return res.redirect('/prototypes/register-v1/signin');
   } else {
-    req.session.hasExistingAccount = false;
-    return res.redirect('prototypes/register-v1/registerStart');
+    return res.redirect('/prototypes/register-v1/signedin');
   }
 }
 
@@ -56,11 +65,13 @@ export function orgsGetV1(req, res) {
   let viewData;
 
   const allOrgs = generalData.allOrgs2;
-  // console.log('allOrgs = ');
-  // console.log(allOrgs);
+
+  let organisationNameError = req.session.organisationNameError;
+  req.session.organisationNameError = null;
 
   viewData = {
     allOrgs,
+    organisationNameError,
   };
 
   return res.render('prototypes/register-v1/organisation', viewData);

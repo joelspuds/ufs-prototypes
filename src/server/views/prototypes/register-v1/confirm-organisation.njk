@@ -12,7 +12,7 @@
 {%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Confirm organisation' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Confirm your organisation’s name' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
@@ -24,7 +24,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Confirm organisation', caption='Apply to OPP123: Microbiotics in freshwater environments') }}
+            {{ components.captionHeading(text='Confirm your organisation’s name', caption='Apply to OPP123: Microbiotics in freshwater environments') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -34,11 +34,11 @@
 
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-                <p class="govuk-body-m">By clicking continue, you confirm that the organisation listed below is the lead organisation for this application. </p>
+                {#<p class="govuk-body-m">By clicking continue, you confirm that the organisation listed below is the lead organisation for this application. </p>#}
 
                 <p class="govuk-body-m">
-                    <strong>Registered name:</strong>
-                    <Br>
+                    <strong>Registered organisation:</strong>
+                    <br>
                     {{ organisationName }}
                 </p>
 
@@ -51,7 +51,7 @@
             {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
-                    {{ components.button(text='Continue', extraClass="application-controls__submit")}}
+                    {{ components.button(text='Confirm', extraClass="application-controls__submit")}}
                 {%- endcall %}
 
             {%- endcall %}
@@ -59,25 +59,9 @@
         {%- endcall %}
 
     {%- endcall %} {# end form #}
-
+    {% include '../../layouts/partials/user-contact.njk' %}
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
-      Zepto(function($){
-        $('#thing').on('click', function() {
-        });
-      });
-    </script>#}
-    <script type="text/javascript" src="/javascripts/accessible-autocomplete/accessible-autocomplete.min.js"></script>
-    <script type="text/javascript">
-      var selectEl = document.querySelector('#organisation');
-      accessibleAutocomplete.enhanceSelectElement({
-        autoselect: true,
-        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
-        minLength: 1,
-        selectElement: selectEl
-      });
-    </script>
 {% endblock %}
 
 

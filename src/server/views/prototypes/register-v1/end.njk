@@ -14,44 +14,26 @@
     {%- endcall %}
 
     {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Check your email') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-            <div class="govuk-panel govuk-panel--confirmation">
-                <h1 class="govuk-panel__title">Account created</h1>
-                <div class="govuk-panel__body">
-                    <p class="govuk-!-font-size-24">You will receive an email to {{ emailAddress }} asking you to verify your details.  Select the attached link to sign into your UKRI Funding Service account and start your application for {opportuniy name} {{ opportunityName }}. Check your junk folder in case this email is sent there.</p>
-                    <p class="govuk-!-font-size-24"><a href="#" class="govuk-link">Re-send email</a></p>
-                </div>
-            </div>
-
-           {# <p class="govuk-body">We have sent you a confirmation email.</p>
-
-            <h2 class="govuk-heading-m">What happens next</h2>
-
-            <p class="govuk-body">
-                We’ve sent your application to Hackney Electoral Register Office.
-            </p>
-            <p class="govuk-body">
-                They will contact you either to confirm your registration, or to ask for more information.
-            </p>
-
-            <p class="govuk-body">
-                <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
-            </p>#}
+            <p class="govuk-body">We have sent a link to {{ emailAddress }} asking you to verify it is your email address.
+                Select this link to sign into your UKRI Funding Service account and start your application for Viral pandemics and containment in human populations. If you can't see the email in your inbox, check your junk folder in case it went there.</p>
+            <p class="govuk-body"><a href="#" class="govuk-link">Re-send email</a></p>
 
         {%- endcall %}
 
     {%- endcall %}
-
+    {% include '../../layouts/partials/user-contact.njk' %}
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
-      Zepto(function($){
-        $('#thing').on('click', function() {
-        });
-      });
-    </script>#}
+    {#<script></script>#}
 {% endblock %}
 
 

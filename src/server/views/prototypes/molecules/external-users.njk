@@ -40,43 +40,10 @@
 
     {%- endcall %}
 
-    {% call components.bulmaRow(extraClass='') %}
-
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
-            <div class="service-help u-space-b20 u-space-t30" aria-expanded="false">
-                <h2 class="govuk-heading-s service-help__heading">
-                    <span class="service-help__plain">Need help with this service?</span>
-                    <a href="#" class="govuk-link service-help__link js-only">Contact us</a>
-                </h2>
-
-                <div class="service-help__text js-hidden" aria-hidden="true">
-                    <p class="govuk-body">You can either email us: <a href="mailto:support@innovateuk.ukri.org " class="govuk-link">support@innovateuk.ukri.org</a></p>
-                    <p class="govuk-body">Or phone the Funding Service helpline: <a href="tel:03003214357" class="govuk-link" >0300 321 4357</a></p>
-                </div>
-            </div>
-        {%- endcall %}
-
-    {%- endcall %}
+    {% include '../../layouts/partials/user-contact.njk' %}
 
 {% endblock %}
 {% block bodyScripts %}
-    <script>
-      Zepto(function($){
-        // TODO: ideally, we should be adding these aria attributes with JavaScript as they only apply in a JS-enabled environment
-        $('.service-help__link').on('click', function() {
-          let everythingWrapper = $('.service-help');
-          let targetWrapper = $('.service-help__text');
-          $(targetWrapper).toggleClass('js-hidden');
-          if ($(targetWrapper).attr('aria-hidden') === 'true') {
-            $(everythingWrapper).attr('aria-expanded', 'true');
-            $(targetWrapper).attr('aria-hidden', 'false');
-          } else {
-            $(everythingWrapper).attr('aria-expanded', 'false');
-            $(targetWrapper).attr('aria-hidden', 'true');
-          }
-        });
-      });
-    </script>
 {% endblock %}
 
 

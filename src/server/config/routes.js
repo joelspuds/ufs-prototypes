@@ -171,6 +171,8 @@ Register V1
 * *************************************************************** */
 router.get('/prototypes/register-v1/start', demosController.registerStartGetV1);
 router.post('/prototypes/register-v1/start', demosController.registerStartPostV1);
+router.get('/prototypes/register-v1/signin', demosController.signinGetV1);
+router.post('/prototypes/register-v1/signin', demosController.signinPostV1);
 router.get('/prototypes/register-v1/organisation', demosController.orgsGetV1);
 router.post('/prototypes/register-v1/organisation', demosController.orgsPostV1);
 router.get('/prototypes/register-v1/confirm-organisation', demosController.orgsConfirmGetV1);

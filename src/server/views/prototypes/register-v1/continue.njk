@@ -6,22 +6,23 @@
 {% set opportunityName = opportunityName if opportunityName %}
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
 {#{% set isAdminUser = true %}#}
-{%  set loggedOut = false %}
+{% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
+{%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Your Funding Service homepage' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Continue your application' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
-    {#{% call components.bulmaRow() %}
+    {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.backLink(text='Back to Opportunity', url='/prototypes/register-v1/') }}
         {%- endcall %}
-    {%- endcall %}#}
+    {%- endcall %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}
-            {{ components.captionHeading(text='Home dashboard') }}
+        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Continue the application you have already started') }}
         {%- endcall %}
     {%- endcall %}
 
@@ -29,23 +30,20 @@
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-            <p class="govuk-body-l">User has signed in</p>
+            <p class="govuk-body">You cannot create another application for this Opportunity.</p>
 
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+            <p class="govuk-body">
+                <a href="#" class="govuk-button">Continue</a>
+            </p>
 
         {%- endcall %}
 
     {%- endcall %}
 
+
+
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
-      Zepto(function($){
-        $('#thing').on('click', function() {
-        });
-      });
-    </script>#}
 {% endblock %}
 
 
