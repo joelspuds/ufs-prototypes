@@ -11,7 +11,7 @@ const sgMail = require('../../../../node_modules/@sendgrid/mail');
 // if (!isDevelopment()) {
 if (process.env.NODE_ENV !== 'development') {
   // console.log('not dev');
-  sgMail.setApiKey(proces.env.sendGridAPI);
+  sgMail.setApiKey(process.env.sendGridAPI);
 } else {
   // console.log('probably dev');
   let variousSecretValues = require('../../../../sendGridExport');
