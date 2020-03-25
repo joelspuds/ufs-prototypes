@@ -1,9 +1,109 @@
-<div class="header {% if navType == 'admin' %} header--admin {% else %} header--external {% endif %}">
+<header class="new-header {% if navType == 'admin' %} new-header--admin {% else %} new-header--external {% endif %}" role="banner">
+  <div class="container new-header__top">
+    <div class="columns">
+      <div class="column {#column-one-quarter#}">
+        <a href="#" class="new-header__brand">
+          <img src="/images/ufs/UKRI_logo_new.svg" alt="UKRI logo">
+        </a>
+
+        {% if navType == 'admin' %}
+        <nav class="new-header__nav">
+          <ul class="new-header__nav-list">
+            <li class="new-header__nav-item new-header__nav-item--switcher">
+              <a href="#" class="new-header__nav-link" aria-controls="app-mobile-nav" aria-expanded="false">
+                <span class="govuk-visually-hidden">Menu</span>
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </a>
+            </li>
+            <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
+            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Schedule</a></li>
+            <li class="new-header__nav-item"><a href="/prototypes/opportunity/" class="new-header__nav-link">Opportunities</a>
+            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Award set-up</a></li>
+            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Outcomes</a></li>
+            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Reporting</a></li>
+            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Users and organisations</a></li>
+          </ul>
+        </nav>
+        {% else %}
+          <nav class="new-header__nav">
+            <ul class="new-header__nav-list">
+              <li class="new-header__nav-item new-header__nav-item--switcher"><a href="#" class="new-header__nav-link" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a></li>
+              <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
+              <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Applications</a></li>
+            </ul>
+          </nav>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  <div class="new-header__bar">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <span class="new-header__service">Funding Service</span>
+          {% if not loggedOut %}
+            {% if navType == 'admin' %}
+              <div class="user-header">
+                <div class="user-header__user">
+                  <ul class="user-header__list">
+                    <li class="user-header__switch">
+                      <a href="#" class="user-header__control">Arden Pimenta</a>
+                      <ul class="user-header__dropdown">
+                        <li><a href="#">Your profile</a></li>
+                        <li><a href="#">Sign out</a></li>
+                      </ul>
+                    </li>
+                    <li class="user-header__switch">
+                      <a href="#" class="user-header__control">Organisations</a>
+                      <ul class="user-header__dropdown">
+                        <li><a href="#">UKRI</a></li>
+                        <li><a href="#">EPSRC</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            {% else %}
+              <div class="user-header">
+                <div class="user-header__user">
+                  <ul class="user-header__list">
+                    <li class="user-header__switch">
+                      <a href="#" class="user-header__control">Joanne McDoe</a>
+                      <ul class="user-header__dropdown">
+                        <li><a href="#">Your profile</a></li>
+                        <li><a href="#">Sign out</a></li>
+                      </ul>
+                    </li>
+                    <li class="user-header__switch">
+                      <a href="#" class="user-header__control">Organisations</a>
+                      <ul class="user-header__dropdown">
+                        <li><a href="#">University of Bath</a></li>
+                        <li><a href="#">Bristol Univeristy</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            {% endif %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{#<div class="header {% if navType == 'admin' %} header--admin {% else %} header--external {% endif %}">
   <header class="container" role="banner">
     <div class="columns">
       <div class="column">
         <div class="ufs-header__logo">
-          <a href="/" title="UK Research and Innovation homepage"><img src="/images/ufs/{% if navType == 'admin' %}ukri_logo_blue.svg{% else %}ukri_logo_white.svg{% endif %}" alt="UK Research and Innovation logo"></a></div>
+          #}{#{% if navType == 'admin' %}ukri_logo_blue.svg{% else %}ukri_logo_white.svg{% endif %}#}{#
+          <a href="/" title="UK Research and Innovation homepage"><img src="/images/ufs/" alt="UK Research and Innovation logo"></a></div>
         <div class="ufs-header__proposition">Funding Service  BLAH BLAH BLAH</div>
         <div class="ufs-header__menu">
           <span class="ufs-header__menu-link"><a href="/" class="ufs-header__link">UKRI website</a></span>
@@ -30,9 +130,7 @@
               {% if not loggedOut %}
                 <div class="user-header">
                   <div class="user-header__user">
-
                     <ul class="user-header__list">
-
                       <li class="user-header__switch">
                         <a href="#" class="user-header__control">Arden Pimenta</a>
                         <ul class="user-header__dropdown">
@@ -48,21 +146,8 @@
                           <li><a href="#">EPSRC</a></li>
                         </ul>
                       </li>
-
                     </ul>
-
                   </div>
-                  {#<div class="user-header__organisation">
-                    <ul class="user-header__list">
-                      <li class="">
-                        <a href="#" class="user-header__shower">Arden Pimenta</a>
-                        <ul class="user-header__controls">
-                          <li><a href="#">Your profile</a></li>
-                          <li><a href="#">Sign out</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>#}
                 </div>
               {% endif %}
             </div>
@@ -105,8 +190,8 @@
       </div>
     </div>
   </div>
-</div>
-{% if not loggedOut %}
+</div>#}
+{#{% if not loggedOut %}
 <script>
   window.onload = function(){
     let allLinks = document.getElementsByClassName('top-links__link');
@@ -120,4 +205,4 @@
     };
   };
 </script>
-{% endif %}
+{% endif %}#}

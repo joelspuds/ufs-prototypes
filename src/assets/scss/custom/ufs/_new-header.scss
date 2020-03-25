@@ -1,0 +1,151 @@
+.new-header {
+  position: relative;
+  z-index: 100;
+
+  &__top {
+    min-height: 95px;
+  }
+
+  &__admin {
+
+  }
+
+  &__brand {
+    display: block;
+    float: left;
+    width: 208px;
+    height: 61px;
+    padding: 10px 0 0 0;
+  }
+
+  &__bar {
+    height: 39px;
+    background-position: 30% 0;
+    background-size: 540px;
+    background-repeat: no-repeat;
+
+    @include touch {
+      background-position: 160% 0;
+    }
+
+    @include mobile {
+      background-image: none!important;
+    }
+
+
+    .column {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__service {
+    // @include govuk-font($size: 24);
+    display:block;
+    float: left;
+    width: 220px;
+    font-size: 24px;
+    padding-top: 1px;
+
+  }
+
+  &--external {
+
+    .new-header__bar {
+      // background-color: ufs-colour("dark-purple");
+      background-color: #622378;
+      background-image: url('/images/ufs/external_graphic.svg');
+    }
+
+    .new-header__service {
+      color: ufs-colour("lime");
+    }
+  }
+
+  &--admin {
+
+    .new-header__bar {
+      background-color: ufs-colour("sand");
+      background-image: url('/images/ufs/admin_graphic.svg');
+    }
+
+    .new-header__service {
+      color: ufs-colour("ukri-blue");
+    }
+  }
+
+  &__nav {
+    // <nav>
+    height: 40px;
+    float: left;
+    margin-left: 80px;
+    margin-top: 22px;
+  }
+
+  &__nav-list {
+    // <ul>
+    height: 40px;
+    float: left;
+    text-align: left;
+  }
+
+  &__nav-item {
+    // <li>
+    display: inline-block;
+
+    @include touch {
+      display: none;
+    }
+
+    &--switcher {
+      display: none;
+
+      @include touch {
+        display: block;
+        width: 35px;
+      }
+    }
+  }
+
+  &__nav-link {
+    // <a>
+    display: inline-block;
+    border: 2px solid white;
+    padding: 0px 4px;
+    font-size: 19px;
+    font-weight: bold;
+    color: ufs-colour("ukri-blue");
+
+    &:hover {
+      border: 2px solid orange;
+    }
+  }
+
+  &--external {
+    .new-header__nav-link {
+      &:hover {
+        color: #622378;
+        border: 2px solid #622378;
+      }
+    }
+  }
+
+  &--admin {
+    .new-header__nav-link {
+      &:hover {
+        color: ufs-colour("sand");
+        border: 2px solid ufs-colour("sand");
+      }
+    }
+  }
+}
+
+.hamburger {
+  span {
+    display:block;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+}

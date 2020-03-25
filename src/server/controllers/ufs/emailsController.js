@@ -4,13 +4,17 @@ import { content } from '../../config/content';
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
-// import * as sendGrid from '../../../../node_modules/@sendgrid/mail';
 const sgMail = require('../../../../node_modules/@sendgrid/mail');
-// sgMail.setApiKey('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');
+let variousSecretValues = require('../../../../sendGridExport');
+sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);
 
 // check for account
 export function emailsGet(req, res) {
   let viewData, emailSent, emailError;
+
+  /*let variousSecretValues = require('../../../../sendGridExport');
+  console.log(variousSecretValues);
+  console.log(variousSecretValues.SENDGRID_API_KEY);*/
 
   emailSent = req.session.emailSent;
   emailError = req.session.emailError;

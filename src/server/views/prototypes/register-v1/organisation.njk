@@ -34,11 +34,6 @@
                             <li>
                                 <a href="#organisation">You have not entered a name that is registered with the UKRI Funding Service</a>
                             </li>
-                            <li><strong>[probably one or the other here folks!]</strong></li>
-                            <li>
-                                <a href="#organisation">You must enter an organisation that is registered with the UKRI Funding Service</a>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
@@ -71,7 +66,7 @@
                         <span class="govuk-hint">This will be the lead organisation for your application. Only organisations registered with the UKRI Funding Service can apply for this Opportunity.</span>
                         {% if organisationNameError %}
                             <span id="passport-issued-error" class="govuk-error-message">
-                                <span class="govuk-visually-hidden">Error:</span> Enter an organisation that is registered with the UKRI Funding Service
+                                <span class="govuk-visually-hidden">Error:</span> You must enter an organisation that is registered with the UKRI Funding Service
                             </span>
                         {% endif %}
                         <select name="organisation" class="govuk-select {% if organisationNameError %} govuk-select--error {% endif %} control" id="organisation">

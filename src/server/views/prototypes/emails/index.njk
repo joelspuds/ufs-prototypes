@@ -27,13 +27,13 @@
         {%- endcall %}
     {% endif %}
 
-    {% call components.bulmaRow() %}
+    {#{% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
             <div class="alerts alerts--danger">Sendgrid have paused the account for some reason, so this won't work for now. 😠 </div>
         {%- endcall %}
 
-    {%- endcall %}
+    {%- endcall %}#}
 
     {% if emailError %}
 

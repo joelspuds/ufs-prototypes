@@ -1,12 +1,14 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 
-{#{% set navType = 'admin' %}#}
+{% set navType = 'admin' %}
+{#{% set isAdminUser = true %}#}
+{%  set loggedOut = false %}
+
 {% set createOpportunityError = createOpportunityError if createOpportunityError %}
 {% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
 {% set opportunityName = opportunityName if opportunityName %}
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
-{#{% set isAdminUser = true %}#}
-{%  set loggedOut = false %}
+
 
 {% set newHeader = true %}
 
