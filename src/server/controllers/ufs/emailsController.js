@@ -5,8 +5,9 @@ let generalData = require('./data');
 let genericFunctions = require('./generic');
 
 const sgMail = require('../../../../node_modules/@sendgrid/mail');
-let variousSecretValues = require('../../../../sendGridExport');
-sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);
+/*let variousSecretValues = require('../../../../sendGridExport');
+sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);*/
+sgMail.setApiKey('none');
 
 // check for account
 export function emailsGet(req, res) {
