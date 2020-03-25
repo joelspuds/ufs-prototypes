@@ -8,14 +8,13 @@ let genericFunctions = require('./generic');
 // console.log(process.env.NODE_ENV);
 
 const sgMail = require('../../../../node_modules/@sendgrid/mail');
-let variousSecretValues = require('../../../../sendGridExport');
-
 // if (!isDevelopment()) {
 if (process.env.NODE_ENV !== 'development') {
   // console.log('not dev');
-  sgMail.setApiKey(variousSecretValues.sendGridAPI);
+  sgMail.setApiKey(proces.env.sendGridAPI);
 } else {
   // console.log('probably dev');
+  let variousSecretValues = require('../../../../sendGridExport');
   sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);
 }
 
