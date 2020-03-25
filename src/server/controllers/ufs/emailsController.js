@@ -1,13 +1,23 @@
 import * as demosController from './index';
 import { content } from '../../config/content';
+import { CONFIG, isDevelopment, isTesting } from '../../config/constants';
 
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
+// console.log(process.env.NODE_ENV);
+
 const sgMail = require('../../../../node_modules/@sendgrid/mail');
-/*let variousSecretValues = require('../../../../sendGridExport');
-sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);*/
-sgMail.setApiKey('none');
+let variousSecretValues = require('../../../../sendGridExport');
+
+// if (!isDevelopment()) {
+if (process.env.NODE_ENV !== 'development') {
+  // console.log('not dev');
+  sgMail.setApiKey(variousSecretValues.sendGridAPI);
+} else {
+  // console.log('probably dev');
+  sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);
+}
 
 // check for account
 export function emailsGet(req, res) {
@@ -16,6 +26,9 @@ export function emailsGet(req, res) {
   /*let variousSecretValues = require('../../../../sendGridExport');
   console.log(variousSecretValues);
   console.log(variousSecretValues.SENDGRID_API_KEY);*/
+
+  //console.log(process.env);
+  // console.log(app.get('env'));
 
   emailSent = req.session.emailSent;
   emailError = req.session.emailError;

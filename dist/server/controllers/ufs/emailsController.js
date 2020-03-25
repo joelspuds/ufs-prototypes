@@ -12,15 +12,26 @@ var demosController = _interopRequireWildcard(_index);
 
 var _content = require('../../config/content');
 
+var _constants = require('../../config/constants');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
+// console.log(process.env.NODE_ENV);
+
 const sgMail = require('../../../../node_modules/@sendgrid/mail');
-/*let variousSecretValues = require('../../../../sendGridExport');
-sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);*/
-sgMail.setApiKey('none');
+let variousSecretValues = require('../../../../sendGridExport');
+
+// if (!isDevelopment()) {
+if (process.env.NODE_ENV !== 'development') {
+  // console.log('not dev');
+  sgMail.setApiKey(variousSecretValues.sendGridAPI);
+} else {
+  // console.log('probably dev');
+  sgMail.setApiKey(variousSecretValues.SENDGRID_API_KEY);
+}
 
 // check for account
 function emailsGet(req, res) {
@@ -29,6 +40,10 @@ function emailsGet(req, res) {
   /*let variousSecretValues = require('../../../../sendGridExport');
   console.log(variousSecretValues);
   console.log(variousSecretValues.SENDGRID_API_KEY);*/
+
+  //console.log(process.env);
+  // console.log(app.get('env'));
+
 
   emailSent = req.session.emailSent;
   emailError = req.session.emailError;

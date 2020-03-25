@@ -87,6 +87,10 @@
     height: 40px;
     float: left;
     text-align: left;
+
+    @include touch {
+
+    }
   }
 
   &__nav-item {
