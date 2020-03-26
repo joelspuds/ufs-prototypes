@@ -4,6 +4,7 @@
 
   &__top {
     min-height: 95px;
+    position: relative;
   }
 
   &__admin {
@@ -14,7 +15,7 @@
     display: block;
     float: left;
     width: 208px;
-    height: 61px;
+    height: 81px;
     padding: 10px 0 0 0;
   }
 
@@ -34,6 +35,7 @@
 
 
     .column {
+      position: relative;
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -42,7 +44,10 @@
   &__service {
     // @include govuk-font($size: 24);
     display:block;
-    float: left;
+    /*float: left;*/
+    position: absolute;
+    left: 10px;
+    top: 0;
     width: 220px;
     font-size: 24px;
     padding-top: 1px;
@@ -77,19 +82,41 @@
   &__nav {
     // <nav>
     height: 40px;
-    float: left;
-    margin-left: 80px;
+    float: right;
+    /*margin-left: 80px;*/
     margin-top: 22px;
+
+    &--touch-hide {
+      @include touch {
+        display:none!important;
+      }
+    }
+
+    @include touch {
+      display: block;
+      float: none;
+      clear:both;
+      width: 100%;
+      height: auto;
+      margin: 0;
+      margin-top: 15px;
+
+    }
   }
 
   &__nav-list {
     // <ul>
     height: 40px;
-    float: left;
+    float: right;
     text-align: left;
 
-    @include touch {
 
+
+    @include touch {
+      width: 100%;
+      height: auto;
+      float: none;
+      clear: both;
     }
   }
 
@@ -98,16 +125,9 @@
     display: inline-block;
 
     @include touch {
-      display: none;
-    }
-
-    &--switcher {
-      display: none;
-
-      @include touch {
-        display: block;
-        width: 35px;
-      }
+      display: block;
+      width: 100%;
+      border-top: 1px solid govuk-colour("mid-grey");
     }
   }
 
@@ -122,6 +142,17 @@
 
     &:hover {
       border: 2px solid orange;
+    }
+
+    @include touch {
+      border: none;
+      display: block;
+      padding: 6px 0;
+
+      &:hover {
+        border: none!important;
+
+      }
     }
   }
 
@@ -145,11 +176,46 @@
 }
 
 .hamburger {
-  span {
-    display:block;
-    width: 35px;
-    height: 5px;
-    background-color: black;
-    margin: 6px 0;
+  display: none;
+}
+
+.js-enabled {
+
+  .hamburger {
+
+    display: none;
+
+    @include touch {
+      position: absolute;
+      right: 10px;
+      top: 34px;
+      display: block;
+      background-color: govuk-colour("white");
+      border: 0;
+      width: 50px;
+      height: 42px;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 35px;
+        height: 5px;
+        background-color: ufs-colour("ukri-blue");;
+        margin: 6px 0;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      background-color: govuk-colour("yellow");
+    }
+  }
+}
+
+.user-header {
+  right: 20px;
+
+  @include touch {
+    right: 0;
   }
 }

@@ -6,36 +6,37 @@
           <img src="/images/ufs/ukri_logo_new.svg" alt="UKRI logo">
         </a>
 
-        {% if navType == 'admin' %}
-        <nav class="new-header__nav">
-          <ul class="new-header__nav-list">
-            <li class="new-header__nav-item new-header__nav-item--switcher">
-              <a href="#" class="new-header__nav-link" aria-controls="app-mobile-nav" aria-expanded="false">
-                <span class="govuk-visually-hidden">Menu</span>
-                <div class="hamburger">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </a>
-            </li>
-            <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
-            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Schedule</a></li>
-            <li class="new-header__nav-item"><a href="/prototypes/opportunity/" class="new-header__nav-link">Opportunities</a>
-            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Award set-up</a></li>
-            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Outcomes</a></li>
-            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Reporting</a></li>
-            <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Users and organisations</a></li>
-          </ul>
-        </nav>
-        {% else %}
-          <nav class="new-header__nav">
-            <ul class="new-header__nav-list">
-              <li class="new-header__nav-item new-header__nav-item--switcher"><a href="#" class="new-header__nav-link" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a></li>
-              <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
-              <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Applications</a></li>
-            </ul>
-          </nav>
+        {% if not loggedOut %}
+        <button class="hamburger" type="button" aria-controls="mobile-nav" aria-expanded="false">
+          <span class="govuk-visually-hidden">Activate the main menu</span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        {% endif %}
+
+
+        {% if not loggedOut %}
+          {% if navType == 'admin' %}
+            <nav class="new-header__nav new-header__nav--touch-hide">
+              <ul class="new-header__nav-list">
+                <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
+                {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Schedule</a></li>#}
+                <li class="new-header__nav-item"><a href="/prototypes/opportunity/" class="new-header__nav-link">Opportunities</a>
+                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Awards</a></li>
+                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Outcomes</a></li>
+                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Reporting</a></li>
+                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Users and organisations</a></li>
+              </ul>
+            </nav>
+          {% else %}
+            <nav class="new-header__nav new-header__nav--touch-hide">
+              <ul class="new-header__nav-list">
+                <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
+                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Applications</a></li>
+              </ul>
+            </nav>
+          {% endif %}
         {% endif %}
 
       </div>
@@ -97,112 +98,22 @@
   </div>
 </header>
 
-{#<div class="header {% if navType == 'admin' %} header--admin {% else %} header--external {% endif %}">
-  <header class="container" role="banner">
-    <div class="columns">
-      <div class="column">
-        <div class="ufs-header__logo">
-          #}{#{% if navType == 'admin' %}ukri_logo_blue.svg{% else %}ukri_logo_white.svg{% endif %}#}{#
-          <a href="/" title="UK Research and Innovation homepage"><img src="/images/ufs/" alt="UK Research and Innovation logo"></a></div>
-        <div class="ufs-header__proposition">Funding Service  BLAH BLAH BLAH</div>
-        <div class="ufs-header__menu">
-          <span class="ufs-header__menu-link"><a href="/" class="ufs-header__link">UKRI website</a></span>
-          <span class="ufs-header__menu-link"><a href="#" class="ufs-header__link">Find funding Opportunities</a></span>
-        </div>
-      </div>
-    </div>
-  </header>
-  <div class="container lift-z">
-    <div class="columns">
-      <div class="column is-full">
-          {% if navType == 'admin' %}
-            <div class="top-links">
-              <nav class="top-links__nav">
-                <a href="#" class="top-links__menu" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a>
-                <a href="/prototypes/dashboard/" class="top-links__link top-links__link--mobile-hidden">Home</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Schedule</a>
-                <a href="/prototypes/opportunity/" class="top-links__link top-links__link--mobile-hidden">Opportunities</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Award set-up</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Outcomes</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Reporting</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Users and organisations</a>
-              </nav>
-              {% if not loggedOut %}
-                <div class="user-header">
-                  <div class="user-header__user">
-                    <ul class="user-header__list">
-                      <li class="user-header__switch">
-                        <a href="#" class="user-header__control">Arden Pimenta</a>
-                        <ul class="user-header__dropdown">
-                          <li><a href="#">Your profile</a></li>
-                          <li><a href="#">Sign out</a></li>
-                        </ul>
-                      </li>
-
-                      <li class="user-header__switch">
-                        <a href="#" class="user-header__control">Organisations</a>
-                        <ul class="user-header__dropdown">
-                          <li><a href="#">UKRI</a></li>
-                          <li><a href="#">EPSRC</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              {% endif %}
-            </div>
-          {% else %}
-            {% if not loggedOut %}
-            <div class="top-links">
-              <nav class="top-links__nav">
-                <a href="#" class="top-links__menu" aria-controls="app-mobile-nav" aria-expanded="false">Menu</a>
-                <a href="/prototypes/dashboard/" class="top-links__link top-links__link--mobile-hidden">Home</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Applications</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Projects</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Peer review</a>
-                <a href="#" class="top-links__link top-links__link--mobile-hidden">Panel</a>
-              </nav>
-              {% if not loggedOut %}
-                <div class="user-header">
-                  <div class="user-header__user">
-                    <ul class="user-header__list">
-                      <li class="user-header__switch">
-                        <a href="#" class="user-header__control">Dr. Lucy Pevensie</a>
-                        <ul class="user-header__dropdown">
-                          <li><a href="#">Your profile</a></li>
-                          <li><a href="#">Sign out</a></li>
-                        </ul>
-                      </li>
-                      <li class="user-header__switch">
-                        <a href="#" class="user-header__control">Organisations</a>
-                        <ul class="user-header__dropdown">
-                          <li><a href="#">University Of Bath</a></li>
-                          <li><a href="#">Queen Mary College, London</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              {% endif %}
-            </div>
-            {% endif %}
-          {% endif %}
-      </div>
-    </div>
-  </div>
-</div>#}
-{#{% if not loggedOut %}
+{% if not loggedOut %}
 <script>
   window.onload = function(){
-    let allLinks = document.getElementsByClassName('top-links__link');
-    document.querySelector('.top-links__menu').onclick = function(){
-      this.classList.toggle('top-links__menu--open');
-      // TODO: toggle  aria-expanded attribute
-      this.setAttribute('aria-expanded', 'true');
-      Array.prototype.forEach.call(allLinks, function(allLinks) {
-        allLinks.classList.toggle('top-links__link--mobile-hidden');
-      });
+    // let topNavSwitcher = document.getElementsByClassName('new-header__nav');
+    let topNavMenu = document.getElementsByClassName('new-header__nav')[0];
+    document.querySelector('.hamburger').onclick = function(){
+      // topNavMenu.classList.toggle('new-header__nav--touch-hide');
+      // this.setAttribute('aria-expanded', 'true');
+      if(topNavMenu.classList.contains('new-header__nav--touch-hide')) {
+        topNavMenu.classList.remove('new-header__nav--touch-hide');
+        this.setAttribute('aria-expanded', true);
+      } else {
+        topNavMenu.classList.add('new-header__nav--touch-hide');
+        this.setAttribute('aria-expanded', false);
+      }
     };
   };
 </script>
-{% endif %}#}
+{% endif %}
