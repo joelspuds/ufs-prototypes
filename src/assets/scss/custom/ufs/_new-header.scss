@@ -87,8 +87,15 @@
     margin-top: 22px;
 
     &--touch-hide {
+
+      @at-root {
+        .js-enabled #{&} {
+          display: none !important;
+        }
+      }
+
       @include touch {
-        display:none!important;
+        // display:none!important;
       }
     }
 
