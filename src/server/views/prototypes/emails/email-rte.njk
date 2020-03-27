@@ -2,7 +2,7 @@
 
 {#{% set navType = 'admin' %}#}
 {#{% set isAdminUser = true %}#}
-{% set showTinyMCEScripts = true %}
+{#{% set showTinyMCEScripts = true %}#}
 {% set emailSent = emailSent if emailSent %}
 {% set emailError = emailError if emailError %}
 {% set emailContents = emailContents if emailContents %}
@@ -131,22 +131,36 @@
 
 {% endblock %}
 {% block bodyScripts %}
-    {#<script>
-      Zepto(function($){
-        $('#thing').on('click', function() {
-        });
+    <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+
+      // joel.01 API key
+      // phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor
+
+      // nlsn API key
+      // l2nqkzkytjj1cdcih5cik090v6f75o1pa04irfeow06n7idc
+
+      // j.oel.01@gmail.com key
+      // 07mujqe21skvbb0u24f0w3wkj0mqp5fv09jygkbui3xcuimo
+
+      tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        menubar: false,
+        tinydrive_token_provider: '/prototypes/jwt',
+        plugins: [
+          'autolink lists link image charmap preview anchor',
+          'searchreplace visualblocks code fullscreen',
+          'insertdatetime media table paste code  wordcount '
+        ],
+        toolbar: 'formatselect | bold italic | numlist bullist ',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
+          '/stylesheets/tinymce.css'
+        ]
       });
-    </script>#}
-   {# <script type="text/javascript" src="/javascripts/accessible-autocomplete/accessible-autocomplete.min.js"></script>
-    <script type="text/javascript">
-      var selectEl = document.querySelector('#organisation');
-      accessibleAutocomplete.enhanceSelectElement({
-        autoselect: true,
-        defaultValue: selectEl.options[selectEl.options.selectedIndex].innerHTML,
-        minLength: 1,
-        selectElement: selectEl
-      });
-    </script>#}
+
+    </script>
 {% endblock %}
 
 
