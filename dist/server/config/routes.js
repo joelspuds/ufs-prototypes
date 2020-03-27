@@ -199,9 +199,17 @@ router.get('/prototypes/register-v1/confirm-organisation', demosController.orgsC
 router.post('/prototypes/register-v1/confirm-organisation', demosController.orgsConfirmPostV1);
 router.get('/prototypes/register-v1/details', demosController.detailsGetV1);
 router.post('/prototypes/register-v1/details', demosController.detailsPostV1);
+router.get('/prototypes/register-v1/end', demosController.endGetV1);
+
+/* *************************************************************** *
+
+  Email testing
+
+* *************************************************************** */
 router.get('/prototypes/emails/', demosController.emailsGet);
 router.post('/prototypes/emails/', demosController.emailsPost);
-router.get('/prototypes/register-v1/end', demosController.endGetV1);
+router.get('/prototypes/emails/email-rte', demosController.richTextEmailGet);
+router.post('/prototypes/emails/email-rte', demosController.richTextEmailPost);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

@@ -2,12 +2,14 @@
 
 {#{% set navType = 'admin' %}#}
 {#{% set isAdminUser = true %}#}
+{% set showTinyMCEScripts = true %}
 {% set emailSent = emailSent if emailSent %}
 {% set emailError = emailError if emailError %}
+{% set emailContents = emailContents if emailContents %}
 
 {%  set loggedOut = true %}
 
-{% set pageTitle = 'Send test email' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Create and send rich-text email' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
@@ -26,14 +28,6 @@
 
         {%- endcall %}
     {% endif %}
-
-    {#{% call components.bulmaRow() %}
-
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
-            <div class="alerts alerts--danger">Sendgrid have paused the account for some reason, so this won't work for now. 😠 </div>
-        {%- endcall %}
-
-    {%- endcall %}#}
 
     {% if emailError %}
 
@@ -60,11 +54,11 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Send a test email') }}
+            {{ components.captionHeading(text='Create and send rich-text email') }}
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/emails/', method='POST', name='emailDetails') %}
+    {% call components.form(action='/prototypes/emails/email-rte', method='POST', name='richTextEmailEditor') %}
 
         {% call components.bulmaRow() %}
 
@@ -102,6 +96,19 @@
                     <label class="govuk-label govuk-label--s" for="subject">Subject line</label>
                     <span class="govuk-hint">This is optional and has a default if you can't be bothered to add your own.</span>
                     <input class="govuk-input govuk-input--width-30" id="subject" type="text" name="subject" value="{{ fullName }}">
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <div class="form-group ">
+                    <label class="govuk-label govuk-label--s" for="emailEditor">Edit your email</label>
+                    <textarea class="govuk-textarea" name="emailEditor" id="emailEditor" rows="18">{{ emailContents }}</textarea>
                 </div>
 
             {%- endcall %}
