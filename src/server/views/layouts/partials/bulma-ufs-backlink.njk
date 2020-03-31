@@ -1,0 +1,8 @@
+{% if backLinkContents %}
+  <div class="container">
+    <div class="columns">
+      <div class="column is-two-thirds ">
+        <a href="{{ backLinkContents[0].url }}" class="govuk-back-link">{{ backLinkContents[0].text }}</a>
+      </div>
+    </div>
+  </div>{% endif %}

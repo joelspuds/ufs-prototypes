@@ -15,7 +15,6 @@
         </button>
         {% endif %}
 
-
         {% if not loggedOut %}
           {% if navType == 'admin' %}
             <nav class="new-header__nav new-header__nav--touch-hide">
@@ -23,10 +22,13 @@
                 <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
                 {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Schedule</a></li>#}
                 <li class="new-header__nav-item"><a href="/prototypes/opportunity/" class="new-header__nav-link">Opportunities</a>
-                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Awards</a></li>
-                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Outcomes</a></li>
-                <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Reporting</a></li>
+                {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Awards</a></li>#}
+                {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Outcomes</a></li>#}
+                {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Reporting</a></li>#}
                 <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Users and organisations</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Your profile</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Sign out</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user new-header__nav-item--current"><span  class="new-header__nav-text">Current organisation: UKRI</span></li>
               </ul>
             </nav>
           {% else %}
@@ -34,6 +36,10 @@
               <ul class="new-header__nav-list">
                 <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
                 <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Applications</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Your profile</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Sign out</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user new-header__nav-item--current"><a href="#" class="new-header__nav-text">Current organisation: Bath Spa University</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Change organisation: Univeristy of the West of England (UWE), Bristol</a></li>
               </ul>
             </nav>
           {% endif %}

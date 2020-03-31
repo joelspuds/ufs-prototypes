@@ -30,9 +30,9 @@
     }
 
     @include mobile {
-      background-image: none!important;
+      // background-image: none!important;
+      background-position: 200px 0;
     }
-
 
     .column {
       position: relative;
@@ -51,7 +51,6 @@
     width: 220px;
     font-size: 24px;
     padding-top: 1px;
-
   }
 
   &--external {
@@ -82,8 +81,8 @@
   &__nav {
     // <nav>
     height: 40px;
-    float: right;
-    /*margin-left: 80px;*/
+    float: left;
+    margin-left: 80px;
     margin-top: 22px;
 
     &--touch-hide {
@@ -120,8 +119,6 @@
     float: right;
     text-align: left;
 
-
-
     @include touch {
       width: 100%;
       height: auto;
@@ -139,13 +136,21 @@
       width: 100%;
       border-top: 1px solid govuk-colour("mid-grey");
     }
+
+    &--user {
+      display: none;
+
+      @include touch {
+        display: block;
+      }
+    }
   }
 
   &__nav-link {
     // <a>
     display: inline-block;
     border: 2px solid white;
-    padding: 0px 4px;
+    padding: 0 4px;
     font-size: 19px;
     font-weight: bold;
     color: ufs-colour("ukri-blue");
@@ -161,8 +166,24 @@
 
       &:hover {
         border: none!important;
-
       }
+
+      &:focus {
+        background-color: govuk-colour("yellow");
+        color: ufs-colour("ukri-blue");
+      }
+    }
+  }
+
+  &__nav-text {
+    display: inline-block;
+    padding: 4px 0;
+    font-size: 19px;
+    font-weight: bold;
+    color: govuk-colour("black");
+
+    @include touch {
+      padding: 6px 0;
     }
   }
 
@@ -227,5 +248,6 @@
 
   @include touch {
     right: 0;
+    display: none;
   }
 }

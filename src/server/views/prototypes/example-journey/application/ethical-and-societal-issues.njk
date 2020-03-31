@@ -4,14 +4,10 @@
 {% set ethicalReasons = ethicalReasons if ethicalReasons %}
 {% set allEthicalAndSocietal = allEthicalAndSocietal if allEthicalAndSocietal %}
 {#{% set showSimpleTinyMCEScripts = true %}#}
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application'}] %}
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to application overview', url='/prototypes/example-journey/application/') }}
-        {%- endcall %}
-    {%- endcall %}
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text=APPLICATION_ETHICAL_TITLE, caption=projectName) }}

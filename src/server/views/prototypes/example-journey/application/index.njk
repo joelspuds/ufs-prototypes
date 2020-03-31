@@ -24,13 +24,10 @@
 {% set ethicalAndSocietalIsComplete = ethicalAndSocietalIsComplete if ethicalAndSocietalIsComplete %}
 {% set capabilityToDeliverIsComplete = capabilityToDeliverIsComplete if capabilityToDeliverIsComplete %}
 
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application/project-listings', text:'Back to all Opportunities'}] %}
+
 {% block content %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to all opportunities', url='/prototypes/example-journey/application/project-listings') }}
-        {%- endcall %}
-    {%- endcall %}
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text=APPLICATION_OVERVIEW_TITLE_TAG, caption=projectName) }}
@@ -49,24 +46,21 @@
         {%- endcall %}
     {% endif %}
 
-  {% call components.bulmaRow() %}
+    {% call components.bulmaRow() %}
 
-    {% call components.bulmaColumnAny(size='is-full') %}
-
-        <div class="tabs-alt govuk-clearfix">
-            <ul class="tabs-alt__list">
-                <li class="tabs-alt__item">
-                    <a class="tabs-alt__link tabs-alt__link--active" href="#" >Write application</a>
-                </li>
-                <li class="tabs-alt__item">
-                    <a class="tabs-alt__link" href="/prototypes/example-journey/application/view" >Read application</a>
-                </li>
-            </ul>
-        </div>
-
+        {% call components.bulmaColumnAny(size='is-full') %}
+            <div class="govuk-tabs" data-module="govuk-tabs">
+                <ul class="govuk-tabs__list">
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                        <a class="govuk-tabs__tab" href="#">Write application</a>
+                    </li>
+                    <li class="govuk-tabs__list-item">
+                        <a class="govuk-tabs__tab" href="/prototypes/example-journey/application/view">Read application</a>
+                    </li>
+                </ul>
+            </div>
+        {%- endcall %}
     {%- endcall %}
-
-  {%- endcall %}
 
     {% call components.bulmaRow() %}
 

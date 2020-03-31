@@ -1,7 +1,7 @@
 .ufs-phase-banner {
   .govuk-phase-banner {
-    border-bottom: none;
-    border-top: 1px solid $govuk-border-colour;
+    /*border-bottom: none;
+    border-top: 1px solid $govuk-border-colour;*/
   }
 }
 
@@ -170,4 +170,9 @@ table td:not([align]), table th:not([align]) {
 .govuk-table__header--numeric,
 .govuk-table__cell--numeric {
   text-align: right!important;
+}
+
+.govuk-back-link {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

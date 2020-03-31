@@ -4,14 +4,15 @@
 
 {% block bodyContentWrapper %}
     {% include './partials/ufs-breadcrumbs.njk' %}
-    {% include './partials/ufs-backlink.njk' %}
-    <main id="" class=" __u-space-b30 {{ mainContainerClass if mainContainerClass }}">
+    {% if isAdminUser != true %}
+        {% include './partials/bulma-phase-banner.njk' %}
+    {% endif %}
+    {% include './partials/bulma-ufs-backlink.njk' %}
+    <main id="" class="u-space-t30 u-space-b30 {{ mainContainerClass if mainContainerClass }}">
       {#{% filter prismFullpage %}#}
         {% block content %}{% endblock %}
       {#{% endfilter %}#}
     </main>
-    {% if isAdminUser != true %}
-        {% include './partials/bulma-phase-banner.njk' %}
-    {% endif %}
+
 {% endblock %}
 

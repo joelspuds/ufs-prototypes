@@ -4,14 +4,11 @@
 {% set storedCaseForSupportNotes = storedCaseForSupportNotes if storedCaseForSupportNotes %}
 {% set projectName = projectName if projectName %}
 {% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application'}] %}
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to application overview', url='/prototypes/example-journey/application/') }}
-        {%- endcall %}
-    {%- endcall %}
+
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text=CASE_FOR_SUPPORT_TITLE_TAG, caption=projectName) }}

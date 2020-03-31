@@ -16,40 +16,35 @@
     { text: 'Ethical and societal issues', url: '#marker_Ethical' }
 ] %}
 
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application'}] %}
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to application overview', url='#') }}
-        {%- endcall %}
-    {%- endcall %}
+
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text='Case for support preview', caption='171 - Development of a Novel Inhibitor of Ricin') }}
         {%- endcall %}
     {%- endcall %}
+
     {% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='is-full') %}
-
-            <div class="tabs-alt govuk-clearfix">
-                <ul class="tabs-alt__list">
-                    <li class="tabs-alt__item">
-                        <a class="tabs-alt__link" href="/prototypes/example-journey/application/" >Write application</a>
+            <div class="govuk-tabs" data-module="govuk-tabs">
+                <ul class="govuk-tabs__list">
+                    <li class="govuk-tabs__list-item ">
+                        <a class="govuk-tabs__tab" href="/prototypes/example-journey/application/">Write application</a>
                     </li>
-                    <li class="tabs-alt__item">
-                        <a class="tabs-alt__link tabs-alt__link--active" href="#" >Read application</a>
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                        <a class="govuk-tabs__tab" href="#">Read application</a>
                     </li>
                 </ul>
             </div>
-
         {%- endcall %}
-
     {%- endcall %}
 
 
-    {% call components.gridRow(extraClass='u-space-b30') %}
+    {% call components.bulmaRow(extraClass='u-space-b30') %}
 
         {% call components.bulmaColumnAny(size='is-3') %}
 
