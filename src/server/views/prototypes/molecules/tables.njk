@@ -7,8 +7,7 @@
 {% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
 {% set isAdminUser = true %}
 {% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
-
-
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
 {% set pageTitle = 'Tables' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}

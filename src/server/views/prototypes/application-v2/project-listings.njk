@@ -1,0 +1,38 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set pageTitle = PROJECT_LISTING_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectList = [{ title:'Biosensors for ribosome inactivating protiens', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:''/prototypes/example-journey/application-v2/' },
+{ title:'Biosensors for ribosome inactivating protiens', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:''/prototypes/example-journey/application-v2/' },
+{ title:'Agri-tech catalyst round 9: agriculture and food systems innovation, mid stage', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:''/prototypes/example-journey/application-v2/' },
+{ title:'Enabling data access in accountancy, insurance and legal services: CR&D', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:''/prototypes/example-journey/application-v2/' },
+{ title:'ISCF healthy ageing trailblazers: stage 1', text:'Ut lobortis congue magna. Vivamus gravida ut lacus tincidunt aliquam. Cras iaculis, eros at imperdiet mattis.', url:''/prototypes/example-journey/application-v2/' }] %}
+{#{% set projectList = 'werergerg' %}#}
+
+
+{% block content %}
+
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=PROJECT_LISTING_TITLE) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-3') %}
+
+            [search]
+            <br>
+            [filter]
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-9') %}
+
+            {{ components.projectListing(items=projectList) }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

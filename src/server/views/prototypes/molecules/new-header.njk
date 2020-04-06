@@ -3,6 +3,7 @@
 {% set navType = 'admin' %}
 {#{% set isAdminUser = true %}#}
 {%  set loggedOut = false %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
 
 {% set createOpportunityError = createOpportunityError if createOpportunityError %}
 {% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
@@ -14,12 +15,6 @@
 {% set pageTitle = 'New header' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to molecules', url='/prototypes/molecules/') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds u-space-t30') %}

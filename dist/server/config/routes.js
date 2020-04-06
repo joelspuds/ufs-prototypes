@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-   value: true
+  value: true
 });
 exports.allRoutes = undefined;
 
@@ -34,7 +34,7 @@ const router = (0, _express.Router)();
    Requires credentials to match those in in Heroku env settings
 */
 if (!(0, _constants.isDevelopment)()) {
-   router.get('/prototypes*', PrototypeAuth.authenticationMiddleware);
+  router.get('/prototypes*', PrototypeAuth.authenticationMiddleware);
 }
 
 // Misc routes
@@ -210,6 +210,30 @@ router.get('/prototypes/emails/', demosController.emailsGet);
 router.post('/prototypes/emails/', demosController.emailsPost);
 router.get('/prototypes/emails/email-rte', demosController.richTextEmailGet);
 router.post('/prototypes/emails/email-rte', demosController.richTextEmailPost);
+
+/* *************************************************************** *
+
+  Applications v2
+
+* *************************************************************** */
+router.get('/prototypes/application-v2', demosController.tinyMCEApplicationIndexGet);
+router.get('/prototypes/application-v2/start', demosController.tinyMCEApplicationGet);
+router.post('/prototypes/application-v2/start', demosController.tinyMCEApplicationPost);
+router.get('/prototypes/application-v2/case-for-support', demosController.caseForSupportGet);
+router.post('/prototypes/application-v2/case-for-support', demosController.caseForSupportPost);
+router.get('/prototypes/application-v2/view', demosController.tinyMCEApplicationViewGet);
+router.get('/prototypes/application-v2/view-static', demosController.tinyMCEApplicationStaticViewGet);
+// Application journey
+router.get('/prototypes/application-v2/application-team', demosController.applicationTeamGet);
+router.post('/prototypes/application-v2/application-team', demosController.applicationTeamPost);
+router.get('/prototypes/application-v2/capability-to-deliver', demosController.capabilityToDeliverGet);
+router.post('/prototypes/application-v2/capability-to-deliver', demosController.capabilityToDeliverPost);
+router.get('/prototypes/application-v2/ethical-and-societal-issues', demosController.ethicalSocietalGet);
+router.post('/prototypes/application-v2/ethical-and-societal-issues', demosController.ethicalSocietalPost);
+router.get('/prototypes/application-v2/project-details', demosController.projectDetailsGet);
+router.post('/prototypes/application-v2/project-details', demosController.projectDetailsPost);
+router.get('/prototypes/application-v2/resources-and-cost', demosController.resourcesCostGet);
+router.post('/prototypes/application-v2/resources-and-cost', demosController.resourcesCostPost);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

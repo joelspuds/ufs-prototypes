@@ -1,0 +1,152 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set pageTitle = APPLICATION_PROJECT_DETAILS_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectName = projectName if projectName %}
+{#{% set showSimpleTinyMCEScripts = true %}#}
+{% set allProjectDetails = allProjectDetails if allProjectDetails %}
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/', text:'Back to application'}] %}
+
+{% block content %}
+
+    <style>
+        .tox-statusbar__wordcount, .tox-statusbar__branding { display: none!important}
+    </style>
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_PROJECT_DETAILS_TITLE, caption=projectName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/example-journey/application-v2/project-details', method='POST',name='formProjectTeam') %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.field(label='Project name', hint='Enter the full title of your proposed project', labelBold=true, id='projectName', value=allProjectDetails.projectName) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Project summary', labelBold=true, id='projectSummary', hint='Peer reviewers will be selected to assess your application based on this summary.', group=false, size='', value=allProjectDetails.projectSummary, extraClass='', rows='18') }}
+
+                    <p>
+                        <span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span>
+                    </p>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+         {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020', monthValue=allProjectDetails.month, yearValue=allProjectDetails.year) }}
+
+                {% call components.formGroup() %}
+                    {{ components.field(label='Duration in months', labelBold=true, id='projectDuration', inputWidthClass='govuk-input--width-3', value=allProjectDetails.projectDuration) }}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allProjectDetails.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-controls govuk-clearfix">
+                        {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        <span class="sub-button">
+                        {{ components.link(text='Cancel', url=''/prototypes/example-journey/application-v2/')}}
+                    </span>
+                    </div>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+{% block bodyScripts %}
+    <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      let wordy, count, newCount, overCount;
+      let limit = 400;
+      let countOutput = document.getElementById('wordCount');
+      countOutput.innerHTML = 'You have ' +  limit + ' words remaining'
+
+      tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        menubar: false,
+        plugins: [
+          'lists charmap anchor',
+          'paste code wordcount '
+        ],
+        toolbar: 'formatselect | bold italic | numlist bullist |',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
+          '/stylesheets/tinymce.css'
+        ],
+        setup: function(editor) {
+          editor.on('keyup', function(e) {
+            wordy = editor.plugins.wordcount;
+            count = parseInt(wordy.body.getWordCount());
+            newCount = limit - count;
+            // overCount =  limit + count;
+            overCount =  count - limit;
+            if (newCount < 0) {
+              countOutput.innerHTML = '<span style="font-weight:700;color:red">You have ' +  overCount + ' words too many</span>'
+            } else {
+              countOutput.innerHTML = 'You have ' +  newCount + ' words remaining'
+            }
+          });
+        }
+      });
+    </script>
+
+{% endblock %}

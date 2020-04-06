@@ -1,0 +1,182 @@
+{% extends 'layouts/ufs.layout.njk' %}
+{% set pageTitle = APPLICATION_CAPABILITY_TO_DELIVER_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectName = projectName if projectName %}
+{#{% set showSimpleTinyMCEScripts = true %}#}
+{% set capabilityToDeliverNotes = capabilityToDeliverNotes if capabilityToDeliverNotes %}
+{% set allCapabilityToDeliver = allCapabilityToDeliver if allCapabilityToDeliver %}
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application'}] %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_CAPABILITY_TO_DELIVER_TITLE, caption=projectName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/example-journey/application/capability-to-deliver', method='POST',name='formCapabilityToDeliver') %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {{ components.captionHeading(text='Project team', size='s')}}
+
+                {{ components.paragraph(text='Nominate the principal investigator, co-investigators and researchers for your proposed project. People added will be required to verify their involvement.') }}
+
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption govuk-visually-hidden">Project team members</caption>
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Full name</th>
+                        <th scope="col" class="govuk-table__header">Email</th>
+                        <th scope="col" class="govuk-table__header">Role</th>
+                        <th scope="col" class="govuk-table__header">Capacity</th>
+                        <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Dr. Jane Doe</td>
+                        <td class="govuk-table__cell">{{ components.link(text='jane.doe@cardiffuniversity.ac.uk', url='#') }}</td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Role on project</option>
+                                <option selected>Principal investigator</option>
+                                <option>Co-investigator</option>
+                                <option>Researcher</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Capacity</option>
+                                <option>Full time</option>
+                                <option selected>Part time</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell">&nbsp;</td>
+                    </tr>
+                    <tr class="govuk-table__row govuk-visually-hidden" id="hiddenRow">
+                        <td class="govuk-table__cell">
+                            {{ components.field(label='Full name', labelVisuallyHidden=true, id='teamFullName', inputWidthClass='govuk-input--width-20') }}
+                        </td>
+                        <td class="govuk-table__cell">
+                            {{ components.field(label='Email', labelVisuallyHidden=true, id='teamEmail', inputWidthClass='govuk-input--width-20') }}                             </td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Role on project</option>
+                                <option>Principal investigator</option>
+                                <option>Co-investigator</option>
+                                <option>Researcher</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell">
+                            <select class="govuk-select">
+                                <option>Capacity</option>
+                                <option>Full time</option>
+                                <option>Part time</option>
+                            </select>
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--action">
+                            {{ components.link(text='Send invite', type='secondary', url='#') }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="govuk-body u-space-t5 u-space-b30">
+                    {{ components.link(text='Invite another team member', url='#', id='showInviteRow') }}
+                </p>
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+               {{ components.captionHeading(text='Capability to deliver', size='s', tag='h2')}}
+
+                {% call components.hiddenText(summary='What should I include in this section?') %}
+                    <p>Your capability to deliver should be structured as follows:</p>
+
+                    <p><strong>1.1 Team outline</strong><br>
+                        Sed consequat pulvinar massa, sed egestas ipsum consequat sit amet.</p>
+
+                    <p><strong>1.2 Core skills and experience</strong><br>
+                        Praesent pulvinar enim velit, auctor egestas eros euismod in. </p>
+
+                    <p><strong>1.3 References to previous, related projects</strong><br>
+                        Donec vestibulum dictum lectus et posuere. Nullam massa est, pulvinar ut purus id?</p>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow(extraClass='u-space-b30') %}
+
+            {% call components.columnFull() %}
+
+                {{ components.textarea(options=selectOptions, label='Enter your case for support', id='capabilityToDeliverNotes', hint='Describe how your proposed team is suitable and capable to undertake the project.', group=true, size='', value=capabilityToDeliverNotes, rows='18', extraClass='', visuallyHidden=true) }}
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allCapabilityToDeliver.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.gridRow() %}
+
+            {% call components.columnFull() %}
+                <div class="application-controls govuk-clearfix">
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                    {#<span class="sub-button">
+                        {{ components.link(text='Cancel', url='/prototypes/example-journey/application/')}}
+                    </span>#}
+                </div>
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $('#showInviteRow').on('click', function(event) {
+          $('#hiddenRow').removeClass('govuk-visually-hidden');
+          event.preventDefault();
+        });
+      })
+    </script>
+{% endblock %}

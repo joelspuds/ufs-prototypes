@@ -1,0 +1,111 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set pageTitle = 'AHRC New Generation Thinkers scheme ' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/project-listings', text:'Back to all Opportunities'}] %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='AHRC New Generation Thinkers scheme') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-7', extraClass='u-space-t20') %}
+
+            <ul class="opportunity-meta govuk-list">
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Opportunity status:</span>
+                    <span class="opportunity-meta__details">Open</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Funder:</span>
+                    <span class="opportunity-meta__details">Arts and Humanities Research Council (AHRC)</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Funding type:</span>
+                    <span class="opportunity-meta__details">Outline Application</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Publication date:</span>
+                    <span class="opportunity-meta__details">Wednesday 29 July 2020</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Opening date:</span>
+                    <span class="opportunity-meta__details">Wednesday 29 July 2020</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Closing date:</span>
+                    <span class="opportunity-meta__details">Open</span>
+                </li>
+            </ul>
+
+            <p class="govuk-body">Last updated:  3 August 2020</p>
+
+            <p class="govuk-body"><a href="/prototypes/application-v2/" class="govuk-button govuk-button--start">Start an application</a> </p>
+
+            <h2 class="govuk-heading-s">Summary</h2>
+
+            <p class="govuk-body">The Arts and Humanities Research Council, BBC Radio 3 New Generation Thinkers scheme gives 60 applicants the chance to workshop programme ideas with experienced BBC producers. Of these, up to 10 will become an Arts and Humanities Research Council, BBC Radio 3 New Generation Thinker. They will benefit from a unique opportunity to make programmes for Radio 3 and other outlets, as well as contributing to wider media through the AHRC. In addition, the scheme partners with BBC Four, where some of the selected researchers will be given the opportunity to present a programme for TV.</p>
+
+            <p class="govuk-body">Previous New Generation Thinkers have presented at the Hay Festival and the Being Human Festival, and have been interviewed for flagship BBC programmes as well as by other media and broadcasters. The scheme is vital in developing their talents and abilities to deliver knowledge to a wider audience. Previous New Generation Thinkers have written and read episodes of The Essay for BBC Radio 3.You can read interviews with previous participants on the AHRC website and listen to their performances on the BBC website.</p>
+
+            <p class="govuk-body">For successful applicants it can be a career-changing experience: the training and mentoring opportunities (which are provided free of charge and right from the start of the process) are envied in many circles.</p>
+
+
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-4 is-offset-1') %}
+
+            <h2 class="govuk-heading-m">Timeline</h2>
+            <div class="timeline">
+                <ul class="timeline__list">
+                    <li class="timeline__item">
+                        <span class="timeline__title">8 October 2010 4pm</span>
+                        <span class="timeline__meta">Application deadline</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">22 November 2020</span>
+                        <span class="timeline__meta">Assessment meeting</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">9 December 2020</span>
+                        <span class="timeline__meta">Applicants informed of decisions</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">15 January 2021</span>
+                        <span class="timeline__meta">Workshop 1 (Salford)</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">20 January 2021</span>
+                        <span class="timeline__meta">Workshop 2 (London)</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">22 January 2021</span>
+                        <span class="timeline__meta">Workshop 3 (London)</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">30 January 2021</span>
+                        <span class="timeline__meta">Final ten advised</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">18-19 February 2021</span>
+                        <span class="timeline__meta">Media training, photography and event</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">25  March 2021</span>
+                        <span class="timeline__meta">Finalist record Radio 3 programme</span>
+                    </li>
+                </ul>
+
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}

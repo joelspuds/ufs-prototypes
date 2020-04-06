@@ -1,0 +1,130 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set pageTitle = CASE_FOR_SUPPORT_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set showTinyMCEScripts = true %}
+{% set storedCaseForSupportNotes = storedCaseForSupportNotes if storedCaseForSupportNotes %}
+{% set projectName = projectName if projectName %}
+{% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application/', text:'Back to application'}] %}
+
+{% block content %}
+
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=CASE_FOR_SUPPORT_TITLE_TAG, caption=projectName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
+
+            {% call components.hiddenText(summary='What should I include in this section?') %}
+                <p>Your Case for Support should be structured as follows:</p>
+
+                <p><strong>1.1 The idea</strong><br>
+                    What is your proposed project and how does it represent excellence?</p>
+
+                <p><strong>1.2 Importance</strong><br>
+                    What is the value of this project, to whom, why should it be undertaken?</p>
+
+                <p><strong>1.3 Timeliness</strong><br>
+                    Why is now the right time for this project?</p>
+
+                <p><strong>1.4 Approach</strong><br>
+                    How do you propose to undertake the project and what methods will you use?</p>
+
+                <p><strong>1.5 Impact</strong><br>
+                    What potential impact might come about as result from this project, how might the benefit  be realised?</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/example-journey/application/case-for-support', method='POST',name='caseForSupportNotes') %}
+
+        {% call components.bulmaRow(extraClass='u-space-b30') %}
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                <style>
+                    .tox-notification.tox-notification--in.tox-notification--error,
+                    .tox-notifications-container {
+                        /*display: none!important;*/
+                    }
+                </style>
+
+                {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='caseForSupportNotes', hint='', group=true, rows='18', size='', value=storedCaseForSupportNotes, extraClass='', visuallyHidden=true) }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if caseForSupportIsComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                <div class="application-controls govuk-clearfix">
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      /*function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }*/
+    </script>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Timeline' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set isAdminUser = true %}
+{% set loggedIn = true %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Timeline') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='column is-8') %}
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+                <p class="govuk-body">Lots of content</p>
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+                <h2 class="govuk-heading-m">Timeline</h2>
+                <div class="timeline">
+                    <ul class="timeline__list">
+                        <li class="timeline__item">
+                            <span class="timeline__title">8 October 2010 4pm</span>
+                            <span class="timeline__meta">Application deadline</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">22 November 2020</span>
+                            <span class="timeline__meta">Assessment meeting</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">9 December 2020</span>
+                            <span class="timeline__meta">Applicants informed of decisions</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">15 January 2021</span>
+                            <span class="timeline__meta">Workshop 1 (Salford)</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">20 January 2021</span>
+                            <span class="timeline__meta">Workshop 2 (London)</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">22 January 2021</span>
+                            <span class="timeline__meta">Workshop 3 (London)</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">30 January 2021</span>
+                            <span class="timeline__meta">Final ten advised</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">18-19 February 2021</span>
+                            <span class="timeline__meta">Media training, photography and event</span>
+                        </li>
+                        <li class="timeline__item">
+                            <span class="timeline__title">25  March 2021</span>
+                            <span class="timeline__meta">Finalist record Radio 3 programme</span>
+                        </li>
+                    </ul>
+
+                </div>
+            {%- endcall %}
+        {%- endcall %}
+    </section>
+
+{% endblock %}

@@ -7,13 +7,16 @@
         </a>
 
         {% if not loggedOut %}
-        <button class="hamburger" type="button" aria-controls="mobile-nav" aria-expanded="false">
-          <span class="govuk-visually-hidden">Activate the main menu</span>
+        {#<button class="hamburger" type="button" aria-controls="mobile-nav" aria-expanded="false">
+         #}{# <span class="govuk-visually-hidden">Activate the main menu</span>
           <span></span>
           <span></span>
-          <span></span>
-        </button>
+          <span></span>#}{#
+          Menu &#9660;
+        </button>#}
+          <button class="mobile-menu" type="button" aria-controls="mobile-nav" aria-expanded="false">Menu <span>&#9660;</span></button>
         {% endif %}
+
 
         {% if not loggedOut %}
           {% if navType == 'admin' %}
@@ -26,9 +29,13 @@
                 {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Outcomes</a></li>#}
                 {#<li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Reporting</a></li>#}
                 <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Users and organisations</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Your profile</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Sign out</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user new-header__nav-item--current"><span  class="new-header__nav-text">Current organisation: UKRI</span></li>
+                <li class="new-header__nav-item new-header__nav-item--user">
+                  <span class="new-header__nav-text">Arden Pimenta</span>
+                  <a href="#" class="new-header__nav-link">Your profile</a>
+                  <a href="#" class="new-header__nav-link">Sign out</a>
+                </li>
+                {#<li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Sign out</a></li>#}
+                {#<li class="new-header__nav-item new-header__nav-item--user new-header__nav-item--current"><span  class="new-header__nav-text">Current organisation: UKRI</span></li>#}
               </ul>
             </nav>
           {% else %}
@@ -36,10 +43,14 @@
               <ul class="new-header__nav-list">
                 <li class="new-header__nav-item"><a href="/prototypes/dashboard/" class="new-header__nav-link">Home</a></li>
                 <li class="new-header__nav-item"><a href="#" class="new-header__nav-link">Applications</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Your profile</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Sign out</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user new-header__nav-item--current"><a href="#" class="new-header__nav-text">Current organisation: Bath Spa University</a></li>
-                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Change organisation: Univeristy of the West of England (UWE), Bristol</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user">
+                  <span class="new-header__nav-text">Prof. Lady Joanne Potwash-McDoelingtonworth BSc MSc PhD MBE</span>
+                  <a href="#" class="new-header__nav-link">Your profile</a>
+                  <a href="#" class="new-header__nav-link">Sign out</a>
+                </li>
+                {#<li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Sign out</a></li>#}
+                {#<li class="new-header__nav-item new-header__nav-item--user new-header__nav-item--current"><a href="#" class="new-header__nav-text">Current organisation: Bath Spa University</a></li>
+                <li class="new-header__nav-item new-header__nav-item--user"><a href="#" class="new-header__nav-link">Change organisation: Univeristy of the West of England (UWE), Bristol</a></li>#}
               </ul>
             </nav>
           {% endif %}
@@ -65,13 +76,13 @@
                         <li><a href="#">Sign out</a></li>
                       </ul>
                     </li>
-                    <li class="user-header__switch">
+                    {#<li class="user-header__switch">
                       <a href="#" class="user-header__control">Organisations</a>
                       <ul class="user-header__dropdown">
                         <li><a href="#">UKRI</a></li>
                         <li><a href="#">EPSRC</a></li>
                       </ul>
-                    </li>
+                    </li>#}
                   </ul>
                 </div>
               </div>
@@ -80,19 +91,19 @@
                 <div class="user-header__user">
                   <ul class="user-header__list">
                     <li class="user-header__switch">
-                      <a href="#" class="user-header__control">Joanne McDoe</a>
+                      <a href="#" class="user-header__control">Prof. {#Lady#} Joanne Potwash-McDoelingtonworth {#BSc MSc PhD MBE#}</a>
                       <ul class="user-header__dropdown">
                         <li><a href="#">Your profile</a></li>
                         <li><a href="#">Sign out</a></li>
                       </ul>
                     </li>
-                    <li class="user-header__switch">
+                    {#<li class="user-header__switch">
                       <a href="#" class="user-header__control">Organisations</a>
                       <ul class="user-header__dropdown">
                         <li><a href="#">University of Bath</a></li>
                         <li><a href="#">Bristol Univeristy</a></li>
                       </ul>
-                    </li>
+                    </li>#}
                   </ul>
                 </div>
               </div>
@@ -109,7 +120,7 @@
   window.onload = function(){
     // let topNavSwitcher = document.getElementsByClassName('new-header__nav');
     let topNavMenu = document.getElementsByClassName('new-header__nav')[0];
-    document.querySelector('.hamburger').onclick = function(){
+    document.querySelector('.mobile-menu').onclick = function(){
       // topNavMenu.classList.toggle('new-header__nav--touch-hide');
       // this.setAttribute('aria-expanded', 'true');
       if(topNavMenu.classList.contains('new-header__nav--touch-hide')) {

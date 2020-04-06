@@ -91,6 +91,10 @@
         .js-enabled #{&} {
 
           @include touch {
+
+          }
+
+          @include mobile {
             display: none !important;
           }
         }
@@ -102,6 +106,10 @@
     }
 
     @include touch {
+
+    }
+
+    @include mobile {
       display: block;
       float: none;
       clear:both;
@@ -109,8 +117,8 @@
       height: auto;
       margin: 0;
       margin-top: 15px;
-
     }
+
   }
 
   &__nav-list {
@@ -120,6 +128,10 @@
     text-align: left;
 
     @include touch {
+
+    }
+
+    @include mobile {
       width: 100%;
       height: auto;
       float: none;
@@ -132,6 +144,10 @@
     display: inline-block;
 
     @include touch {
+
+    }
+
+    @include mobile {
       display: block;
       width: 100%;
       border-top: 1px solid govuk-colour("mid-grey");
@@ -139,8 +155,14 @@
 
     &--user {
       display: none;
+      border-bottom: 1px solid govuk-colour("mid-grey");
+      margin-bottom: 10px;
 
       @include touch {
+
+      }
+
+      @include mobile {
         display: block;
       }
     }
@@ -160,6 +182,10 @@
     }
 
     @include touch {
+
+    }
+
+    @include mobile {
       border: none;
       display: block;
       padding: 6px 0;
@@ -179,10 +205,14 @@
     display: inline-block;
     padding: 4px 0;
     font-size: 19px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     color: govuk-colour("black");
 
     @include touch {
+
+    }
+
+    @include mobile {
       padding: 6px 0;
     }
   }
@@ -217,6 +247,10 @@
     display: none;
 
     @include touch {
+
+    }
+
+    @include mobile {
       position: absolute;
       right: 10px;
       top: 34px;
@@ -243,10 +277,56 @@
   }
 }
 
+.mobile-menu {
+  display: none;
+}
+
+.js-enabled {
+
+  .mobile-menu {
+
+    display: none;
+
+    @include touch {
+
+    }
+
+    @include mobile {
+      position: absolute;
+      right: 10px;
+      top: 28px;
+      display: block;
+      font-size: 19px;
+      background-color: govuk-colour("white");
+      border: 0;
+      width: 80px;
+      height: 41px;
+      padding: 0;
+      cursor: pointer;
+      color: govuk-colour("black");
+    }
+
+    span {
+      font-size: 12px;
+    }
+
+    &:focus,
+    &:hover {
+      border:2px solid govuk-colour("yellow");
+      outline: none;
+    }
+  }
+}
+
+
 .user-header {
   right: 20px;
 
   @include touch {
+
+  }
+
+  @include mobile {
     right: 0;
     display: none;
   }

@@ -1,17 +1,10 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'admin' %}
 {% set pageTitle = 'Molecules' + GLOBAL_TAG_TITLE_SUFFIX %}
-
+{% set backLinkContents =  [{url:'/prototypes/', text:'Back to prototypes'}] %}
 {% set isAdminUser = true %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
-            {{ components.backLink(text='Back to prototypes', url='/prototypes/') }}
-        {%- endcall %}
-    {%- endcall %}
-
 
     {% call components.bulmaRow() %}
 
@@ -58,6 +51,9 @@
                     </li>
                     <li>
                         <a href="/prototypes/molecules/tables" class="govuk-link">Tables</a>
+                    </li>
+                    <li>
+                        <a href="/prototypes/molecules/timeline" class="govuk-link">Timeline</a>
                     </li>
                 </ul>
 

@@ -1,0 +1,53 @@
+.timeline {
+
+  &__list {
+    margin-left: 45px;
+  }
+
+  &__item {
+    padding-bottom: 12px;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      left: -45px;
+      top: 2px;
+      content: "";
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 4px solid ufs-colour("ukri-blue");
+      background-color: govuk-colour("white");
+      z-index: 100;
+    }
+
+    &:after {
+      position: absolute;
+      left: -32px;
+      top: 2px;
+      content: "";
+      width: 4px;
+      height: 100%;
+      background-color: ufs-colour("ukri-blue");
+      z-index: 10;
+    }
+
+    &:last-of-type {
+      &:after {
+        background-color: govuk-colour("white");
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    @include govuk-font($size: 24, $weight: bold);
+    color: ufs-colour("ukri-blue");
+  }
+
+  &__meta {
+    display: block;
+    @include govuk-font($size: 19);
+  }
+
+}

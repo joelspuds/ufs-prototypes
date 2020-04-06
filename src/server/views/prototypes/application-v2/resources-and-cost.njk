@@ -1,0 +1,327 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set pageTitle = APPLICATION_RESOURCES_COST_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectName = projectName if projectName %}
+{% set allResourcesValues = allResourcesValues if allResourcesValues %}
+{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/', text:'Back to application'}] %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_RESOURCES_COST_TITLE, caption=projectName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/example-journey/application-v2/resources-and-cost', method='POST',name='formResourcesTeam') %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.captionHeading(text='Enter the total project costs for all organisations', tag='h2', size='s')}}
+
+                {{ components.paragraph(text='Costs are for assessment purposes to determine value for money.<br>A full breakdown of costs will be requested if the application is successful. ', bold=true, size='')}}
+
+                {% call components.hiddenText(summary='Resources and cost guidance') %}
+                    <p>This section should contain a full breakdown of the top-level costs involved with your project.</p>
+                    <p>It is not necessary to breakdown costs further than the items below although you must submit full details after initial review.</p>
+                {%- endcall %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- STAFF COSTS ----------------- #}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.captionHeading(text='Staff', tag='h3', size='s')}}
+
+                {% call components.formGroup(extraClass=' govuk-form-group--inline-left') %}
+
+                    {% set fullTimeStaffValue = allResourcesValues.fullTimeStaff if allResourcesValues.fullTimeStaff else "0" %}
+                    {{ components.field(label='Number of full-time staff', id='fullTimeStaff', inputWidthClass='govuk-input--width-5', value=fullTimeStaffValue) }}
+
+                {%- endcall %}
+
+                {% call components.formGroup(extraClass='u-space-b10 govuk-form-group--inline-left') %}
+
+                    {% set partTimeStaffValue = allResourcesValues.partTimeStaff if allResourcesValues.partTimeStaff else "0" %}
+                    {{ components.field(label='Number of part-time staff', id='partTimeStaff', inputWidthClass='govuk-input--width-5', value=partTimeStaffValue) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {% set totalStaffValue = allResourcesValues.totalStaffCost if allResourcesValues.totalStaffCost else "0" %}
+                    {{ components.field(label='Total staff costs for project (£)', id='totalStaffCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalStaffValue) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- TRAVEL AND SUBSISTENCE ----------------- #}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Travel and subsistence', labelBold=true, id='travelCostsText', group=false, size='', value=allResourcesValues.travelCostsText, extraClass='', hint='Describe the reason(s) for travel and its purpose for the project', rows='8') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {% set totalResourcesValue = allResourcesValues.totalTravelCost if allResourcesValues.totalTravelCost else "0" %}
+                    {{ components.field(label='Total travel costs for project (£)', id='totalTravelCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalResourcesValue) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- EQUIPMENT ----------------- #}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Equipment', labelBold=true, id='equipmentCostsText', group=false, size='', value=allResourcesValues.equipmentCostsText, extraClass='', hint='Describe the equipment and its purpose for the project', rows='8') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {% set totalTravelValue = allResourcesValues.totalTravelCost if allResourcesValues.totalTravelCost else "0" %}
+                    {{ components.field(label='Total equipment cost for project (£)', id='totalEquipmentCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalTravelValue) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- Other directly incurred costs ----------------- #}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Other directly incurred costs', labelBold=true, id='otherCostsText', group=false, size='', value=allResourcesValues.otherCostsText, extraClass='', hint='Describe other directly incurred costs', rows='8') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                    {% set totalOtherValue = allResourcesValues.totalOtherCost if allResourcesValues.totalOtherCost else "0" %}
+                    {{ components.field(label='Total other costs for project (£)', id='totalOtherCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalOtherValue) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+
+        {# ----------------- Indirect costs ----------------- #}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.textarea(options=selectOptions, label='Indirect costs', labelBold=true, id='indirectCostsText', group=false, size='', value=allResourcesValues.indirectCostsText, extraClass='', hint='Describe indirect costs', rows='8') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.columnFull(extraClass='govuk-form-group--inline-right u-space-b10') %}
+
+                {% set totalIndirectValue = allResourcesValues.totalIndiretCost if allResourcesValues.totalIndiretCost else "0" %}
+                {{ components.field(label='Total indirect costs for project (£)', id='totalIndirectCost', type='number', inputWidthClass='govuk-input--width-10 u-align-right', value=totalIndirectValue) }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {# ----------------- Total ----------------- #}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.columnHalf() %}
+
+                <strong>Total project cost</strong>
+
+            {%- endcall %}
+
+            {% call components.columnHalf(extraClass='u-align-right') %}
+
+                <strong id="totalCostsOutput">£0</strong>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-b10') %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.sectionBreak(size='s') }}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allResourcesValues.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='is-full') %}
+                <div class="application-controls govuk-clearfix">
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                    <span class="sub-button">
+                        {{ components.link(text='Cancel', url=''/prototypes/example-journey/application-v2/')}}
+                    </span>
+                </div>
+            {%- endcall %}
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $('#totalStaffCost, #totalTravelCost, #totalEquipmentCost, #totalOtherCost, #totalIndirectCost').on('blur', function(event) {
+          let totalValue = parseInt($('#totalStaffCost').val(), 10) + parseInt($('#totalTravelCost').val(), 10) + parseInt($('#totalEquipmentCost').val(), 10) + parseInt($('#totalOtherCost').val(), 10) + parseInt($('#totalIndirectCost').val(), 10);
+          $('#totalCostsOutput').html('£'+totalValue);
+          event.preventDefault();
+        });
+      })
+    </script>
+{% endblock %}
