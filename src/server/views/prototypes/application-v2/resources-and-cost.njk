@@ -2,7 +2,7 @@
 {% set pageTitle = APPLICATION_RESOURCES_COST_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allResourcesValues = allResourcesValues if allResourcesValues %}
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/', text:'Back to application'}] %}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/example-journey/application-v2/resources-and-cost', method='POST',name='formResourcesTeam') %}
+    {% call components.form(action='/prototypes/application-v2/resources-and-cost', method='POST',name='formResourcesTeam') %}
 
         {% call components.bulmaRow(extraClass='u-space-b10') %}
 
@@ -304,7 +304,7 @@
                 <div class="application-controls govuk-clearfix">
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     <span class="sub-button">
-                        {{ components.link(text='Cancel', url=''/prototypes/example-journey/application-v2/')}}
+                        {{ components.link(text='Cancel', url='/prototypes/application-v2/')}}
                     </span>
                 </div>
             {%- endcall %}

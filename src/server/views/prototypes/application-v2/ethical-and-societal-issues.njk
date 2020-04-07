@@ -4,7 +4,7 @@
 {% set ethicalReasons = ethicalReasons if ethicalReasons %}
 {% set allEthicalAndSocietal = allEthicalAndSocietal if allEthicalAndSocietal %}
 {#{% set showSimpleTinyMCEScripts = true %}#}
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/', text:'Back to application'}] %}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/example-journey/application-v2/ethical-and-societal-issues', method='POST',name='formProjectTeam') %}
+    {% call components.form(action='/prototypes/application-v2/ethical-and-societal-issues', method='POST',name='formProjectTeam') %}
 
         {% call components.bulmaRow() %}
 
@@ -106,7 +106,7 @@
                 <div class="application-controls govuk-clearfix">
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     {#<span class="sub-button">
-                        {{ components.link(text='Cancel', url=''/prototypes/example-journey/application-v2/')}}
+                        {{ components.link(text='Cancel', url='/prototypes/application-v2/')}}
                     </span>#}
                 </div>
             {%- endcall %}

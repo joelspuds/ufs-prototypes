@@ -7,9 +7,7 @@
     position: relative;
   }
 
-  &__admin {
-
-  }
+  /*&__admin { }*/
 
   &__brand {
     display: block;
@@ -21,16 +19,16 @@
 
   &__bar {
     height: 39px;
-    background-position: 30% 0;
+    background-position: 40% 0;
     background-size: 540px;
     background-repeat: no-repeat;
 
+
     @include touch {
-      background-position: 160% 0;
+      background-position: 200px 0;
     }
 
     @include mobile {
-      // background-image: none!important;
       background-position: 200px 0;
     }
 
@@ -42,9 +40,7 @@
   }
 
   &__service {
-    // @include govuk-font($size: 24);
     display:block;
-    /*float: left;*/
     position: absolute;
     left: 10px;
     top: 0;
@@ -56,7 +52,6 @@
   &--external {
 
     .new-header__bar {
-      // background-color: ufs-colour("dark-purple");
       background-color: #622378;
       background-image: url('/images/ufs/external_graphic.svg');
     }
@@ -90,9 +85,7 @@
       @at-root {
         .js-enabled #{&} {
 
-          @include touch {
-
-          }
+          /*@include touch { }*/
 
           @include mobile {
             display: none !important;
@@ -100,9 +93,7 @@
         }
       }
 
-      @include touch {
-        // display:none!important;
-      }
+      /*@include touch { }*/
     }
 
     @include touch {
@@ -127,10 +118,6 @@
     float: right;
     text-align: left;
 
-    @include touch {
-
-    }
-
     @include mobile {
       width: 100%;
       height: auto;
@@ -143,24 +130,16 @@
     // <li>
     display: inline-block;
 
-    @include touch {
-
-    }
-
     @include mobile {
       display: block;
       width: 100%;
-      border-top: 1px solid govuk-colour("mid-grey");
+      border-bottom: 1px solid govuk-colour("mid-grey");
     }
 
     &--user {
       display: none;
-      border-bottom: 1px solid govuk-colour("mid-grey");
+      // border-bottom: 1px solid govuk-colour("mid-grey");
       margin-bottom: 10px;
-
-      @include touch {
-
-      }
 
       @include mobile {
         display: block;
@@ -179,10 +158,6 @@
 
     &:hover {
       border: 2px solid orange;
-    }
-
-    @include touch {
-
     }
 
     @include mobile {
@@ -205,12 +180,7 @@
     display: inline-block;
     padding: 4px 0;
     font-size: 19px;
-    /*font-weight: bold;*/
     color: govuk-colour("black");
-
-    @include touch {
-
-    }
 
     @include mobile {
       padding: 6px 0;
@@ -245,10 +215,6 @@
   .hamburger {
 
     display: none;
-
-    @include touch {
-
-    }
 
     @include mobile {
       position: absolute;
@@ -287,10 +253,6 @@
 
     display: none;
 
-    @include touch {
-
-    }
-
     @include mobile {
       position: absolute;
       right: 10px;
@@ -321,10 +283,6 @@
 
 .user-header {
   right: 20px;
-
-  @include touch {
-
-  }
 
   @include mobile {
     right: 0;

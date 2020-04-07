@@ -50,19 +50,19 @@
 
         {% call components.bulmaColumnAny(size='is-full') %}
 
-            {% call components.form(action='/prototypes/example-journey/application-v2/start', method='POST',name='formSpeakerNotes') %}
+            {% call components.form(action='/prototypes/application-v2/start', method='POST',name='formSpeakerNotes') %}
 
                 {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='speakerNotes', hint='', group=true, size='', value=storedSpeakerNotes, extraClass='', visuallyHidden=true) }}
 
                 <div class="application-controls govuk-clearfix">
-                    {#{{ components.button(text='Submit application for approval', url=''/prototypes/example-journey/application-v2/start', extraClass="application-controls__submit", disabled=true)}}#}
+                    {#{{ components.button(text='Submit application for approval', url='/prototypes/application-v2/start', extraClass="application-controls__submit", disabled=true)}}#}
 
                     {#{{ components.button(text='Save and preview') }}#}
 
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
 
 
-                    {{ components.link(text='Back to application overview', url=''/prototypes/example-journey/application-v2/', extraClass="application-controls__cancel")}}
+                    {{ components.link(text='Back to application overview', url='/prototypes/application-v2/', extraClass="application-controls__cancel")}}
 
                 </div>
 

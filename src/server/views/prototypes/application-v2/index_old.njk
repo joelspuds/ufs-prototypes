@@ -55,7 +55,7 @@
                         <a class="govuk-tabs__tab" href="#">Write application</a>
                     </li>
                     <li class="govuk-tabs__list-item">
-                        <a class="govuk-tabs__tab" href="/prototypes/application-v2/view">Read application</a>
+                        <a class="govuk-tabs__tab" href="/prototypes/example-journey/application/view">Read application</a>
                     </li>
                 </ul>
             </div>
@@ -66,41 +66,67 @@
 
          {% call components.bulmaColumnAny(size='is-7', extraClass='u-space-t20') %}
 
-             <div class="application-item {% if projectDetailsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
-                 <div class="application-item__contents govuk-clearfix">
-                     <div class="application-item__left">{{ components.link(text='1. Details', url='/prototypes/application-v2/project-details', extraClass="govuk-link")}}{#<a href="#" class="govuk-link">1. Details</a>#}</div>
-                     <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
-                     </div>
-                 </div>
-             </div>
+          <ul class="application-tasks">
+            <li class="application-tasks__item">
+                {{ components.link(text='Project details', url='/prototypes/application-v2/project-details', extraClass="application-tasks__link govuk-link")}}
 
-             <div class="application-item {% if applicationDetailsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
-                 <div class="application-item__contents govuk-clearfix">
-                     <div class="application-item__left">{{ components.link(text='2. Applicants', url='/prototypes/application-v2/application-team', extraClass="govuk-link")}}</div>
-                     <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
-                     </div>
-                 </div>
-             </div>
+                {#{% if projectName != 'Untitled project' %}#}
+                {% if projectDetailsIsComplete %}
+                    <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                {% else %}
+                    <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                {% endif %}
+            </li>
+            <li class="application-tasks__item">
+                {{ components.link(text='Application team', url='/prototypes/application-v2/application-team', extraClass="application-tasks__link govuk-link")}}
 
-             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
-                 <div class="application-item__contents govuk-clearfix">
-                     <div class="application-item__left">{{ components.link(text='3. Resources and cost', url='/prototypes/application-v2/resources-and-costs', extraClass="govuk-link")}}</div>
-                     <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
-                     </div>
-                 </div>
-             </div>
+                {#{% if teamHasBeenUpdated %}#}
+                {% if applicationDetailsIsComplete %}
+                    <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                {% else %}
+                    <span class="application-tasks__status appl   ication-tasks__status--incomplete">incomplete</span>
+                {% endif %}
 
-             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
-                 <div class="application-item__contents govuk-clearfix">
-                     <div class="application-item__left">{{ components.link(text='4. (Untitled section)', url='/prototypes/application-v2/resources-and-costs', extraClass="govuk-link")}}</div>
-                     <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
-                     </div>
-                 </div>
-             </div>
+            </li>
+          </ul>
+
+            <h2 class="govuk-heading-s">Assessed questions</h2>
+            <ul class="application-tasks">
+                <li class="application-tasks__item">
+                    {{ components.link(text='1. Case for support ', url='/prototypes/application-v2/case-for-support', extraClass="application-tasks__link govuk-link")}}
+
+                    {% if caseForSupportIsComplete %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
+
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='2. Capability to deliver', url='/prototypes/application-v2/capability-to-deliver', extraClass="application-tasks__link govuk-link")}}
+                    {% if capabilityToDeliverIsComplete      %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='3. Resources and cost', url='/prototypes/application-v2/resources-and-cost', extraClass="application-tasks__link govuk-link")}}
+                    {% if resourcesAndCostsIsComplete %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
+                </li>
+                <li class="application-tasks__item">
+                    {{ components.link(text='4. Ethical and societal issues', url='/prototypes/application-v2/ethical-and-societal-issues', extraClass="application-tasks__link govuk-link")}}
+                    {% if ethicalAndSocietalIsComplete %}
+                        <span class="application-tasks__status application-tasks__status--complete">complete</span>
+                    {% else %}
+                        <span class="application-tasks__status application-tasks__status--incomplete">incomplete</span>
+                    {% endif %}
+                </li>
+            </ul>
 
             <div class="application-controls govuk-clearfix">
 

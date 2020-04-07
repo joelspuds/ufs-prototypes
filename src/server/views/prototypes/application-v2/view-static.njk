@@ -16,7 +16,7 @@
     { text: 'Ethical and societal issues', url: '#marker_Ethical' }
 ] %}
 
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/', text:'Back to application'}] %}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
@@ -80,9 +80,9 @@
 
             <div class="application-controls govuk-clearfix">
 
-                {{ components.button(text='Save and return to application overview', url=''/prototypes/example-journey/application-v2/', extraClass="")}}
+                {{ components.button(text='Save and return to application overview', url='/prototypes/application-v2/', extraClass="")}}
 
-                {{ components.link(text='Edit your case for support', url=''/prototypes/example-journey/application-v2/start', extraClass="application-controls__cancel")}}
+                {{ components.link(text='Edit your case for support', url='/prototypes/application-v2/start', extraClass="application-controls__cancel")}}
 
             </div>
 

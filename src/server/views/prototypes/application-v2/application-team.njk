@@ -2,7 +2,7 @@
 {% set pageTitle = APPLICATION_TEAM_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allApplicationTeam = allApplicationTeam if allApplicationTeam %}
-{% set backLinkContents =  [{url:'/prototypes/example-journey/application-v2/', text:'Back to application'}] %}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
@@ -16,23 +16,23 @@
 
         {% call components.bulmaColumnAny(size='is-full') %}
 
-            {{ components.paragraph(text='Invite people to contribute to this application. This gives them access to edit all sections of this application. You are not required to nominate your proposed project team in this section.', size='')}}
+            {{ components.paragraph(text='For this Opportunity, only one applicant is required who must be the person whose login details are shown below. Mark as complete to continue with the application.', size='')}}
 
         {%- endcall %}
 
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/example-journey/application-v2/application-team', method='POST',name='formApplicationTeam') %}
+    {% call components.form(action='/prototypes/application-v2/application-team', method='POST',name='formApplicationTeam') %}
 
         {% call components.bulmaRow() %}
 
             {% call components.bulmaColumnAny(size='is-full') %}
 
                 <table class="govuk-table">
-                    <caption class="govuk-table__caption">Application team</caption>
+                    <caption class="govuk-table__caption">Cardiff University</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header">Full name</th>
+                            <th scope="col" class="govuk-table__header">Name</th>
                             <th scope="col" class="govuk-table__header">Email</th>
                             <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
                         </tr>
@@ -108,7 +108,7 @@
                     {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
 
                     {#<span class="sub-button">
-                        {{ components.link(text='Cancel', url=''/prototypes/example-journey/application-v2/')}}
+                        {{ components.link(text='Cancel', url='/prototypes/application-v2/')}}
                     </span>#}
                 </div>
 
