@@ -143,10 +143,10 @@
 
         {% call components.bulmaColumnAny(size='is-4 is-offset-1') %}
 
-           <div class="progress-bar u-space-t15">
-                <div class="progress-bar__text progress-bar__text--back">{{ progressPercentage }}% complete</div>
-                <div class="progress-bar__clipper" style="clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%);">
-                    <div class="progress-bar__text progress-bar__text--front">{{ progressPercentage }}% complete</div>
+            <div class="progress-meter">
+                <div class="progress-meter__text progress-meter__text--back" role="progress-bar" aria-valuenow="27%"><span class="govuk-visually-hidden">Your application is</span> {{ progressPercentage }}% complete</div>
+                <div class="progress-meter__clipper" aria-hidden="true" style="clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%); -webkit-clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%)">
+                    <div class="progress-meter__text progress-meter__text--front">{{ progressPercentage }}% complete</div>
                 </div>
             </div>
 
