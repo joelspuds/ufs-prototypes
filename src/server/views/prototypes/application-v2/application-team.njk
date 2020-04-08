@@ -16,7 +16,18 @@
 
         {% call components.bulmaColumnAny(size='is-full') %}
 
-            {{ components.paragraph(text='For this Opportunity, only one applicant is required who must be the person whose login details are shown below. Mark as complete to continue with the application.', size='')}}
+            {#{{ components.paragraph(text='For this Opportunity, only one applicant is required who must be the person whose login details are shown below. Mark as complete to continue with the application.', size='')}}#}
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">Guidance on adding and managing applicants</span>
+                </summary>
+                <div class="govuk-details__text">Content required</div>
+            </details>
+
+            <p class="">
+                <a class="govuk-button govuk-button--secondary" href="/prototypes/application-v2/add-applicant" role="button" data-module="govuk-button">Add applicant</a>
+            </p>
 
         {%- endcall %}
 
@@ -34,6 +45,7 @@
                         <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header">Name</th>
                             <th scope="col" class="govuk-table__header">Email</th>
+                            <th scope="col" class="govuk-table__header">Role</th>
                             <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
                         </tr>
                     </thead>
@@ -41,35 +53,11 @@
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell">Dr. Jane Doe</td>
                             <td class="govuk-table__cell">{{ components.link(text='jane.doe@cardiffuniversity.ac.uk', url='#') }}</td>
+                            <td class="govuk-table__cell">Lead applicant</td>
                             <td class="govuk-table__cell">&nbsp;</td>
-                        </tr>
-                        <tr class="govuk-table__row govuk-visually-hidden" id="hiddenInviteRow">
-                            <td class="govuk-table__cell">
-                                {{ components.field(label='Full name', labelVisuallyHidden=true, id='teamFullName', inputWidthClass='govuk-input--width-20') }}
-                            </td>
-                            <td class="govuk-table__cell">
-                                {{ components.field(label='Email', labelVisuallyHidden=true, id='teamEmail', inputWidthClass='govuk-input--width-20') }}                             </td>
-                            <td class="govuk-table__cell govuk-table__cell--action">
-                                {{ components.link(text='Send invite', type='secondary', url='#', id='sendInvite') }}
-                            </td>
-                        </tr>
-                        <tr class="govuk-table__row govuk-visually-hidden" id="hiddenPendingRow">
-                            <td class="govuk-table__cell">
-                                <span id="pendingFullName"></span>
-                            </td>
-                            <td class="govuk-table__cell">
-                                <span id="pendingEmail"></span>
-                            </td>
-                            <td class="govuk-table__cell _govuk-table__cell--action u-align-right">
-                                {{ components.link(text='Cancel invite', type='secondary', url='#', id='cancelInvite') }}
-                            </td>
                         </tr>
                     </tbody>
                 </table>
-                <p class="govuk-body u-space-t5 u-space-b30">
-                    {{ components.link(text='Add another contributor', url='#', id='showInviteRow') }}
-                </p>
-
             {%- endcall %}
 
         {%- endcall %}
@@ -122,7 +110,7 @@
 {% endblock %}
 
 {% block bodyScripts %}
-    <script>
+   {# <script>
       Zepto(function($){
         $('#showInviteRow').on('click', function(event) {
           $('#hiddenInviteRow').removeClass('govuk-visually-hidden');
@@ -147,7 +135,7 @@
           event.preventDefault();
         });
       })
-    </script>
+    </script>#}
 {% endblock %}
 
 

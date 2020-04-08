@@ -1,6 +1,6 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = CASE_FOR_SUPPORT_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
-{% set showTinyMCEScripts = true %}
+{#{% set showTinyMCEScripts = true %}#}
 {% set storedCaseForSupportNotes = storedCaseForSupportNotes if storedCaseForSupportNotes %}
 {% set projectName = projectName if projectName %}
 {% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
@@ -15,32 +15,19 @@
         {%- endcall %}
     {%- endcall %}
 
-
     {% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='is-full') %}
 
-            {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}
+           {# {{ components.paragraph(text='What is your proposed project and how does it represent excellent research?', size='l')}}#}
 
-            {% call components.hiddenText(summary='What should I include in this section?') %}
-                <p>Your Case for Support should be structured as follows:</p>
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">What you should include in your answer?</span>
+                </summary>
+                <div class="govuk-details__text">In this field the Opportunity author will have detailed the criteria they are looking for in the applicant's response. </div>
+            </details>
 
-                <p><strong>1.1 The idea</strong><br>
-                    What is your proposed project and how does it represent excellence?</p>
-
-                <p><strong>1.2 Importance</strong><br>
-                    What is the value of this project, to whom, why should it be undertaken?</p>
-
-                <p><strong>1.3 Timeliness</strong><br>
-                    Why is now the right time for this project?</p>
-
-                <p><strong>1.4 Approach</strong><br>
-                    How do you propose to undertake the project and what methods will you use?</p>
-
-                <p><strong>1.5 Impact</strong><br>
-                    What potential impact might come about as result from this project, how might the benefit  be realised?</p>
-
-            {%- endcall %}
 
         {%- endcall %}
 
@@ -59,6 +46,10 @@
                 </style>
 
                 {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='caseForSupportNotes', hint='', group=true, rows='18', size='', value=storedCaseForSupportNotes, extraClass='', visuallyHidden=true) }}
+
+                <p>
+                    <span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span>
+                </p>
 
             {%- endcall %}
 
@@ -127,4 +118,43 @@
         return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
       }*/
     </script>
+
+    <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      let wordy, count, newCount, overCount;
+      let limit = 400;
+      let countOutput = document.getElementById('wordCount');
+      countOutput.innerHTML = 'You have ' +  limit + ' words remaining';
+
+      tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        menubar: false,
+        plugins: [
+          'lists charmap anchor',
+          'paste code wordcount '
+        ],
+        // toolbar: 'formatselect | bold italic | numlist bullist |',
+        toolbar: '',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
+          '/stylesheets/tinymce.css'
+        ],
+        setup: function(editor) {
+          editor.on('keyup', function(e) {
+            wordy = editor.plugins.wordcount;
+            count = parseInt(wordy.body.getWordCount());
+            newCount = limit - count;
+            // overCount =  limit + count;
+            overCount =  count - limit;
+            if (newCount < 0) {
+              countOutput.innerHTML = '<span style="font-weight:700;color:red">You have ' +  overCount + ' words too many</span>'
+            } else {
+              countOutput.innerHTML = 'You have ' +  newCount + ' words remaining'
+            }
+          });
+        }
+      });
+    </script>
 {% endblock %}
+

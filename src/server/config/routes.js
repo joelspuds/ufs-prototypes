@@ -214,6 +214,8 @@ router.get('/prototypes/application-v2/project-details', demosController.appV2pr
 router.post('/prototypes/application-v2/project-details', demosController.appV2projectDetailsPost);
 router.get('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostGet);
 router.post('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostPost);
+router.get('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantGet);
+router.post('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantPost);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

@@ -20,10 +20,18 @@ exports.appV2resourcesCostGet = appV2resourcesCostGet;
 exports.appV2resourcesCostPost = appV2resourcesCostPost;
 exports.appV2ethicalSocietalGet = appV2ethicalSocietalGet;
 exports.appV2ethicalSocietalPost = appV2ethicalSocietalPost;
-// suggested learning full list GET
+exports.appV2AddApplicantGet = appV2AddApplicantGet;
+exports.appV2AddApplicantPost = appV2AddApplicantPost;
+
+var _createOpportunityV = require('./createOpportunity-v3');
+
+var demosController = _interopRequireWildcard(_createOpportunityV);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+const cheerio = require('cheerio'); // suggested learning full list GET
 // This is the fuller version with
 
-const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
 const untitledProjectName = 'Untitled project';
 let generalData = require('./data');
@@ -587,4 +595,39 @@ function appV2ethicalSocietalPost(req, res) {
   req.session.ethicalHasBeenUpdated = true;
 
   return res.redirect('/prototypes/application-v2/');
+}
+
+// ************************************************************************
+//
+//        Add applicant
+//
+// ************************************************************************
+function appV2AddApplicantGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  const allOrgs = generalData.allOrgs2;
+
+  viewData = {
+    projectName,
+    allOrgs
+  };
+
+  return res.render('prototypes/application-v2/add-applicant', viewData);
+}
+
+function appV2AddApplicantPost(req, res) {
+  const { firstName, lastName, email, organisation, role } = req.body;
+
+  req.session.firstName = firstName;
+  req.session.lastName = lastName;
+  req.session.email = email;
+  req.session.organisation = organisation;
+  req.session.role = role;
+
+  return res.redirect('/prototypes/application-v2/add-applicant');
 }

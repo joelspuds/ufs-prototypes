@@ -1,6 +1,8 @@
 // suggested learning full list GET
 // This is the fuller version with
 
+import * as demosController from './createOpportunity-v3';
+
 const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
 const untitledProjectName = 'Untitled project';
@@ -596,4 +598,39 @@ export function appV2ethicalSocietalPost(req, res) {
   req.session.ethicalHasBeenUpdated = true;
 
   return res.redirect('/prototypes/application-v2/');
+}
+
+// ************************************************************************
+//
+//        Add applicant
+//
+// ************************************************************************
+export function appV2AddApplicantGet(req, res) {
+  let viewData;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  const allOrgs = generalData.allOrgs2;
+
+  viewData = {
+    projectName,
+    allOrgs,
+  };
+
+  return res.render('prototypes/application-v2/add-applicant', viewData);
+}
+
+export function appV2AddApplicantPost(req, res) {
+  const { firstName, lastName, email, organisation, role } = req.body;
+
+  req.session.firstName = firstName;
+  req.session.lastName = lastName;
+  req.session.email = email;
+  req.session.organisation = organisation;
+  req.session.role = role;
+
+  return res.redirect('/prototypes/application-v2/add-applicant');
 }

@@ -170,3 +170,11 @@ table td:not([align]), table th:not([align]) {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.govuk-table__cell--middle {
+  vertical-align: middle;
+}
+
+.govuk-table__cell--borderless {
+  border-style: none;
+}
