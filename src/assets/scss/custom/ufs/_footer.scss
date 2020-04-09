@@ -1,5 +1,5 @@
-.ufs-footer {
-  background-color: govuk-colour("dark-grey");
+/*.ufs-footer {
+  background-color: govuk-colour("black");
   color: govuk-colour("white")!important;
 
   * {
@@ -20,29 +20,75 @@
 
   .govuk-footer__list-item {
     margin-bottom: 5px;
+  }
+}*/
+.ufs-footer {
+  background-color: govuk-colour("black");
+  color: govuk-colour("white")!important;
+
+  * {
+    color: govuk-colour("white");
+  }
+
+  .govuk-footer__link {
+    color: govuk-colour("white");
+
+    &:hover {
+      // color: govuk-colour("black");
+      text-decoration: underline;
+    }
+    &:focus {
+      color: govuk-colour("black");
+    }
+  }
+
+  .govuk-footer__list {
+    margin-top:0;
+    margin-bottom: 30px;
+  }
+
+  .govuk-footer__list-item {
+    margin-bottom: 5px;
+  }
+
+  .govuk-heading-m {
+    border-bottom: 1px solid govuk-colour("white");
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+  }
+
+  .govuk-footer__section-break {
+    height: 1px;
   }
 }
-.ufs-footer {
-  background-color: govuk-colour("dark-grey");
-  color: govuk-colour("white")!important;
 
-  * {
-    color: govuk-colour("white");
-  }
+.govuk-footer__link {
+  // padding: 2px 0 0 0;
 
-  .govuk-footer__link {
-    color: govuk-colour("white");
+  font-weight: bold;
+  @include govuk-font($size: 16, $weight: bold);
+}
 
-    &:hover {
-      color: govuk-colour("black");
-    }
-  }
+.govuk-footer__link--linkedin,
+.govuk-footer__link--twitter,
+.govuk-footer__link--youtube {
+  border-bottom: none;
+  vertical-align: middle;
+  display: block;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  padding: 6px 0 0 40px;
+}
 
-  .govuk-footer__list {
-    margin-top:10px;
-  }
+.govuk-footer__link--linkedin {
+  background-image: url(/images/ufs/social-media-icon-linkedin.svg);
+}
 
-  .govuk-footer__list-item {
-    margin-bottom: 5px;
-  }
+.govuk-footer__link--youtube {
+  background-image: url(/images/ufs/social-media-icon-youtube.svg);
+}
+
+.govuk-footer__link--twitter {
+  background-image: url(/images/ufs/social-media-icon-twitter.svg);
 }
