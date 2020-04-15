@@ -1,0 +1,65 @@
+.overview {
+
+  &-items {
+    background-color: ufs-colour("ukri-blue");
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 30px;
+
+    &__heading {
+      color: govuk-colour("white");
+      margin-bottom: 0;
+    }
+
+    & > .columns {
+      margin-bottom: 0;
+    }
+
+  }
+
+  &-item {
+
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: govuk-colour("white");
+
+    &:last-of-type {
+      // margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    &__meta {
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      vertical-align: middle;
+      height: 100%;
+
+      &--right {
+        border-left: 1px dotted govuk-colour("mid-grey");
+      }
+
+      &--success {
+        color: govuk-colour("green");
+      }
+
+      &--danger {
+        color: govuk-colour("red");
+      }
+
+    }
+  }
+}
+
+.u-align-setup-vertical {
+  display: table;
+}
+
+.u-align-setup-vertical.u-align-center {
+  text-align: center;
+  width: 100%;
+}
+
+.u-align-cell {
+  display: table-cell;
+  vertical-align: middle;
+}

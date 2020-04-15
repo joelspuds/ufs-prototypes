@@ -75,7 +75,7 @@
                             </span>
                         {% endif %}
                     </label>
-                    <input class="govuk-input govuk-input--width-20 {% if firstNameError %}govuk-input--error{% endif %}" id="firstName" type="text" name="firstName" value="{{ firstName }}">
+                    <input class="govuk-input govuk-input--width-30 {% if firstNameError %}govuk-input--error{% endif %}" id="firstName" type="text" name="firstName" value="{{ firstName }}">
                 </div>
 
             {%- endcall %}
@@ -94,7 +94,7 @@
                             </span>
                         {% endif %}
                     </label>
-                    <input class="govuk-input govuk-input--width-20 {% if lastNameError %}govuk-input--error{% endif %}" id="lastName" type="text" name="lastName" value="{{ lastName }}">
+                    <input class="govuk-input govuk-input--width-30 {% if lastNameError %}govuk-input--error{% endif %}" id="lastName" type="text" name="lastName" value="{{ lastName }}">
                 </div>
 
             {%- endcall %}
@@ -168,7 +168,7 @@
                         {% endif %}
                     </ul>
 
-                    <div class="govuk-form-group password-toggle ">
+                    <div class="govuk-form-group password-toggle">
                         <label class="govuk-label govuk-label--s" for="password" id="passwordLabel"><span class="govuk-visually-hidden">Password</span>
                             {% if passwordError %}
                                 <span class="govuk-error-message">
@@ -176,7 +176,7 @@
                                 </span>
                             {% endif %}
                         </label>
-                        <input class="govuk-input govuk-input--width-20 {% if passwordError %}govuk-input--error{% endif %}" id="password" type="password" name="password" value=""><a href="#" class="password-toggle__link password-shown">Show <span class="govuk-visually-hidden">password</span></a>
+                        <input class="govuk-input govuk-input--width-30 {% if passwordError %}govuk-input--error{% endif %}" id="password" type="password" name="password" value=""><a href="#" class="password-toggle__link password-shown">Show <span class="govuk-visually-hidden">password</span></a>
                     </div>
                 </div>
 

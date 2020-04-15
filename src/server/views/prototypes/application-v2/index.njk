@@ -77,7 +77,16 @@
 
              <div class="application-item {% if applicationDetailsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
-                     <div class="application-item__left">{{ components.link(text='2. Applicants', url='/prototypes/application-v2/application-team', extraClass="govuk-link")}}</div>
+                     <div class="application-item__left">{{ components.link(text='2. Eligibility - applicant', url='/prototypes/application-v2/application-team', extraClass="govuk-link")}}</div>
+                     <div class="application-item__right">
+                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                     </div>
+                 </div>
+             </div>
+
+             <div class="application-item {% if applicationDetailsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+                 <div class="application-item__contents govuk-clearfix">
+                     <div class="application-item__left">{{ components.link(text='3. Eligibility - research area', url='/prototypes/application-v2/research-area', extraClass="govuk-link")}}</div>
                      <div class="application-item__right">
                          <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                      </div>
@@ -85,32 +94,59 @@
              </div>
 
              <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+                 <div class="application-item__contents govuk-clearfix">
+                     <div class="application-item__left">{{ components.link(text='4. Current research activity', url='/prototypes/application-v2/current-research-activity', extraClass="govuk-link")}}</div>
+                     <div class="application-item__right">
+                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                     </div>
+                 </div>
+             </div>
+
+             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+                 <div class="application-item__contents govuk-clearfix">
+                     <div class="application-item__left">{{ components.link(text='5. Research history', url='/prototypes/application-v2/research-history', extraClass="govuk-link")}}</div>
+                     <div class="application-item__right">
+                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                     </div>
+                 </div>
+             </div>
+
+             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+                 <div class="application-item__contents govuk-clearfix">
+                     <div class="application-item__left">{{ components.link(text='6. Review', url='/prototypes/application-v2/review', extraClass="govuk-link")}}</div>
+                     <div class="application-item__right">{##}
+                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                     </div>
+                 </div>
+             </div>
+
+             {#<div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='3. Resources and cost', url='/prototypes/application-v2/resources-and-cost', extraClass="govuk-link")}}</div>
                      <div class="application-item__right">
                          <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                      </div>
                  </div>
-             </div>
+             </div>#}
 
-             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+             {#<div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='4. Case for support', url='/prototypes/application-v2/case-for-support', extraClass="govuk-link")}}</div>
                      <div class="application-item__right">
                          <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
                      </div>
                  </div>
-             </div>
+             </div>#}
 
             <div class="application-controls govuk-clearfix">
 
                 {% if progressPercentage == 100 %}
                     {{ components.button(text='Submit application for approval', extraClass="application-controls__submit")}}
                 {%  else %}
-                    {{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}
+                    {#{{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}#}
                 {% endif %}
 
-                {{ components.link(text='Cancel/withdraw application', url='#', extraClass="application-controls__cancel", disabled=true)}}
+                {#{{ components.link(text='Cancel/withdraw application', url='#', extraClass="application-controls__cancel", disabled=true)}}#}
             </div>
 
         {%- endcall %}
