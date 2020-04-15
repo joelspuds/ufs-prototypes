@@ -21,7 +21,7 @@
     {%- endcall %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
             {{ components.captionHeading(text='Do you have a UKRI Funding Service account?') }}
         {%- endcall %}
     {%- endcall %}
@@ -30,7 +30,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
@@ -55,7 +55,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
                     {{ components.button(text='Continue', extraClass="application-controls__submit")}}

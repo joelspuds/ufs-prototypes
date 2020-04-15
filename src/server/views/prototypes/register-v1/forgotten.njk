@@ -56,7 +56,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <p class="govuk-body">Enter the email address you used for this service. If it is associated with a UKRI Funding Service account, we will send you a link to reset your password.</p>
 
@@ -76,7 +76,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
                     {{ components.button(text='Send email', extraClass="application-controls__submit")}}

@@ -27,6 +27,10 @@
       padding-bottom: 0;
     }
 
+    a {
+      @include govuk-font($size: 19, $weight: bold);
+    }
+
     &__meta {
       display: block;
       text-align: center;
@@ -36,6 +40,7 @@
 
       &--right {
         border-left: 1px dotted govuk-colour("mid-grey");
+        padding-left: 6px;
       }
 
       &--success {

@@ -14,14 +14,14 @@
     {%- endcall %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
             {{ components.captionHeading(text='Check your email') }}
         {%- endcall %}
     {%- endcall %}
 
     {% call components.bulmaRow() %}
 
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
             <p class="govuk-body">We have sent a link to <strong>jane.mcdoe@somersetuniversity.ac.uk</strong> to verify this email address.
                 Select this link to sign into your UKRI Funding Service account and start your application for <strong>'Viral pandemics and containment in human populations'</strong>. If you can't see the email in your inbox, check your junk folder.</p>

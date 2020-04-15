@@ -22,7 +22,7 @@
     {% if emailSent %}
         {% call components.bulmaRow() %}
 
-        {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
         <div class="alerts alerts--success">Your test email has been sent (hopefully - the next bit is out of my hands)</div>
         {%- endcall %}
 
@@ -62,7 +62,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <p class="govuk-body-l">Send a test email to the client of your choice</p>
 
@@ -72,7 +72,7 @@
 
       {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="govuk-form-group {% if emailError %}govuk-form-group--error{% endif %}">
                     <label class="govuk-label govuk-label--s" for="emailAddress" {% if emailError %}id="emailError"{% endif %}>
@@ -90,7 +90,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="govuk-form-group">
                     <label class="govuk-label govuk-label--s" for="subject">Subject line</label>
@@ -104,7 +104,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
                 <div class="form-group ">
                     <label class="govuk-label govuk-label--s" for="emailEditor">Edit your email</label>
@@ -117,7 +117,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column column is-full is-9-desktop is-9-widescreen') %}
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
 
                 {% call components.formGroup() %}
                     {{ components.button(text='Send test email', extraClass="application-controls__submit")}}
