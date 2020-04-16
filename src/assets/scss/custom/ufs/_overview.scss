@@ -35,12 +35,30 @@
       display: block;
       text-align: center;
       font-weight: bold;
-      vertical-align: middle;
+      // vertical-align: middle;
       height: 100%;
+
+      @include touch {
+        height: auto;
+        text-align: left;
+
+        br {
+          display: none;
+        }
+      }
+
+      a {
+        font-weight: 400;
+      }
 
       &--right {
         border-left: 1px dotted govuk-colour("mid-grey");
         padding-left: 6px;
+
+        @include touch {
+          border: none;
+          padding-left: 0;
+        }
       }
 
       &--success {
@@ -62,6 +80,11 @@
 .u-align-setup-vertical.u-align-center {
   text-align: center;
   width: 100%;
+
+  @include touch {
+    width: auto;
+    text-align: left;
+  }
 }
 
 .u-align-cell {
