@@ -1,0 +1,149 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set pageTitle = APPLICATION_PROJECT_DETAILS_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set projectName = projectName if projectName %}
+{#{% set showSimpleTinyMCEScripts = true %}#}
+{% set allProjectDetails = allProjectDetails if allProjectDetails %}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
+
+{% block content %}
+
+    <style>
+        .tox-statusbar__wordcount, .tox-statusbar__branding { display: none!important}
+    </style>
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text=APPLICATION_PROJECT_DETAILS_TITLE, caption=projectName) }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/application-v2/project-details', method='POST',name='formProjectTeam') %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+
+                    {{ components.field(label='Project name', hint='Enter the full name of your proposed project', labelBold=true, id='projectName', value=allProjectDetails.projectName) }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                <div class="govuk-form-group ">
+                    <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectSummary">Project summary
+                        <span class="govuk-hint">Provide a synopsis of your proposed project in the form of a brief programme pitch</span>
+                    </label>
+                    <details class="govuk-details" data-module="govuk-details" role="group">
+                        <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+                            <span class="govuk-details__summary-text">Guidance for writing a summary</span>
+                        </summary>
+                        <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+                            <p class="govuk-body">Focusing on one aspect of your research, please provide a brief pitch on how this could make an engaging and stimulating programme for Radio 3 of up to 45 minutes, ensuring that you make it clear what format this programme would take.</p>
+                            <p class="govuk-body">This will be used by assessors to assess:</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Demonstration of ideas that are innovative and interesting to the public</li>
+                                <li>Provision of a strong programme idea that explains the significance of the research and</li>
+                                <li>what the findings mean in day-to-day terms.</li>
+                                <li>Creativity and originality</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <textarea class="govuk-textarea " name="projectSummary" id="projectSummary" rows="18"></textarea>
+                    <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span></p>
+
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allProjectDetails.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-controls govuk-clearfix">
+                        {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                    </div>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+{% block bodyScripts %}
+    {#<script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      let wordy, count, newCount, overCount;
+      let limit = 400;
+      let countOutput = document.getElementById('wordCount');
+      countOutput.innerHTML = 'You have ' +  limit + ' words remaining'
+
+      tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        menubar: false,
+        plugins: [
+          'lists charmap anchor',
+          'paste code wordcount '
+        ],
+        toolbar: 'formatselect | bold italic | numlist bullist |',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
+          '/stylesheets/tinymce.css'
+        ],
+        setup: function(editor) {
+          editor.on('keyup', function(e) {
+            wordy = editor.plugins.wordcount;
+            count = parseInt(wordy.body.getWordCount());
+            newCount = limit - count;
+            // overCount =  limit + count;
+            overCount =  count - limit;
+            if (newCount < 0) {
+              countOutput.innerHTML = '<span style="font-weight:700;color:red">You have ' +  overCount + ' words too many</span>'
+            } else {
+              countOutput.innerHTML = 'You have ' +  newCount + ' words remaining'
+            }
+          });
+        }
+      });
+    </script>#}
+
+{% endblock %}

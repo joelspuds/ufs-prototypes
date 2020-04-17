@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = APPLICATION_PROJECT_DETAILS_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Eligibility - applicant' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {#{% set showSimpleTinyMCEScripts = true %}#}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
@@ -12,11 +12,11 @@
     </style>
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text=APPLICATION_PROJECT_DETAILS_TITLE, caption=projectName) }}
+            {{ components.captionHeading(text='Eligibility - applicant', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/application-v2/project-details', method='POST',name='formProjectTeam') %}
+    {% call components.form(action='/prototypes/application-v2/eligibility-applicant', method='POST',name='formProjectTeam') %}
 
         {% call components.bulmaRow() %}
 
@@ -24,7 +24,7 @@
 
                 {% call components.formGroup() %}
 
-                    {{ components.field(label='Project name', hint='Enter the full title of your proposed project', labelBold=true, id='projectName', value=allProjectDetails.projectName) }}
+                    {{ components.field(label='Project name', hint='Enter the full name of your proposed project', labelBold=true, id='projectName', value=allProjectDetails.projectName) }}
 
                 {%- endcall %}
 
@@ -36,37 +36,29 @@
 
             {% call components.bulmaColumnAny(size='is-full') %}
 
-                {% call components.formGroup() %}
-
-                    <details class="govuk-details" data-module="govuk-details">
-                        <summary class="govuk-details__summary">
+                <div class="govuk-form-group ">
+                    <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectSummary">Project summary
+                        <span class="govuk-hint">Provide a synopsis of your proposed project in the form of a brief programme pitch</span>
+                    </label>
+                    <details class="govuk-details" data-module="govuk-details" role="group">
+                        <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                             <span class="govuk-details__summary-text">Guidance for writing a summary</span>
                         </summary>
-                        <div class="govuk-details__text">
-                            Tailor this synopsis for peer-reviewers, or other experts in your field. Use simple language so a  lay person could also understand its strengths. Write a clear overview of the whole project, including your vision; objectives; areas of focus; why it’s important and why it will succeed.</div>
+                        <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+                            <p class="govuk-body">Focusing on one aspect of your research, please provide a brief pitch on how this could make an engaging and stimulating programme for Radio 3 of up to 45 minutes, ensuring that you make it clear what format this programme would take.</p>
+                            <p class="govuk-body">This will be used by assessors to assess:</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Demonstration of ideas that are innovative and interesting to the public</li>
+                                <li>Provision of a strong programme idea that explains the significance of the research and</li>
+                                <li>what the findings mean in day-to-day terms.</li>
+                                <li>Creativity and originality</li>
+                            </ul>
+                        </div>
                     </details>
+                    <textarea class="govuk-textarea " name="projectSummary" id="projectSummary" rows="18"></textarea>
+                    <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span></p>
 
-                    {{ components.textarea(options=selectOptions, label='Project summary', labelBold=true, id='projectSummary', hint='Provide a synopsis of your proposed project, which potential reviewers will see in an email inviting them to assess it', group=false, size='', value=allProjectDetails.projectSummary, extraClass='', rows='18') }}
-
-                    <p>
-                        <span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span>
-                    </p>
-
-                {%- endcall %}
-
-            {%- endcall %}
-
-        {%- endcall %}
-
-         {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='is-full') %}
-
-                {{ components.newFormDate(legendText='Start date',showDay=false, hint='For example, 04 2020', monthValue=allProjectDetails.month, yearValue=allProjectDetails.year) }}
-
-                {% call components.formGroup() %}
-                    {{ components.field(label='Duration in months', labelBold=true, id='projectDuration', inputWidthClass='govuk-input--width-3', value=allProjectDetails.projectDuration) }}
-                {%- endcall %}
+                </div>
 
             {%- endcall %}
 

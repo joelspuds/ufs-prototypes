@@ -8,8 +8,10 @@ exports.appV2tinyMCEApplicationGet = appV2tinyMCEApplicationGet;
 exports.appV2tinyMCEApplicationPost = appV2tinyMCEApplicationPost;
 exports.appV2tinyMCEApplicationViewGet = appV2tinyMCEApplicationViewGet;
 exports.appV2tinyMCEApplicationStaticViewGet = appV2tinyMCEApplicationStaticViewGet;
-exports.appV2projectDetailsGet = appV2projectDetailsGet;
-exports.appV2projectDetailsPost = appV2projectDetailsPost;
+exports.appV2DetailsGet = appV2DetailsGet;
+exports.appV2DetailsPost = appV2DetailsPost;
+exports.appV2EligibilityApplicantGet = appV2EligibilityApplicantGet;
+exports.appV2EligibilityApplicantPost = appV2EligibilityApplicantPost;
 exports.appV2applicationTeamGet = appV2applicationTeamGet;
 exports.appV2applicationTeamPost = appV2applicationTeamPost;
 exports.appV2caseForSupportGet = appV2caseForSupportGet;
@@ -264,10 +266,10 @@ function appV2tinyMCEApplicationStaticViewGet(req, res) {
 }
 // ************************************************************************
 //
-//        PROJECT DETAILS
+//        DETAILS
 //
 // ************************************************************************
-function appV2projectDetailsGet(req, res) {
+function appV2DetailsGet(req, res) {
   let viewData, allProjectDetails;
 
   let projectName = req.session.storedProjectName;
@@ -282,25 +284,70 @@ function appV2projectDetailsGet(req, res) {
     allProjectDetails
   };
 
-  return res.render('prototypes/application-v2/project-details', viewData);
+  return res.render('prototypes/application-v2/details', viewData);
 }
 
-function appV2projectDetailsPost(req, res) {
-  const { projectName, projectSummary, projectDuration, month, year, isComplete } = req.body;
+function appV2DetailsPost(req, res) {
+  const { projectName, projectSummary, isComplete } = req.body;
 
   console.log('isComplete = ' + isComplete);
 
   let allProjectDetails = {
     projectName,
     projectSummary,
-    projectDuration,
-    month,
-    year,
     isComplete
   };
 
   req.session.storedProjectName = allProjectDetails.projectName;
-  console.log(allProjectDetails);
+  // console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/application-v2/');
+}
+
+// ************************************************************************
+//
+//        Eligibility - applicant
+//
+// ************************************************************************
+function appV2EligibilityApplicantGet(req, res) {
+  let viewData, allProjectDetails;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  allProjectDetails = req.session.projectDetails;
+
+  viewData = {
+    projectName,
+    allProjectDetails
+  };
+
+  return res.render('prototypes/application-v2/eligibility-applicant', viewData);
+}
+
+function appV2EligibilityApplicantPost(req, res) {
+  const { projectName, projectSummary, isComplete } = req.body;
+
+  console.log('isComplete = ' + isComplete);
+
+  let allProjectDetails = {
+    projectName,
+    projectSummary,
+    isComplete
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  // console.log(allProjectDetails);
   req.session.projectDetails = allProjectDetails;
   req.session.hasBeenUpdated = true;
 

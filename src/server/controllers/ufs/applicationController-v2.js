@@ -259,10 +259,10 @@ export function appV2tinyMCEApplicationStaticViewGet(req, res) {
 }
 // ************************************************************************
 //
-//        PROJECT DETAILS
+//        DETAILS
 //
 // ************************************************************************
-export function appV2projectDetailsGet(req, res) {
+export function appV2DetailsGet(req, res) {
   let viewData, allProjectDetails;
 
   let projectName = req.session.storedProjectName;
@@ -277,25 +277,70 @@ export function appV2projectDetailsGet(req, res) {
     allProjectDetails,
   };
 
-  return res.render('prototypes/application-v2/project-details', viewData);
+  return res.render('prototypes/application-v2/details', viewData);
 }
 
-export function appV2projectDetailsPost(req, res) {
-  const { projectName, projectSummary, projectDuration, month, year, isComplete } = req.body;
+export function appV2DetailsPost(req, res) {
+  const { projectName, projectSummary, isComplete } = req.body;
 
   console.log('isComplete = ' + isComplete);
 
   let allProjectDetails = {
     projectName,
     projectSummary,
-    projectDuration,
-    month,
-    year,
     isComplete,
   };
 
   req.session.storedProjectName = allProjectDetails.projectName;
-  console.log(allProjectDetails);
+  // console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/application-v2/');
+}
+
+// ************************************************************************
+//
+//        Eligibility - applicant
+//
+// ************************************************************************
+export function appV2EligibilityApplicantGet(req, res) {
+  let viewData, allProjectDetails;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  allProjectDetails = req.session.projectDetails;
+
+  viewData = {
+    projectName,
+    allProjectDetails,
+  };
+
+  return res.render('prototypes/application-v2/eligibility-applicant', viewData);
+}
+
+export function appV2EligibilityApplicantPost(req, res) {
+  const { projectName, projectSummary, isComplete } = req.body;
+
+  console.log('isComplete = ' + isComplete);
+
+  let allProjectDetails = {
+    projectName,
+    projectSummary,
+    isComplete,
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  // console.log(allProjectDetails);
   req.session.projectDetails = allProjectDetails;
   req.session.hasBeenUpdated = true;
 

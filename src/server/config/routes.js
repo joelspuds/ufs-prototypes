@@ -202,20 +202,22 @@ router.post('/prototypes/application-v2/start', demosController.appV2tinyMCEAppl
 router.get('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportGet);
 router.post('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportPost);
 router.get('/prototypes/application-v2/view', demosController.appV2tinyMCEApplicationViewGet);
-router.get('/prototypes/application-v2/view-static', demosController.appV2tinyMCEApplicationStaticViewGet);
+/*router.get('/prototypes/application-v2/view-static', demosController.appV2tinyMCEApplicationStaticViewGet);*/
 // Application journey
-router.get('/prototypes/application-v2/application-team', demosController.appV2applicationTeamGet);
-router.post('/prototypes/application-v2/application-team', demosController.appV2applicationTeamPost);
-router.get('/prototypes/application-v2/capability-to-deliver', demosController.appV2capabilityToDeliverGet);
+/*router.get('/prototypes/application-v2/application-team', demosController.appV2applicationTeamGet);
+router.post('/prototypes/application-v2/application-team', demosController.appV2applicationTeamPost);*/
+/*router.get('/prototypes/application-v2/capability-to-deliver', demosController.appV2capabilityToDeliverGet);
 router.post('/prototypes/application-v2/capability-to-deliver', demosController.appV2capabilityToDeliverPost);
 router.get('/prototypes/application-v2/ethical-and-societal-issues', demosController.appV2ethicalSocietalGet);
-router.post('/prototypes/application-v2/ethical-and-societal-issues', demosController.appV2ethicalSocietalPost);
-router.get('/prototypes/application-v2/project-details', demosController.appV2projectDetailsGet);
-router.post('/prototypes/application-v2/project-details', demosController.appV2projectDetailsPost);
-router.get('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostGet);
+router.post('/prototypes/application-v2/ethical-and-societal-issues', demosController.appV2ethicalSocietalPost);*/
+router.get('/prototypes/application-v2/details', demosController.appV2DetailsGet);
+router.post('/prototypes/application-v2/details', demosController.appV2DetailsPost);
+router.get('/prototypes/application-v2/eligibility-applicant', demosController.appV2EligibilityApplicantGet);
+router.post('/prototypes/application-v2/eligibility-applicant', demosController.appV2EligibilityApplicantPost);
+/*router.get('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostGet);
 router.post('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostPost);
 router.get('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantGet);
-router.post('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantPost);
+router.post('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantPost);*/
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

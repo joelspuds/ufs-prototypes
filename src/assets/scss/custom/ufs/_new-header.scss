@@ -129,6 +129,7 @@
   &__nav-item {
     // <li>
     display: inline-block;
+    margin-right: 4px;
 
     @include mobile {
       display: block;
@@ -194,6 +195,10 @@
         border: 2px solid #622378;
       }
     }
+    .new-header__nav-link--active {
+      color: #622378;
+      border: 2px solid #622378;
+    }
   }
 
   &--admin {
@@ -202,6 +207,10 @@
         color: ufs-colour("sand");
         border: 2px solid ufs-colour("sand");
       }
+    }
+    .new-header__nav-link--active {
+      color: ufs-colour("sand");
+      border: 2px solid ufs-colour("sand");
     }
   }
 }
