@@ -178,3 +178,9 @@ table td:not([align]), table th:not([align]) {
 .govuk-table__cell--borderless {
   border-style: none;
 }
+
+.govuk-list--alpha {
+  list-style-type: lower-alpha;
+  padding-left: 20px;
+}
+

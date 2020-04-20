@@ -197,8 +197,8 @@ router.post('/prototypes/emails/email-rte', demosController.richTextEmailPost);
 
 * *************************************************************** */
 router.get('/prototypes/application-v2', demosController.appV2tinyMCEApplicationIndexGet);
-router.get('/prototypes/application-v2/start', demosController.appV2tinyMCEApplicationGet);
-router.post('/prototypes/application-v2/start', demosController.appV2tinyMCEApplicationPost);
+/*router.get('/prototypes/application-v2/start', demosController.appV2tinyMCEApplicationGet);
+router.post('/prototypes/application-v2/start', demosController.appV2tinyMCEApplicationPost);*/
 router.get('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportGet);
 router.post('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportPost);
 router.get('/prototypes/application-v2/view', demosController.appV2tinyMCEApplicationViewGet);
@@ -214,6 +214,14 @@ router.get('/prototypes/application-v2/details', demosController.appV2DetailsGet
 router.post('/prototypes/application-v2/details', demosController.appV2DetailsPost);
 router.get('/prototypes/application-v2/eligibility-applicant', demosController.appV2EligibilityApplicantGet);
 router.post('/prototypes/application-v2/eligibility-applicant', demosController.appV2EligibilityApplicantPost);
+router.get('/prototypes/application-v2/eligibility-research-area', demosController.appV2EligibilityResearchAreaGet);
+router.post('/prototypes/application-v2/eligibility-research-area', demosController.appV2EligibilityResearchAreaPost);
+router.get('/prototypes/application-v2/eligibility-research-area', demosController.appV2CurrentResearchActivityGet);
+router.post('/prototypes/application-v2/eligibility-research-area', demosController.appV2CurrentResearchActivityPost);
+router.get('/prototypes/application-v2/eligibility-research-area', demosController.appV2ResearchHistoryGet);
+router.post('/prototypes/application-v2/eligibility-research-area', demosController.appV2ResearchHistoryPost);
+router.get('/prototypes/application-v2/review', demosController.appV2ReviewGet);
+router.post('/prototypes/application-v2/review', demosController.appV2ReviewPost);
 /*router.get('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostGet);
 router.post('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostPost);
 router.get('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantGet);

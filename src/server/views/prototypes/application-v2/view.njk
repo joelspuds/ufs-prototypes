@@ -1,33 +1,26 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 
-{% set showMathJAXscripts = true %}
-{% set showSmoothScrollscripts = true %}
+{#{% set showSmoothScrollscripts = true %}#}
 {% set showStickyNavscripts = true %}
 
 {% set projectName = projectName if projectName %}
 
 {% set listItems = [
-    { text: 'Top of page', url: '#main-content' },
-    { text: '1. Case for support', url: '#marker_Case' },
-    { text: '2. Capability to deliver', url: '#marker_Capability' },
-    { text: '3. Resources and costs', url: '#marker_Resources' },
-    { text: '4. Ethical and societal issues', url: '#marker_Ethical' }
+    { text: '1. Details', url: '#details' },
+    { text: '2. Eligibility - applicant', url: '#applicant' },
+    { text: '3. Eligibility - research area', url: '#area' },
+    { text: '4. Current research activity', url: '#current' },
+    { text: '5. Research history', url: '#history' },
+    { text: '6. Review', url: '#review' }
 ] %}
-{#
- { text: 'Project details', url: '#marker_details' },
-    { text: 'Application team', url: '#marker_team' },
-#}
+}
 
-{% set notesCaseForSupport = notesCaseForSupport if notesCaseForSupport %}
-{% set notesCapability = notesCapability if notesCapability %}
-{% set notesResources = notesResources if notesResources %}
-{% set notesEthical = notesEthical if notesEthical %}
-{#{% set notesCosts = notesCosts if notesCosts %}
-{% set costsOverheads = costsOverheads if costsOverheads %}
-{% set costsMaterials = costsMaterials if costsMaterials %}
-{% set costsStaff = costsStaff if costsStaff %}#}
-{% set ethicalReasons = ethicalReasons if ethicalReasons %}
-{% set allResourcesValues = allResourcesValues if allResourcesValues %}
+{% set detailsInput = detailsInput if detailsInput %}
+{% set applicantInput = applicantInput if applicantInput %}
+{% set areaInput = areaInput if areaInput %}
+{% set currentInput = currentInput if currentInput %}
+{% set historyInput = historyInput if historyInput %}
+{% set reviewInput = reviewInput if reviewInput %}
 
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
@@ -39,14 +32,12 @@
         {%- endcall %}
     {%- endcall %}
 
-
     {% call components.bulmaRow() %}
-
         {% call components.bulmaColumnAny(size='is-full') %}
             <div class="govuk-tabs" data-module="govuk-tabs">
                 <ul class="govuk-tabs__list">
                     <li class="govuk-tabs__list-item ">
-                        <a class="govuk-tabs__tab" href="/prototypes/example-journey/application/">Write application</a>
+                        <a class="govuk-tabs__tab" href="/prototypes/application-v2/">Write application</a>
                     </li>
                     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                         <a class="govuk-tabs__tab" href="#">Read application</a>
@@ -65,15 +56,15 @@
             </nav>
         {%- endcall %}
 
-        {% call components.bulmaColumnAny(size='is-9') %}
+        {% call components.bulmaColumnAny(size='is-9', customID='main-content') %}
 
-            {{ components.alerts(text='This is how reviewers will see your proposal.')}}
+            {{ components.alerts(text='This is a preview of your application', type='')}}
 
-            {{ components.linkHeading(text='1. Case for support', tag='h2', size='m', extraClass='serif', id='marker_Case', additionalLinkText='Edit', additionalLinkTextHidden=' case for support', additionalLinkurl='/prototypes/application-v2/case-for-support') }}
+            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText='Edit', additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
 
             <div class="serif u-space-b30">
-            {% if notesCaseForSupport %}
-                {{ notesCaseForSupport }}
+            {% if detailsInput %}
+                {{ detailsInput }}
             {% else %}
                 <p class='govuk-body-s'>No content has been added for this section yet.</p>
             {% endif %}
@@ -84,14 +75,14 @@
             </div>
             {{ components.divider() }}
 
-            {{ components.linkHeading(text='2. Capability to deliver', tag='h2', size='m', extraClass='serif', id='marker_Capability', additionalLinkText='Edit', additionalLinkurl='/prototypes/application-v2/capability-to-deliver', additionalLinkTextHidden=' capility to deliver') }}
+            {{ components.linkHeading(text='2. Eligibility - applicant', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
 
             <div class="serif u-space-b30">
-            {% if notesCapability %}
-                {{ notesCapability }}
-            {% else %}
-                <p class='govuk-body-s'>No content has been added for this section yet.</p>
-            {% endif %}
+                {% if applicantInput %}
+                    {{ applicantInput }}
+                {% else %}
+                    <p class='govuk-body-s'>No content has been added for this section yet.</p>
+                {% endif %}
             </div>
 
             <div class="u-align-right">
@@ -99,93 +90,59 @@
             </div>
             {{ components.divider() }}
 
-            {{ components.linkHeading(text='3. Resources and costs', tag='h2', size='m', extraClass='serif', id='marker_Resources', additionalLinkText='Edit', additionalLinkurl='/prototypes/application-v2/resources-and-costs', additionalLinkTextHidden=' resources and costs') }}
-
-            {% if allResourcesValues %}
-
-            {{ components.linkHeading(text='Staff', tag='h3', size='s', extraClass='serif') }}
+            {{ components.linkHeading(text='3. Eligibility - research area', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText='Edit', additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
 
             <div class="serif u-space-b30">
-            <p class="govuk-body">
-                Number of full-time staff: {{ allResourcesValues.fullTimeStaff }}<br>
-                Number of part-time staff: {{ allResourcesValues.partTimeStaff }}
-            </p>
-            <p class="govuk-body">
-                <strong>&pound;{{ allResourcesValues.totalStaffCost | numberFormat() }}</strong>
-            </p>
+                {% if areaInput %}
+                    {{ areaInput }}
+                {% else %}
+                    <p class='govuk-body-s'>No content has been added for this section yet.</p>
+                {% endif %}
             </div>
-
-            {{ components.linkHeading(text='Travel costs', tag='h3', size='s', extraClass='serif') }}
-
-            <div class="serif u-space-b30">
-            <p class="govuk-body">{{ allResourcesValues.travelCostsText }}</p>
-            <p class="govuk-body">
-                <strong>&pound;{{ allResourcesValues.totalTravelCost | numberFormat() }}</strong>
-            </p>
-            </div>
-
-            {{ components.linkHeading(text='Equipment costs', tag='h3', size='s', extraClass='serif') }}
-
-            <div class="serif u-space-b30">
-            <p class="govuk-body">{{ allResourcesValues.equipmentCostsText }}</p>
-            <p class="govuk-body">
-                <strong>&pound;{{ allResourcesValues.totalEquipmentCost | numberFormat() }}</strong>
-            </p>
-            </div>
-
-            {{ components.linkHeading(text='Other directly incurred costs', tag='h3', size='small', extraClass='serif') }}
-
-            <div class="serif u-space-b30">
-            <p class="govuk-body">{{ allResourcesValues.otherCostsText }}</p>
-            <p class="govuk-body">
-                <strong>&pound;{{ allResourcesValues.totalOtherCost | numberFormat() }}</strong>
-            </p>
-            </div>
-
-            {{ components.linkHeading(text='Other indirect costs', tag='h3', size='s', extraClass='serif') }}
-
-            <div class="serif u-space-b30">
-            <p class="govuk-body">{{ allResourcesValues.indirectCostsText }}</p>
-            <p class="govuk-body">
-                <strong>&pound;{{ allResourcesValues.totalIndirectCost | numberFormat() }}</strong>
-            </p>
-            </div>
-
-            <div class="serif u-space-b30">
-            <p class="govuk-body">
-                <strong>TOTAL PROJECT COSTS<br>
-                    &pound;{{ allResourcesValues.uberTotalCost | numberFormat() }}
-                </strong>
-            </p>
-            </div>
-
-            {% else %}
-                <p class='govuk-body-s'>No content has been added for this section yet.</p>
-            {% endif %}
 
             <div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
             {{ components.divider() }}
 
-            {{ components.linkHeading(text='4. Ethical and societal issues', tag='h2', size='m', extraClass='serif', id='marker_Ethical', additionalLinkText='Edit', additionalLinkurl='/prototypes/application-v2/ethical-and-societal', additionalLinkTextHidden=' ethical and societal issues') }}
-
-            {% if ethicalReasons %}
-                {{ components.linkHeading(text='Ethical and societal issue areas', tag='h3', size='small', extraClass='serif') }}
-                <ul class="govuk-list--bullet">
-                    {% for item in ethicalReasons %}
-                        <li>{{ item }}</li>
-                    {% endfor %}
-                </ul>
-
-            {% endif %}
+            {{ components.linkHeading(text='4. Current research activity', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText='Edit', additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
 
             <div class="serif u-space-b30">
-            {% if notesEthical %}
-                {{ notesEthical }}
-            {% else %}
-                <p class='govuk-body-s'>No content has been added for this section yet.</p>
-            {% endif %}
+                {% if currentInput %}
+                    {{ currentInput}}
+                {% else %}
+                    <p class='govuk-body-s'>No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}
+
+            {{ components.linkHeading(text='5. Research history', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText='Edit', additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
+
+            <div class="serif u-space-b30">
+                {% if historyInput %}
+                    {{ historyInput }}
+                {% else %}
+                    <p class='govuk-body-s'>No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}
+
+            {{ components.linkHeading(text='6. Review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText='Edit', additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
+
+            <div class="serif u-space-b30">
+                {% if reviewInput %}
+                    {{ reviewInput }}
+                {% else %}
+                    <p class='govuk-body-s'>No content has been added for this section yet.</p>
+                {% endif %}
             </div>
 
             <div class="u-align-right">
@@ -198,5 +155,25 @@
     {%- endcall %}
 
 {% endblock %}
+{% block bodyScripts %}
+    <script type="text/javascript">
+      /* smooth-scroll.js v1.3.1 */
+      /*
+      n=0,
+      r=500,
+      i=15,
+      */
+      (function(e,t){
+        "use strict";
+        var n=0,
+          r=250,
+          i=15,
+          s=document.getElementsByTagName("a"),
+          o;
+        for(var u=0;u<s.length;u++){o=s[u].attributes.href===t?null:s[u].attributes.href.nodeValue.toString();if(o!==null&&o.length>1&&o.indexOf("#")!=-1){s[u].onclick=function(){var n,s=this.attributes.href.nodeValue.toString(),o=s.substr(0,s.indexOf("#")),u=s.substr(s.indexOf("#")+1);if(n=document.getElementById(u)){var l=(r-r%i)/i,c=f(),h=(a(n)-c)/l;if(e.history&&typeof e.history.pushState=="function")e.history.pushState({},t,o+"#"+u);for(var p=1;p<=l;p++){(function(){var t=h*p;setTimeout(function(){e.scrollTo(0,t+c)},i*p)})()}return false}}}}var a=function(e){var r=n*-1;while(e.offsetParent!=t&&e.offsetParent!=null){r+=e.offsetTop+(e.clientTop!=null?e.clientTop:0);e=e.offsetParent}return r};var f=function(){return e.pageYOffset!==t?e.pageYOffset:document.documentElement.scrollTop!==t?document.documentElement.scrollTop:document.body.scrollTop}})(window)
+    </script>
+{% endblock %}
+
+
 
 

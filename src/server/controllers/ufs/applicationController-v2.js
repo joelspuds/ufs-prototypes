@@ -3,7 +3,7 @@
 
 import * as demosController from './createOpportunity-v3';
 
-const cheerio = require('cheerio');
+// const cheerio = require('cheerio');
 let caseForSupportData = require('./case-for-support-2');
 const untitledProjectName = 'Untitled project';
 let generalData = require('./data');
@@ -112,7 +112,7 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
   return res.render('prototypes/application-v2/index', viewData);
 }
 
-// ************************************************************************
+/*// ************************************************************************
 //
 //       Old case-for-support page
 //
@@ -138,38 +138,6 @@ export function appV2tinyMCEApplicationGet(req, res) {
 export function appV2tinyMCEApplicationPost(req, res) {
   const { speakerNotes } = req.body;
 
-  let cleanContent;
-
-  // sanitise
-  let $ = cheerio.load(speakerNotes);
-
-  $('h1, h2, h3, h4, p, span, div').each(function() {
-    this.attribs = {};
-    // this.style = {};
-    // this.removeAttr('style');
-  });
-
-  /*$('a').each(function() {
-    this.remove();
-  });*/
-
-  $('a').each(function() {
-    // this.remove();
-  });
-
-  $('h1, h2').each(function() {
-    // this.attr('id', 'marker_' + this.text);
-    // this.class('test');
-    // let newID = 'marker_' + this.closest('span').text();
-    // console.log('newID = ' + newID);
-    // console.log('this = ' + this);
-    // console.log(this);
-    // let subStuff = this;
-    // subStuff.each(function() {});
-    // this.attribs = {'id': newID};
-  });
-
-  cleanContent = $.html();
 
   let storedSpeakerNotes = req.session.speakerNotes;
 
@@ -180,7 +148,7 @@ export function appV2tinyMCEApplicationPost(req, res) {
   }
 
   return res.redirect('/prototypes/application-v2/view');
-}
+}*/
 
 // ************************************************************************
 //
@@ -188,75 +156,26 @@ export function appV2tinyMCEApplicationPost(req, res) {
 //
 // ************************************************************************
 export function appV2tinyMCEApplicationViewGet(req, res) {
-  let viewData,
-    notesCaseForSupport,
-    notesCapability,
-    notesResources,
-    notesEthical,
-    notesCosts,
-    costsStaff,
-    costsOverheads,
-    costsMaterials,
-    ethicalReasons,
-    allResourcesValues;
+  let viewData, detailsInput, applicantInput, areaInput, currentInput, historyInput, reviewInput;
 
-  notesCaseForSupport = req.session.caseForSupportNotes;
-  notesCapability = req.session.storedCapabilityToDeliverNotes;
-  notesResources = req.session.notesResources;
-  notesEthical = req.session.ethicalNotes;
-  ethicalReasons = req.session.ethicalReasons;
-  notesCosts = req.session.projectCosts;
-  costsStaff = req.session.costsStaff;
-  costsOverheads = req.session.costsOverheads;
-  costsMaterials = req.session.costsMaterials;
-  allResourcesValues = req.session.allResourcesValues;
+  detailsInput = req.session.detailsInput;
+  applicantInput = req.session.applicantInput;
+  areaInput = req.session.areaInput;
+  currentInput = req.session.currentInput;
+  historyInput = req.session.historyInput;
+  reviewInput = req.session.reviewInput;
 
   viewData = {
-    notesCaseForSupport,
-    notesCapability,
-    notesResources,
-    notesEthical,
-    notesCosts,
-    costsStaff,
-    costsOverheads,
-    costsMaterials,
-    ethicalReasons,
-    allResourcesValues,
+    detailsInput,
+    applicantInput,
+    areaInput,
+    currentInput,
+    historyInput,
+    reviewInput,
   };
   return res.render('prototypes/application-v2/view', viewData);
 }
-// ************************************************************************
-//
-//        pre-populated view page VIEW STATIC
-//
-// ************************************************************************
-export function appV2tinyMCEApplicationStaticViewGet(req, res) {
-  let viewData, caseForSupport;
 
-  caseForSupport = caseForSupportData.caseForSupport2;
-
-  let $ = cheerio.load(caseForSupport);
-
-  $('p, span, div').each(function() {
-    this.attribs = {};
-  });
-
-  $('h1, h2, h3, h4').each(function() {
-    // var existingID = $(this).attr('id');
-    // this.attribs = {
-    //   'id': existingID,
-    //   'style':'test',
-    // };
-  });
-
-  caseForSupport = $.html();
-
-  viewData = {
-    caseForSupport,
-  };
-
-  return res.render('prototypes/application-v2/view-static', viewData);
-}
 // ************************************************************************
 //
 //        DETAILS
@@ -335,6 +254,184 @@ export function appV2EligibilityApplicantPost(req, res) {
 
   let allProjectDetails = {
     projectName,
+    projectSummary,
+    isComplete,
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  // console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/application-v2/');
+}
+
+// ************************************************************************
+//
+//        Eligibility - research area
+//
+// ************************************************************************
+export function appV2EligibilityResearchAreaGet(req, res) {
+  let viewData, allProjectDetails;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  allProjectDetails = req.session.projectDetails;
+
+  viewData = {
+    projectName,
+    allProjectDetails,
+  };
+
+  return res.render('prototypes/application-v2/eligibility-research-area', viewData);
+}
+
+export function appV2EligibilityResearchAreaPost(req, res) {
+  const { projectSummary, isComplete } = req.body;
+
+  let allProjectDetails = {
+    projectSummary,
+    isComplete,
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  // console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/application-v2/');
+}
+// ************************************************************************
+//
+//        Current research activity
+//
+// ************************************************************************
+export function appV2CurrentResearchActivityGet(req, res) {
+  let viewData, allProjectDetails;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  allProjectDetails = req.session.projectDetails;
+
+  viewData = {
+    projectName,
+    allProjectDetails,
+  };
+
+  return res.render('prototypes/application-v2/eligibility-research-area', viewData);
+}
+
+export function appV2CurrentResearchActivityPost(req, res) {
+  const { projectSummary, isComplete } = req.body;
+
+  let allProjectDetails = {
+    projectSummary,
+    isComplete,
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  // console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/application-v2/');
+}
+
+// ************************************************************************
+//
+//        Research history
+//
+// ************************************************************************
+export function appV2ResearchHistoryGet(req, res) {
+  let viewData, allProjectDetails;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  allProjectDetails = req.session.projectDetails;
+
+  viewData = {
+    projectName,
+    allProjectDetails,
+  };
+
+  return res.render('prototypes/application-v2/research-history', viewData);
+}
+
+export function appV2ResearchHistoryPost(req, res) {
+  const { projectSummary, isComplete } = req.body;
+
+  let allProjectDetails = {
+    projectSummary,
+    isComplete,
+  };
+
+  req.session.storedProjectName = allProjectDetails.projectName;
+  // console.log(allProjectDetails);
+  req.session.projectDetails = allProjectDetails;
+  req.session.hasBeenUpdated = true;
+
+  if (isComplete == 'on') {
+    req.session.projectDetailsIsComplete = true;
+  } else {
+    req.session.projectDetailsIsComplete = null;
+  }
+
+  return res.redirect('/prototypes/application-v2/');
+}
+// ************************************************************************
+//
+//        Review
+//
+// ************************************************************************
+export function appV2ReviewGet(req, res) {
+  let viewData, allProjectDetails;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  allProjectDetails = req.session.projectDetails;
+
+  viewData = {
+    projectName,
+    allProjectDetails,
+  };
+
+  return res.render('prototypes/application-v2/review', viewData);
+}
+
+export function appV2ReviewPost(req, res) {
+  const { projectSummary, isComplete } = req.body;
+
+  let allProjectDetails = {
     projectSummary,
     isComplete,
   };

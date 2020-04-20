@@ -1,18 +1,14 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Eligibility - applicant' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Eligibility - research' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
-{#{% set showSimpleTinyMCEScripts = true %}#}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
-    <style>
-        .tox-statusbar__wordcount, .tox-statusbar__branding { display: none!important}
-    </style>
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Eligibility - applicant', caption=projectName) }}
+            {{ components.captionHeading(text='Eligibility - research', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -24,22 +20,39 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Which of the three eligible applicant categories best describes you?</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Briefly state at least one research area to describe the subject area of your programme proposal.</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">To apply for the New Generation Thinkers scheme, you must be a UK resident and over the age of 18. Please indicate the most appropriate description, from the three categories listed  below,  that applies to you in the text box provided.</p>
-                                <ol class="govuk-list govuk-list--alpha" type="a">
-                                    <li>A current PhD student who has made considerable progress on your research, for example within one year of submission, or</li>
-                                    <li>Within eight years of the award of your PhD, excluding any period of career break such as parental leave, caring responsibilities or health reasons, or</li>
-                                    <li>Within six years of your first academic appointment, excluding any period of career break such as parental leave, caring responsibilities or health reasons. This must be a paid contract of employment, either full-time or part-time, which lists research and/or teaching as the primary function, including research assistantships.</li>
-                                </ol>
+                                <p class="govuk-body">Your research must have a primary focus in the arts and humanities. Your research could be bringing together arts and humanities research with other non-AHRC funded disciplines, provided you can demonstrate suitable links to the world of arts and humanities and that arts and humanities remains a primary focus. If you select multiple areas, you are required to identify one of these as the primary area.</p>
+                                <p class="govuk-body">Our main topic areas are:</p>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Archaeology</li>
+                                    <li>Classics</li>
+                                    <li>Cultural and museum studies</li>
+                                    <li>Development studies</li>
+                                    <li>History</li>
+                                    <li>Information and communication technologies</li>
+                                    <li>Law and legal studies</li>
+                                    <li>Library and information studies</li>
+                                    <li>Philosophy</li>
+                                    <li>Political science and international studies</li>
+                                    <li>Theology, divinity and religion</li>
+                                    <li>Dance</li>
+                                    <li>Design</li>
+                                    <li>Drama and theatre studies</li>
+                                    <li>Media</li>
+                                    <li>Music</li>
+                                    <li>Languages and literature</li>
+                                    <li>Linguistics</li>
+                                    <li>Visual arts.</li>
+                                </ul>
                             </div>
                         </details>
-                        <textarea class="govuk-textarea govuk-js-character-count" name="projectSummary" id="eligibilityInput" rows="18"></textarea>
-                        <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 70 words remaining</span></p>
+                        <textarea class="govuk-textarea govuk-js-character-count" name="eligibilityInput" id="eligibilityInput" rows="18"></textarea>
+                        <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 50 words remaining</span></p>
                     </div>
                 </div>
 
@@ -92,12 +105,12 @@
 
 {% endblock %}
 {% block bodyScripts %}
-      <script>
+    <script>
       ;(function(){
         let wordcounter = document.getElementById('eligibilityInput');
         let counteroutputFoot = document.getElementById('wordCount');
         let words;
-        const limit = 70;
+        const limit = 50;
 
         function countemwords(){
           words = (wordcounter.value == '')? 0 : wordcounter.value.split(' ').length;
