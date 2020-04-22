@@ -58,9 +58,9 @@
 
         {% call components.bulmaColumnAny(size='is-9', customID='main-content') %}
 
-            {{ components.alerts(text='This is a preview of your application', type='')}}
+            {{ components.alerts(text='This is a preview of your application', type='info')}}
 
-            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText='Edit', additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
+            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText='Edit this section', additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
 
             <div class="serif u-space-b30">
             {% if detailsInput %}
@@ -70,12 +70,12 @@
             {% endif %}
             </div>
 
-            <div class="u-align-right">
+            {#<div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
-            {{ components.divider() }}
+            {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='2. Eligibility - applicant', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
+            {{ components.linkHeading(text='2. Eligibility - applicant', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
 
             <div class="serif u-space-b30">
                 {% if applicantInput %}
@@ -85,12 +85,12 @@
                 {% endif %}
             </div>
 
-            <div class="u-align-right">
+            {#<div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
-            {{ components.divider() }}
+            {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='3. Eligibility - research area', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText='Edit', additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
+            {{ components.linkHeading(text='3. Eligibility - research area', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
 
             <div class="serif u-space-b30">
                 {% if areaInput %}
@@ -100,12 +100,12 @@
                 {% endif %}
             </div>
 
-            <div class="u-align-right">
+            {#<div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
-            {{ components.divider() }}
+            {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='4. Current research activity', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText='Edit', additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
+            {{ components.linkHeading(text='4. Current research activity', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText='Edit this section', additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
 
             <div class="serif u-space-b30">
                 {% if currentInput %}
@@ -115,12 +115,12 @@
                 {% endif %}
             </div>
 
-            <div class="u-align-right">
+           {# <div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
-            {{ components.divider() }}
+            {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='5. Research history', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText='Edit', additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
+            {{ components.linkHeading(text='5. Research history', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText='Edit this section', additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
 
             <div class="serif u-space-b30">
                 {% if historyInput %}
@@ -130,12 +130,12 @@
                 {% endif %}
             </div>
 
-            <div class="u-align-right">
+           {# <div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
-            {{ components.divider() }}
+            {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='6. Review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText='Edit', additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
+            {{ components.linkHeading(text='6. Review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText='Edit this section', additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
 
             <div class="serif u-space-b30">
                 {% if reviewInput %}
@@ -148,7 +148,7 @@
             <div class="u-align-right">
                 <a href="#main-content" class="govuk-link">Top of page</a>
             </div>
-            {{ components.divider() }}
+            {#{{ components.divider() }}#}
 
         {%- endcall %}
 
