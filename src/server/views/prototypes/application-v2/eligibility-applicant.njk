@@ -1,8 +1,10 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = 'Eligibility - applicant' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
-{#{% set showSimpleTinyMCEScripts = true %}#}
-{% set allProjectDetails = allProjectDetails if allProjectDetails %}
+
+{% set eligibilityInput = eligibilityInput if eligibilityInput %}
+{% set applicantIsComplete = applicantIsComplete if applicantIsComplete %}
+
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
@@ -38,7 +40,7 @@
                                 </ol>
                             </div>
                         </details>
-                        <textarea class="govuk-textarea govuk-js-character-count" name="projectSummary" id="eligibilityInput" rows="18"></textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count" name="eligibilityInput" id="eligibilityInput" rows="18">{{ eligibilityInput }}</textarea>
                         <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 70 words remaining</span></p>
                     </div>
                 </div>
@@ -60,7 +62,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allProjectDetails.isComplete == 'on' %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if applicantIsComplete %} checked{% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>

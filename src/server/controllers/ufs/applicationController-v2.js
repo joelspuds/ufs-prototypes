@@ -11,6 +11,24 @@ let genericFunctions = require('./generic');
 
 // ************************************************************************
 //
+//       AHRC opportunity
+//
+// ************************************************************************
+
+export function appV2AHRCOpportunityGet(req, res) {
+  let viewData;
+
+  return res.render('prototypes/application-v2/ahrc-opportunity', viewData);
+}
+
+export function appV2AHRCOpportunityPost(req, res) {
+  const {} = req.body;
+
+  return res.redirect('/prototypes/application-v2/ahrc-opportunity');
+}
+
+// ************************************************************************
+//
 //       Application overview
 //
 // ************************************************************************
@@ -25,11 +43,11 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
     ethicalHasBeenUpdated,
     resourcesHasBeenUpdated,
     projectDetailsIsComplete,
-    applicationDetailsIsComplete,
-    caseForSupportIsComplete,
-    capabilityToDeliverIsComplete,
-    resourcesAndCostsIsComplete,
-    ethicalAndSocietalIsComplete;
+    applicantIsComplete,
+    researchIsComplete,
+    activityIsComplete,
+    historyIsComplete,
+    reviewIsComplete;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
@@ -49,11 +67,11 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
   req.session.hasBeenUpdated = null;
 
   projectDetailsIsComplete = req.session.projectDetailsIsComplete;
-  applicationDetailsIsComplete = req.session.applicationDetailsIsComplete;
-  caseForSupportIsComplete = req.session.caseForSupportIsComplete;
-  capabilityToDeliverIsComplete = req.session.capabilityToDeliverIsComplete;
-  resourcesAndCostsIsComplete = req.session.resourcesAndCostsIsComplete;
-  ethicalAndSocietalIsComplete = req.session.ethicalAndSocietalIsComplete;
+  applicantIsComplete = req.session.applicantIsComplete;
+  researchIsComplete = req.session.researchIsComplete;
+  activityIsComplete = req.session.activityIsComplete;
+  historyIsComplete = req.session.historyIsComplete;
+  reviewIsComplete = req.session.reviewIsComplete;
 
   let incrementValue = 16.66666666666;
   let progressPercentage = 0;
@@ -62,19 +80,20 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
   if (projectDetailsIsComplete) {
     progressPercentage += incrementValue;
   }
-  if (applicationDetailsIsComplete) {
+  if (applicantIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (caseForSupportIsComplete) {
+
+  if (researchIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (capabilityToDeliverIsComplete) {
+  if (activityIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (ethicalAndSocietalIsComplete) {
+  if (historyIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (resourcesAndCostsIsComplete) {
+  if (reviewIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
 
@@ -94,19 +113,19 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
     projectName,
     hasBeenUpdated,
     projectDetails,
-    teamHasBeenUpdated,
+    /*teamHasBeenUpdated,
     caseHasBeenUpdated,
     capabilityHasBeenUpdated,
     ethicalHasBeenUpdated,
-    resourcesHasBeenUpdated,
+    resourcesHasBeenUpdated,*/
     progressPercentage,
     reverseProgressPercentage,
     projectDetailsIsComplete,
-    applicationDetailsIsComplete,
-    caseForSupportIsComplete,
-    resourcesAndCostsIsComplete,
-    ethicalAndSocietalIsComplete,
-    capabilityToDeliverIsComplete,
+    applicantIsComplete,
+    researchIsComplete,
+    activityIsComplete,
+    historyIsComplete,
+    reviewIsComplete,
   };
 
   return res.render('prototypes/application-v2/index', viewData);
@@ -182,18 +201,20 @@ export function appV2tinyMCEApplicationViewGet(req, res) {
 //
 // ************************************************************************
 export function appV2DetailsGet(req, res) {
-  let viewData, allProjectDetails;
+  let viewData;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
-  allProjectDetails = req.session.projectDetails;
+  let detailsInput = req.session.detailsInput;
+  let projectDetailsIsComplete = req.session.projectDetailsIsComplete;
 
   viewData = {
     projectName,
-    allProjectDetails,
+    detailsInput,
+    projectDetailsIsComplete,
   };
 
   return res.render('prototypes/application-v2/details', viewData);
@@ -204,15 +225,16 @@ export function appV2DetailsPost(req, res) {
 
   console.log('isComplete = ' + isComplete);
 
-  let allProjectDetails = {
+  /*let allProjectDetails = {
     projectName,
     projectSummary,
     isComplete,
-  };
+  };*/
 
-  req.session.storedProjectName = allProjectDetails.projectName;
+  req.session.storedProjectName = projectName;
+  req.session.detailsInput = projectSummary;
   // console.log(allProjectDetails);
-  req.session.projectDetails = allProjectDetails;
+  // req.session.projectDetails = allProjectDetails;
   req.session.hasBeenUpdated = true;
 
   if (isComplete == 'on') {
@@ -237,36 +259,34 @@ export function appV2EligibilityApplicantGet(req, res) {
     projectName = untitledProjectName;
   }
 
-  allProjectDetails = req.session.projectDetails;
+  let eligibilityInput = req.session.eligibilityInput;
+  let applicantIsComplete = req.session.applicantIsComplete;
 
   viewData = {
     projectName,
-    allProjectDetails,
+    eligibilityInput,
+    applicantIsComplete,
   };
 
   return res.render('prototypes/application-v2/eligibility-applicant', viewData);
 }
 
 export function appV2EligibilityApplicantPost(req, res) {
-  const { projectName, projectSummary, isComplete } = req.body;
+  const { eligibilityInput, isComplete } = req.body;
 
-  console.log('isComplete = ' + isComplete);
-
-  let allProjectDetails = {
-    projectName,
-    projectSummary,
-    isComplete,
-  };
+  /*console.log('isComplete = ' + isComplete);
 
   req.session.storedProjectName = allProjectDetails.projectName;
   // console.log(allProjectDetails);
   req.session.projectDetails = allProjectDetails;
-  req.session.hasBeenUpdated = true;
+  req.session.hasBeenUpdated = true;*/
+
+  req.session.eligibilityInput = eligibilityInput;
 
   if (isComplete == 'on') {
-    req.session.projectDetailsIsComplete = true;
+    req.session.applicantIsComplete = true;
   } else {
-    req.session.projectDetailsIsComplete = null;
+    req.session.applicantIsComplete = null;
   }
 
   return res.redirect('/prototypes/application-v2/');
@@ -336,7 +356,7 @@ export function appV2CurrentResearchActivityGet(req, res) {
     allProjectDetails,
   };
 
-  return res.render('prototypes/application-v2/eligibility-research-area', viewData);
+  return res.render('prototypes/application-v2/current-research-activity', viewData);
 }
 
 export function appV2CurrentResearchActivityPost(req, res) {

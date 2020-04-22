@@ -1,0 +1,10 @@
+.opportunity-meta {
+
+
+  &__title {
+    @include govuk-font($size: 19, $weight: bold);
+    display: inline-block;
+    width: 200px;
+
+  }
+}

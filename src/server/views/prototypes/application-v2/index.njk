@@ -2,29 +2,25 @@
 
 {#{% set bodyClass = 'new-gds' %}#}
 {% set pageTitle = APPLICATION_OVERVIEW_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
-{% set showTinyMCEScripts = true %}
+{#{% set showTinyMCEScripts = true %}#}
 {% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
 {% set projectName = projectName if projectName %}
 {% set projectDetails = projectDetails if projectDetails %}
 {% set hasBeenUpdated = hasBeenUpdated if hasBeenUpdated %}
-{% set teamHasBeenUpdated = teamHasBeenUpdated if teamHasBeenUpdated %}
+{#{% set teamHasBeenUpdated = teamHasBeenUpdated if teamHasBeenUpdated %}
 {% set caseHasBeenUpdated = caseHasBeenUpdated if caseHasBeenUpdated %}
 {% set capabilityHasBeenUpdated = capabilityHasBeenUpdated if capabilityHasBeenUpdated %}
 {% set ethicalHasBeenUpdated = ethicalHasBeenUpdated if ethicalHasBeenUpdated %}
-{% set resourcesHasBeenUpdated = resourcesHasBeenUpdated if resourcesHasBeenUpdated %}
+{% set resourcesHasBeenUpdated = resourcesHasBeenUpdated if resourcesHasBeenUpdated %}#}
 
 {% set projectDetailsIsComplete = projectDetailsIsComplete if projectDetailsIsComplete %}
-{% set applicationDetailsIsComplete = applicationDetailsIsComplete if applicationDetailsIsComplete %}
-{% set caseForSupportIsComplete = caseForSupportIsComplete if caseForSupportIsComplete %}
-{% set resourcesAndCostsIsComplete = resourcesAndCostsIsComplete if resourcesAndCostsIsComplete %}
-{% set ethicalIsComplete = ethicalIsComplete if ethicalIsComplete %}
+{% set applicantIsComplete = applicantIsComplete if applicantIsComplete %}
+
 {% set progressPercentage = progressPercentage if progressPercentage %}
 {% set reverseProgressPercentage = reverseProgressPercentage if reverseProgressPercentage %}
-{% set resourcesAndCostsIsComplete = resourcesAndCostsIsComplete if resourcesAndCostsIsComplete %}
-{% set ethicalAndSocietalIsComplete = ethicalAndSocietalIsComplete if ethicalAndSocietalIsComplete %}
-{% set capabilityToDeliverIsComplete = capabilityToDeliverIsComplete if capabilityToDeliverIsComplete %}
 
-{% set backLinkContents =  [{url:'/prototypes/application-v2/project-listings', text:'Back to all Opportunities'}] %}
+
+{% set backLinkContents =  [{url:'/prototypes/application-v2/opportunity', text:'Back to Opportunity'}] %}
 
 {% block content %}
 
@@ -70,52 +66,76 @@
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='1. Details', url='/prototypes/application-v2/details')}}</div>
                      <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% if projectDetailsIsComplete %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                         {% else %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% endif %}
                      </div>
                  </div>
              </div>
 
-             <div class="application-item {% if applicationDetailsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+             <div class="application-item {% if applicantIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='2. Eligibility - applicant', url='/prototypes/application-v2/eligibility-applicant')}}</div>
                      <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% if applicantIsComplete %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                         {% else %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% endif %}
                      </div>
                  </div>
              </div>
 
-             <div class="application-item {% if applicationDetailsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+             <div class="application-item {% if researchIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='3. Eligibility - research area', url='/prototypes/application-v2/eligibility-research-area')}}</div>
                      <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% if researchIsComplete %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                         {% else %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% endif %}
                      </div>
                  </div>
              </div>
 
-             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+             <div class="application-item {% if activityIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='4. Current research activity', url='/prototypes/application-v2/current-research-activity')}}</div>
                      <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% if activityIsComplete %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                         {% else %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% endif %}
                      </div>
                  </div>
              </div>
 
-             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+             <div class="application-item {% if historyIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='5. Research history', url='/prototypes/application-v2/research-history')}}</div>
                      <div class="application-item__right">
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% if historyIsComplete %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                         {% else %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% endif %}
                      </div>
                  </div>
              </div>
 
-             <div class="application-item {% if resourcesAndCostsIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
+             <div class="application-item {% if reviewIsComplete %}application-item--complete{% else %}application-item--incomplete{% endif %} application-item--skinny application-item--skinny-last">
                  <div class="application-item__contents govuk-clearfix">
                      <div class="application-item__left">{{ components.link(text='6. Review', url='/prototypes/application-v2/review')}}</div>
                      <div class="application-item__right">{##}
-                         <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% if reviewIsComplete %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                         {% else %}
+                             <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                         {% endif %}
                      </div>
                  </div>
              </div>

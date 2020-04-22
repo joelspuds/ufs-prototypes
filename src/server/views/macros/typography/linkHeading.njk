@@ -1,11 +1,11 @@
-{% macro linkHeading(text='', tag='h1', size='xl', url=false, id, extraClass, additionalLinkText, additionalLinkTextHidden, additionalLinkURL) %}
+{% macro linkHeading(text='', tag='h1', size='xl', url=false, id, extraClass, additionalLinkText, additionalLinkTextHidden, additionalLinkurl) %}
     {% if text %}
         <{{ tag }} class="govuk-heading-{{ size }} {{ extraClass if extraClass }} govuk-heading--link" {{ ' id="' + id +'"' if id }}>
         {{ '<a href="' + url +'">' + text + '</a>' if url else text }}
 
         {% if additionalLinkText %}
             <span class="govuk-heading_additional-link govuk-heading-m">
-            <a href="{{ additionalLinkURL }}" class="govuk-link">
+            <a href="{{ additionalLinkurl }}" class="govuk-link">
                 {{ additionalLinkText }}
                 {% if additionalLinkTextHidden %}
                     <span class="govuk-visually-hidden">{{ additionalLinkTextHidden }}</span>
