@@ -10,6 +10,10 @@
   border-color: govuk-colour("dark-grey");
   background-color: govuk-colour("light-grey");
 
+  *[class^="govuk-heading"] {
+    margin-bottom: 10px;
+  }
+
   &--success {
     border-color: govuk-colour("green");
     //background-color: rgba(govuk-colour("green"), .2);
@@ -39,9 +43,20 @@
   }
 
   &--info {
-    border-color: #005EA5;
-    //background-color: rgba(govuk-colour("yellow"), .2);
+    // border-color: #005EA5;
+    border-color: govuk-colour("blue");
+    padding-left: 50px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 32%;
+      width: 20px;
+      height: 20px;
+      background-image: url(/images/ufs/info_icon.svg);
+      background-size: 18px 18px;
+      background-repeat: no-repeat
+    }
   }
-
-
 }

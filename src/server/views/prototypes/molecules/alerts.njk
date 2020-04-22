@@ -1,6 +1,6 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'admin' %}
-{% set pageTitle = 'Buttons' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Alerts' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set allCouncils = allCouncils %}
 {% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
 {% set isAdminUser = true %}
@@ -11,7 +11,7 @@
 
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-            {{ components.captionHeading(text='Buttons') }}
+            {{ components.captionHeading(text='Alerts (or "system messages")') }}
 
         {%- endcall %}
 
@@ -25,39 +25,27 @@
 
                 {{ components.captionHeading(text='Normal', tag='h2', size='s') }}
 
-                <p>
-                    {{ components.button(text='Save and continue', extraClass='') }}
-                </p>
+                {{ components.alerts(text='This contains some important information')  }}
 
-                {{ components.captionHeading(text='Secondary', tag='h2', size='s') }}
+                {{ components.captionHeading(text='Alert with a title', tag='h2', size='m') }}
 
-                <p>
-                    {{ components.button(text='Save as draft', extraClass='govuk-button--secondary') }}
-                </p>
+                {{ components.alerts(text='This contains some important information', title='This is really important') }}
 
-                {{ components.captionHeading(text='Warning', tag='h2', size='s') }}
+                {{ components.captionHeading(text='Success alert', tag='h2', size='m') }}
 
-                <p>
-                    {{ components.button(text='Delete my profile', extraClass='govuk-button--warning') }}
-                </p>
+                {{ components.alerts(text='You have successfully updated your application', type='success') }}
 
-                {{ components.captionHeading(text='Disabled', tag='h2', size='s') }}
+                {{ components.captionHeading(text='Info alert', tag='h2', size='m') }}
 
-                <p>
-                    {{ components.button(text='Save and continue', disabled=true) }}
-                </p>
+                {{ components.alerts(text='This is a preview of your application', type='info')  }}
 
-                {{ components.captionHeading(text='Start a journey', tag='h2', size='s') }}
+                {{ components.captionHeading(text='Danger alert', tag='h2', size='m') }}
 
-                <p>
-                    {{ components.button(text='Start your journey', url='#', start=true) }}
-                </p>
+                {{ components.alerts(text='There was an error updating your informaton. Try again later.', type='danger')  }}
 
-                {{ components.captionHeading(text='Everything', tag='h2', size='s') }}
+                {{ components.captionHeading(text='Warning alert', tag='h2', size='m') }}
 
-                <p>
-                    {{ components.button(text='Lots of attributes', customID='customButtonID', customName='customButtoneName', type='button') }}
-                </p>
+                {{ components.alerts(text='The effect of your action could be disasterous, are you sure you want to continue?', type='warning')  }}
 
 
             {%- endcall %}
@@ -68,7 +56,7 @@
 {% endblock %}
 
 {% block bodyScripts %}
-   {# <script>
+    {#<script>
       function toggleVisibility(_this, id, className) {
         // event.preventDefault();
         let toggleSwitch = _this;

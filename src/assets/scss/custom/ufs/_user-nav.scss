@@ -17,8 +17,6 @@ main {
   right: 0;
   top: 0;
 
-
-
   a {
     text-decoration: none;
   }
@@ -57,6 +55,13 @@ main {
 
       &:after {
         color: govuk-colour("black");
+      }
+    }
+
+    &--only {
+      padding-right: 10px;
+      &:after {
+        display: none;
       }
     }
   }

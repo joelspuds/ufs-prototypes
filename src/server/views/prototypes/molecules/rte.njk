@@ -1,0 +1,93 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Rich-text editor' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set allCouncils = allCouncils %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set isAdminUser = true %}
+
+{% set exampleHTML = '<h2>This is an awesome title</h2><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> <ul>
+    <li><a href="#nowhere" title="Lorum ipsum dolor sit amet">Lorem</a></li>
+    <li><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a></li>
+    <li><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
+    <li><a href="#nowhere" title="Praesent dapibus, neque id cursus faucibus">Praesent</a></li>
+    <li><a href="#nowhere" title="Pellentesque fermentum dolor">Pellentesque</a></li>
+  </ul><h3>Check out my last paragraph!</h2><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>' %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Rich-text editor') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <style>
+                    .tox-notification.tox-notification--in.tox-notification--error,
+                    .tox-notifications-container {
+                        /*display: none!important;*/
+                    }
+                </style>
+                <noscript>
+                    {{ components.alerts(text='You are viewing the content without the rich-text editor. You should enable JavaScript in your browser to use the rich-text editor functionality.', type='info')}}
+                </noscript>
+                {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='caseForSupportNotes', hint='', group=true, rows='18', size='', value=exampleHTML, extraClass='', visuallyHidden=true) }}
+
+                <p>
+                    <span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span>
+                </p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      let wordy, count, newCount, overCount;
+      let limit = 400;
+      let countOutput = document.getElementById('wordCount');
+      countOutput.innerHTML = 'You have ' +  limit + ' words remaining';
+
+      tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        menubar: false,
+        plugins: [
+          'lists charmap anchor',
+          'paste code wordcount '
+        ],
+        toolbar: 'formatselect | bold italic | numlist bullist |',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
+          '/stylesheets/tinymce.css'
+        ],
+        setup: function(editor) {
+          editor.on('keyup', function(e) {
+            wordy = editor.plugins.wordcount;
+            count = parseInt(wordy.body.getWordCount());
+            newCount = limit - count;
+            // overCount =  limit + count;
+            overCount =  count - limit;
+            if (newCount < 0) {
+              countOutput.innerHTML = '<span style="font-weight:700;color:red">You have ' +  overCount + ' words too many</span>'
+            } else {
+              countOutput.innerHTML = 'You have ' +  newCount + ' words remaining'
+            }
+          });
+        }
+      });
+    </script>
+{% endblock %}
