@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Review' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Review something new from the creative arts' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
@@ -8,7 +8,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Review', caption=projectName) }}
+            {{ components.captionHeading(text='Review something new from the creative arts', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -20,17 +20,18 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Review a new film, play, novel, book of poetry, exhibition or any other cultural event of which you have personal and recent experience.</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">It could be a book, film, play, poetry, or any current exhibition or cultural event.</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">This should be of interest to and written for a non-academic audience, and must be on a topic and discipline separate from your research. Write the review as if you were going to read it on air as a short essay for BBC Radio 3. Remember that Free Thinking makes a link between arts and ideas, so your review will need to explore ideas within or prompted by the work and not simply discuss its apparent quality.</p>
-                                <p class="govuk-body">This will be used by assessors to assess:</p>
+                                <p class="govuk-body">Your review must be on a topic that is separate from your research and that you have recently experienced personally. Write it to interest a non-academic audience, in the form of a short essay you could read on air for BBC Radio 3.</p>
+                                <p class="govuk-body">The assessors are keen to see:</p>
                                 <ul class="govuk-list govuk-list--bullet">
-                                    <li>Your editorial and stylistic suitability for a Radio 3 audience</li>
-                                    <li>Demonstration that you are comfortable communicating ideas outside of your research area in an interesting, well written and engaging manner</li>
+                                    <li>evidence of Free Thinking, so explore the ideas within or prompted by the work, not just its apparent quality</li>
+                                    <li>your editorial and stylistic suitability for a Radio 3 audience</li>
+                                    <li>that you are comfortable communicating ideas outside of your research area in an interesting, well written and engaging manner.</li>
                                 </ul>
                             </div>
                         </details>

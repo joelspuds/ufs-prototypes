@@ -41,11 +41,15 @@
 
                 {{ components.captionHeading(text='Danger alert', tag='h2', size='m') }}
 
-                {{ components.alerts(text='There was an error updating your informaton. Try again later.', type='danger')  }}
+                {{ components.alerts(text='There was an error updating your informaton. Try again later. This is actually a really long message to wrap onto multiple lines.', type='danger')  }}
 
                 {{ components.captionHeading(text='Warning alert', tag='h2', size='m') }}
 
                 {{ components.alerts(text='The effect of your action could be disasterous, are you sure you want to continue?', type='warning')  }}
+
+                {{ components.captionHeading(text='Monochrome info', tag='h2', size='m') }}
+
+                {{ components.alerts(text='This is something you should be aware of before proceeding', type='mono')  }}
 
 
             {%- endcall %}

@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Research history' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Your research experience' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
@@ -8,7 +8,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Research history', caption=projectName) }}
+            {{ components.captionHeading(text='Your research experience', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -20,17 +20,18 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Provide a brief research history</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Briefly describe your research history</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">Your response should include the academic institutions at which you have been based, the research you have undertaken, and the years in which these activities took place</p>
-                                <p class="govuk-body">This will be used by assessors to assess:</p>
+                                <p class="govuk-body">In the answer box list the academic institutions where you were based, the research you did and the years during which it took place.</p>
+                                <p class="govuk-body">The assessors are keen to see:</p>
                                 <ul class="govuk-list govuk-list--bullet">
-                                    <li>Demonstration of high standards of scholarship with originality and quality in the arts and humanities</li>
-                                    <li>Breadth of research interest</li>
+                                    <li>a breadth of research interest</li>
+                                    <li>high standards of scholarship</li>
+                                    <li>originality and quality in the arts and humanities.</li>
                                 </ul>
                             </div>
                         </details>

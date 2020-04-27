@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Eligibility - research' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Eligibility - your programme topic' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
@@ -8,7 +8,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Eligibility - research', caption=projectName) }}
+            {{ components.captionHeading(text='Eligibility - your programme topic', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -20,13 +20,13 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Briefly state at least one research area to describe the subject area of your programme proposal.</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">You need to state at least one research topic, which is/are yours?</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">Your research must have a primary focus in the arts and humanities. Your research could be bringing together arts and humanities research with other non-AHRC funded disciplines, provided you can demonstrate suitable links to the world of arts and humanities and that arts and humanities remains a primary focus. If you select multiple areas, you are required to identify one of these as the primary area.</p>
+                                <p class="govuk-body">The primary research focus for your programme idea must be in the arts and humanities. It could be bringing arts and humanities research together with non-AHRC funded disciplines. But you have to demonstrate suitable links to the world of arts and humanities and that this remains your primary focus. In the answer box, you may select more than one topic (there is a more detailed list of the AHRC disciplines on the website listing for this Opportunity). If you do that, identify your primary area by entering it first on your list.</p>
                                 <p class="govuk-body">Our main topic areas are:</p>
                                 <ul class="govuk-list govuk-list--bullet">
                                     <li>Archaeology</li>

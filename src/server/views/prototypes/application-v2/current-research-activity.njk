@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Current research activity' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Your research and its wider effect' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
@@ -8,7 +8,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Current research activity', caption=projectName) }}
+            {{ components.captionHeading(text='Your research and its wider effect', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -20,18 +20,15 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Briefly describe your research and its broader relevance to a non-academic audience</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Briefly describe your current research and its relevance to a non-academic audience</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">This section should describe the current relevant arts and humanities research area(s) you’ve undertaken and how it may impact the wider public.</p>
-                                <p class="govuk-body">This will be used by assessors to assess:</p>
-                                <ul class="govuk-list govuk-list--bullet">
-                                    <li>Ability to give a simple, jargon free explanation of the research in an engaging manner</li>
-                                    <li>Breadth of research interest</li>
-                                </ul>
+                                <p class="govuk-body">Provide a simple, jargon-free explanation of the current arts and humanities research area(s) you have undertaken and any impact this may have on the wider public.</p>
+                                <p class="govuk-body">The assessors are keen to see a breadth of research interest and an engaging manner describing it.</p>
+
                             </div>
                         </details>
                         <textarea class="govuk-textarea govuk-js-character-count" name="currentInput" id="currentInput" rows="18"></textarea>

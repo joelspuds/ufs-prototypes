@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Eligibility - applicant' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Eligibility - your situation' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 
 {% set eligibilityInput = eligibilityInput if eligibilityInput %}
@@ -14,7 +14,7 @@
     </style>
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Eligibility - applicant', caption=projectName) }}
+            {{ components.captionHeading(text='Eligibility - your situation', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -26,17 +26,17 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">Which of the three eligible applicant categories best describes you?</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">There are three categories, which describes you best?</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">To apply for the New Generation Thinkers scheme, you must be a UK resident and over the age of 18. Please indicate the most appropriate description, from the three categories listed  below,  that applies to you in the text box provided.</p>
-                                <ol class="govuk-list govuk-list--alpha" type="a">
-                                    <li>A current PhD student who has made considerable progress on your research, for example within one year of submission, or</li>
-                                    <li>Within eight years of the award of your PhD, excluding any period of career break such as parental leave, caring responsibilities or health reasons, or</li>
-                                    <li>Within six years of your first academic appointment, excluding any period of career break such as parental leave, caring responsibilities or health reasons. This must be a paid contract of employment, either full-time or part-time, which lists research and/or teaching as the primary function, including research assistantships.</li>
+                                <p class="govuk-body">Only UK residents aged 18 or over can apply for the New Generation Thinkers scheme. But you must also fit one of the three descriptions below. In the answer box, simply state A, B or C.</p>
+                                <ol class="govuk-list govuk-list--Alpha" type="A">
+                                    <li>You are a current PhD student who has made considerable progress on your research, within one year of submission.</li>
+                                    <li>You are within eight years of being awarded your PhD – excluding any break in your career such as parental leave, caring responsibilities or health reasons. </li>
+                                    <li>You are within six years of your first academic appointment, excluding any break described in ‘B)’. This must be a paid contract of service, or for services, either full or part time, that lists research and/or teaching as the primary role, including research internships.</li>
                                 </ol>
                             </div>
                         </details>
