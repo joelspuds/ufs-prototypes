@@ -28,7 +28,7 @@
         }
     </style>
 
-    {% call components.bulmaRow() %}
+    {% call components.bulmaRow(customID='main-content') %}
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
             <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
@@ -399,9 +399,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 Open:<br>
-                                <strong>9 April 2020</strong><br>
+                                <strong>9 Apr 2020</strong><br>
                                 Close:<br>
-                                <strong>21 Monthtember 2020</strong><br>
+                                <strong>21 Aug 2020</strong><br>
                             </span>
                             <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
@@ -419,9 +419,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 Open:<br>
-                                <strong>9 April 2020</strong><br>
+                                <strong>9 Apr 2020</strong><br>
                                 Close:<br>
-                                <strong>21 Monthtember 2020</strong><br>
+                                <strong>21 Aug 2020</strong><br>
                             </span>
                         </div>
                     </div>
@@ -442,9 +442,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 Open:<br>
-                                <strong>9 April 2020</strong><br>
+                                <strong>9 Apr 2020</strong><br>
                                 Close:<br>
-                                <strong>21 Monthtember 2020</strong><br>
+                                <strong>21 Aug 2020</strong><br>
                             </span>
                             <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
@@ -464,9 +464,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 Open:<br>
-                                <strong>9 April 2020</strong><br>
+                                <strong>9 Apr 2020</strong><br>
                                 Close:<br>
-                                <strong>21 Monthtember 2020</strong><br>
+                                <strong>21 Aug 2020</strong><br>
                             </span>
                             <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
@@ -485,9 +485,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 Open:<br>
-                                    <strong>9 April 2020</strong><br>
+                                    <strong>9 Apr 2020</strong><br>
                                 Close:<br>
-                                <strong>21 Monthtember 2020</strong>
+                                <strong>21 Aug 2020</strong>
                             </span>
                         </div>
                     </div>
@@ -512,9 +512,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 <span class="item-successful">Open:<br>
-                                    <strong>9 April 2020</strong><br></span>
+                                    <strong>9 Apr 2020</strong><br></span>
                                 Close:<br>
-                                <strong>21 Monthtember 2020</strong>
+                                <strong>21 Aug 2020</strong>
                             </span>
                         </div>
                     </div>
@@ -539,9 +539,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 <span class="item-successful">Open:<br>
-                                    <strong>9 April 2020</strong><br></span>
+                                    <strong>9 Apr 2020</strong><br></span>
                                 <span class="item-successful">Close:<br>
-                                <strong>21 Monthtember 2020</strong><br></span>
+                                <strong>21 Aug 2020</strong><br></span>
                             </span>
                         </div>
                     </div>
@@ -566,9 +566,9 @@ Application
                         <div class="application-item__right">
                             <span class="application-item__meta">
                                 <span class="item-successful">Open:<br>
-                                    <strong>9 April 2020</strong><br></span>
+                                    <strong>9 Apr 2020</strong><br></span>
                                 <span class="item-successful">Close:<br>
-                                <strong>21 Monthtember 2020</strong><br></span>
+                                <strong>21 Aug 2020</strong><br></span>
                             </span>
                         </div>
                     </div>
@@ -636,7 +636,7 @@ Application
                         </div>
                     </div>
                 </div>
-               {# <div class="application-item application-item--incomplete application-item--workflow">
+                <div class="application-item application-item--incomplete application-item--workflow">
                     <div class="application-item__contents govuk-clearfix">
                         <div class="application-item__left">
                             {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
@@ -646,7 +646,7 @@ Application
                             <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
                         </div>
                     </div>
-                </div>#}
+                </div>
 
                 <div class="application-item">
                     <div class="application-item__contents govuk-clearfix">
@@ -707,7 +707,7 @@ Application
                             </div>
                         </div>
 
-                       {# <div class="application-item application-item--incomplete application-item--workflow">
+                        <div class="application-item application-item--incomplete application-item--workflow">
                             <div class="application-item__contents govuk-clearfix">
                                 <div class="application-item__left">
                                     {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
@@ -717,7 +717,7 @@ Application
                                     <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
                                 </div>
                             </div>
-                        </div>#}
+                        </div>
                     </div>
 
                 {%- endcall %}

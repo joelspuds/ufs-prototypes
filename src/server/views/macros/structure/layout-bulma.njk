@@ -10,12 +10,12 @@
 {% endmacro %}
 
 {# Cols maintained on/restricted to certain viewports, range: is-mobile | is-desktop  #}
-{% macro bulmaColumns(range='', extraClass)%}
-    <div class="columns {{ range }} {{ extraClass }}">{{ caller() }}</div>
+{% macro bulmaColumns(range='', extraClass, customID) %}
+    <div class="columns {{ range }} {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
-{% macro bulmaRow(extraClass, customID, containerID, columnsID)%}
-    <div class="container {{ extraClass }}" {% if containerID %}id="{{ containerID }}"{% endif %}>
+{% macro bulmaRow(extraClass, customID, columnsID)%}
+    <div class="container {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>
         <div class="columns" {% if columnsID %}id="{{ columnsID }}"{% endif %}>{{ caller() }}</div>
     </div>
 {% endmacro %}

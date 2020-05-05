@@ -81,20 +81,30 @@ $module: 'application-item';
         border-bottom: 1px solid #bfc1c3;
     }
 
-    &--complete {
-
-        .#{$module}__contents {
-
+    &--complete,
+    &--incomplete {
+        .#{$module}__right {
+            position: relative;
             &:before {
                 position: absolute;
-                right: 10px;
-                // top: 26px;
-                top: 44%;
                 width: 20px;
                 height: 20px;
                 content: " ";
+                right: -30px;
+            }
+        }
+    }
+
+    &--complete {
+        .#{$module}__right {
+            &:before {
+                top: 8px;
                 background-image: url('/images/ufs/tick.svg');
                 background-size: 38px 28px;
+
+                @include touch {
+                    top: 5px;
+                }
             }
 
             .#{$module}__status {
@@ -104,18 +114,15 @@ $module: 'application-item';
     }
 
     &--incomplete {
-
-        .#{$module}__contents {
-
+        .#{$module}__right {
             &:before {
-                position: absolute;
-                right: 10px;
-                top: 40%;
-                width: 20px;
-                height: 20px;
-                content: " ";
+                top: 6px;
                 background-image: url('/images/ufs/pencil.svg');
                 background-size: 30px 24px;
+
+                @include touch {
+                    top: 3px;
+                }
             }
         }
     }
@@ -142,7 +149,6 @@ $module: 'application-item';
         .#{$module}__contents {
             background-color: govuk-colour("white");
             padding: 15px 30px 15px 0;
-
             &:before {
                 right: 0;
             }
