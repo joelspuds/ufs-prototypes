@@ -15,6 +15,7 @@
 ] %}
 }
 
+
 {% set detailsInput = detailsInput if detailsInput %}
 {% set applicantInput = applicantInput if applicantInput %}
 {% set areaInput = areaInput if areaInput %}
@@ -60,6 +61,8 @@
 
             {{ components.alerts(text='This is a preview of your application', type='info')}}
 
+            {{ components.linkHeading(text=projectName, tag='h2', size='l', extraClass='serif') }}
+
             {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText='Edit this section', additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
 
             <div class="serif u-space-b30">
@@ -75,7 +78,7 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='2. Eligibility - applicant', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
+            {{ components.linkHeading(text='2. Eligibility - your situation', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
 
             <div class="serif u-space-b30">
                 {% if applicantInput %}

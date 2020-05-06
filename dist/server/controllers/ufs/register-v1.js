@@ -60,7 +60,13 @@ function signinGetV1(req, res) {
   req.session.savedEmail = null;
   req.session.signinError = null;
 
+  let confirmedEmail = req.param('confirmedEmail');
+  if (confirmedEmail === 'true') {
+    req.session.confirmedEmail = true;
+  }
+
   viewData = {
+    confirmedEmail,
     signinError,
     savedEmail
   };
@@ -73,11 +79,17 @@ function signinPostV1(req, res) {
 
   req.session.savedEmail = email;
 
+  let confirmedEmail = req.session.confirmedEmail;
+
   if (!email || email.length < 1 || !password || password.length < 1) {
     req.session.signinError = true;
     return res.redirect('/prototypes/register-v1/signin');
   } else {
-    return res.redirect('/prototypes/register-v1/signedin');
+    if (confirmedEmail === true) {
+      return res.redirect('/prototypes/application-v2/');
+    } else {
+      return res.redirect('/prototypes/register-v1/signedin');
+    }
   }
 }
 
@@ -149,7 +161,7 @@ function detailsGetV1(req, res) {
   req.session.emailError = null;
   req.session.passwordError = null;
 
-  console.log(genericFunctions.validatePassword('Password1'));
+  // console.log(genericFunctions.validatePassword('Password1'));
 
   viewData = {
     firstNameError,
@@ -192,7 +204,8 @@ function detailsPostV1(req, res) {
     isError = true;
   }
 
-  if (!genericFunctions.validatePassword(password)) {
+  // if (!genericFunctions.validatePassword(password)) {
+  if (password.length < 12) {
     req.session.passwordError = true;
     isError = true;
   }

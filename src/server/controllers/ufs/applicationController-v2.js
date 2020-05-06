@@ -131,6 +131,11 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
 export function appV2tinyMCEApplicationViewGet(req, res) {
   let viewData, detailsInput, applicantInput, areaInput, currentInput, historyInput, reviewInput;
 
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
   detailsInput = req.session.detailsInput;
   applicantInput = req.session.applicantInput;
   areaInput = req.session.areaInput;
@@ -139,6 +144,7 @@ export function appV2tinyMCEApplicationViewGet(req, res) {
   reviewInput = req.session.reviewInput;
 
   viewData = {
+    projectName,
     detailsInput,
     applicantInput,
     areaInput,

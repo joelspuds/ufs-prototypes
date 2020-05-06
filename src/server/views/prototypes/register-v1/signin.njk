@@ -1,5 +1,4 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-
 {#{% set navType = 'admin' %}#}
 {% set createOpportunityError = createOpportunityError if createOpportunityError %}
 {% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
@@ -9,17 +8,27 @@
 {%  set loggedOut = true %}
 {% set signinError = signinError if signinError %}
 {% set savedEmail = savedEmail if savedEmail %}
+{% set confirmedEmail = confirmedEmail if confirmedEmail %}
 
+{% set backLinkContents =  [{url:'/prototypes/register-v1/start', text:'Back'}] %}
 
 {% set pageTitle = 'Sign in ' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to Opportunities page', url='/prototypes/register-v1/') }}
+    {% if confirmedEmail %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.alerts(text='Your email address has been confirmed. Sign in to apply for New Generation Thinkers scheme. ', type='success')}}
+
+            {%- endcall %}
+
         {%- endcall %}
-    {%- endcall %}
+
+    {% endif %}
 
     {% if signinError %}
 
@@ -58,17 +67,25 @@
 
             {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-                <fieldset class="govuk-fieldset signin-form">
+                <fieldset class="govuk-fieldset ___signin-form">
                     <legend class="govuk-fieldset__legend govuk-visually-hidden">Sign in to your UKRI Funding Service account</legend>
 
                     <div class="govuk-form-group {% if signinError %} govuk-form-group--error{% endif %}">
                         <label class="govuk-label govuk-label--s" for="email" id="emailAddressInput">Email address</label>
-                        <input class="govuk-input {% if signinError %} govuk-input--error{% endif %} govuk-input--width-20" id="email" name="email" type="text" value="{{ savedEmail }}">
+                        <input class="govuk-input {% if signinError %} govuk-input--error{% endif %} govuk-input--width-30" id="email" name="email" type="text" value="{{ savedEmail }}">
                     </div>
 
-                    <div class="govuk-form-group {% if signinError %} govuk-form-group--error{% endif %} password-toggle">
+                    {#<div class="govuk-form-group {% if signinError %} govuk-form-group--error{% endif %} password-toggle">
                         <label class="govuk-label govuk-label--s" for="password">Password</label>
                         <input class="govuk-input {% if signinError %} govuk-input--error{% endif %} govuk-input--width-20" id="password" name="password" type="password"><a href="#" class="password-toggle__link password-shown">Show <span class="govuk-visually-hidden">password</span></a>
+                    </div>#}
+
+                    <div class="govuk-form-group password-toggle {% if signinError %} govuk-form-group--error{% endif %}">
+                        <label class="govuk-label govuk-label--s" for="password" id="passwordLabel">Password</label>
+                        <div class="password-input govuk-input govuk-input--width-30">
+                            <input class="govuk-input {% if signinError %}govuk-input--error{% endif %}" id="password" type="password" name="password" value="">
+                            <a href="#" class="password-toggle__link password-shown">Show <span class="govuk-visually-hidden">password</span></a>
+                        </div>
                     </div>
 
                     <p class="govuk-body">

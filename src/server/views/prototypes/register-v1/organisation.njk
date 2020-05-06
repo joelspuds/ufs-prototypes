@@ -9,19 +9,13 @@
 {% set allOrgs = allOrgs if allOrgs %}
 {% set organisationNameError = organisationNameError if organisationNameError %}
 {%  set loggedOut = true %}
-
+{% set backLinkContents =  [{url:'/prototypes/register-v1/start', text:'Back'}] %}
 
 {% set pageTitle = 'Select your organisation' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to Opportunity page', url='/prototypes/register-v1/') }}
-        {%- endcall %}
-    {%- endcall %}
-
-    {% if organisationNameError %}
+     {% if organisationNameError %}
 
         {% call components.bulmaRow() %}
 

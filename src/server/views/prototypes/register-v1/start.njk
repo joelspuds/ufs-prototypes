@@ -1,5 +1,4 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-
 {#{% set navType = 'admin' %}#}
 {% set createOpportunityError = createOpportunityError if createOpportunityError %}
 {% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
@@ -8,17 +7,10 @@
 {#{% set isAdminUser = true %}#}
 {% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
 {%  set loggedOut = true %}
-
-
+{% set backLinkContents =  [{url:'/prototypes/application-v2/opportunity', text:'Back to Opportunity'}] %}
 {% set pageTitle = 'Do you have a UKRI Funding Service account' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to Opportunity', url='/prototypes/register-v1/') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
