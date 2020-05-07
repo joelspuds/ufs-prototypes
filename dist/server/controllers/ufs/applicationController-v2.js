@@ -63,7 +63,7 @@ function appV2AHRCOpportunityPost(req, res) {
 // ************************************************************************
 
 function appV2tinyMCEApplicationIndexGet(req, res) {
-  let viewData, hasBeenUpdated, projectDetails, teamHasBeenUpdated, capabilityHasBeenUpdated, resourcesHasBeenUpdated, projectDetailsIsComplete, applicantIsComplete, researchIsComplete, activityIsComplete, historyIsComplete, reviewIsComplete;
+  let viewData, hasBeenUpdated, projectDetails, teamHasBeenUpdated, capabilityHasBeenUpdated, resourcesHasBeenUpdated, projectDetailsIsComplete, eligibilityInputComplete, programmeTopicIsComplete, widerEffectIsComplete, researchExperienceIsComplete, writeReviewIsComplete;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
@@ -82,11 +82,15 @@ function appV2tinyMCEApplicationIndexGet(req, res) {
   req.session.hasBeenUpdated = null;
 
   projectDetailsIsComplete = req.session.projectDetailsIsComplete;
-  applicantIsComplete = req.session.applicantIsComplete;
-  researchIsComplete = req.session.researchIsComplete;
-  activityIsComplete = req.session.activityIsComplete;
+  eligibilityInputComplete = req.session.eligibilityInputComplete;
+  programmeTopicIsComplete = req.session.programmeTopicIsComplete;
+  widerEffectIsComplete = req.session.widerEffectIsComplete;
+  researchExperienceIsComplete = req.session.researchExperienceIsComplete;
+  writeReviewIsComplete = req.session.writeReviewIsComplete;
+
+  /*activityIsComplete = req.session.activityIsComplete;
   historyIsComplete = req.session.historyIsComplete;
-  reviewIsComplete = req.session.reviewIsComplete;
+  reviewIsComplete = req.session.reviewIsComplete;*/
 
   let incrementValue = 16.66666666666;
   let progressPercentage = 0;
@@ -95,20 +99,19 @@ function appV2tinyMCEApplicationIndexGet(req, res) {
   if (projectDetailsIsComplete) {
     progressPercentage += incrementValue;
   }
-  if (applicantIsComplete) {
+  if (eligibilityInputComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-
-  if (researchIsComplete) {
+  if (programmeTopicIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (activityIsComplete) {
+  if (widerEffectIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (historyIsComplete) {
+  if (researchExperienceIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
-  if (reviewIsComplete) {
+  if (writeReviewIsComplete) {
     progressPercentage = progressPercentage + incrementValue;
   }
 
@@ -131,11 +134,11 @@ function appV2tinyMCEApplicationIndexGet(req, res) {
     progressPercentage,
     reverseProgressPercentage,
     projectDetailsIsComplete,
-    applicantIsComplete,
-    researchIsComplete,
-    activityIsComplete,
-    historyIsComplete,
-    reviewIsComplete
+    eligibilityInputComplete,
+    programmeTopicIsComplete,
+    widerEffectIsComplete,
+    researchExperienceIsComplete,
+    writeReviewIsComplete
   };
 
   return res.render('prototypes/application-v2/index', viewData);
@@ -147,7 +150,7 @@ function appV2tinyMCEApplicationIndexGet(req, res) {
 //
 // ************************************************************************
 function appV2tinyMCEApplicationViewGet(req, res) {
-  let viewData, detailsInput, applicantInput, areaInput, currentInput, historyInput, reviewInput;
+  let viewData, detailsInput, programmeTopic, widerEffect, researchExperience, writeReview, eligibilityInput;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
@@ -155,20 +158,21 @@ function appV2tinyMCEApplicationViewGet(req, res) {
   }
 
   detailsInput = req.session.detailsInput;
-  applicantInput = req.session.applicantInput;
-  areaInput = req.session.areaInput;
-  currentInput = req.session.currentInput;
-  historyInput = req.session.historyInput;
-  reviewInput = req.session.reviewInput;
+  eligibilityInput = req.session.eligibilityInput;
+  programmeTopic = req.session.programmeTopic;
+  widerEffect = req.session.widerEffect;
+  researchExperience = req.session.researchExperience;
+
+  writeReview = req.session.writeReview;
 
   viewData = {
     projectName,
     detailsInput,
-    applicantInput,
-    areaInput,
-    currentInput,
-    historyInput,
-    reviewInput
+    eligibilityInput,
+    programmeTopic,
+    widerEffect,
+    researchExperience,
+    writeReview
   };
   return res.render('prototypes/application-v2/view', viewData);
 }
@@ -227,6 +231,7 @@ function appV2DetailsPost(req, res) {
 // ************************************************************************
 //
 //        Eligibility - applicant
+//        Eligibility - your situation
 //
 // ************************************************************************
 function appV2EligibilityApplicantGet(req, res) {
@@ -238,7 +243,7 @@ function appV2EligibilityApplicantGet(req, res) {
   }
 
   let eligibilityInput = req.session.eligibilityInput;
-  let applicantIsComplete = req.session.applicantIsComplete;
+  let applicantIsComplete = req.session.eligibilityInputComplete;
 
   viewData = {
     projectName,
@@ -252,18 +257,12 @@ function appV2EligibilityApplicantGet(req, res) {
 function appV2EligibilityApplicantPost(req, res) {
   const { eligibilityInput, isComplete } = req.body;
 
-  /*console.log('isComplete = ' + isComplete);
-   req.session.storedProjectName = allProjectDetails.projectName;
-  // console.log(allProjectDetails);
-  req.session.projectDetails = allProjectDetails;
-  req.session.hasBeenUpdated = true;*/
-
   req.session.eligibilityInput = eligibilityInput;
 
   if (isComplete == 'on') {
-    req.session.applicantIsComplete = true;
+    req.session.eligibilityInputComplete = true;
   } else {
-    req.session.applicantIsComplete = null;
+    req.session.eligibilityInputComplete = null;
   }
 
   return res.redirect('/prototypes/application-v2/');
@@ -275,40 +274,37 @@ function appV2EligibilityApplicantPost(req, res) {
 //
 // ************************************************************************
 function appV2EligibilityResearchAreaGet(req, res) {
-  let viewData, allProjectDetails;
+  let viewData, programmeTopic;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
-  allProjectDetails = req.session.projectDetails;
+  let programmeTopicIsComplete = req.session.programmeTopicIsComplete;
+  programmeTopic = req.session.programmeTopic;
 
   viewData = {
     projectName,
-    allProjectDetails
+    programmeTopic,
+    programmeTopicIsComplete
   };
 
   return res.render('prototypes/application-v2/eligibility-research-area', viewData);
 }
 
 function appV2EligibilityResearchAreaPost(req, res) {
-  const { projectSummary, isComplete } = req.body;
+  const { programmeTopic, isComplete } = req.body;
 
-  let allProjectDetails = {
-    projectSummary,
-    isComplete
-  };
-
-  req.session.storedProjectName = allProjectDetails.projectName;
-  // console.log(allProjectDetails);
-  req.session.projectDetails = allProjectDetails;
+  req.session.programmeTopic = programmeTopic;
   req.session.hasBeenUpdated = true;
 
+  console.log('programmeTopic = ' + programmeTopic);
+
   if (isComplete == 'on') {
-    req.session.projectDetailsIsComplete = true;
+    req.session.programmeTopicIsComplete = true;
   } else {
-    req.session.projectDetailsIsComplete = null;
+    req.session.programmeTopicIsComplete = null;
   }
 
   return res.redirect('/prototypes/application-v2/');
@@ -316,43 +312,41 @@ function appV2EligibilityResearchAreaPost(req, res) {
 // ************************************************************************
 //
 //        Current research activity
+//        Your research and its wider effect
 //
 // ************************************************************************
 function appV2CurrentResearchActivityGet(req, res) {
-  let viewData, allProjectDetails;
+  let viewData, widerEffect, widerEffectIsComplete;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
-  allProjectDetails = req.session.projectDetails;
+  widerEffect = req.session.widerEffect;
+  widerEffectIsComplete = req.session.widerEffectIsComplete;
 
   viewData = {
     projectName,
-    allProjectDetails
+    widerEffect,
+    widerEffectIsComplete
   };
 
   return res.render('prototypes/application-v2/current-research-activity', viewData);
 }
 
 function appV2CurrentResearchActivityPost(req, res) {
-  const { projectSummary, isComplete } = req.body;
+  const { widerEffect, isComplete } = req.body;
 
-  let allProjectDetails = {
-    projectSummary,
-    isComplete
-  };
-
-  req.session.storedProjectName = allProjectDetails.projectName;
-  // console.log(allProjectDetails);
-  req.session.projectDetails = allProjectDetails;
+  req.session.widerEffect = widerEffect;
   req.session.hasBeenUpdated = true;
 
+  console.log('widerEffect = ' + widerEffect);
+
   if (isComplete == 'on') {
-    req.session.projectDetailsIsComplete = true;
+    req.session.widerEffectIsComplete = true;
   } else {
-    req.session.projectDetailsIsComplete = null;
+    req.session.widerEffectIsComplete = null;
   }
 
   return res.redirect('/prototypes/application-v2/');
@@ -361,87 +355,77 @@ function appV2CurrentResearchActivityPost(req, res) {
 // ************************************************************************
 //
 //        Research history
+//        Your research experience
 //
 // ************************************************************************
 function appV2ResearchHistoryGet(req, res) {
-  let viewData, allProjectDetails;
+  let viewData, researchExperience;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
-  allProjectDetails = req.session.projectDetails;
-
+  researchExperience = req.session.researchExperience;
+  let researchExperienceIsComplete = req.session.researchExperienceIsComplete;
   viewData = {
     projectName,
-    allProjectDetails
+    researchExperience,
+    researchExperienceIsComplete
   };
 
   return res.render('prototypes/application-v2/research-history', viewData);
 }
 
 function appV2ResearchHistoryPost(req, res) {
-  const { projectSummary, isComplete } = req.body;
+  const { researchExperience, isComplete } = req.body;
 
-  let allProjectDetails = {
-    projectSummary,
-    isComplete
-  };
-
-  req.session.storedProjectName = allProjectDetails.projectName;
-  // console.log(allProjectDetails);
-  req.session.projectDetails = allProjectDetails;
+  req.session.researchExperience = researchExperience;
   req.session.hasBeenUpdated = true;
 
   if (isComplete == 'on') {
-    req.session.projectDetailsIsComplete = true;
+    req.session.researchExperienceIsComplete = true;
   } else {
-    req.session.projectDetailsIsComplete = null;
+    req.session.researchExperienceIsComplete = null;
   }
 
   return res.redirect('/prototypes/application-v2/');
 }
 // ************************************************************************
 //
-//        Review
+//        Write a review
 //
 // ************************************************************************
 function appV2ReviewGet(req, res) {
-  let viewData, allProjectDetails;
+  let viewData, writeReview;
 
   let projectName = req.session.storedProjectName;
   if (!projectName) {
     projectName = untitledProjectName;
   }
 
-  allProjectDetails = req.session.projectDetails;
+  writeReview = req.session.writeReview;
+  let writeReviewIsComplete = req.session.writeReviewIsComplete;
 
   viewData = {
     projectName,
-    allProjectDetails
+    writeReview,
+    writeReviewIsComplete
   };
 
   return res.render('prototypes/application-v2/review', viewData);
 }
 
 function appV2ReviewPost(req, res) {
-  const { projectSummary, isComplete } = req.body;
+  const { writeReview, isComplete } = req.body;
 
-  let allProjectDetails = {
-    projectSummary,
-    isComplete
-  };
-
-  req.session.storedProjectName = allProjectDetails.projectName;
-  // console.log(allProjectDetails);
-  req.session.projectDetails = allProjectDetails;
+  req.session.writeReview = writeReview;
   req.session.hasBeenUpdated = true;
 
   if (isComplete == 'on') {
-    req.session.projectDetailsIsComplete = true;
+    req.session.writeReviewIsComplete = true;
   } else {
-    req.session.projectDetailsIsComplete = null;
+    req.session.writeReviewIsComplete = null;
   }
 
   return res.redirect('/prototypes/application-v2/');

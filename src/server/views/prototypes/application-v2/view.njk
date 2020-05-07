@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-
+{% set pageTitle = 'Application preview' + GLOBAL_TAG_TITLE_SUFFIX %}
 {#{% set showSmoothScrollscripts = true %}#}
 {% set showStickyNavscripts = true %}
 
@@ -15,13 +15,12 @@
 ] %}
 }
 
-
 {% set detailsInput = detailsInput if detailsInput %}
-{% set applicantInput = applicantInput if applicantInput %}
-{% set areaInput = areaInput if areaInput %}
-{% set currentInput = currentInput if currentInput %}
-{% set historyInput = historyInput if historyInput %}
-{% set reviewInput = reviewInput if reviewInput %}
+{% set eligibilityInput = eligibilityInput if eligibilityInput %}
+{% set programmeTopic = programmeTopic if programmeTopic %}
+{% set widerEffect = widerEffect if widerEffect %}
+{% set researchExperience = researchExperience if researchExperience %}
+{% set writeReview = writeReview if writeReview %}
 
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
@@ -81,8 +80,8 @@
             {{ components.linkHeading(text='2. Eligibility - your situation', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
 
             <div class="serif u-space-b30">
-                {% if applicantInput %}
-                    {{ applicantInput }}
+                {% if eligibilityInput %}
+                    {{ eligibilityInput }}
                 {% else %}
                     <p class='govuk-body-s has-text-grey' >No content has been added for this section yet.</p>
                 {% endif %}
@@ -93,11 +92,11 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='3. Eligibility - research area', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
+            {{ components.linkHeading(text='3. Eligibility - your programme topic', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
 
             <div class="serif u-space-b30">
-                {% if areaInput %}
-                    {{ areaInput }}
+                {% if programmeTopic %}
+                    {{ programmeTopic }}
                 {% else %}
                     <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
                 {% endif %}
@@ -108,11 +107,11 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='4. Current research activity', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText='Edit this section', additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
+            {{ components.linkHeading(text='4. Your research and its wider effect', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText='Edit this section', additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
 
             <div class="serif u-space-b30">
-                {% if currentInput %}
-                    {{ currentInput}}
+                {% if widerEffect %}
+                    {{ widerEffect}}
                 {% else %}
                     <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
                 {% endif %}
@@ -123,11 +122,11 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='5. Research history', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText='Edit this section', additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
+            {{ components.linkHeading(text='5. Your research experience', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText='Edit this section', additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
 
             <div class="serif u-space-b30">
-                {% if historyInput %}
-                    {{ historyInput }}
+                {% if researchExperience %}
+                    {{ researchExperience }}
                 {% else %}
                     <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
                 {% endif %}
@@ -138,11 +137,11 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='6. Review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText='Edit this section', additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
+            {{ components.linkHeading(text='6. Write a review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText='Edit this section', additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
 
             <div class="serif u-space-b30">
-                {% if reviewInput %}
-                    {{ reviewInput }}
+                {% if writeReview %}
+                    {{ writeReview }}
                 {% else %}
                     <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
                 {% endif %}

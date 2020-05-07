@@ -1,8 +1,9 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = 'Eligibility - your programme topic' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
-{% set allProjectDetails = allProjectDetails if allProjectDetails %}
+{% set programmeTopic = programmeTopic if programmeTopic %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
+{% set programmeTopicIsComplete = programmeTopicIsComplete if programmeTopicIsComplete %}
 
 {% block content %}
 
@@ -12,7 +13,7 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.form(action='/prototypes/application-v2/eligibility-applicant', method='POST',name='formProjectTeam') %}
+    {% call components.form(action='/prototypes/application-v2/eligibility-research-area', method='POST',name='formProgrammeTopic') %}
 
         {% call components.bulmaRow() %}
 
@@ -20,7 +21,7 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">You need to state at least one research topic, which is/are yours?</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="programmeTopic">You need to state at least one research topic, which is/are yours?</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
@@ -51,7 +52,7 @@
                                 </ul>
                             </div>
                         </details>
-                        <textarea class="govuk-textarea govuk-js-character-count" name="eligibilityInput" id="eligibilityInput" rows="18"></textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count" name="programmeTopic" id="programmeTopic" rows="18">{{ programmeTopic }}</textarea>
                         <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 50 words remaining</span></p>
                     </div>
                 </div>
@@ -73,7 +74,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allProjectDetails.isComplete == 'on' %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if programmeTopicIsComplete %} checked{% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>
@@ -107,7 +108,7 @@
 {% block bodyScripts %}
     <script>
       ;(function(){
-        let wordcounter = document.getElementById('eligibilityInput');
+        let wordcounter = document.getElementById('programmeTopic');
         let counteroutputFoot = document.getElementById('wordCount');
         let words;
         const limit = 50;
