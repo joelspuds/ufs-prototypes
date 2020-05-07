@@ -17,7 +17,7 @@ let genericFunctions = require('./generic');
 
 export function appV2AHRCOpportunityGet(req, res) {
   let viewData;
-
+  req.session.ahrcDemo = true;
   return res.render('prototypes/application-v2/ahrc-opportunity', viewData);
 }
 

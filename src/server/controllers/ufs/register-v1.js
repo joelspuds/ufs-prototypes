@@ -67,7 +67,8 @@ export function signinPostV1(req, res) {
     if (confirmedEmail === true) {
       return res.redirect('/prototypes/application-v2/');
     } else {
-      return res.redirect('/prototypes/register-v1/signedin');
+      /*return res.redirect('/prototypes/register-v1/signedin');*/
+      return res.redirect('/prototypes/application-v2/');
     }
   }
 }

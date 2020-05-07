@@ -30,7 +30,6 @@
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
                                 <p class="govuk-body">Provide a simple, jargon-free explanation of the current arts and humanities research area(s) you have undertaken and any impact this may have on the wider public.</p>
                                 <p class="govuk-body">The assessors are keen to see a breadth of research interest and an engaging manner describing it.</p>
-
                             </div>
                         </details>
                         <textarea class="govuk-textarea govuk-js-character-count" name="widerEffect" id="widerEffect" rows="18">{{ widerEffect }}</textarea>
@@ -63,26 +62,17 @@
                         </div>
                     </div>
                 {%- endcall %}
-
             {%- endcall %}
-
         {%- endcall %}
-
         {% call components.bulmaRow() %}
-
             {% call components.bulmaColumnAny(size='is-full') %}
-
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">
                         {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
                     </div>
-
                 {%- endcall %}
-
             {%- endcall %}
-
         {%- endcall %}
-
     {%- endcall %}
 
 {% endblock %}
