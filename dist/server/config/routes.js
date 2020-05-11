@@ -242,6 +242,9 @@ router.get('/prototypes/application-v2/research-history', demosController.appV2R
 router.post('/prototypes/application-v2/research-history', demosController.appV2ResearchHistoryPost);
 router.get('/prototypes/application-v2/review', demosController.appV2ReviewGet);
 router.post('/prototypes/application-v2/review', demosController.appV2ReviewPost);
+router.get('/prototypes/application-v2/opportunity', demosController.appV2AHRCOpportunityGet);
+router.post('/prototypes/application-v2/opportunity', demosController.appV2AHRCOpportunityPost);
+
 /*router.get('/prototypes/application-v2/ahrc-opportunity', demosController.appV2AHRCOpportunityGet);
 router.post('/prototypes/application-v2/ahrc-opportunity', demosController.appV2AHRCOpportunityPost);*/
 /*router.get('/prototypes/application-v2/resources-and-cost', demosController.appV2resourcesCostGet);

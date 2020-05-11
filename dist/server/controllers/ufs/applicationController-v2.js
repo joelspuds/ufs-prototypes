@@ -46,14 +46,22 @@ let genericFunctions = require('./generic');
 
 function appV2AHRCOpportunityGet(req, res) {
   let viewData;
-  req.session.ahrcDemo = true;
-  return res.render('prototypes/application-v2/ahrc-opportunity', viewData);
+  // req.session.ahrcDemo = true;
+
+  let clearSession = req.param('clearSession');
+  if (clearSession === 'true') {
+    req.session.destroy();
+  }
+
+  viewData = {};
+
+  return res.render('prototypes/application-v2/opportunity', viewData);
 }
 
 function appV2AHRCOpportunityPost(req, res) {
   const {} = req.body;
 
-  return res.redirect('/prototypes/application-v2/ahrc-opportunity');
+  return res.redirect('/prototypes/application-v2/opportunity');
 }
 
 // ************************************************************************
