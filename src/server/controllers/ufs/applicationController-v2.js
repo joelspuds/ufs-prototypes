@@ -394,6 +394,8 @@ export function appV2ReviewGet(req, res) {
     projectName = untitledProjectName;
   }
 
+  let readOnly = req.session.readOnly;
+
   writeReview = req.session.writeReview;
   let writeReviewIsComplete = req.session.writeReviewIsComplete;
 
@@ -401,6 +403,7 @@ export function appV2ReviewGet(req, res) {
     projectName,
     writeReview,
     writeReviewIsComplete,
+    readOnly,
   };
 
   return res.render('prototypes/application-v2/review', viewData);
@@ -502,6 +505,11 @@ export function appV2AddApplicantPost(req, res) {
 // ************************************************************************
 export function appV2PopulateDataGet(req, res) {
   let viewData;
+
+  let readOnly = req.param('readOnly');
+  if (readOnly === 'true') {
+    req.session.readOnly = true;
+  }
 
   let projectName = 'New thinkers test project name';
   req.session.storedProjectName = projectName;

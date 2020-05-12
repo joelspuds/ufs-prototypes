@@ -4,6 +4,7 @@
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set writeReviewIsComplete = writeReviewIsComplete if writeReviewIsComplete %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
+{% set readOnly = readOnly if readOnly %}
 
 {% block content %}
 
@@ -12,6 +13,20 @@
             {{ components.captionHeading(text='Review something new from the creative arts', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
+
+    {% if readOnly %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.alerts(text='You are in read-only view and nothing can be edited', type='info')}}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
 
     {% call components.form(action='/prototypes/application-v2/review', method='POST',name='formWriteReview') %}
 
@@ -36,7 +51,7 @@
                                 </ul>
                             </div>
                         </details>
-                        <textarea class="govuk-textarea govuk-js-character-count" name="writeReview" id="writeReview" rows="18">{{ writeReview }}</textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count" name="writeReview" id="writeReview" rows="18" {% if readOnly %} disabled {% endif %}>{{ writeReview }}</textarea>
                         <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 250 words remaining</span></p>
                     </div>
                 </div>
@@ -58,7 +73,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if writeReviewIsComplete %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if readOnly %} disabled {% endif %} {% if writeReviewIsComplete %} checked{% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>
@@ -76,9 +91,20 @@
             {% call components.bulmaColumnAny(size='is-full') %}
 
                 {% call components.formGroup() %}
-                    <div class="application-controls govuk-clearfix">
-                        {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
-                    </div>
+
+                    {% if readOnly %}
+
+                        <a href="http://localhost:3002/prototypes/application-v2/" class="govuk-link">Return to application</a>
+
+                    {% else %}
+
+                        <div class="application-controls govuk-clearfix">
+                            {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        </div>
+
+                    {% endif %}
+
+
 
                 {%- endcall %}
 
