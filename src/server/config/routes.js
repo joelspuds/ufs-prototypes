@@ -235,6 +235,14 @@ router.post('/prototypes/application-v2/resources-and-cost', demosController.app
 router.get('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantGet);
 router.post('/prototypes/application-v2/add-applicant', demosController.appV2AddApplicantPost);*/
 
+/* *************************************************************** *
+
+  Various
+
+* *************************************************************** */
+router.get('/prototypes/molecules/auto-ping', demosController.autoPingGet);
+router.post('/prototypes/molecules/auto-ping', demosController.autoPingPost);
+
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 

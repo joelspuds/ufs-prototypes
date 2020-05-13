@@ -189,3 +189,7 @@ table td:not([align]), table th:not([align]) {
   padding-left: 20px;
 }
 
+.govuk-textarea:disabled,
+.govuk-input:disabled {
+  border-color: govuk-colour("mid-grey");
+}

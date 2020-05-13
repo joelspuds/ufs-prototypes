@@ -5,6 +5,7 @@
 {% set detailsInput = detailsInput if detailsInput %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 {% set projectDetailsIsComplete = projectDetailsIsComplete if projectDetailsIsComplete%}
+{% set readOnly = readOnly if readOnly %}
 
 {% block content %}
     <style>
@@ -16,6 +17,20 @@
         {%- endcall %}
     {%- endcall %}
 
+    {% if readOnly %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.alerts(text='You are in read-only view and nothing can be edited', type='info')}}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
+
     {% call components.form(action='/prototypes/application-v2/details', method='POST',name='formProjectTeam') %}
 
         {% call components.bulmaRow() %}
@@ -24,7 +39,14 @@
 
                 {% call components.formGroup() %}
 
-                    {{ components.field(label='Project name', hint='Enter the full name of your proposed project', labelBold=true, id='projectName', value=projectName) }}
+                    {#{{ components.field(label='Project name', hint='Enter the full name of your proposed project', labelBold=true, id='projectName', value=projectName) }}#}
+
+                    <div class="govuk-form-group ">
+                        <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectName">Project name
+                            <span class="govuk-hint">Enter the full name of your proposed project</span>
+                        </label>
+                        <input class="govuk-input " id="projectName" type="text" name="projectName" value="New thinkers test project name" {% if readOnly %} disabled {% endif %}>
+                    </div>
 
                 {%- endcall %}
 
@@ -56,7 +78,7 @@
                         </div>
                     </details>
 
-                    <textarea class="govuk-textarea govuk-js-character-count" name="projectSummary" id="projectSummary" rows="18">{{ detailsInput }}</textarea>
+                    <textarea class="govuk-textarea govuk-js-character-count" name="projectSummary" id="projectSummary" rows="18" {% if readOnly %} disabled {% endif %}>{{ detailsInput }}</textarea>
                     <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 400 words remaining</span></p>
 
                 </div>
@@ -78,7 +100,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if projectDetailsIsComplete %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if projectDetailsIsComplete %} checked{% endif %} {% if readOnly %} disabled {% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>
@@ -97,9 +119,12 @@
 
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">
-                        {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        {% if readOnly %}
+                            <a href="http://localhost:3002/prototypes/application-v2/" class="govuk-link">Return to application</a>
+                        {% else %}
+                                {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        {% endif %}
                     </div>
-
                 {%- endcall %}
 
             {%- endcall %}

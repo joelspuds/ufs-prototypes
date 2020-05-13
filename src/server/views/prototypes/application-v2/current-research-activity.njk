@@ -3,6 +3,7 @@
 {% set projectName = projectName if projectName %}
 {% set widerEffect = widerEffect if widerEffect %}
 {% set widerEffectIsComplete = widerEffectIsComplete if widerEffectIsComplete %}
+{% set readOnly = readOnly if readOnly %}
 
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
@@ -13,6 +14,20 @@
             {{ components.captionHeading(text='Your research and its wider effect', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
+
+    {% if readOnly %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.alerts(text='You are in read-only view and nothing can be edited', type='info')}}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
 
     {% call components.form(action='/prototypes/application-v2/current-research-activity', method='POST',name='formWiderEffect') %}
 
@@ -32,7 +47,7 @@
                                 <p class="govuk-body">The assessors are keen to see a breadth of research interest and an engaging manner describing it.</p>
                             </div>
                         </details>
-                        <textarea class="govuk-textarea govuk-js-character-count" name="widerEffect" id="widerEffect" rows="18">{{ widerEffect }}</textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count" name="widerEffect" id="widerEffect" rows="18" {% if readOnly %} disabled {% endif %}>{{ widerEffect }}</textarea>
                         <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 250 words remaining</span></p>
                     </div>
                 </div>
@@ -54,7 +69,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if widerEffectIsComplete %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if widerEffectIsComplete %} checked{% endif %} {% if readOnly %} disabled {% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>
@@ -68,7 +83,11 @@
             {% call components.bulmaColumnAny(size='is-full') %}
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">
-                        {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        {% if readOnly %}
+                            <a href="http://localhost:3002/prototypes/application-v2/" class="govuk-link">Return to application</a>
+                        {% else %}
+                            {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        {% endif %}
                     </div>
                 {%- endcall %}
             {%- endcall %}

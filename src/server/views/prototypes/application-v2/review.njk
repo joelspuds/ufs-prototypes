@@ -92,19 +92,13 @@
 
                 {% call components.formGroup() %}
 
-                    {% if readOnly %}
-
-                        <a href="http://localhost:3002/prototypes/application-v2/" class="govuk-link">Return to application</a>
-
-                    {% else %}
-
-                        <div class="application-controls govuk-clearfix">
+                    <div class="application-controls govuk-clearfix">
+                        {% if readOnly %}
+                            <a href="http://localhost:3002/prototypes/application-v2/" class="govuk-link">Return to application</a>
+                        {% else %}
                             {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
-                        </div>
-
-                    {% endif %}
-
-
+                        {% endif %}
+                    </div>
 
                 {%- endcall %}
 

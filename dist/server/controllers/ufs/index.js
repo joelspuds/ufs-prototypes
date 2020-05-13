@@ -171,3 +171,15 @@ Object.keys(_applicationControllerV).forEach(function (key) {
     }
   });
 });
+
+var _variousController = require('./variousController');
+
+Object.keys(_variousController).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _variousController[key];
+    }
+  });
+});

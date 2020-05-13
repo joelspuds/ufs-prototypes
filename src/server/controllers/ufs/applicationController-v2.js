@@ -182,11 +182,13 @@ export function appV2DetailsGet(req, res) {
 
   let detailsInput = req.session.detailsInput;
   let projectDetailsIsComplete = req.session.projectDetailsIsComplete;
+  let readOnly = req.session.readOnly;
 
   viewData = {
     projectName,
     detailsInput,
     projectDetailsIsComplete,
+    readOnly,
   };
 
   return res.render('prototypes/application-v2/details', viewData);
@@ -197,16 +199,8 @@ export function appV2DetailsPost(req, res) {
 
   console.log('isComplete = ' + isComplete);
 
-  /*let allProjectDetails = {
-    projectName,
-    projectSummary,
-    isComplete,
-  };*/
-
   req.session.storedProjectName = projectName;
   req.session.detailsInput = projectSummary;
-  // console.log(allProjectDetails);
-  // req.session.projectDetails = allProjectDetails;
   req.session.hasBeenUpdated = true;
 
   if (isComplete == 'on') {
@@ -234,11 +228,13 @@ export function appV2EligibilityApplicantGet(req, res) {
 
   let eligibilityInput = req.session.eligibilityInput;
   let applicantIsComplete = req.session.eligibilityInputComplete;
+  let readOnly = req.session.readOnly;
 
   viewData = {
     projectName,
     eligibilityInput,
     applicantIsComplete,
+    readOnly,
   };
 
   return res.render('prototypes/application-v2/eligibility-applicant', viewData);
@@ -273,11 +269,13 @@ export function appV2EligibilityResearchAreaGet(req, res) {
 
   let programmeTopicIsComplete = req.session.programmeTopicIsComplete;
   programmeTopic = req.session.programmeTopic;
+  let readOnly = req.session.readOnly;
 
   viewData = {
     projectName,
     programmeTopic,
     programmeTopicIsComplete,
+    readOnly,
   };
 
   return res.render('prototypes/application-v2/eligibility-research-area', viewData);
@@ -316,10 +314,13 @@ export function appV2CurrentResearchActivityGet(req, res) {
   widerEffect = req.session.widerEffect;
   widerEffectIsComplete = req.session.widerEffectIsComplete;
 
+  let readOnly = req.session.readOnly;
+
   viewData = {
     projectName,
     widerEffect,
     widerEffectIsComplete,
+    readOnly,
   };
 
   return res.render('prototypes/application-v2/current-research-activity', viewData);
@@ -356,12 +357,15 @@ export function appV2ResearchHistoryGet(req, res) {
     projectName = untitledProjectName;
   }
 
+  let readOnly = req.session.readOnly;
+
   researchExperience = req.session.researchExperience;
   let researchExperienceIsComplete = req.session.researchExperienceIsComplete;
   viewData = {
     projectName,
     researchExperience,
     researchExperienceIsComplete,
+    readOnly,
   };
 
   return res.render('prototypes/application-v2/research-history', viewData);

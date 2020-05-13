@@ -1,0 +1,80 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set pageTitle = 'Alerts' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set allCouncils = allCouncils %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set navType = 'admin' %}
+{% set isAdminUser = true %}
+{% set loggedOut = false %}
+{% set tempRefreshCounter = tempRefreshCounter if tempRefreshCounter %}
+
+
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Auto-ping ') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                <p class="govuk-body">This page will keep your Heroku session alive for as long as this page is open</p>
+
+                <p><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/10_seconds_countdown.gif" alt="10 second countdown" width="40"> </p>
+
+                <p class="govuk-list">This page has been refreshed <strong>{{ tempRefreshCounter }}</strong> times in this session</p>
+
+                <form name="refresher" action="#" method="post" id="refreshForm"></form>
+
+                <p class="govuk-body"><a href="?startAgain=true" class="govuk-link">Start counter again</a> (click once, and wait until next refresh)</p>
+
+                <br><br><br><br><br><br><br><br>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      setTimeout(function() {
+        // location.reload();
+        document.getElementById("refreshForm").submit();
+      }, 10000);
+
+    </script>
+    {#<script>
+      function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }
+    </script>#}
+{% endblock %}

@@ -1,22 +1,33 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set pageTitle = 'Eligibility - your situation' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
-
 {% set eligibilityInput = eligibilityInput if eligibilityInput %}
 {% set applicantIsComplete = applicantIsComplete if applicantIsComplete %}
+{% set readOnly = readOnly if readOnly %}
 
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
-    <style>
-        .tox-statusbar__wordcount, .tox-statusbar__branding { display: none!important}
-    </style>
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text='Eligibility - your situation', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
+
+    {% if readOnly %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-full') %}
+
+                {{ components.alerts(text='You are in read-only view and nothing can be edited', type='info')}}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {% endif %}
 
     {% call components.form(action='/prototypes/application-v2/eligibility-applicant', method='POST',name='formProjectTeam') %}
 
@@ -40,7 +51,7 @@
                                 </ol>
                             </div>
                         </details>
-                        <textarea class="govuk-textarea govuk-js-character-count" name="eligibilityInput" id="eligibilityInput" rows="18">{{ eligibilityInput }}</textarea>
+                        <textarea class="govuk-textarea govuk-js-character-count" name="eligibilityInput" id="eligibilityInput" rows="18" {% if readOnly %} disabled {% endif %}>{{ eligibilityInput }}</textarea>
                         <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 70 words remaining</span></p>
                     </div>
                 </div>
@@ -62,7 +73,7 @@
                                 </legend>
                                 <div class="govuk-checkboxes">
                                     <div class="govuk-checkboxes__item">
-                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if applicantIsComplete %} checked{% endif %}>
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if applicantIsComplete %} checked{% endif %} {% if readOnly %} disabled {% endif %}>
                                         <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
                                     </div>
                                 </div>
@@ -81,9 +92,12 @@
 
                 {% call components.formGroup() %}
                     <div class="application-controls govuk-clearfix">
-                        {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        {% if readOnly %}
+                            <a href="http://localhost:3002/prototypes/application-v2/" class="govuk-link">Return to application</a>
+                        {% else %}
+                            {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                        {% endif %}
                     </div>
-
                 {%- endcall %}
 
             {%- endcall %}
