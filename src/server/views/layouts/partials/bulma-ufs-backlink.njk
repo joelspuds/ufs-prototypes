@@ -1,8 +1,69 @@
 {% if backLinkContents %}
-  <div class="container">
+  <div class="container u-space-t10">
     <div class="columns">
-      <div class="column is-two-thirds ">
+      <div class="column is-8 ">
         <a href="{{ backLinkContents[0].url }}" class="govuk-back-link">{{ backLinkContents[0].text }}</a>
       </div>
+
+      {% if showTasks %}
+        <div class="column is-4 task-menu">
+          <div class="task-menu_wrapper" id="taskMenu">
+            <button class="task-menu__toggle" id="taskButton" onclick="toggleVisibility(this, 'taskContents', 'js-hidden')" aria-expanded="false">Show Task Bar</button>
+            <div class="task-menu__contents js-hidden" id="taskContents">
+              <div class="task-menu__inner">
+                <ul class="govuk-list">
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                  <li><a href="#" class="govuk-link">a link in a list or something</a> </li>
+                </ul>
+              </div>
+              <div class="task-menu__bottom">
+                <button class="govuk-button govuk-button--secondary">Do something</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          function toggleVisibility(_this, id, className) {
+            // event.preventDefault();
+            let toggleSwitch = _this;
+            let toggleItem = document.getElementById(id);
+            if (hasClass(toggleItem, className)) {
+              toggleSwitch.classList.add('filter__title--closed');
+              toggleItem.classList.remove(className);
+              toggleSwitch.setAttribute('aria-expanded', true);
+            }
+            else  {
+              toggleSwitch.classList.remove('filter__title--closed');
+              toggleItem.classList.add(className);
+              toggleSwitch.setAttribute('aria-expanded', false);
+            }
+            // return false;
+          }
+          function hasClass(target, className) {
+            return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+          }
+        </script>
+      {% endif %}
     </div>
-  </div>{% endif %}
+  </div>
+{% endif %}

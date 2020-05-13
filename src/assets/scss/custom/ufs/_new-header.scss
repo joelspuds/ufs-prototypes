@@ -297,7 +297,8 @@
 
 
 .user-header {
-  right: 20px;
+  // right: 20px;
+  right: 10px;
 
   @include mobile {
     right: 0;

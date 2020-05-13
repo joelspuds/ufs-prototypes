@@ -1,14 +1,35 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 
-{% set pageTitle = 'Alerts' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Tasks' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set allCouncils = allCouncils %}
 {% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
 {% set navType = 'admin' %}
 {% set isAdminUser = true %}
 {% set loggedOut = false %}
+{% set showTasks = true %}
 
 
 {% block content %}
+
+    {#{% call components.bulmaRow(extraClass='task-menu') %}
+
+        {% call components.bulmaColumnAny(size='column is-full') %}
+            <div class="task-menu_wrapper">
+                <button class="tasks">Show Task Bar</button>
+
+                <div class="task-menu__contents">
+
+                    blah <br >
+                    blah <br >blah <br >blah <br >blah <br >blah <br >
+                    blah <br >blah <br >blah <br >blah <br >blah <br >blah <br >
+                    blah <br >blah <br >blah <br >blah <br >blah <br >
+
+                </div>
+
+            </div>
+        {%- endcall %}
+
+    {%- endcall %}#}
 
     {% call components.bulmaRow() %}
 
@@ -24,11 +45,30 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {% call components.bulmaColumnAny(size='column is-8') %}
 
                 <p class="govuk-body">Main stuff is the task button in the upper right corner ☝️☝️ </p>
 
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum egestas mauris in tempor. Nunc ornare nibh a magna blandit porttitor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque auctor molestie urna vestibulum interdum. Nunc interdum nisl id neque scelerisque molestie vitae congue mauris. Nulla at venenatis magna. Mauris sagittis nunc ut tempor sodales. Vestibulum volutpat, purus ultricies fermentum porttitor, sem lectus euismod augue, vel semper ex lectus vel dui. Nam quis ligula vel mi sagittis eleifend ac ac metus. Nulla sodales elit eu enim rhoncus tempus. Fusce egestas dui non est rhoncus, vel sagittis risus bibendum. Sed lobortis neque id eleifend tempus. Donec massa arcu, blandit vitae dui sed, bibendum vestibulum magna.</p>
+                <p class="govuk-body">Vivamus mollis, magna lacinia feugiat posuere, mi turpis suscipit lorem, nec efficitur urna magna at lectus. Curabitur vestibulum sapien massa, sed fringilla augue luctus eget. Donec venenatis eros at risus elementum auctor. Phasellus hendrerit ullamcorper metus eget bibendum. Nulla sit amet sagittis turpis. Quisque a tincidunt lectus, non pharetra erat. Pellentesque finibus dolor consequat massa lobortis, nec fringilla mi pharetra. Proin sit amet feugiat dui. Praesent mi elit, suscipit non ipsum ac, euismod tincidunt ante. Nullam efficitur pharetra sem, eget interdum nibh consectetur id. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <p class="govuk-body">Nam elementum erat augue. Mauris convallis lacinia enim, eu lacinia lectus egestas et. Curabitur et sollicitudin nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras pellentesque ipsum mi, eu malesuada felis mattis nec. Duis suscipit ligula enim. Donec vehicula elit eu tellus ullamcorper gravida. Aliquam eu enim orci. Nulla facilisi.</p>
+                <p class="govuk-body">Donec imperdiet non nisi ullamcorper euismod. Etiam sagittis sollicitudin tortor eu consequat. Cras sit amet ipsum eget nibh malesuada tempus a ac eros. Curabitur accumsan libero ut gravida hendrerit. In id placerat nunc. Donec vehicula, enim at maximus sodales, ligula mi feugiat tortor, nec finibus turpis lectus tincidunt metus. Nunc consectetur at massa eu pulvinar.</p>
+                <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula cursus neque eget tincidunt. Praesent scelerisque augue quis sapien cursus, eget vulputate nulla tempus. Fusce et lectus nec massa tristique eleifend. Ut finibus pellentesque auctor. Nullam venenatis pulvinar lacus, id porta nibh bibendum quis. Quisque consectetur, diam ut efficitur fermentum, eros est faucibus risus, et sollicitudin purus augue eu magna. Cras eu vulputate lectus. Pellentesque lectus dui, dapibus a tempus sit amet, vehicula a ante. Curabitur viverra, ex vitae blandit eleifend, mi diam lacinia felis, et porttitor tellus purus eu felis. Donec maximus velit nec porttitor laoreet. Ut pharetra mauris ex, in tempus est maximus et. Fusce scelerisque purus ac blandit blandit. Etiam sit amet convallis libero. Vivamus at condimentum odio, vel pulvinar sem. Cras elementum efficitur commodo.</p>
+
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+
+                <div class="govuk-related-items govuk-related-items--flush">
+                    <h2 class="govuk-heading-xs u-space-y5">Some dummy content</h2>
+                    <p class="govuk-body-s u-space-b5">Curabitur et sollicitudin nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras pellentesque ipsum mi, eu malesuada felis mattis nec. Duis suscipit ligula enim. Donec vehicula elit eu tellus ullamcorper gravida. Aliquam eu enim orci. Nulla facilisi.</p>
+                    <ul class="govuk-list u-space-t10">
+                        <li><a href="#" class="govuk-link sub-button ">Do some stuff</a></li>
+                        <li><a href="#" class="govuk-link sub-button ">Go somewhere else</a></li>
+                        <li><a href="#" class="govuk-link sub-button ">Click here</a></li>
+                    </ul>
+                </div>
 
             {%- endcall %}
 
