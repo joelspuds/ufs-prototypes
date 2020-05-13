@@ -4,8 +4,10 @@
 
 {% block bodyContentWrapper %}
     {% include './partials/ufs-breadcrumbs.njk' %}
-    {% if isAdminUser != true %}
-        {% include './partials/bulma-phase-banner.njk' %}
+    {% if not showExternalFurniture %}
+        {% if isAdminUser != true %}
+            {% include './partials/bulma-phase-banner.njk' %}
+        {% endif %}
     {% endif %}
     {% include './partials/bulma-ufs-backlink.njk' %}
     <main id="" class="u-space-t30 u-space-b30 {{ mainContainerClass if mainContainerClass }}">

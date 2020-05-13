@@ -28,6 +28,14 @@
         {% include './partials/bulma-ufs-new-header.njk' %}
     {% endif %}
 
+    {% if showExternalFurniture %}
+        <div class="banner-area banner-purple-green" style="width:100%;  background-color:#8A1A9B;">
+            <div class="_govuk-width-container" style="width:100%; text-align: center /*background-image:url(/images/ufs/banner-purple-green.png); background-position: center*/">
+                <img src="/images/ufs/banner-purple-green.png">
+            </div>
+        </div>
+    {% endif %}
+
     {#<div class="" data-block>#}
         {% block bodyContentWrapper %}{% endblock %}
     {#</div>#}
