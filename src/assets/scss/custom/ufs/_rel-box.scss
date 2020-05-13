@@ -26,6 +26,13 @@
 
   &--external {
     background-color: ufs-colour("dark-purple");
+    background-image: url("/images/ufs/green-swirl-top3.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+    &:last-of-type {
+      background-image: url("/images/ufs/green-swirl-bottom3.png");
+    }
   }
 
 }
