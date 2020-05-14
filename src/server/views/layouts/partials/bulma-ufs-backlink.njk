@@ -1,14 +1,14 @@
 {% if backLinkContents %}
   <div class="container u-space-t10">
     <div class="columns">
-      <div class="column is-8 ">
+      <div class="column is-4 ">
         <a href="{{ backLinkContents[0].url }}" class="govuk-back-link">{{ backLinkContents[0].text }}</a>
       </div>
 
       {% if showTasks %}
-        <div class="column is-4 task-menu">
+        {#<div class="column is-4 task-menu">
           <div class="task-menu_wrapper" id="taskMenu">
-            <button class="task-menu__toggle" id="taskButton" onclick="toggleVisibility(this, 'taskContents', 'js-hidden')" aria-expanded="false">Show Task Bar</button>
+            <button class="task-menu__toggle" id="taskButton" onclick="toggleVisibility(this, 'taskContents', 'js-hidden')" aria-expanded="false">Workflow (2 new)</button>
             <div class="task-menu__contents js-hidden" id="taskContents">
               <div class="task-menu__inner">
                 <ul class="govuk-list">
@@ -62,7 +62,183 @@
           function hasClass(target, className) {
             return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
           }
+        </script>#}
+
+        <div class="column is-8 task-menu">
+          <div class="task-menu__wrapper" id="taskMenu">
+            <button class="task-menu__toggle" id="taskButton" onclick="toggleVisibility(this, 'taskContents', 'js-hidden')" aria-expanded="false">Workflow (2 new)</button>
+
+            {#<label for="checkToggle" class="task-menu__label task-menu__pseudo-link task-menu__label--new" aria-label="Main menu" role="button" tabindex="0">Workflow (2 new)</label>
+            <input type="checkbox" id="checkToggle" class="task-menu__check">#}
+
+            <div class="task-menu__contents js-hidden" id="taskContents">
+              <div class="task-menu__inner">
+                <div class="task-menu__box task-menu__box--ass">
+                  {#<label class="task-menu__box-toggle" for="assBox" tabindex="1">Assigned to me (32)</label>
+                  <input type="checkbox" id="assBox" class="task-menu__box-check" checked>#}
+                  <h2 class="govuk-heading-s"><a href="#" class="govuk-link">Assigned to me (32)</a> </h2>
+                  <ul class="govuk-list task-menu__box-list">
+                    <li class="task-menu__box-item">
+                        <div class="task-menu__item-left">
+                          <span class="task-menu__item-link"><a href="#" class="govuk-link">Photonics for change long title with elipses</a> </span>
+                          <span class="task-menu__item-id">AWA345</span>
+                        </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">Today</span>
+                        <span class="task-menu__item-thing task-menu__item-thing--success">Change request accepted</span>
+                      </div>
+                    </li>
+
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-link"><a href="#" class="govuk-link">This title overflows, but it is hidden with even more ellipses</a> </span>
+                        <span class="task-menu__item-id">AWA345</span>
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">1 days outstanding</span>
+                        <span class="task-menu__item-thing">Change request</span>
+                      </div>
+                    </li>
+
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-link"><a href="#" class="govuk-link">This title overflows, but it is hidden with even more ellipses</a> </span>
+                        <span class="task-menu__item-id">AWA345</span>
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">1 days outstanding</span>
+                        <span class="task-menu__item-thing">Change request</span>
+                      </div>
+                    </li>
+
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-link"><a href="#" class="govuk-link">This title overflows, but it is hidden with even more ellipses</a> </span>
+                        <span class="task-menu__item-id">AWA345</span>
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">1 days outstanding</span>
+                        <span class="task-menu__item-thing">Change request</span>
+                      </div>
+                    </li>
+
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-link"><a href="#" class="govuk-link">This title overflows, but it is hidden with even more ellipses</a> </span>
+                        <span class="task-menu__item-id">AWA345</span>
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">1 days outstanding</span>
+                        <span class="task-menu__item-thing">Change request</span>
+                      </div>
+                    </li>
+
+                    <li class="task-menu__box-item task-menu__box-item--last">
+                      <a href="#" class="govuk-link govuk-!-font-size-16">View all assigned items (32)</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="task-menu__box task-menu__box--mess">
+                  {#<label class="task-menu__box-toggle" for="messBox">Messages (10)</label>
+                  <input type="checkbox" id="messBox" class="task-menu__box-check">#}
+                  <h2 class="govuk-heading-s"><a href="#" class="govuk-link">Messages (10)</a> </h2>
+                  <ul class="govuk-list task-menu__box-list">
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-subject">Collaboration agreement</span>
+                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">4 Jan 2020</span>
+                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
+                      </div>
+                    </li>
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-subject">Collaboration agreement</span>
+                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">4 Jan 2020</span>
+                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
+                      </div>
+                    </li>
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-subject">Collaboration agreement</span>
+                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">4 Jan 2020</span>
+                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
+                      </div>
+                    </li>
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-subject">Collaboration agreement</span>
+                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">4 Jan 2020</span>
+                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
+                      </div>
+                    </li>
+                    <li class="task-menu__box-item">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-subject">Collaboration agreement</span>
+                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">4 Jan 2020</span>
+                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
+                      </div>
+                    </li>
+
+                    <li class="task-menu__box-item task-menu__box-item--last">
+                      <div class="task-menu__item-left">
+                        <button class="govuk-button govuk-button--secondary govuk-button--s">Create message</button>
+                      </div>
+                      <div class="task-menu__item-right">
+                        <a href="#" class="govuk-link">View all messages (10)</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {#<div class="task-menu__bottom">
+                <button class="govuk-button govuk-button--secondary">Create message</button>
+              </div>#}
+            </div>
+          </div>
+        </div>
+        <script>
+          function toggleVisibility(_this, id, className) {
+            // event.preventDefault();
+            let toggleSwitch = _this;
+            let toggleItem = document.getElementById(id);
+            if (hasClass(toggleItem, className)) {
+              toggleSwitch.classList.add('filter__title--closed');
+              toggleItem.classList.remove(className);
+              toggleSwitch.setAttribute('aria-expanded', true);
+            }
+            else  {
+              toggleSwitch.classList.remove('filter__title--closed');
+              toggleItem.classList.add(className);
+              toggleSwitch.setAttribute('aria-expanded', false);
+            }
+            // return false;
+          }
+          function hasClass(target, className) {
+            return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+          }
         </script>
+
       {% endif %}
     </div>
   </div>

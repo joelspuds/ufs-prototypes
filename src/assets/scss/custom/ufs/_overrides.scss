@@ -193,3 +193,8 @@ table td:not([align]), table th:not([align]) {
 .govuk-input:disabled {
   border-color: govuk-colour("mid-grey");
 }
+
+.govuk-button--s {
+  padding: 4px 6px 3px;
+  @include govuk-font($size: 16);
+}

@@ -1,15 +1,28 @@
-$task-grey: #f1f1f1;
+$task-grey: #f3f2f1;
+$max-width: 544px;
 
 .task-menu {
   // margin-top:-40px;
   position:relative;
+  /*-webkit-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
+  -moz-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
+  box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);*/
+
+  &__pseudo-link {
+    color: govuk-colour("blue");
+    text-decoration: underline;
+
+    &:hover {
+      color: govuk-colour("dark-blue");
+    }
+  }
 
   &__toggle {
     display:block;
     float: right;
     border-radius: 0;
     width: 100%;
-    // max-width: 320px;
+    max-width: $max-width;
     height: 40px;
     // background-color: govuk-colour("light-grey");
     background-color: $task-grey;
@@ -22,27 +35,35 @@ $task-grey: #f1f1f1;
   &__wrapper {
     min-height: 40px;
     position:relative;
-    width: 320px;
+    width: 100%;
+    max-width: $max-width;
     // background-color: govuk-colour("light-grey");
     background-color: $task-grey;
     z-index: 100;
+    float: right;
   }
 
   &__contents {
     position:absolute;
+    box-sizing: border-box;
     //display: none;
     margin-top: 44px;
     //background-color: govuk-colour("light-grey");
     background-color: $task-grey;
-    width:95%;
+    width: 100%;
+    max-width: $max-width;
     padding: 10px;
     z-index: 101;
-    border-colour: govuk-colour("light-grey");
+    border-color: govuk-colour("mid-grey");
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
+    box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
   }
 
   &__inner {
     overflow: auto;
-    max-height: 400px;
+    // max-height: 400px;
+    max-height: 790px;
     background-color: govuk-colour("white");
     padding: 4px;
   }
@@ -61,5 +82,159 @@ $task-grey: #f1f1f1;
     padding-bottom:0;
     z-index: 99;
   }
+
+  /* non-js method */
+
+  &__contents {
+    // display: none;
+  }
+
+  &__label {
+    display:block;
+    float: right;
+    width: 100%;
+    height: 40px;
+    background-color: $task-grey;
+    @include govuk-font($size: 19);
+    text-align: left;
+    padding: 8px 10px;
+    cursor: pointer;
+
+    &--new {
+      @include govuk-font($size: 19, $weight: bold);
+    }
+  }
+
+  &__check {
+    position: relative;
+    display: none;
+
+    :after {
+      content:"test";
+      position: absolute;
+      display: block;
+    }
+
+    &:checked {
+
+
+      &~.task-menu__contents {
+        display: block;
+      }
+
+
+    }
+  }
+
+  &__box {
+
+    .govuk-heading-s {
+      margin:4px 0 10px 0;
+    }
+
+    &--ass {
+      border-top: 8px solid ufs-colour("sand");
+    }
+
+    &--mess {
+      border-top: 8px solid govuk-colour("blue");
+      margin-top: 20px;
+    }
+  }
+
+  &__box-list {
+    // display: none;
+    margin-bottom: 0;
+  }
+
+  &__box-toggle {
+    display: block;
+    padding: 4px 0;
+    margin-bottom: 4px;
+    color: govuk-colour("blue");
+    text-decoration: underline;
+    @include govuk-font($size: 19, $weight: bold);
+    cursor: pointer;
+
+    &:hover {
+      color: govuk-colour("dark-blue");
+    }
+  }
+
+  &__box-check {
+    display: none;
+
+    &:checked ~ .task-menu__box-list {
+      display: block;
+    }
+  }
+
+
+  &__box-item {
+    background-color: $task-grey;
+    min-height: 40px;
+    @include govuk-clearfix;
+    padding: 8px 4px;
+    border-top: 1px solid govuk-colour("mid-grey");
+    margin-bottom: 0!important;
+    @include govuk-font($size: 16);
+
+    &--last {
+      border-top: 1px solid govuk-colour("mid-grey");
+      text-align: right;
+      min-height: 10px;
+      background-color: govuk-colour("white");
+    }
+  }
+
+/*  &__mini-link {
+
+  }*/
+
+
+  &__item-left {
+    width:50%;
+    float:left;
+    text-align: left;
+
+    .govuk-button {
+      margin-bottom: 0;
+    }
+  }
+
+    &__item-link {
+      display: block;
+      // width: 250px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__item-id {
+      display: block;
+    }
+
+    &__item-subject {
+      display: block;
+    }
+
+    &__item-by {
+      display: block;
+    }
+
+  &__item-right {
+    text-align: right;
+  }
+
+    &__item-meta {
+      display: block;
+      color: govuk-colour("dark-grey");
+    }
+
+    &__item-thing {
+      display: block;
+      // @include govuk-font($size: 16);
+    }
 
 }
