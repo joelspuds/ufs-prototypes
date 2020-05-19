@@ -4,9 +4,19 @@ $max-width: 544px;
 .task-menu {
   // margin-top:-40px;
   position:relative;
-  /*-webkit-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
-  -moz-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
-  box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);*/
+  width: 100%;
+  // clear: both;
+
+  @at-root {
+    .js-enabled #{&} {
+      width: 66.66667%;
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+
 
   &__pseudo-link {
     color: govuk-colour("blue");
@@ -24,7 +34,6 @@ $max-width: 544px;
     width: 100%;
     max-width: $max-width;
     height: 40px;
-    // background-color: govuk-colour("light-grey");
     background-color: $task-grey;
     @include govuk-font($size: 16);
     text-align: left;
@@ -37,18 +46,14 @@ $max-width: 544px;
     position:relative;
     width: 100%;
     max-width: $max-width;
-    // background-color: govuk-colour("light-grey");
     background-color: $task-grey;
     z-index: 100;
     float: right;
   }
 
   &__contents {
-    position:absolute;
     box-sizing: border-box;
-    //display: none;
     margin-top: 44px;
-    //background-color: govuk-colour("light-grey");
     background-color: $task-grey;
     width: 100%;
     max-width: $max-width;
@@ -58,15 +63,21 @@ $max-width: 544px;
     -webkit-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
     -moz-box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
     box-shadow: 4px 4px 4px 0px rgba(192,192,192,0.75);
+
+    @at-root {
+      .js-enabled #{&} {
+        position:absolute;
+      }
+    }
   }
 
   &__inner {
     overflow: auto;
-    // max-height: 400px;
     max-height: 790px;
     background-color: govuk-colour("white");
-    padding: 4px;
   }
+
+
 
   &__bottom {
     height: 40px;
@@ -81,12 +92,6 @@ $max-width: 544px;
     padding-top: 0;
     padding-bottom:0;
     z-index: 99;
-  }
-
-  /* non-js method */
-
-  &__contents {
-    // display: none;
   }
 
   &__label {
@@ -117,19 +122,17 @@ $max-width: 544px;
 
     &:checked {
 
-
       &~.task-menu__contents {
         display: block;
       }
-
-
     }
   }
 
   &__box {
+    padding: 6px;
 
     .govuk-heading-s {
-      margin:4px 0 10px 0;
+      margin:2px 0 6px 0;
     }
 
     &--ass {
@@ -143,7 +146,6 @@ $max-width: 544px;
   }
 
   &__box-list {
-    // display: none;
     margin-bottom: 0;
   }
 
@@ -169,7 +171,6 @@ $max-width: 544px;
     }
   }
 
-
   &__box-item {
     background-color: $task-grey;
     min-height: 40px;
@@ -191,21 +192,13 @@ $max-width: 544px;
 
       @at-root {
         .js-enabled #{&} {
-
-          /*@include touch { }*/
-
           @include mobile {
-            display: none !important;
+            // display: none !important;
           }
         }
       }
     }
   }
-
-/*  &__mini-link {
-
-  }*/
-
 
   &__item-left {
     width:50%;
@@ -252,19 +245,22 @@ $max-width: 544px;
 
     &__item-thing {
       display: block;
-      // @include govuk-font($size: 16);
 
       &--success {
         color: govuk-colour("green");
       }
     }
 
+  &__is-chill {
+    border-left: 8px solid govuk-colour("blue");
+  }
 
-  &__item-meta,
-  &__item-thing,
-  &__item-subject,
-  &__item-link {
-    // line-height: 24px;
+  &__is-aglow {
+    border-left: 8px solid ufs-colour("sand");
+  }
+
+  &__is-hectic {
+    border-left: 8px solid govuk-colour("red");
   }
 
 }

@@ -66,7 +66,7 @@
 
         <div class="column is-8 task-menu">
           <div class="task-menu__wrapper" id="taskMenu">
-            <button class="task-menu__toggle" id="taskButton" onclick="toggleVisibility(this, 'taskContents', 'js-hidden')" aria-expanded="false">Workflow (2 new)</button>
+            <button class="task-menu__toggle task-menu__is-chill js-only" id="taskButton" onclick="toggleVisibility(this, 'taskContents', 'js-hidden')" aria-expanded="false">Workflow (2 new)</button>
 
             {#<label for="checkToggle" class="task-menu__label task-menu__pseudo-link task-menu__label--new" aria-label="Main menu" role="button" tabindex="0">Workflow (2 new)</label>
             <input type="checkbox" id="checkToggle" class="task-menu__check">#}
@@ -78,7 +78,7 @@
                   <input type="checkbox" id="assBox" class="task-menu__box-check" checked>#}
                   <h2 class="govuk-heading-s"><a href="#" class="govuk-link">Assigned to me (32)</a> </h2>
                   <ul class="govuk-list task-menu__box-list">
-                    <li class="task-menu__box-item task-menu__box-item--unread">
+                    <li class="task-menu__box-item task-menu__box-item--unread task-menu__is-aglow">
                         <div class="task-menu__item-left">
                           <span class="task-menu__item-link"><a href="#" class="govuk-link">Photonics for change long title with elipses</a> </span>
                           <span class="task-menu__item-id">AWA345</span>
@@ -143,10 +143,21 @@
                   <input type="checkbox" id="messBox" class="task-menu__box-check">#}
                   <h2 class="govuk-heading-s"><a href="#" class="govuk-link">Messages (10)</a> </h2>
                   <ul class="govuk-list task-menu__box-list">
-                    <li class="task-menu__box-item task-menu__box-item--unread">
+                    <li class="task-menu__box-item task-menu__box-item--unread task-menu__is-chill">
                       <div class="task-menu__item-left">
                         <span class="task-menu__item-subject">Collaboration agreement</span>
-                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+                        <span class="task-menu__item-by"><strong>By:</strong> <a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+
+                      </div>
+                      <div class="task-menu__item-right">
+                        <span class="task-menu__item-meta">4 Jan 2020</span>
+                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
+                      </div>
+                    </li>
+                    <li class="task-menu__box-item task-menu__box-item--unread task-menu__is-hectic">
+                      <div class="task-menu__item-left">
+                        <span class="task-menu__item-subject">Collaboration agreement</span>
+                        <span class="task-menu__item-by"><strong>By:</strong> <a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
 
                       </div>
                       <div class="task-menu__item-right">
@@ -157,7 +168,7 @@
                     <li class="task-menu__box-item">
                       <div class="task-menu__item-left">
                         <span class="task-menu__item-subject">Collaboration agreement</span>
-                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+                        <span class="task-menu__item-by"><strong>By:</strong> <a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
 
                       </div>
                       <div class="task-menu__item-right">
@@ -168,7 +179,7 @@
                     <li class="task-menu__box-item">
                       <div class="task-menu__item-left">
                         <span class="task-menu__item-subject">Collaboration agreement</span>
-                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+                        <span class="task-menu__item-by"><strong>By:</strong> <a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
 
                       </div>
                       <div class="task-menu__item-right">
@@ -179,18 +190,7 @@
                     <li class="task-menu__box-item">
                       <div class="task-menu__item-left">
                         <span class="task-menu__item-subject">Collaboration agreement</span>
-                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
-
-                      </div>
-                      <div class="task-menu__item-right">
-                        <span class="task-menu__item-meta">4 Jan 2020</span>
-                        <span class="task-menu__item-thing"><a href="#" class="govuk-link">View note</a></span>
-                      </div>
-                    </li>
-                    <li class="task-menu__box-item">
-                      <div class="task-menu__item-left">
-                        <span class="task-menu__item-subject">Collaboration agreement</span>
-                        <span class="task-menu__item-by"><strong>By:</strong><a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
+                        <span class="task-menu__item-by"><strong>By:</strong> <a href="#" class="govuk-link">Carol Baskin, Oxford</a> </span>
 
                       </div>
                       <div class="task-menu__item-right">
