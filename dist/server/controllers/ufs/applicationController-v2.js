@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.appV2AHRCOpportunityGet = appV2AHRCOpportunityGet;
 exports.appV2AHRCOpportunityPost = appV2AHRCOpportunityPost;
 exports.appV2tinyMCEApplicationIndexGet = appV2tinyMCEApplicationIndexGet;
+exports.appV2tinyMCEApplicationIndexPost = appV2tinyMCEApplicationIndexPost;
 exports.appV2tinyMCEApplicationViewGet = appV2tinyMCEApplicationViewGet;
 exports.appV2DetailsGet = appV2DetailsGet;
 exports.appV2DetailsPost = appV2DetailsPost;
@@ -151,6 +152,11 @@ function appV2tinyMCEApplicationIndexGet(req, res) {
   };
 
   return res.render('prototypes/application-v2/index', viewData);
+}
+
+function appV2tinyMCEApplicationIndexPost(req, res) {
+  const {} = req.body;
+  return res.redirect('/prototypes/application-v2/submitted');
 }
 
 // ************************************************************************

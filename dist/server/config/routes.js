@@ -217,6 +217,7 @@ router.post('/prototypes/emails/email-rte', demosController.richTextEmailPost);
 
 * *************************************************************** */
 router.get('/prototypes/application-v2', demosController.appV2tinyMCEApplicationIndexGet);
+router.post('/prototypes/application-v2', demosController.appV2tinyMCEApplicationIndexPost);
 /*router.get('/prototypes/application-v2/start', demosController.appV2tinyMCEApplicationGet);
 router.post('/prototypes/application-v2/start', demosController.appV2tinyMCEApplicationPost);*/
 router.get('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportGet);
