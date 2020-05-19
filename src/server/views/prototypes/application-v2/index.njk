@@ -144,17 +144,10 @@
              </div>
 
             <div class="application-controls govuk-clearfix">
-
-                {% if progressPercentage == 100 %}
-
-                    <p class="govuk-body">Submitting will send your application to UKRI. You will not be able to make changes to your application or resubmit after this point.</p>
-
-                    {{ components.button(text='Submit', extraClass="application-controls__submit", url='/prototypes/application-v2/submitted')}}
-               {# {%  else %}#}
-                    {#{{ components.button(text='Submit application for approval', extraClass="application-controls__submit", disabled=true)}}#}
-                {% endif %}
-
-                {#{{ components.link(text='Cancel/withdraw application', url='#', extraClass="application-controls__cancel", disabled=true)}}#}
+                <p class="govuk-body">Submitting will send your application to UKRI. You will not be able to make changes to your application or resubmit after this point.</p>
+                {% call components.form(action='/prototypes/application-v2/', method='POST',name='submitApplication') %}
+                <button type="submit" class="govuk-button application-controls__submit" name="submitButton" {% if progressPercentage != 100 %}disabled{% endif %}>Submit</button>
+                {%- endcall %}
             </div>
 
         {%- endcall %}
@@ -164,10 +157,14 @@
             <div class="progress-meter">
                 <div class="progress-meter__text progress-meter__text--back" role="progress-bar" aria-valuenow="27%"><span class="govuk-visually-hidden">Your application is</span> {{ progressPercentage }}% complete</div>
                 <div class="progress-meter__clipper" aria-hidden="true" style="clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%); -webkit-clip-path: inset(0% {{ reverseProgressPercentage }}% 0% 0%)">
-                    <div class="progress-meter__text progress-meter__text--front">{{ progressPercentage }}% complete</div>
+                    {% if progressPercentage == 100 %}
+                        <div class="progress-meter__text progress-meter__text--front"><strong>Ready to submit</strong></div>
+                    {% else %}
+                        <div class="progress-meter__text progress-meter__text--front">{{ progressPercentage }}% complete</div>
+                    {% endif %}
+
                 </div>
             </div>
-
             <div class="application-data">
                 <dl class="application-data__list">
                     <dt class="application-data__key">Funding Opportunity:</dt>
@@ -177,7 +174,9 @@
                     <dd class="application-data__value">APP00171</dd>
 
                     <dt class="application-data__key">Application deadline</dt>
-                    <dd class="application-data__value">Tuesday 8 October 2020, 4:00pm</dd>
+                    <dd class="application-data__value">Tuesday 8 October 2020, 4:00pm
+                        <br><span class="danger-text">You have x days until deadline</span>
+                    </dd>
 
                     <dt class="application-data__key">Funder</dt>
                     <dd class="application-data__value">AHRC</dd>

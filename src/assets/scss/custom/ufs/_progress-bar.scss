@@ -28,6 +28,10 @@
   color: white;
   background-color: #2c2d62;
   width: 100%;
+
+  strong {
+    color: govuk-colour("white");
+  }
 }
 
 .progress-meter__clipper {

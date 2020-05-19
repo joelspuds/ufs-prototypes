@@ -134,6 +134,11 @@ export function appV2tinyMCEApplicationIndexGet(req, res) {
   return res.render('prototypes/application-v2/index', viewData);
 }
 
+export function appV2tinyMCEApplicationIndexPost(req, res) {
+  const {} = req.body;
+  return res.redirect('/prototypes/application-v2/submitted');
+}
+
 // ************************************************************************
 //
 //       VIEW DYNAMIC

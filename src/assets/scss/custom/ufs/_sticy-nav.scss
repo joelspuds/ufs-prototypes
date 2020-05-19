@@ -1,8 +1,10 @@
 .sticky-nav {
 
   &--fixed {
-    position: fixed;
-    top: 10px;
+    @include desktop {
+      position: fixed;
+      top: 10px;
+    }
   }
 
   &__list {

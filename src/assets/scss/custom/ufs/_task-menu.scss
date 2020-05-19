@@ -174,7 +174,7 @@ $max-width: 544px;
     background-color: $task-grey;
     min-height: 40px;
     @include govuk-clearfix;
-    padding: 8px 4px;
+    padding: 8px 4px 6px;
     border-top: 1px solid govuk-colour("mid-grey");
     margin-bottom: 0!important;
     @include govuk-font($size: 16);
@@ -184,6 +184,21 @@ $max-width: 544px;
       text-align: right;
       min-height: 10px;
       background-color: govuk-colour("white");
+    }
+
+    &--unread {
+      background-color: govuk-colour("white");
+
+      @at-root {
+        .js-enabled #{&} {
+
+          /*@include touch { }*/
+
+          @include mobile {
+            display: none !important;
+          }
+        }
+      }
     }
   }
 
@@ -207,8 +222,9 @@ $max-width: 544px;
       // width: 250px;
       width: 100%;
       white-space: nowrap;
-      overflow: hidden;
+      overflow-x: hidden;
       text-overflow: ellipsis;
+      padding-bottom: 4px;
     }
 
     &__item-id {
@@ -217,6 +233,7 @@ $max-width: 544px;
 
     &__item-subject {
       display: block;
+      padding-bottom: 4px;
     }
 
     &__item-by {
@@ -230,11 +247,24 @@ $max-width: 544px;
     &__item-meta {
       display: block;
       color: govuk-colour("dark-grey");
+      padding-bottom: 4px;
     }
 
     &__item-thing {
       display: block;
       // @include govuk-font($size: 16);
+
+      &--success {
+        color: govuk-colour("green");
+      }
     }
+
+
+  &__item-meta,
+  &__item-thing,
+  &__item-subject,
+  &__item-link {
+    // line-height: 24px;
+  }
 
 }
