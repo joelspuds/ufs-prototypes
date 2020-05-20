@@ -1,28 +1,16 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 
-{#{% set bodyClass = 'new-gds' %}#}
 {% set pageTitle = APPLICATION_OVERVIEW_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
-{#{% set showTinyMCEScripts = true %}#}
 {% set storedSpeakerNotes = storedSpeakerNotes if storedSpeakerNotes %}
 {% set projectName = projectName if projectName %}
 {% set projectDetails = projectDetails if projectDetails %}
 {% set hasBeenUpdated = hasBeenUpdated if hasBeenUpdated %}
-{#{% set teamHasBeenUpdated = teamHasBeenUpdated if teamHasBeenUpdated %}
-{% set caseHasBeenUpdated = caseHasBeenUpdated if caseHasBeenUpdated %}
-{% set capabilityHasBeenUpdated = capabilityHasBeenUpdated if capabilityHasBeenUpdated %}
-{% set ethicalHasBeenUpdated = ethicalHasBeenUpdated if ethicalHasBeenUpdated %}
-{% set resourcesHasBeenUpdated = resourcesHasBeenUpdated if resourcesHasBeenUpdated %}#}
-
 {% set projectDetailsIsComplete = projectDetailsIsComplete if projectDetailsIsComplete %}
 {% set eligibilityInputComplete = eligibilityInputComplete if eligibilityInputComplete %}
 {% set widerEffectIsComplete = widerEffectIsComplete if widerEffectIsComplete %}
 {% set researchExperienceIsComplete = researchExperienceIsComplete if researchExperienceIsComplete %}
-
-
 {% set progressPercentage = progressPercentage if progressPercentage %}
 {% set reverseProgressPercentage = reverseProgressPercentage if reverseProgressPercentage %}
-
-
 {% set backLinkContents =  [{url:'/prototypes/application-v2/opportunity', text:'Back to Opportunity'}] %}
 
 {% block content %}

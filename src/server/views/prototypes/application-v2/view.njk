@@ -21,6 +21,10 @@
 {% set widerEffect = widerEffect if widerEffect %}
 {% set researchExperience = researchExperience if researchExperience %}
 {% set writeReview = writeReview if writeReview %}
+{% set readOnly = readOnly if readOnly %}
+
+{% set actionText = 'View this section' if readOnly else 'Edit this section'%}
+
 
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
@@ -58,11 +62,11 @@
 
         {% call components.bulmaColumnAny(size='is-9', customID='main-content') %}
 
-            {{ components.alerts(text='This is how reviewers will see your proposal.', type='info')}}
+            {{ components.alerts(text='This is how assessors will see your proposal.', type='info')}}
 
             {{ components.linkHeading(text=projectName, tag='h2', size='l', extraClass='serif') }}
 
-            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText='Edit this section', additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
+            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText=actionText, additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
 
             <div class="serif u-space-b30">
             {% if detailsInput %}
@@ -77,7 +81,7 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='2. Eligibility - your situation', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
+            {{ components.linkHeading(text='2. Eligibility - your situation', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText=actionText, additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
 
             <div class="serif u-space-b30">
                 {% if eligibilityInput %}
@@ -92,7 +96,7 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='3. Eligibility - your programme topic', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText='Edit this section', additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
+            {{ components.linkHeading(text='3. Eligibility - your programme topic', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText=actionText, additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
 
             <div class="serif u-space-b30">
                 {% if programmeTopic %}
@@ -107,7 +111,7 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='4. Your research and its wider effect', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText='Edit this section', additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
+            {{ components.linkHeading(text='4. Your research and its wider effect', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText=actionText, additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
 
             <div class="serif u-space-b30">
                 {% if widerEffect %}
@@ -122,7 +126,7 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='5. Your research experience', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText='Edit this section', additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
+            {{ components.linkHeading(text='5. Your research experience', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText=actionText, additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
 
             <div class="serif u-space-b30">
                 {% if researchExperience %}
@@ -137,7 +141,7 @@
             </div>
             {{ components.divider() }}#}
 
-            {{ components.linkHeading(text='6. Write a review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText='Edit this section', additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
+            {{ components.linkHeading(text='6. Write a review', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText=actionText, additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
 
             <div class="serif u-space-b30">
                 {% if writeReview %}

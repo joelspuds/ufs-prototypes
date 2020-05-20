@@ -159,6 +159,7 @@ export function appV2tinyMCEApplicationViewGet(req, res) {
   researchExperience = req.session.researchExperience;
 
   writeReview = req.session.writeReview;
+  let readOnly = req.session.readOnly;
 
   viewData = {
     projectName,
@@ -168,6 +169,7 @@ export function appV2tinyMCEApplicationViewGet(req, res) {
     widerEffect,
     researchExperience,
     writeReview,
+    readOnly,
   };
   return res.render('prototypes/application-v2/view', viewData);
 }
