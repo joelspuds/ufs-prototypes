@@ -8,19 +8,13 @@
 {#{% set isAdminUser = true %}#}
 {% set allOrgs = allOrgs if allOrgs %}
 {% set organisationName = organisationName if organisationName else 'You have not selected an organisation name' %}
-
+{% set backLinkContents =  [{url:'/prototypes/register-v1/organisation', text:'Back to organisation'}] %}
 {%  set loggedOut = true %}
 
 
 {% set pageTitle = 'Confirm your organisation’s name' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to organisation', url='/prototypes/register-v1/organisation') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}

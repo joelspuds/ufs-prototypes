@@ -9,16 +9,11 @@
 {% set applicantsError = applicantsError if applicantsError %}
 {% set applicantsErrorMessage = applicantsErrorMessage if applicantsErrorMessage %}
 {% set applicantsIsComplete = applicantsIsComplete if applicantsIsComplete %}
+{% set backLinkContents =  [{url:'/prototypes/opportunity-v3/workflow-application', text:'Back to application'}] %}
 
 {% set isAdminUser = true %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to application', url='/prototypes/opportunity-v3/workflow-application') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% if applicantsError %}
 

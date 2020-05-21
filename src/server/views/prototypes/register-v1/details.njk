@@ -10,18 +10,12 @@
 {% set firstName = firstName if firstName %}
 {% set lastName = lastName if lastName %}
 {% set emailAddress = emailAddress if emailAddress %}
-
+{% set backLinkContents =  [{url:'/prototypes/register-v1/', text:'Back to Opportunities page'}] %}
 {%  set loggedOut = true %}
 
 {% set pageTitle = 'Enter your details' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to Opportunity page', url='/prototypes/register-v1/organisation') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% if isDetailsError %}
 

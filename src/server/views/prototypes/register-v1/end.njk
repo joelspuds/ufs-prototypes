@@ -4,14 +4,9 @@
 {%  set loggedOut = true %}
 
 {% set pageTitle = 'Account created' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set backLinkContents =  [{url:'/prototypes/register-v1/signin', text:'Back to sign in'}] %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to sign in', url='/prototypes/register-v1/signin') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}

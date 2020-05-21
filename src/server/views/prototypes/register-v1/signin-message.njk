@@ -9,17 +9,11 @@
 {%  set loggedOut = true %}
 {% set signinError = signinError if signinError %}
 {% set savedEmail = savedEmail if savedEmail %}
-
+{% set backLinkContents =  [{url:'/prototypes/register-v1/', text:'Back to Opportunities page'}] %}
 
 {% set pageTitle = 'Sign in ' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
-
-    {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.backLink(text='Back to Opportunities page', url='/prototypes/register-v1/') }}
-        {%- endcall %}
-    {%- endcall %}
 
     {% call components.bulmaRow() %}
 

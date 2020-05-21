@@ -1,16 +1,16 @@
   <!-- phase-banner -->
-  {% call components.bulmaRow() %}
-    {% call components.bulmaColumnAny(size='is-full') %}
-      <div class="app-phase-banner__wrapper">
-        <div class="govuk-phase-banner app-phase-banner ">
-          <p class="govuk-phase-banner__content">
-            <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
-            <span class="govuk-phase-banner__text">
-          This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
-        </span>
-          </p>
+  <div class="container ">
+    <div class="columns">
+      <div class="column is-full u-pad-b0">
+        <div class="app-phase-banner__wrapper">
+          <div class="govuk-phase-banner app-phase-banner ">
+            <p class="govuk-phase-banner__content">
+              <strong class="govuk-tag govuk-phase-banner__content__tag">beta</strong>
+              <span class="govuk-phase-banner__text">This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.</span>
+            </p>
+          </div>
         </div>
       </div>
-    {%- endcall %}
-  {%- endcall %}
+    </div>
+  </div>
   <!-- /phase-banner -->
