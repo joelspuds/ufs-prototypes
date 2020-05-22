@@ -12,13 +12,13 @@
 {%  set loggedOut = true %}
 
 
-{% set pageTitle = 'Confirm your organisation’s name' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Confirm your organisation\'s name' + GLOBAL_TAG_TITLE_SUFFIX %}
 
 {% block content %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Confirm your organisation’s name', caption='Apply to AHRC New Generation Thinkers scheme') }}
+            {{ components.captionHeading(text='Confirm on whose behalf you\'re applying', caption='Apply to AHRC New Generation Thinkers scheme') }}
         {%- endcall %}
     {%- endcall %}
 
