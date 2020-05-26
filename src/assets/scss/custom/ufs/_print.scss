@@ -1,0 +1,30 @@
+@media print {
+  body {
+    background-color: #fff;
+  }
+
+  body * {
+    color: #000!important;
+  }
+
+  main {
+    padding: 0 2em;
+  }
+
+  header,
+  .new-header,
+  .app-phase-banner__wrapper,
+  .govuk-back-link,
+  .govuk-tabs,
+  .alerts,
+  .is-3, .is-4,
+  .sticky-nav,
+  .govuk-heading_additional-link,
+  a[href="#main-content"],
+  footer,
+  .govuk-footer,
+  .ufs-footer{
+    display: none!important;
+  }
+
+}
