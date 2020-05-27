@@ -1,7 +1,7 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'NOTadmin' %}
 {% set pageTitle = 'Page not found' + GLOBAL_TAG_TITLE_SUFFIX %}
-{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
 {% set isAdminUser = false %}
 
 {% block content %}
@@ -25,11 +25,11 @@
                 <p class="govuk-body govuk-!-font-size-24">If you entered a web address please check it was correct.</p>
 
                 <p class="govuk-body">
-                    You can return to your <a href="/" class="govuk-link">UKRI Funding Service dashboard</a>.
+                    <a href="/" class="govuk-link">Return to your UKRI Funding Service dashboard</a>.
                 </p>
 
                 <p class="govuk-body">
-                    You can view all the opportunities on the <a href="" class="govuk-link">UKRI Funding Service homepage</a>.
+                    <a href="" class="govuk-link">View all UKRI Funding Service opportunities</a>.
                 </p>
 
             {%- endcall %}
@@ -37,28 +37,11 @@
         {%- endcall %}
     </section>
 
+    {% include '../../layouts/partials/user-contact.njk' %}
+
 {% endblock %}
 
 {% block bodyScripts %}
     {#<script>
-      function toggleVisibility(_this, id, className) {
-        // event.preventDefault();
-        let toggleSwitch = _this;
-        let toggleItem = document.getElementById(id);
-        if (hasClass(toggleItem, className)) {
-          toggleSwitch.classList.add('filter__title--closed');
-          toggleItem.classList.remove(className);
-          toggleSwitch.setAttribute('aria-expanded', true);
-        }
-        else  {
-          toggleSwitch.classList.remove('filter__title--closed');
-          toggleItem.classList.add(className);
-          toggleSwitch.setAttribute('aria-expanded', false);
-        }
-        // return false;
-      }
-      function hasClass(target, className) {
-        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
-      }
     </script>#}
 {% endblock %}
