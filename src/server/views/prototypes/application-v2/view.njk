@@ -57,8 +57,9 @@
             <nav class="sticky-nav">
                 {{ components.linkHeading(text='Contents', tag='h2', size='s')}}
                 {{ components.list(items=listItems, parentClass='sticky-nav')}}
-                <p class="govuk-body js-only"><a href="#" class="govuk-link" id="printThis" onclick="window.print();return false;">Print this page</a> </p>
+                <a href="#" class="govuk-link js-only print-link print-link--tabs" id="printThis" onclick="window.print();return false;">Print this page</a>
             </nav>
+
         {%- endcall %}
 
         {% call components.bulmaColumnAny(size='is-9', customID='main-content') %}
