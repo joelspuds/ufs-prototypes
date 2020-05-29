@@ -1,0 +1,39 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Empty paged' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Only darkness', caption='There is nothing') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <p class="govuk-body govuk-!-font-size-24">When you gaze into the abyss, the abyss also gazes into you.</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

@@ -198,3 +198,10 @@ table td:not([align]), table th:not([align]) {
   padding: 4px 6px 3px;
   @include govuk-font($size: 16);
 }
+
+html {
+  background-color: govuk-colour("black");
+}
+body {
+  background-color: govuk-colour("white");
+}
