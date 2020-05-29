@@ -1,27 +1,3 @@
-/*.ufs-footer {
-  background-color: govuk-colour("black");
-  color: govuk-colour("white")!important;
-
-  * {
-    color: govuk-colour("white");
-  }
-
-  .govuk-footer__link {
-    color: govuk-colour("white");
-
-    &:hover {
-      color: govuk-colour("black");
-    }
-  }
-
-  .govuk-footer__list {
-    margin-top:10px;
-  }
-
-  .govuk-footer__list-item {
-    margin-bottom: 5px;
-  }
-}*/
 .ufs-footer {
   background-color: govuk-colour("black");
   color: govuk-colour("white")!important;
@@ -34,7 +10,6 @@
     color: govuk-colour("white");
 
     &:hover {
-      // color: govuk-colour("black");
       text-decoration: underline;
     }
     &:focus {
@@ -64,8 +39,6 @@
 }
 
 .govuk-footer__link {
-  // padding: 2px 0 0 0;
-
   font-weight: bold;
   @include govuk-font($size: 16, $weight: bold);
 }

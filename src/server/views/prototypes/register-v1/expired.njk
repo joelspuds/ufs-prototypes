@@ -8,7 +8,7 @@
 {#{% set isAdminUser = true %}#}
 {% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
 {%  set loggedOut = true %}
-{% set backLinkContents =  [{url:'/prototypes/register-v1/', text:'Back to Opportunities page'}] %}
+{#{% set backLinkContents =  [{url:'/prototypes/register-v1/', text:'Back to Opportunities page'}] %}#}
 
 {% set pageTitle = 'This link has expired' + GLOBAL_TAG_TITLE_SUFFIX %}
 
@@ -24,7 +24,7 @@
 
         {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
 
-            <p class="govuk-body">We need to email you a new link so you can reset your password.</p>
+            <p class="govuk-body">To verify your details, we need to resend you the email.</p>
 
             <p class="govuk-body">
                 <a href="#" class="govuk-button">Get new link</a>
