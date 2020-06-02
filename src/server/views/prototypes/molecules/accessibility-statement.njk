@@ -1,0 +1,122 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Aceessibility statement' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Accessibility statement for UKRI Funding Service') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+
+                <p class="govuk-body">This accessibility statement explains how accessible the UKRI Funding Service application is and how to report accessibility problems with it.</p>
+                <p class="govuk-body">This service is not part of the wider GOV.UK website. There is a separate <a class="govuk-link" href="https://www.gov.uk/help/accessibility-statement">accessibility statement</a> for the main GOV.UK website.</p>
+                <p class="govuk-body">This page only contains information about UKRI Funding Service, available at [insert domain/subdomain]</p>
+
+        <h2 class="govuk-heading-m">Using this service</h2>
+                <p class="govuk-body">UKRI Funding Service enables universities, research companies, industry and interested individuals to apply for grants and funding, for research and innovation initiatives within the UK.</p>
+                <p class="govuk-body">This application is part of ukri.org and is run by UKRI. One of this application’s aims is to make sure as many people who need to use it can do so.</p>
+
+                <p class="govuk-body">It has been designed so users can:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>change colours, contrast levels and fonts</li>
+                    <li>zoom in up to 300% without the text spilling off the screen</li>
+                    <li>navigate most of the website using just a keyboard</li>
+                    <li>navigate most of the website using speech recognition software</li>
+                    <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
+                </ul>
+
+
+        <p class="govuk-body">We have also made the website text as simple as possible to understand.</p>
+                <p class="govuk-body">If you have a disability, <a class="govuk-link" href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> has help and advice to make your device easier to use.</p>
+        <h2 class="govuk-heading-m">Browser support</h2>
+                <p class="govuk-body">This website has been tested with a wide range of browser software and is compatible with the latest versions of Internet Explorer, Google Chrome, Mozilla Firefox and Mac Safari.</p>
+                <p class="govuk-body">This website has also been tested on mobile platforms including Google Android and Apple iOS.</p>
+
+        <p class="govuk-body">If you can see a message on the webpage stating 'You need to have JavaScript enabled to view this video':</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>You should ensure you have the latest version of Java installed on your computer or device and that it is enabled for use. Refer to your web browser's help file to find out how to do this.
+                How accessible this application is</li>
+        </ul>
+        <p class="govuk-body">This service is [insert the result from the audit here] with the <a class="govuk-link" href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1 AA standard</a>.</p>
+                <p class="govuk-body">There are also some aspects of it that are not yet fully compliant with accessibility standards, which are listed below under the section: ‘Technical information about this service’s accessibility’.</p>
+
+        <h2 class="govuk-heading-m">Reporting accessibility problems with this website</h2>
+                <p class="govuk-body">We are always looking to improve the accessibility of this website. If you find any problems that are not listed in this statement, or you think we are not meeting accessibility requirements, contact <a class="govuk-link" href="mailto:">[email_contact]</a></p>
+
+        <h2 class="govuk-heading-m">What to do if you are not happy with how we respond to your complaint</h2>
+
+                <p class="govuk-body">The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you are not happy with how we respond to your complaint, <a class="govuk-link" href="https://www.equalityadvisoryservice.com/">contact the Equality Advisory and Support Service (EASS)</a>, or the <a class="govuk-link" href="https://www.equalityni.org/Home">Equality Commission for Northern Ireland (ECNI)</a> if you live in Northern Ireland.</p>
+
+        <h2 class="govuk-heading-m">Contacting us</h2>
+        <h3 class="govuk-heading-s">In person</h3>
+                <p class="govuk-body">We provide a text relay service for people who are D/deaf, hearing impaired or have a speech impediment. Our offices also have audio induction loops. And if you contact us before your visit, we can arrange a British Sign Language (BSL) interpreter.</p>
+        <h3 class="govuk-heading-s">Telephone</h3>
+                <p class="govuk-body">Call 0300 321 4357 to speak to an adviser (9:00am to 5:30pm, 5 days a week). Calls are free from landlines and most mobile numbers. Find out more about <a href="https://www.gov.uk/call-charges" class="govuk-link">call charges and freephone numbers</a>.</p>
+        <h3 class="govuk-heading-s">Email</h3>
+                <p class="govuk-body">Send your question or query to <a class="govuk-link" href="mailto:support@fundingservice.ukri.org">support@fundingservice.ukri.org</a> and we'll get back to you as soon as possible.</p>
+        <h3 class="govuk-heading-s">Assistance</h3>
+                <p class="govuk-body">If you need help with the service we can offer telephone, web conference or face to face assistance. Call 0300 321 4357 to speak to an advisor.</p>
+
+        <h2 class="govuk-heading-m">Technical information about this website’s accessibility</h2>
+                <p class="govuk-body">UKRI is committed to making this service accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+
+                <p class="govuk-body">Following both an internal an external assessment, against the <a href="https://www.w3.org/TR/WCAG21/" class="govuk-link">Web Content Accessibility Guidelines version 2.1 AA standard</a>, this website is (delete the two that are inappropriate…)
+                <p class="govuk-body">
+            …fully compliant.<br>
+            …partially compliant, due to the non-compliances listed below.<br>
+            …not compliant. The non-accessible sections are listed below.<br>
+            </p>
+
+
+        <h2 class="govuk-heading-m">Non accessible content</h2>
+                <p class="govuk-body">The content listed below is non-accessible for the following reasons.</p>
+
+                <p class="govuk-body">
+            Non-compliance with the accessibility regulations:  (Example text from another accessibility statement for reference)
+            •	2.4.4 Link Purpose (in context) and 2.4.9 Link Purpose (link only): there are instances of incorrect or insufficient hidden link text, or inconsistent hidden text language, as well as a number of instances where there is an absence of hidden text on links. There should be more precise context around the change links and, when they are bound to a question, they should refer to that question. Some links also don’t link to the correct elements on the page. These non-compliant errors occur when using JAWS, NVDA and Voiceover for iPhone. We aim to resolve this issue by XX/XX/2020.
+
+            •	WCAG 1.3.1 Info and Relationships There is no context around subheadings ‘Trade Mark’ and ‘1’. Also on entering a number, larger than 10 digits e.g. ‘12345678900’ items, into the ‘Number of items’ field, the error thrown is ‘Enter the number of items using numbers’. This is incorrect and should say that there is a maximum amount of items you can put in. The title for the weight field has no decimal point but the answer does. We aim to resolve this issue by XX/XX/2020.
+
+            •	WCAG 2.4.10 Section Headings: each of the search result items should be marked up as a heading 3 to make the page easier to navigate. We aim to resolve this issue by XX/XX/2020.</p>
+
+        <h2 class="govuk-heading-m">Disproportionate burden</h2>
+                <p class="govuk-body">(Use this section to list accessibility problems that would be a disproportionate burden to fix and list which of the WCAG 2.1 success criteria the problem fails on)
+            Example text: There’s no way to skip the repeated content in the page header (for example, a ‘skip to main content’ option). This fails WCAG 2.1 success criterion 2.4.1 (bypass blocks).</p>
+
+
+
+        <h2 class="govuk-heading-m">How we tested this service</h2>
+                <p class="govuk-body">The service was last tested on [DD Month 2020] and was checked for compliance with WCAG 2.1 AA by [name_of_testing_org].</p>
+                <p class="govuk-body">The service was built using parts that were tested by UKRI and included disabled users.</p>
+                <p class="govuk-body">You can read the full accessibility audit report [shall we add a link to the report?].</p>
+                <p class="govuk-body">This page was prepared on [date when it was first published]. It was last updated on [date when it was last updated].</p>
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

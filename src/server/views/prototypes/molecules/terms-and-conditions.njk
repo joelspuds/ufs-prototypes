@@ -1,0 +1,475 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Terms and conditions' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Terms and conditions') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <p class="govuk-body">
+                    <strong> The following paragraphs specify the basis on which you may use the UKRI Funding Service. They should be read in conjunction with the</strong> <a href="https://www.ukri.org/terms-of-use/">UKRI website's Terms of Use</a> <strong>. Please ensure that you understand these terms and conditions. By accessing the service you are abiding by these before proceeding further.                   </strong></p>
+
+                <h2 class="govuk-heading-m">1. General</h2>
+                <h3 class="govuk-heading-s">1.1 Definitions</h3>
+
+                <p class="govuk-body">
+                    <strong>“The system”</strong>
+                    – <strong> </strong>the UKRI Funding Service, including the associated
+                    hardware, software, databases and Web pages.
+                </p>
+                <p class="govuk-body">
+                    “<strong>The funding bodies</strong>” – Arts and Humanities Research
+                    Council, Biotechnology and Biological Sciences Research Council,
+                    Engineering and Physical Sciences Research Council, Economic and Social
+                    Research Council, Medical Research Council, Natural Environment Research
+                    Council, Science and Technology Facilities Council, UK Research and
+                    Innovation, Innovate UK and Research England.
+                </p>
+                <p class="govuk-body">
+                    <strong>UK Research and Innovation (</strong>
+                    “<strong>UKRI</strong>”) “<strong>we</strong>”, “<strong>us</strong>”, “    <strong>our</strong>”, “<strong>ourselves</strong>” <strong>– </strong>the
+                    owner and provider of this service, on behalf of all associated UKRI
+                    funding bodies and Councils.
+                </p>
+                <p class="govuk-body">
+                    <strong>“User”, “you”, “your”, “yourself”</strong>
+                    – an individual who uses the system.
+                </p>
+                <p class="govuk-body">
+                    <strong>“Service”</strong>
+                    – the service provided by UKRI through the UKRI Funding Service.
+                </p>
+
+                <h3 class="govuk-heading-s">1.2 What do these terms and conditions cover?</h3>
+                <p class="govuk-body">
+                    These terms and conditions tell you what constitutes legal use of the
+                    system. You must follow all our instructions on the use of the system.
+                </p>
+                <p class="govuk-body">
+                    The Laws of England and Wales govern these terms and conditions. The terms
+                    and conditions reflect what is acceptable to UKRI on the one hand, and the
+                    research and related communities within which UKRI operates on the other.
+                </p>
+                <h3 class="govuk-heading-s">1.3 Changes to these terms and conditions</h3>
+                <p class="govuk-body">
+                    We reserve the right to change these terms and conditions. It is your
+                    responsibility to periodically check these terms and conditions to see if
+                    you are still willing to be bound by them.
+                </p>
+                <p class="govuk-body">
+                    Where possible, we will give you reasonable notice of changes and the date
+                    they take effect. The first time you log into the system, on or after this
+                    date, you will be presented with the new terms and conditions. Following
+                    such notification your continued use of the system will be taken as
+                    acceptance of the revised terms and conditions.
+                </p>
+                <h3 class="govuk-heading-s">1.4 System modification</h3>
+                <p class="govuk-body">
+                    Where reasonably possible, we will give you advanced notice of significant
+                    changes to the system. We reserve the right to change, suspend or
+                    discontinue any or all parts of the system at any time without incurring
+                    any liability from you.
+                </p>
+                <h2 class="govuk-heading-m">2. Use of the system</h2>
+                <p class="govuk-body">
+                    Use of the system is restricted to:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>applicants for Opportunities available through the UKRI Funding Service</li>
+                    <li>their colleagues, organisations they represent and associated parties</li>
+                    <li>the funding bodies that comprise UKRI and other associated funding contributors</li>
+                    <li>reviewers, panellists, monitors and auditors.</li>
+                </ul>
+                <p class="govuk-body">
+                    You must only view and use those parts of the system to which you have been given access. We reserve the right to stop access to the system (or parts of it) without notice or liability. We may also seek to invoke other relevant organisational, civil or criminal penalties.</p>
+                <p class="govuk-body">You must not upload, distribute or publish on the system any material that:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>is pornographic in content (unless it is a legitimate part of a lawful research proposal)</li>
+                    <li>is part of criminal or terrorist activities (studies of such activities for lawful research purposes are permissible)</li>
+                    <li>promotes or encourages racism or intolerance</li>
+                    <li>is illegal</li>
+                    <li>is untruthful</li>
+                    <li>is defamatory, offensive or abusive</li>
+                    <li>may bring us into disrepute;</li>
+                    <li>is known to be infected with a virus, worm, Trojan horse, trap-door program or malicious code.</li>
+                </ul>
+                <h2 class="govuk-heading-m">3. Privacy, confidentiality and disclosure</h2>
+                <h3 class="govuk-heading-s">3.1 Use of your personal information</h3>
+
+                <p class="govuk-body">All personal data provided to UKRI will be processed in accordance with current UK data protection legislation. Further information on how we use personal data, and how you can exercise your rights as a data subject, can be found in the UK Research and Innovation Privacy Notice (<a href="https://www.ukri.org/privacy-notice/">https://www.ukri.org/privacy-notice/</a>).
+                </p>
+                <p class="govuk-body">All personal data submitted via this system is processed under UKRI’s Public Task.</p>
+                <p class="govuk-body">UKRI will use personal data submitted by system users for purposes associated with the application and award processes for grants, fellowships and studentships. this includes:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>setting up and managing your user account</li>
+                    <li>communicating with you about upcoming opportunities</li>
+                    <li>the registration of your proposal</li>
+                    <li>the resolution of any queries which you may raise</li>
+                    <li>the operation of awards processing and management information systems</li>
+                    <li>the acquisition of reviewer and panellist comments on applications, awards and projects</li>
+                    <li>the preparation of material for use by expert reviewers, and panellists</li>
+                    <li>your review of applications, awards and projects (if you are a reviewer)</li>
+                    <li>your response to reviewer and panellist comments (if you are an applicant)</li>
+                    <li>payments made to your Organisation</li>
+                    <li>statistical analysis in relation to the evaluation of research and the study of trends</li>
+                    <li>our inviting you to participate in surveys about the level of services provided by UKRI*</li>
+                    <li>UKRI policy and strategy studies*.</li>
+                </ul>
+                <p class="govuk-body">
+                    * this may include research undertaken by a third party on behalf of UKRI.
+                </p>
+                <p class="govuk-body">
+                    We will only ask you to provide the minimum amount of data that is
+                    necessary for us to be able to meet our purposes.
+                </p>
+                <p class="govuk-body">
+                    You are responsible for maintaining your personal data, including contact
+                    details, on the system. If you cannot update all your personal data
+                    yourself, you should notify the UKRI Funding Service Helpdesk when data is
+                    incorrect or out of date. We will then consider how best to update the
+                    data. In some instances, for UKRI to carry out core business, your contact
+                    data may be amended by UKRI staff. You will be notified of such changes.
+                </p>
+                <p class="govuk-body">
+                    All information held by UKRI is kept in accordance with the record
+                    retention policy. There will be occasions where information submitted to
+                    this system will be pulled into other systems for processing and/or
+                    analysis.
+                </p>
+                <p class="govuk-body">
+                    A limited set of data is published relating to funded research will be
+                    published. More information can be found in 3.3 below.
+                </p>
+                <p class="govuk-body">
+                    By accessing the system, you accept these terms and conditions, and agree
+                    to your personal data being processed by UKRI in this way and stored on the
+                    system and on our associated internal systems
+                </p>
+                <p class="govuk-body">
+                    If you have any queries with regard to the processing of your personal
+                    data, please contact our Data Protection Officer:    <a href="mailto:dataprotection@ukri.org">dataprotection@ukri.org</a>
+                </p>
+                <h3 class="govuk-heading-s">3.2 Confidentiality of your application</h3>
+                <p class="govuk-body">
+                    We acknowledge the importance of keeping all details in your submission
+                    confidential. This is necessary to encourage the submission of innovative
+                    proposals from the research community and to encourage frank reviewer
+                    comment. Accordingly, you and UKRI undertake to each other to keep
+                    confidential all information in relation to the submission and its review.
+                </p>
+                <p class="govuk-body">
+                    Confidential information is not released other than as required for
+                    operational purposes and within the peer review process, unless there is an
+                    overriding public interest, or one of the circumstances outlined below
+                    applies:
+                </p>
+                <p class="govuk-body">
+                    • where your application is approved and funded. In such situations,
+                    paragraph 3.3 will apply so that UKRI can disclose those details
+                </p>
+                <p class="govuk-body">
+                    • when UKRI is required to disclose details by law (including under the
+                    Freedom of Information Act 2000) or by any regulatory body to whose rule
+                    the UK Research and Innovation is subject
+                </p>
+                <p class="govuk-body">
+                    • where the information is already in the public domain or gets into the
+                    public domain through no fault of ours. In this respect, when details of
+                    the research and innovation contained in your proposal become generally
+                    available, UKRI’s obligation of confidentiality ends
+                </p>
+                <p class="govuk-body">
+                    • where the information was provided to us by any third party who had a
+                    lawful right to disclose it to us and who did not require us to hold it in
+                    confidence
+                </p>
+                <p class="govuk-body">
+                    • where the information was already rightfully in our possession and not
+                    confidential at the time of its receipt or is referred to above as to be
+                    made publicly available.
+                </p>
+                <p class="govuk-body">
+                    UKRI may disclose all and any information under 3.3 below to our employees,
+                    and employees of associated funders as appropriate, or to expert reviewers
+                    and panellists involved in assessing applications. UKRI undertake to make
+                    such employees, referees and committee members aware of the confidentiality
+                    of the information described in 3.3 below.
+                </p>
+                <h3 class="govuk-heading-s">3.3 Disclosure</h3>
+                <p class="govuk-body">
+                    The following information contained in funded research proposals will be
+                    routinely made publicly available:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        name of the lead organisation or recipient
+                    </li>
+                    <li>
+                        details of applicants (title, forenames, initials, surname,
+                        organisation and department)
+                    </li>
+                    <li>
+                        name(s) of partner organisations
+                    </li>
+                    <li>
+                        project title
+                    </li>
+                    <li>
+                        a description of your subject or study or research (e.g. project
+                        summary/abstract, and Impact Summary information).
+                    </li>
+                    <li>
+                        value and duration of proposal and any subsequent grant.
+                    </li>
+                    <li>
+                        the type of award.
+                    </li>
+                </ul>
+                <p class="govuk-body">
+                    UKRI is subject to the Freedom of Information Act and the Environmental
+                    Information Regulations. As such further information may be released within
+                    the boundaries of the legislation if requested. All requests for additional
+                    information are considered on their own merits.
+                </p>
+                <h3 class="govuk-heading-s">3.5 Use of cookies</h3>
+                <p class="govuk-body">
+                    Services provided by the UKRI website, including the UKRI Funding Service,
+                    involves placing small amounts of information on your computer, tablet,
+                    mobile phone or other device. These include small files known as cookies.
+                    They cannot be used to identify you personally. The cookies:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        recognise that you have already given a username and password so you
+                        don't need to do it for every web page requested
+                    </li>
+                    <li>
+                        recognise if you have already selected to use the High Contrast version
+                        of the UKRI Funding Service, so that you do not have to reselect the
+                        option every time you visit system.
+                    </li>
+                </ul>
+                <p class="govuk-body">
+                    To be able to use the service you will need to set your browser settings to
+                    enable cookies.
+                </p>
+                <p class="govuk-body">
+                    You can view the full range of cookies used by the UKRI Funding Service,
+                    including those over and above the cookies just used by the UKRI website,
+                    in our <a href="https://www.ukri.org/cookie-policy/">Cookie Policy</a>:
+                </p>
+
+                <h2 class="govuk-heading-m">4. Security</h2>
+                <h3 class="govuk-heading-s">4.1 Your account</h3>
+                <p class="govuk-body">
+                    To access the system, you’ll need to provide an email and a password that
+                    meets our minimum requirements. We have built in appropriately high
+                    standards of security to protect your interests as well as ours. You can
+                    request that your user account is terminated by notifying the Helpdesk -
+                    email: support@funding-service.ukri.org (Phone: +44 (0) 1793 44 2900).
+                </p>
+                <h3 class="govuk-heading-s">4.2 Your obligations</h3>
+
+                <p class="govuk-body">
+                    When using the system, you must observe high levels of security to protect
+                    the personal details and safety of all users.
+                </p>
+                <p class="govuk-body">
+                    You must ensure that:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        you do not share your password with anybody or otherwise make the
+                        system available to them
+                    </li>
+                    <li>
+                        you do not use the email address or password of another user
+                    </li>
+                    <li>
+                        the use of 128-bit encryption technology is legally approved in the
+                        country from which you are connecting
+                    </li>
+                    <li>
+                        you do not use the system to propagate any virus, worm, Trojan horse,
+                        trap-door program or any malicious code (deliberate distribution or
+                        creation of computer viruses is an offence under the Computer Misuse
+                        Act 1990)
+                    </li>
+                    <li>
+                        you do not invade the rights of privacy or other personal or property
+                        rights, or infringe the copyright or trademark or other rights of any
+                        person or organisation
+                    </li>
+                    <li>
+                        that no actual or potential security breaches occur because of your
+                        action
+                    </li>
+                    <li>
+                        all security breaches are reported promptly to the UKRI Funding Service
+                        Helpdesk.
+                    </li>
+                </ul>
+                <p class="govuk-body">
+                    If these security provisions are breached, we may decide to stop your
+                    access to the system. In such circumstances we reserve the right to deny
+                    you further access to any new UKRI-related activities. You may also be
+                    subject to civil or criminal action.
+                </p>
+                <h2 class="govuk-heading-m">5. Liability</h2>
+
+                <h3 class="govuk-heading-s">5.1 Users of the system</h3>
+                <p class="govuk-body">
+                    You must, if asked by us, provide any evidence you possess that may be
+                    relevant to any claim brought against us (collectively or individually)
+                    associated with the use of the system.
+                </p>
+                <p class="govuk-body">
+                    You use the data from the system at your own risk.
+                </p>
+                <p class="govuk-body">
+                    Subject to the Unfair Contract Terms Act 1977, in using the system, you
+                    shall not have any claim against us or hold us liable for the results of
+                    your actions based on these terms and conditions, or from the consequences
+                    of the following:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        your failure to comply with any of these terms and conditions
+                    </li>
+                    <li>
+                        your failure to maintain your personal data on the system
+                    </li>
+                    <li>
+                        your failure to notify us of incorrect or out of date personal data
+                        that you are unable to update yourself
+                    </li>
+                    <li>
+                        any unlawful disclosures or interference with any of the system’s
+                        transmissions
+                    </li>
+                    <li>
+                        any alleged or actual breach of these terms and conditions by any third
+                        party to whom, in breach of these terms and conditions, you made this
+                        system available (e.g. by disclosure of your password)
+                    </li>
+                    <li>
+                        your alleged or actual breaching of copyright, trade mark rights or any
+                        other intellectual property rights (or similar rights anywhere in the
+                        world) belonging to any other person.
+                    </li>
+                </ul>
+                <h3 class="govuk-heading-s">5.2 UK Research and Innovation</h3>
+
+                <p class="govuk-body">
+                    We have taken due care in the development and implementation of the system.
+                    Subject to the Unfair Contract Terms Act 1977, we disclaim all explicit or
+                    implicit warranties regarding satisfactory quality or fitness for a
+                    particular purpose.
+                </p>
+                <p class="govuk-body">
+                    We do not guarantee:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        the availability of the system
+                    </li>
+                    <li>
+                        the integrity of the data in the system
+                    </li>
+                    <li>
+                        that the service will be uninterrupted or error-free.
+                    </li>
+                </ul>
+                <p class="govuk-body">
+                    The system and any associated e-mails and documents are believed to be free
+                    from viruses but it is your responsibility to carry out all necessary virus
+                    checks and we accept no liability in this connection.
+                </p>
+                <p class="govuk-body">
+                    We accept no liability for any loss that may arise from:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        your use of the data from the system
+                    </li>
+                    <li>
+                        your use or inability to use the system
+                    </li>
+                    <li>
+                        loss, corruption or unavailability of data
+                    </li>
+                    <li>
+                        our failure to provide support services associated with the system
+                    </li>
+                    <li>
+                        your use of certain hypertext links in the system which lead to
+                        websites that are not under our control.
+                    </li>
+                </ul>
+                <h3 class="govuk-heading-s">5.3 General</h3>
+
+                <p class="govuk-body">
+                    If any provisions of these disclaimers and exclusions are unlawful, void or
+                    for any reason unenforceable, then that provision shall be regarded as
+                    separated from these terms and conditions, but shall not affect the
+                    validity and enforceability of the remaining provisions.
+                </p>
+                <h2 class="govuk-heading-m">6. Copyright</h2>
+                <p class="govuk-body">
+                    With the exception of information created by users, we own the copyright of
+                    the material contained in the system. This includes but is not limited to:
+                </p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        textual material
+                    </li>
+                    <li>
+                        artwork
+                    </li>
+                    <li>
+                        photographs
+                    </li>
+                    <li>
+                        computer software
+                    </li>
+                    <li>
+                        audio and visual elements
+                    </li>
+                    <li>
+                        the database design and reference data
+                    </li>
+                    <li>
+                        the structure and design of the system.
+                    </li>
+                </ul>
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

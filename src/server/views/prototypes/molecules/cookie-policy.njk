@@ -1,0 +1,181 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Cookie Policy' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Cookie Policy') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <p class="govuk-body">This page outlines the cookie policy for the UK Research and Innovation (“we” or “us” or “our”) website. Your use of this website is subject to the following Terms of Use.</p>
+
+                <p class="govuk-body">When we provide services, we want to make them easy, useful and reliable. This sometimes involves placing small amounts of information on your device, for example, computer or mobile phone. These include small files known as cookies. They cannot be used to identify you personally.</p>
+                <p class="govuk-body">Cookies are used to improve services for you through, for example:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                <li>enabling a service to recognise your device so you don't have to give the same information during one task</li>
+                <li>recognising that you have already given a username and password so you don't need to enter it for every web page requested</li>
+                <li>measuring how many people are using services, so they can be made easier to use and that there is enough capacity to ensure they are fast.</li>
+
+            </ul>
+
+        <p class="govuk-body">You can manage cookies yourself and learn more about them on the All About Cookies website.
+                <h2 class="govuk-heading-m">Cookies used on our website</h2>
+
+                <p class="govuk-body">We use the following cookies.</p>
+                <h3 class="govuk-heading-s">First-party cookies</h3>
+                <table class="govuk-table">
+                    <thead>
+                        <tr>
+                            <th class="govuk-table__header">Name</th>
+                            <th class="govuk-table__header">Purpose</th>
+                            <th class="govuk-table__header">Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="govuk-table__cell">JSESSIONID</td>
+                            <td class="govuk-table__cell">Used to maintain an anonymous user session by the server.</td>
+                            <td class="govuk-table__cell">At the end of a session (when you close your browser).</td>
+                        </tr>
+                        <tr>
+                            <td class="govuk-table__cell">MOBILEFORMAT</td>
+                            <td class="govuk-table__cell">Used to determine whether or not to show the mobile format of the website.</td>
+                            <td class="govuk-table__cell">At the end of a session (when you close your browser).</td>
+                        </tr>
+                        <tr>
+                            <td class="govuk-table__cell">ORIGINALURLTOKEN</td>
+                            <td class="govuk-table__cell">Used to anonymously track sessions within the website.</td>
+                            <td class="govuk-table__cell">Never</td>
+                        </tr>
+                        <tr>
+                            <td class="govuk-table__cell">cfid</td>
+                            <td class="govuk-table__cell">Used in conjunction with cftoken this cookie helps to uniquely identify a client device (browser) to enable the site to maintain user session variables.</td>
+                            <td class="govuk-table__cell">Never</td>
+                        </tr>
+                        <tr>
+                            <td class="govuk-table__cell">cftoken</td>
+                            <td class="govuk-table__cell">Used in conjunction with cfid this cookie helps to uniquely identify a client device (browser) to enable the site to maintain user session variables.</td>
+                            <td class="govuk-table__cell">Never</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="govuk-heading-s">Third-party cookies</h3>
+                <p class="govuk-body">Our website also uses Google Analytics. They install cookies to help us identify errors and accurately estimate visitor numbers. These cookies do not collect personal data about visitors to our website.</p>
+                <table class="govuk-table">
+                    <thead>
+                    <tr>
+                        <th class="govuk-table__header">Name</th>
+                        <th class="govuk-table__header">Purpose</th>
+                        <th class="govuk-table__header">Expires</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="govuk-table__cell">_utma</td>
+                        <td class="govuk-table__cell">Used to distinguish between users and sessions.</td>
+                        <td class="govuk-table__cell">Two years</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell">_utmb</td>
+                        <td class="govuk-table__cell">Used to determine new sessions and visits.</td>
+                        <td class="govuk-table__cell">30 minutes</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell">_utmc</td>
+                        <td class="govuk-table__cell">Used in combination with the __utmb to identify new sessions / visits for returning visitors.</td>
+                        <td class="govuk-table__cell">At the end of a session (when you close your browser).</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell">_utmt</td>
+                        <td class="govuk-table__cell">Used to throttle the request rate for the service - limiting the collection of data on high traffic sites.</td>
+                        <td class="govuk-table__cell">10 minutes</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell">_utmz</td>
+                        <td class="govuk-table__cell">Used to identify the source of traffic to the site - so Google Analytics can tell site owners where visitors came from when arriving on the site.</td>
+                        <td class="govuk-table__cell">Six months</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <h2 class="govuk-heading-m">Additional cookies deployed for UKRI Funding Service users</h2>
+                <h3 class="govuk-heading-s">Tracking Cookies (OPT-IN)</h3>
+                <p class="govuk-body">Only served if client accepts cookies</p>
+
+                <h3 class="govuk-heading-s">Settings Cookies (MANDATORY)</h3>
+                <p class="govuk-body">Always served, used to store settings the user has saved (I.e Cookie banner Acceptance etc)</p>
+
+                <h3 class="govuk-heading-s">Strictly necessary cookies (MANDATORY)</h3>
+                <p class="govuk-body">Always served, cookies required for the service to operate.</p>
+
+                <table class="govuk-table">
+                    <thead>
+                    <tr>
+                        <th class="govuk-table__header">Name</th>
+                        <th class="govuk-table__header">Purpose</th>
+                        <th class="govuk-table__header">Expires</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="govuk-table__cell">ukri-tfs-local-session</td>
+                        <td class="govuk-table__cell">Used to authenticate users on our service and allow them to remain signed in</td>
+                        <td class="govuk-table__cell">25 Minutes</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell">ukri-tfs-local-session.sig</td>
+                        <td class="govuk-table__cell">Used to authenticate users on our service and allow them to remain signed in</td>
+                        <td class="govuk-table__cell">25 Minutes</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="govuk-heading-m">Potential Cookies (Subject to Features)</h2>
+                <table class="govuk-table">
+                    <thead>
+                    <tr>
+                        <th class="govuk-table__header">Name</th>
+                        <th class="govuk-table__header">Type</th>
+                        <th class="govuk-table__header">Service</th>
+                        <th class="govuk-table__header">Mandatory/Opt In</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="govuk-table__cell">Google Analytics</td>
+                        <td class="govuk-table__cell">Tracking</td>
+                        <td class="govuk-table__cell">Cross-Service</td>
+                        <td class="govuk-table__cell">Opt-in</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}
