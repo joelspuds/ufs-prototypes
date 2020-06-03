@@ -1,6 +1,6 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
 {% set navType = 'NOTadmin' %}
-{% set pageTitle = 'Terms and conditions' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Terms of use' + GLOBAL_TAG_TITLE_SUFFIX %}
 {#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
 {% set isAdminUser = false %}
 
@@ -10,7 +10,7 @@
 
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-            {{ components.captionHeading(text='Terms and conditions') }}
+            {{ components.captionHeading(text='Terms of use') }}
 
         {%- endcall %}
 
