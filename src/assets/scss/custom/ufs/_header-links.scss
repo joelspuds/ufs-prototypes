@@ -54,7 +54,7 @@
     }
 
     &--mobile-hidden {
-      // handled separately at the bottom of the page as too complex to compile class here with .je-enabled
+      // handled separately at the bottom of the page as too complex to compile class here with .js-enabled
     }
   }
 
@@ -127,64 +127,3 @@
     }
   }
 }
-
-
-/*.user-header {
-  // wrapper for all
-  position: absolute;
-  right: 0;
-  top:0;
-
-  &__user {
-    // parent wrap for account stuff
-  }
-  &__organisation {
-    // parent wrap for org stuff
-  }
-
-  &__user-list {
-
-  }
-
-  &__controls {
-    display: none;
-  }
-
-  &__shower {
-    display: block;
-    margin: 0;
-    padding: 7px 19px 8px 4px;
-
-    &:after {
-      display: block;
-      position: absolute;
-      right: 4px;
-      top: 11px;
-      font-size: 12px;
-      content: "\25BC";
-      color: #ffffff;
-    }
-
-    &:hover,
-    &:focus {
-      .user-header__controls {
-        display: block;
-      }
-    }
-  }
-
-  &__control-link {
-    !*display: block;
-    margin: 0;
-    padding: 7px 19px 8px 4px;*!
-  }
-
-  &__ist:hover,
-  &__list:focus {
-    &__controls {
-      display: block;
-    }
-  }
-
-}*/
-

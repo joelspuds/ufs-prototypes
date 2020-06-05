@@ -7,8 +7,6 @@
     position: relative;
   }
 
-  /*&__admin { }*/
-
   &__brand {
     display: block;
     float: left;
@@ -84,20 +82,11 @@
 
       @at-root {
         .js-enabled #{&} {
-
-          /*@include touch { }*/
-
           @include mobile {
             display: none !important;
           }
         }
       }
-
-      /*@include touch { }*/
-    }
-
-    @include touch {
-
     }
 
     @include mobile {
@@ -139,7 +128,6 @@
 
     &--user {
       display: none;
-      // border-bottom: 1px solid govuk-colour("mid-grey");
       margin-bottom: 10px;
 
       @include mobile {
@@ -295,9 +283,7 @@
   }
 }
 
-
 .user-header {
-  // right: 20px;
   right: 10px;
 
   @include mobile {

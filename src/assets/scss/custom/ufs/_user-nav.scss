@@ -37,7 +37,6 @@ main {
     padding: 7px 24px 8px 10px;
     position: relative;
     text-decoration: none;
-    // transition-duration: 0.5s;
 
     &:after {
       display: block;
@@ -92,7 +91,6 @@ main {
     background: govuk-colour("yellow");
     visibility: hidden;
     opacity: 0;
-    // min-width: 5rem;
     width: 100%;
     position: absolute;
     margin-top: 6px;
@@ -103,19 +101,12 @@ main {
       background: ufs-colour("ukri-blue");
       padding: 7px 10px 8px 10px;
 
-      /*&:after {
-       content: "";
-      }*/
-
       a {
-        // background: ufs-colour("ukri-blue");
         background-color: transparent;
         color: govuk-colour("white");
 
         &:hover,
         &:focus {
-          // background: ufs-colour("yellow")!important;
-          // background-color: govuk-colour("yellow");
           background-color: transparent;
           color: govuk-colour("white");
         }
@@ -123,22 +114,14 @@ main {
 
       &:hover,
       &:hover {
-
         background-color: govuk-colour("yellow");
 
         a {
           background-color: transparent;
-          // background-color: govuk-colour("yellow");
           color: govuk-colour("black");
         }
       }
     }
-
-    /*& li:hover > ul,
-    & li:focus-within > ul,
-    ul li ul:hover,
-    ul li ul:focus {*/
-
   }
 
   ul li:hover > ul,
@@ -167,7 +150,6 @@ main {
     a:focus {
      color: govuk-colour("black")!important;
     }
-
   }
 
   ul li ul li {
