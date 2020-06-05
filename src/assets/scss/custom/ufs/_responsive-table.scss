@@ -11,3 +11,29 @@
   }
 
 }
+
+
+$column-fixed-width: 180px;
+$column-fixed-width-right: 120px;
+.scrolly {
+  // wrapper div
+
+  &__table {
+    width: 100%;
+    font-size: 16px;
+    margin-left: $column-fixed-width;
+
+    border-bottom: 1px solid darkgrey;
+  }
+
+
+  th, td {
+    white-space: nowrap;
+    padding: 10px 10px;
+    border-top: 1px solid darkgrey;
+    border-right: 1px solid darkgrey;
+  }
+
+
+
+}

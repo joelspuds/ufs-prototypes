@@ -30,24 +30,24 @@
                     --column-fixed-width-right: 120px;
                 }
                 table {
-                    width: 100%;
+                    /*width: 100%;
                     font-size: 16px;
                     margin-left: var(--column-fixed-width);
-                    border-bottom: 1px solid darkgrey;
+                    border-bottom: 1px solid darkgrey;*/
                 }
 
                 /* Table Fixed Column */
 
-                table th,
+               /* table th,
                 table td {
-                    /*padding-right: 24px;
-                    padding-left: 24px;*/
+                    !*padding-right: 24px;
+                    padding-left: 24px;*!
                     white-space: nowrap;
                     padding: 10px 10px;
-                    /*border-bottom: 1px solid #d0d0d0;*/
+                    !*border-bottom: 1px solid #d0d0d0;*!
                     border-top: 1px solid darkgrey;
                     border-right: 1px solid darkgrey;
-                }
+                }*/
 
                 table th:first-of-type,
                 table td:first-of-type {
@@ -65,7 +65,7 @@
                     /*margin-left: var(--column-fixed-width);*/
                 }
 
-                .scroll {
+                .scrolly {
                     /*width: calc(100% - var(--column-fixed-width));*/
                     /*width: calc(100% - var(--column-fixed-width) + var(--column-fixed-width-right));*/
                     /*width: 100%;*/
@@ -131,8 +131,8 @@
             </style>
 
 
-                <div class="scroll">
-                    <table class="scrolly">
+                <div class="scrolly">
+                    <table class="scrolly__table">
                         <thead>
                             <tr>
                                 <th class="scrolly__locked-th scrolly__locked-th--left">Period</th>

@@ -17,12 +17,12 @@
         {%- endcall %}
     {%- endcall %}
 
-    {% call components.bulmaRow(extraClass='') %}
-        {% call components.bulmaColumnAny(size='is-3', customID='main-content') %}
+    {% call components.bulmaRow(extraClass='', customID='main-content') %}
+        {#{% call components.bulmaColumnAny(size='is-3') %}
 
-           {# <a href="/prototypes/opportunity-v3/create" class="govuk-button ">Create new Opportunity</a>#}
+           #}{# <a href="/prototypes/opportunity-v3/create" class="govuk-button ">Create new Opportunity</a>#}{#
 
-        {%- endcall %}
+        {%- endcall %}#}
 
         {% call components.bulmaColumnAny(size='is-9') %}
 
@@ -35,6 +35,10 @@
                     </div>
                 </div>
             </form>
+
+            <p class="govuk-body">
+                Showing <strong>3</strong> Opportunities filtered by <strong>MRC</strong> in award set-up
+            </p>
 
         {%- endcall %}
     {%- endcall %}
