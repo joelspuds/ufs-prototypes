@@ -28,13 +28,13 @@
 {% set actionText = ''%}
 
 
-{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
+{#{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}#}
 
 {% block content %}
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
-            {{ components.captionHeading(text='Application preview', caption='OPP584 Strnegth in Places Fund, Round 3 | Open') }}
+            {{ components.captionHeading(text='Application preview', caption='OPP584 Strength in Places Fund, Round 3 | Open') }}
             {#{{ components.linkHeading(text='APP9377 - Neural Networks to Optimise Freight Train Routing in the Rain', tag='h2', size='l') }}#}
         {%- endcall %}
     {%- endcall %}
