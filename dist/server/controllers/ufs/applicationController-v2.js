@@ -8,6 +8,7 @@ exports.appV2AHRCOpportunityPost = appV2AHRCOpportunityPost;
 exports.appV2tinyMCEApplicationIndexGet = appV2tinyMCEApplicationIndexGet;
 exports.appV2tinyMCEApplicationIndexPost = appV2tinyMCEApplicationIndexPost;
 exports.appV2tinyMCEApplicationViewGet = appV2tinyMCEApplicationViewGet;
+exports.appV2AdminViewGet = appV2AdminViewGet;
 exports.appV2DetailsGet = appV2DetailsGet;
 exports.appV2DetailsPost = appV2DetailsPost;
 exports.appV2EligibilityApplicantGet = appV2EligibilityApplicantGet;
@@ -192,6 +193,41 @@ function appV2tinyMCEApplicationViewGet(req, res) {
     readOnly
   };
   return res.render('prototypes/application-v2/view', viewData);
+}
+
+// ************************************************************************
+//
+//       VIEW ADMIN
+//
+// ************************************************************************
+function appV2AdminViewGet(req, res) {
+  let viewData, detailsInput, programmeTopic, widerEffect, researchExperience, writeReview, eligibilityInput;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  detailsInput = req.session.detailsInput;
+  eligibilityInput = req.session.eligibilityInput;
+  programmeTopic = req.session.programmeTopic;
+  widerEffect = req.session.widerEffect;
+  researchExperience = req.session.researchExperience;
+
+  writeReview = req.session.writeReview;
+  let readOnly = req.session.readOnly;
+
+  viewData = {
+    projectName,
+    detailsInput,
+    eligibilityInput,
+    programmeTopic,
+    widerEffect,
+    researchExperience,
+    writeReview,
+    readOnly
+  };
+  return res.render('prototypes/application-v2/admin-view', viewData);
 }
 
 // ************************************************************************

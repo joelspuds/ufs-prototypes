@@ -223,6 +223,7 @@ router.post('/prototypes/application-v2/start', demosController.appV2tinyMCEAppl
 router.get('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportGet);
 router.post('/prototypes/application-v2/case-for-support', demosController.appV2caseForSupportPost);
 router.get('/prototypes/application-v2/view', demosController.appV2tinyMCEApplicationViewGet);
+router.get('/prototypes/application-v2/admin-view', demosController.appV2AdminViewGet);
 /*router.get('/prototypes/application-v2/view-static', demosController.appV2tinyMCEApplicationStaticViewGet);*/
 // Application journey
 /*router.get('/prototypes/application-v2/application-team', demosController.appV2applicationTeamGet);

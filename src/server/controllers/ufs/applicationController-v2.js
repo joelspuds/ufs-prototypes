@@ -176,6 +176,41 @@ export function appV2tinyMCEApplicationViewGet(req, res) {
 
 // ************************************************************************
 //
+//       VIEW ADMIN
+//
+// ************************************************************************
+export function appV2AdminViewGet(req, res) {
+  let viewData, detailsInput, programmeTopic, widerEffect, researchExperience, writeReview, eligibilityInput;
+
+  let projectName = req.session.storedProjectName;
+  if (!projectName) {
+    projectName = untitledProjectName;
+  }
+
+  detailsInput = req.session.detailsInput;
+  eligibilityInput = req.session.eligibilityInput;
+  programmeTopic = req.session.programmeTopic;
+  widerEffect = req.session.widerEffect;
+  researchExperience = req.session.researchExperience;
+
+  writeReview = req.session.writeReview;
+  let readOnly = req.session.readOnly;
+
+  viewData = {
+    projectName,
+    detailsInput,
+    eligibilityInput,
+    programmeTopic,
+    widerEffect,
+    researchExperience,
+    writeReview,
+    readOnly,
+  };
+  return res.render('prototypes/application-v2/admin-view', viewData);
+}
+
+// ************************************************************************
+//
 //        DETAILS
 //
 // ************************************************************************
