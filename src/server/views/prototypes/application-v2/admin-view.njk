@@ -1,19 +1,19 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Application preview' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'APP1740 view' + GLOBAL_TAG_TITLE_SUFFIX %}
 {#{% set showSmoothScrollscripts = true %}#}
 {% set showStickyNavscripts = true %}
 
 {% set projectName = projectName if projectName %}
 
-{#{% set listItems = [
+{% set listItems = [
     { text: '1. Details', url: '#details' },
     { text: '2. Eligibility - applicant', url: '#applicant' },
     { text: '3. Eligibility - research area', url: '#area' },
     { text: '4. Current research activity', url: '#current' },
     { text: '5. Research history', url: '#history' },
-    { text: '6. Review', url: '#review' }
+    { text: '6. Title of last section', url: '#review' }
 ] %}
-}#}
+}
 
 {% set detailsInput = detailsInput if detailsInput %}
 {% set eligibilityInput = eligibilityInput if eligibilityInput %}
@@ -21,21 +21,36 @@
 {% set widerEffect = widerEffect if widerEffect %}
 {% set researchExperience = researchExperience if researchExperience %}
 {% set writeReview = writeReview if writeReview %}
+{% set readOnly = readOnly if readOnly %}
 
 {% set isAdminUser = true %}
 {% set navType = 'admin' %}
 
-{% set actionText = ''%}
+{% set actionText = 'View this section' if readOnly else 'Edit this section'%}
 
 
-{#{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}#}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
 
 {% block content %}
 
     {% call components.bulmaRow() %}
-        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
-            {{ components.captionHeading(text='Application preview', caption='OPP584 Strength in Places Fund, Round 3 | Open') }}
-            {#{{ components.linkHeading(text='APP9377 - Neural Networks to Optimise Freight Train Routing in the Rain', tag='h2', size='l') }}#}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='APP1740', caption='OPP546: Strength in places fund, round 3') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-full') %}
+            <div class="govuk-tabs" data-module="govuk-tabs">
+                <ul class="govuk-tabs__list">
+                    <li class="govuk-tabs__list-item ">
+                        <a class="govuk-tabs__tab" href="/prototypes/application-v2/admin-info">Application info</a>
+                    </li>
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                        <a class="govuk-tabs__tab" href="#">Read application</a>
+                    </li>
+                </ul>
+            </div>
         {%- endcall %}
     {%- endcall %}
 
@@ -43,111 +58,73 @@
 
         {% call components.bulmaColumnAny(size='is-3') %}
             <nav class="sticky-nav">
-                {#{{ components.linkHeading(text='Contents', tag='h2', size='s')}}#}
-                {#{{ components.list(items=listItems, parentClass='sticky-nav')}}#}
-                <ul class="govuk-list  sticky-nav__list">
-                    <li class=" sticky-nav__item">
-                        <a href="#" class="govuk-link  sticky-nav__link">Opportunity overview</a>
-                    </li>
-                    <li class=" sticky-nav__item">
-                        <a href="#" class="govuk-link  sticky-nav__link">Applications</a> <br>- APP9377
-                    </li>
-                </ul>
+                {{ components.linkHeading(text='Contents', tag='h2', size='s')}}
+                {{ components.list(items=listItems, parentClass='sticky-nav')}}
                 <a href="#" class="govuk-link js-only print-link print-link--tabs" id="printThis" onclick="window.print();return false;">Print this page</a>
             </nav>
 
         {%- endcall %}
 
-        {% call components.bulmaColumnAny(size='is-9', customID='main-content') %}
+        <div class="column is-9" id="main-content">
 
-            {{ components.linkHeading(text='APP9377 - Neural Networks to Optimise Freight Train Routing in the Rain', tag='h2', size='l', extraClass='serif') }}
+            <div class="print-hide">
+                <div class="application-data">
+                    <dl class="application-data__list">
+                        <dt class="application-data__key">Application reference:</dt>
+                        <dd class="application-data__value">APP1740</dd>
+                        <dt class="application-data__key">Application title:</dt>
+                        <dd class="application-data__value">Bio-detoxification of Ricin in castor bean</dd>
+                        <dt class="application-data__key">Applicant:</dt>
+                        <dd class="application-data__value">Prof. Jane Doe</dd>
+                        <dt class="application-data__key">Email:</dt>
+                        <dd class="application-data__value">jane.doe@cardiffuniversity.ac.uk</dd>
+                        <dt class="application-data__key">Organisation:</dt>
+                        <dd class="application-data__value">Cardiff Univeristy</dd>
+                    </dl>
+                </div>
+                <hr class="section-break section-break--hardcore">
+                <div class="application-data">
+                    <dl class="application-data__list">
 
-            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText=actionText, additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
+                        <dt class="application-data__key">Status:</dt>
+                        <dd class="application-data__value">Submitted 3:30pm 12 August 2020</dd>
+                    </dl>
+                </div>
+                <hr class="section-break section-break--feather">
+            </div>
 
+            <div class="alerts alerts--info">
+                This is how assessors will see your proposal.
+            </div>
+            <h2 class="govuk-heading-l serif govuk-heading--link">New thinkers test project name</h2>
+            <h2 class="govuk-heading-m serif govuk-heading--link" id="details">1. Details</h2>
             <div class="serif u-space-b30">
-            {% if detailsInput %}
-                {{ detailsInput }}
-            {% else %}
-                <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
-            {% endif %}
+                Pellentesque molestie ante quis elit gravida euismod. Vestibulum egestas elementum sapien. Nullam scelerisque convallis odio a euismod. Vestibulum id neque ac urna aliquet pharetra. Suspendisse vel convallis turpis, pretium rutrum metus. Proin in condimentum ex. Vestibulum quis eros faucibus, ornare ligula quis, rutrum metus. Morbi accumsan sit amet nisi et interdum. Sed vulputate enim nibh, sed iaculis odio porta et. Cras blandit commodo facilisis. Cras feugiat erat arcu, at egestas purus luctus sed. Nullam molestie tempus sapien sed interdum. Nunc non dui faucibus, viverra nisl eget, ultricies ex. Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate. Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate.
             </div>
-
-            {{ components.linkHeading(text='2. Eligibility - applicant', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText=actionText, additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
-
+            <h2 class="govuk-heading-m serif govuk-heading--link" id="applicant">2. Eligibility - your situation</h2>
             <div class="serif u-space-b30">
-                {% if eligibilityInput %}
-                    {{ eligibilityInput }}
-                {% else %}
-                    <p class='govuk-body-s has-text-grey' >No content has been added for this section yet.</p>
-                {% endif %}
+                Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate.
             </div>
-
-            {#<div class="u-align-right">
-                <a href="#main-content" class="govuk-link">Top of page</a>
-            </div>
-            {{ components.divider() }}#}
-
-            {{ components.linkHeading(text='3. Eligibility - research area', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText=actionText, additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
-
+            <h2 class="govuk-heading-m serif govuk-heading--link" id="area">3. Eligibility - your programme topic</h2>
             <div class="serif u-space-b30">
-                {% if programmeTopic %}
-                    {{ programmeTopic }}
-                {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
-                {% endif %}
+                Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate.
             </div>
-
-            {#<div class="u-align-right">
-                <a href="#main-content" class="govuk-link">Top of page</a>
-            </div>
-            {{ components.divider() }}#}
-
-            {{ components.linkHeading(text='4. Current research activity', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText=actionText, additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
-
+            <h2 class="govuk-heading-m serif govuk-heading--link" id="current">4. Your research and its wider effect</h2>
             <div class="serif u-space-b30">
-                {% if widerEffect %}
-                    {{ widerEffect}}
-                {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
-                {% endif %}
+                Etiam ut molestie dui. Pellentesque semper ante non massa malesuada, id dictum turpis consectetur. Fusce euismod nunc at suscipit laoreet. Morbi blandit justo est, quis accumsan justo mollis viverra. Aenean non tempus est. Sed metus nibh, facilisis suscipit porttitor sed, porttitor quis justo. Fusce placerat nunc at tincidunt gravida. Vestibulum pharetra mollis eros, nec vulputate velit. Aenean tristique elit dignissim malesuada rhoncus. Sed viverra velit quis nunc varius convallis. Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate. Quisque fringilla blandit venenatis. Duis consequat, purus at sodales ornare, sapien eros maximus urna, eget ultrices tellus velit vitae lorem.
             </div>
-
-           {# <div class="u-align-right">
-                <a href="#main-content" class="govuk-link">Top of page</a>
-            </div>
-            {{ components.divider() }}#}
-
-            {{ components.linkHeading(text='5. Your research experience', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText=actionText, additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
-
+            <h2 class="govuk-heading-m serif govuk-heading--link" id="history">5. Your research experience</h2>
             <div class="serif u-space-b30">
-                {% if researchExperience %}
-                    {{ researchExperience }}
-                {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
-                {% endif %}
+                Etiam ut molestie dui. Pellentesque semper ante non massa malesuada, id dictum turpis consectetur. Fusce euismod nunc at suscipit laoreet. Morbi blandit justo est, quis accumsan justo mollis viverra. Aenean non tempus est. Sed metus nibh, facilisis suscipit porttitor sed, porttitor quis justo. Fusce placerat nunc at tincidunt gravida. Vestibulum pharetra mollis eros, nec vulputate velit. Aenean tristique elit dignissim malesuada rhoncus. Sed viverra velit quis nunc varius convallis. Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate. Quisque fringilla blandit venenatis. Duis consequat, purus at sodales ornare, sapien eros maximus urna. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate. Quisque fringilla blandit venenatis. Duis consequat, purus at sodales ornare, sapien eros maximus urna.
             </div>
-
-           {# <div class="u-align-right">
-                <a href="#main-content" class="govuk-link">Top of page</a>
-            </div>
-            {{ components.divider() }}#}
-
-            {{ components.linkHeading(text='6. Title of final section', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText=actionText, additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
-
+            <h2 class="govuk-heading-m serif govuk-heading--link" id="review">6. Title of last section</h2>
             <div class="serif u-space-b30">
-                {% if writeReview %}
-                    {{ writeReview }}
-                {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
-                {% endif %}
+                Quisque malesuada efficitur viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc tincidunt est quis turpis tincidunt, quis luctus lorem ornare. Curabitur pulvinar mollis arcu. Praesent vehicula vulputate nibh sit amet lobortis. Suspendisse fringilla facilisis dui, sed sagittis lectus. Duis at eros nulla. Sed ac enim ornare, consectetur risus vel, molestie massa. Pellentesque molestie ante quis elit gravida euismod. Vestibulum egestas elementum sapien. Nullam scelerisque convallis odio a euismod. Vestibulum id neque ac urna aliquet pharetra. Suspendisse vel convallis turpis, pretium rutrum metus. Proin in condimentum ex. Vestibulum quis eros faucibus, ornare ligula quis, rutrum metus. Morbi accumsan sit amet nisi et interdum. Sed vulputate enim nibh, sed iaculis odio porta et. Cras blandit commodo facilisis. Cras feugiat erat arcu, at egestas purus luctus sed. Nullam molestie tempus sapien sed interdum. Nunc non dui faucibus, viverra nisl eget, ultricies ex. Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate. Quisque fringilla blandit venenatis. Duis consequat, purus at sodales ornare, sapien eros maximus urna, eget ultrices tellus velit vitae lorem.
             </div>
-
             <div class="u-align-right">
-                <a href="#main-content" class="govuk-link">Top of page</a>
+                <a class="govuk-link" href="#main-content">Top of page</a>
             </div>
-            {#{{ components.divider() }}#}
-
-        {%- endcall %}
+        </div>
 
     {%- endcall %}
 

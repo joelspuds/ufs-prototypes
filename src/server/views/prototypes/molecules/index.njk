@@ -10,7 +10,7 @@
 
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
-            {{ components.captionHeading(text='Molecules', caption='In lieu of a proper pattern library') }}
+            {{ components.captionHeading(text='Molecules', caption='Custom components in lieu of a pattern library') }}
 
         {%- endcall %}
 
@@ -20,7 +20,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-8') %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
 
                 {{ components.captionHeading(text='Custom Funding Service molecules', size='m') }}
 
@@ -74,21 +74,31 @@
                     <li>
                         <a href="/prototypes/molecules/timeline" class="govuk-link">Timeline</a>
                     </li>
+                </ul>
 
+                {{ components.captionHeading(text='Layouts', size='m') }}
+
+                <ul class="govuk-list--bullet govuk-body">
+                    <li>
+                        <a href="/prototypes/molecules/layout-single" class="govuk-link">Single col</a>
+                    </li>
+                    <li>
+                        <a href="/prototypes/molecules/layout-split-7-4" class="govuk-link">Split 7/4</a>
+                    </li>
                 </ul>
 
             {%- endcall %}
 
-            {% call components.bulmaColumnAny(size='column is-4') %}
+            {#{% call components.bulmaColumnAny(size='column is-4') %}
                 <div class="govuk-related-items govuk-related-items--flush">
 
-                    {#<h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
+                    <h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
                     <p class="govuk-body-s u-space-b5">Really long title for this exciting new opportunity</p>
                     <ul class="govuk-list u-space-t10">
                         <li><a href="/prototypes/opportunity-v2/create?mode=edit" class="govuk-link govuk-body--s sub-button">Edit Opportunity name</a></li>
-                    </ul>#}
+                    </ul>
                 </div>
-            {%- endcall %}
+            {%- endcall %}#}
         {%- endcall %}
     </section>
 

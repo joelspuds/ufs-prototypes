@@ -71,3 +71,30 @@
 .danger-text {
   color: govuk-colour("red");
 }
+
+.section-break {
+
+  &--feather {
+    margin: 40px 0;
+  }
+
+  &--light {
+    border-top: 1px solid govuk-colour("black");
+    margin: 20px 0;
+  }
+
+  &--hardcore {
+    border-top: 2px solid govuk-colour("black");
+    margin: 40px 0;
+  }
+}
+
+.print-hide {
+  display: none;
+}
+
+@media print {
+  .print-hide {
+    display: block;
+  }
+}

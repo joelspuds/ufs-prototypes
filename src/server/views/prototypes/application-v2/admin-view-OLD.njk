@@ -1,0 +1,176 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set pageTitle = 'Application preview' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set showSmoothScrollscripts = true %}#}
+{% set showStickyNavscripts = true %}
+
+{% set projectName = projectName if projectName %}
+
+{#{% set listItems = [
+    { text: '1. Details', url: '#details' },
+    { text: '2. Eligibility - applicant', url: '#applicant' },
+    { text: '3. Eligibility - research area', url: '#area' },
+    { text: '4. Current research activity', url: '#current' },
+    { text: '5. Research history', url: '#history' },
+    { text: '6. Review', url: '#review' }
+] %}
+}#}
+
+{% set detailsInput = detailsInput if detailsInput %}
+{% set eligibilityInput = eligibilityInput if eligibilityInput %}
+{% set programmeTopic = programmeTopic if programmeTopic %}
+{% set widerEffect = widerEffect if widerEffect %}
+{% set researchExperience = researchExperience if researchExperience %}
+{% set writeReview = writeReview if writeReview %}
+
+{% set isAdminUser = true %}
+{% set navType = 'admin' %}
+
+{% set actionText = ''%}
+
+
+{#{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}#}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Application preview', caption='OPP584 Strength in Places Fund, Round 3 | Open') }}
+            {#{{ components.linkHeading(text='APP9377 - Neural Networks to Optimise Freight Train Routing in the Rain', tag='h2', size='l') }}#}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow(extraClass='u-space-b30') %}
+
+        {% call components.bulmaColumnAny(size='is-3') %}
+            <nav class="sticky-nav">
+                {#{{ components.linkHeading(text='Contents', tag='h2', size='s')}}#}
+                {#{{ components.list(items=listItems, parentClass='sticky-nav')}}#}
+                <ul class="govuk-list  sticky-nav__list">
+                    <li class=" sticky-nav__item">
+                        <a href="#" class="govuk-link  sticky-nav__link">Opportunity overview</a>
+                    </li>
+                    <li class=" sticky-nav__item">
+                        <a href="#" class="govuk-link  sticky-nav__link">Applications</a> <br>- APP9377
+                    </li>
+                </ul>
+                <a href="#" class="govuk-link js-only print-link print-link--tabs" id="printThis" onclick="window.print();return false;">Print this page</a>
+            </nav>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-9', customID='main-content') %}
+
+            {{ components.linkHeading(text='APP9377 - Neural Networks to Optimise Freight Train Routing in the Rain', tag='h2', size='l', extraClass='serif') }}
+
+            {{ components.linkHeading(text='1. Details', tag='h2', size='m', extraClass='serif', id='details', additionalLinkText=actionText, additionalLinkTextHidden=' details', additionalLinkurl='/prototypes/application-v2/details') }}
+
+            <div class="serif u-space-b30">
+            {% if detailsInput %}
+                {{ detailsInput }}
+            {% else %}
+                <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+            {% endif %}
+            </div>
+
+            {{ components.linkHeading(text='2. Eligibility - applicant', tag='h2', size='m', extraClass='serif', id='applicant', additionalLinkText=actionText, additionalLinkTextHidden=' eligibility - applicant', additionalLinkurl='/prototypes/application-v2/eligibility-applicant') }}
+
+            <div class="serif u-space-b30">
+                {% if eligibilityInput %}
+                    {{ eligibilityInput }}
+                {% else %}
+                    <p class='govuk-body-s has-text-grey' >No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+            {#<div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}#}
+
+            {{ components.linkHeading(text='3. Eligibility - research area', tag='h2', size='m', extraClass='serif', id='area', additionalLinkText=actionText, additionalLinkTextHidden=' eligibility - research area', additionalLinkurl='/prototypes/application-v2/eligibility-research-area') }}
+
+            <div class="serif u-space-b30">
+                {% if programmeTopic %}
+                    {{ programmeTopic }}
+                {% else %}
+                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+            {#<div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}#}
+
+            {{ components.linkHeading(text='4. Current research activity', tag='h2', size='m', extraClass='serif', id='current', additionalLinkText=actionText, additionalLinkTextHidden=' current research activity', additionalLinkurl='/prototypes/application-v2/current-research-activity') }}
+
+            <div class="serif u-space-b30">
+                {% if widerEffect %}
+                    {{ widerEffect}}
+                {% else %}
+                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+           {# <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}#}
+
+            {{ components.linkHeading(text='5. Your research experience', tag='h2', size='m', extraClass='serif', id='history', additionalLinkText=actionText, additionalLinkTextHidden=' research history', additionalLinkurl='/prototypes/application-v2/research-history') }}
+
+            <div class="serif u-space-b30">
+                {% if researchExperience %}
+                    {{ researchExperience }}
+                {% else %}
+                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+           {# <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {{ components.divider() }}#}
+
+            {{ components.linkHeading(text='6. Title of final section', tag='h2', size='m', extraClass='serif', id='review', additionalLinkText=actionText, additionalLinkTextHidden=' review', additionalLinkurl='/prototypes/application-v2/review') }}
+
+            <div class="serif u-space-b30">
+                {% if writeReview %}
+                    {{ writeReview }}
+                {% else %}
+                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                {% endif %}
+            </div>
+
+            <div class="u-align-right">
+                <a href="#main-content" class="govuk-link">Top of page</a>
+            </div>
+            {#{{ components.divider() }}#}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+{% block bodyScripts %}
+    <script type="text/javascript">
+      /* smooth-scroll.js v1.3.1 */
+      /*
+      n=0,
+      r=500,
+      i=15,
+      */
+      (function(e,t){
+        "use strict";
+        var n=0,
+          r=250,
+          i=15,
+          s=document.getElementsByTagName("a"),
+          o;
+        for(var u=0;u<s.length;u++){o=s[u].attributes.href===t?null:s[u].attributes.href.nodeValue.toString();if(o!==null&&o.length>1&&o.indexOf("#")!=-1){s[u].onclick=function(){var n,s=this.attributes.href.nodeValue.toString(),o=s.substr(0,s.indexOf("#")),u=s.substr(s.indexOf("#")+1);if(n=document.getElementById(u)){var l=(r-r%i)/i,c=f(),h=(a(n)-c)/l;if(e.history&&typeof e.history.pushState=="function")e.history.pushState({},t,o+"#"+u);for(var p=1;p<=l;p++){(function(){var t=h*p;setTimeout(function(){e.scrollTo(0,t+c)},i*p)})()}return false}}}}var a=function(e){var r=n*-1;while(e.offsetParent!=t&&e.offsetParent!=null){r+=e.offsetTop+(e.clientTop!=null?e.clientTop:0);e=e.offsetParent}return r};var f=function(){return e.pageYOffset!==t?e.pageYOffset:document.documentElement.scrollTop!==t?document.documentElement.scrollTop:document.body.scrollTop}})(window)
+    </script>
+{% endblock %}
+
+
+
+
