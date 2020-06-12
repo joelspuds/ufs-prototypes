@@ -205,3 +205,16 @@ html {
 body {
   background-color: govuk-colour("white");
 }
+
+
+.container.is-fluid {
+  /*@include desktop {
+    padding-left: 32px;
+    padding-right: 32px;
+  }*/
+
+  @include touch {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

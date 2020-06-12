@@ -1,4 +1,5 @@
-.overview {
+$module: 'overview';
+.#{$module} {
 
   &-items {
     background-color: ufs-colour("ukri-blue");
@@ -69,6 +70,24 @@
         color: govuk-colour("red");
       }
 
+    }
+  }
+
+  &-items--plain {
+
+    background-color: govuk-colour("white");
+    padding: 0;
+    margin-bottom: 30px;
+
+    .#{$module}-item {
+
+      padding: 10px 0;
+      border-bottom: 1px solid govuk-colour("mid-grey");
+      margin-bottom: 0;
+
+      &__meta--right {
+        border-left: 0;
+      }
     }
   }
 }

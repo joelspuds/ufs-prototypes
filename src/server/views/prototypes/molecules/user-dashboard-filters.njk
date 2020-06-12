@@ -1,0 +1,390 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = '' %}
+{% set pageTitle = 'User dashboard with filters' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set allCouncils = allCouncils %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='User dashboard with filters') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="tabsNav">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-9 is-offset-3') %}
+
+                <ul class="govuk-tabs__list" role="tablist">
+                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
+                        <a class="govuk-tabs__tab" href="#" id="tab1" role="tab" aria-controls="bristol" aria-selected="true" tabindex="0">University of Bristol</a>
+                    </li>
+                    <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#" id="tab2" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">Cardiff University</a>
+                    </li>
+                    <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#" id="tab3" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">Bath Spa University</a>
+                    </li>
+                   {# <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#" id="tab4" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">Llanfairpwllgwyngyll University</a>
+                    </li>#}
+                    <li class="govuk-tabs__list-item" role="presentation">
+                        <a class="govuk-tabs__tab" href="#" id="tab5" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">SOAS</a>
+                    </li>
+                </ul>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    <section class="section" id="">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-3') %}
+                <div class="govuk-related-items govuk-related-items--flush">
+
+                    {{ components.captionHeading(text='Filters and sorting', tag='h2', size='s') }}
+
+                    <div class="filter">
+                        <h2 class="filter__title">Filter by status</h2>
+                        <span class="filter__toggle"></span>
+                        <ul class="filter__list u-clearfix">
+                            <li class="filter__item filter__item--small">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input" id="filterDraft" type="checkbox" name="filterDraft" value="draft">
+                                    <label for="filterDraft" class="govuk-checkboxes__label u-display-ib">Draft</label>
+                                </div>
+                            </li>
+                            <li class="filter__item filter__item--small">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input" id="filterReady" type="checkbox" name="filterReady" value="ready">
+                                    <label for="filterReady" class="govuk-checkboxes__label u-display-ib">Ready to open</label>
+                                </div>
+                            </li>
+                            <li class="filter__item filter__item--small">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input" id="filterOpen" type="checkbox" name="filterOpen" value="open">
+                                    <label for="filterOpen" class="govuk-checkboxes__label u-display-ib">Open</label>
+                                </div>
+                            </li>
+                            <li class="filter__item filter__item--small">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input" id="filterPrePanel" type="checkbox" name="prePanel" value="prePanel">
+                                    <label for="filterPrePanel" class="govuk-checkboxes__label u-display-ib">Pre-panel</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="filter filter-toggle __filter-toggle--shut">
+                        <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')" aria-expanded="false">Filter by something else</button>
+                        <span class="filter__toggle"></span>
+                        <ul class="filter__list u-clearfix" id="toggleCouncilsList">
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_0" type="checkbox" name="filterCouncils_0" value="Arts and Humanities Research Council">
+                                    <label for="filterCouncils_0" class="govuk-checkboxes__label u-display-ib">AHRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_1" type="checkbox" name="filterCouncils_1" value="Biotechnology and Biological Sciences Research Council">
+                                    <label for="filterCouncils_1" class="govuk-checkboxes__label u-display-ib">BBSRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_2" type="checkbox" name="filterCouncils_2" value="Economic and Social Research Council">
+                                    <label for="filterCouncils_2" class="govuk-checkboxes__label u-display-ib">ESRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_3" type="checkbox" name="filterCouncils_3" value="Engineering and Physical Sciences Research Council">
+                                    <label for="filterCouncils_3" class="govuk-checkboxes__label u-display-ib">EPSRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_4" type="checkbox" name="filterCouncils_4" value="Innovate UK">
+                                    <label for="filterCouncils_4" class="govuk-checkboxes__label u-display-ib">Innovate UK</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_5" type="checkbox" name="filterCouncils_5" value="Medical Research Council">
+                                    <label for="filterCouncils_5" class="govuk-checkboxes__label u-display-ib">MRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_6" type="checkbox" name="filterCouncils_6" value="Natural Environment Research Council">
+                                    <label for="filterCouncils_6" class="govuk-checkboxes__label u-display-ib">NERC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_7" type="checkbox" name="filterCouncils_7" value="Research England">
+                                    <label for="filterCouncils_7" class="govuk-checkboxes__label u-display-ib">Research England</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_8" type="checkbox" name="filterCouncils_8" value="Science and Technology Facilities Council">
+                                    <label for="filterCouncils_8" class="govuk-checkboxes__label u-display-ib">STFC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_9" type="checkbox" name="filterCouncils_9" value="UK Research and Innovation">
+                                    <label for="filterCouncils_9" class="govuk-checkboxes__label u-display-ib">UKRI</label>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div>
+                        <button class="govuk-button">Apply filters</button>
+                    </div>
+
+
+                </div>
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-9', customID='main-content') %}
+
+                {{ components.captionHeading(text='In progress', tag='h2', size='m', extraClass='heading-contrast') }}
+
+                <div class="overview-items overview-items--plain">
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Viral pandemic: distributed societal issues and news shaping</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 188<br>
+                                    <strong>Opportunity:</strong> Public health and positive political messaging
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--danger">
+                                        <span class="govuk-!-font-size-24">2</span><br> days left<br>
+                                    Deadline 19 April
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right overview-item__meta--success u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">Ready to submit</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Recovery strategies from pollution in freshwater ecosystems</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 204<br>
+                                    <strong>Opportunity:</strong> Freshwater ecology Part III, Where have all the invertebrates gone?
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta">
+                                    <span class="govuk-!-font-size-24">34</span>
+                                    <br> days left<br>
+                                    Deadline 14 May
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">50% complete</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Effluent filtering in pre-treated brown water overflows</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 219<br>
+                                    <strong>Opportunity:</strong> Freshwater ecology Part III, Where have all the invertebrates gone?
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta">
+                                    <span class="govuk-!-font-size-24">50</span>
+                                    <br> days left<br>
+                                    Deadline 28 May
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">50% complete</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Jet propulsion systems in underwater environments</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 176<br>
+                                    <strong>Opportunity:</strong> Freshwater ecology Part I, Sub aquatic travel and investigation methods?
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta  u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">Submitted on <br>
+                                    21 March 2020</span>
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">In review</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Dimensional transmogrification methodology in domesticated urban felines.</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 154<br>
+                                    <strong>Opportunity:</strong> Preservation of distributed and diverse avian populations in tendered and semi-wild non-rural environments
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta  u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">Submitted on <br>
+                                    14 March 2020</span>
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">Awaiting decision</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-10">
+                                <a href="#" class="govuk-link">Bucky balls in internal heterogenous fluid environments</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 116<br>
+                                    <strong>Opportunity:</strong> Surgical advancements, part II
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right overview-item__meta--success u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">Awarded</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Viral pandemic: distributed societal issues and news shaping</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 188<br>
+                                    <strong>Opportunity:</strong> Public health and positive political messaging
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell"><a href="#" class="govuk-link">Remove</a></span>
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center overview-item__meta--danger">
+                                    <span class="u-align-cell">Not successful</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overview-item">
+                        <div class="columns">
+                            <div class="column is-8">
+                                <a href="#" class="govuk-link">Quick turnaround manufacturing techniques using lasers and 3D printers</a><br>
+                                <span class="govuk-!-font-size-16">
+                                    <strong>Application number:</strong> 219<br>
+                                    <strong>Opportunity:</strong> Pandemic response strategies: Part I, PPE manufacture
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell"><a href="#" class="govuk-link">Remove</a></span>
+                                </span>
+                            </div>
+                            <div class="column is-2">
+                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                    <span class="u-align-cell">Not submitted</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%- endcall %}
+        {%- endcall %}
+
+
+    </section>
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }
+    </script>
+{% endblock %}

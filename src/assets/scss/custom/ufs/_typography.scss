@@ -90,3 +90,9 @@ h1.govuk-heading-xl {
 .item-successful, .item-successful strong {
   color: govuk-colour("green")!important;
 }
+
+.heading-contrast {
+  background-color: ufs-colour("ukri-blue");
+  color: govuk-colour("white")!important;
+  padding:4px 8px;
+}
