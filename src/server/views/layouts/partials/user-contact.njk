@@ -1,6 +1,6 @@
 {% call components.bulmaRow(extraClass='') %}
 
-    {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
+    {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
         <div class="service-help u-space-b20 u-space-t30" aria-expanded="false">
             <h2 class="govuk-heading-s service-help__heading">
                 <span class="service-help__plain">Need help with this service?</span>
@@ -16,7 +16,8 @@
           let serviceHelpWrapper = document.getElementsByClassName('service-help')[0];
           let serviceHelpToggle = document.getElementsByClassName('service-help__link')[0];
           let serviceHelpContent = document.getElementsByClassName('service-help__text')[0];
-          serviceHelpToggle.addEventListener('click', function() {
+          serviceHelpToggle.addEventListener('click', function(e) {
+            e.preventDefault();
             if(serviceHelpContent.classList.contains('js-hidden')) {
               serviceHelpContent.classList.remove('js-hidden');
               serviceHelpWrapper.setAttribute('aria-expanded', true);
