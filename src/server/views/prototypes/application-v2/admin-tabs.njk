@@ -33,7 +33,7 @@
 
 {% block content %}
 
-    {% call components.bulmaRow() %}
+    {% call components.bulmaRow(customID='main-content') %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text='APP1740', caption='OPP546: Strength in places fund, round 3') }}
         {%- endcall %}
@@ -41,8 +41,8 @@
 
 
     <div class="govuk-tabs" data-module="govuk-tabs">
-        {% call components.bulmaRow() %}
-            {% call components.bulmaColumnAny(size='is-full', customID='main-content') %}
+        {% call components.bulmaRow(customID='') %}
+            {% call components.bulmaColumnAny(size='is-full') %}
 
                 <h2 class="govuk-tabs__title">Application details and content</h2>
                 <ul class="govuk-tabs__list u-space-b30">
@@ -56,13 +56,9 @@
             {%- endcall %}
         {%- endcall %}
 
-
         <div class="container govuk-tabs__panel ufs-tabs" id="infoTab">
-
             <div class="columns">
-
-
-                <div class="column is-8 " id="main-content">
+                <div class="column is-8">
                     <div class="application-data">
                         <dl class="application-data__list">
                             <dt class="application-data__key">Application reference:</dt>
@@ -76,12 +72,9 @@
                             <dt class="application-data__key">Organisation:</dt>
                             <dd class="application-data__value">Cardiff Univeristy</dd>
                         </dl>
-                    </div></div>
-
-
-
+                    </div>
+                </div>
                 <div class="column is-4 if-offset-1 ">
-
                     <div class="govuk-related-items govuk-related-items--flush">
                         <div class="application-data">
                             <dl class="application-data__list">
@@ -92,30 +85,24 @@
                         <ul class="govuk-list u-space-t10 print-hide">
                             <li><a href="#" class="govuk-link sub-button ">Re-open application</a></li>
                         </ul>
-                    </div></div>
+                    </div>
+                </div>
             </div>
-
         </div>
 
         <div class="container govuk-tabs__panel ufs-tabs" id="readTab">
 
             <div class="columns">
-
                 <div class="column is-3">
-
                     <nav class="sticky-nav">
                         {{ components.linkHeading(text='Contents', tag='h2', size='s')}}
                         {{ components.list(items=listItems, parentClass='sticky-nav')}}
                         <a href="#" class="govuk-link js-only print-link print-link--tabs" id="printThis" onclick="window.print();return false;">Print this page</a>
                     </nav>
-
                 </div>
 
                 <div class="column is-9">
-
-                    <div class="alerts alerts--info">
-                        This is how assessors will see your proposal.
-                    </div>
+                    <div class="alerts alerts--info">This is how assessors will see your proposal.</div>
                     <h2 class="govuk-heading-l serif govuk-heading--link">New thinkers test project name</h2>
                     <h2 class="govuk-heading-m serif govuk-heading--link" id="details">1. Details</h2>
                     <div class="serif u-space-b30">
