@@ -25,10 +25,10 @@
             {{ components.captionHeading(text='Fixed left and right cols', size='l', tag='h2') }}
 
             <style>
-                :root {
-                    --column-fixed-width: 180px;
-                    --column-fixed-width-right: 120px;
-                }
+                /*:root {
+                    !*--column-fixed-width: 180px;
+                    --column-fixed-width-right: 120px;*!
+                }*/
                 table {
                     /*width: 100%;
                     font-size: 16px;
@@ -69,18 +69,16 @@
                     /*width: calc(100% - var(--column-fixed-width));*/
                     /*width: calc(100% - var(--column-fixed-width) + var(--column-fixed-width-right));*/
                     /*width: 100%;*/
-                    width: calc(100% - var(--column-fixed-width-right));
-                    overflow: auto;
                     /*box-shadow: inset -12px 0 9px -7px rgba(0,0,0,0.25);*/
                     /*overflow-x: scroll;
                     overflow-y: visible;*/
+
+                    /*width: calc(100% - var(--column-fixed-width-right));
+                    overflow: auto;*/
                 }
 
-                .scrolly {
 
-                }
-
-                .scrolly__locked-td--left,
+                /*.scrolly__locked-td--left,
                 .scrolly__locked-th--left {
                     border-left: 2px solid darkgrey;
                     font-weight: bold;
@@ -92,8 +90,8 @@
                     left: 0;
                     top: auto;
                     background-color: #FFF;
-                }
-
+                }*/
+/*
                 td.scrolly__locked-td--right,
                 th.scrolly__locked-th--right {
                     border-left: 2px solid darkgrey;
@@ -107,9 +105,9 @@
                     top: auto;
                     background-color: #FFF;
                     text-align: right!important;
-                }
+                }*/
 
-                .scrolly__totals-row td,
+                /*.scrolly__totals-row td,
                 .scrolly__totals-row .scrolly__locked-td {
                     background-color: lightgrey;
                     border-top: 1px solid #333;
@@ -118,7 +116,7 @@
 
                 .scrolly td.scrolly__td {
                     text-align: right;
-                }
+                }*/
 
                 /*thead tr .scrolly__td:nth-last-of-type(-1) {*/
                 /*thead tr td:nth-last-of-type(-1) {

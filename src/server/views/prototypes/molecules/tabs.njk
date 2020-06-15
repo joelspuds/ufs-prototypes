@@ -1,0 +1,80 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Page not found' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Page not found') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-full') %}
+                <div class="govuk-tabs" data-module="govuk-tabs">
+                    <h2 class="govuk-tabs__title">
+                        Contents
+                    </h2>
+                    <ul class="govuk-tabs__list">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                            <a class="govuk-tabs__tab" href="#past-day">
+                                Past day
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#past-week">
+                                Past week
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#past-month">
+                                Past month
+                            </a>
+                        </li>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#past-year">
+                                Past year
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="govuk-tabs__panel" id="past-day">
+                        <h2 class="govuk-heading-l">Past day</h2>
+                        <p class="govuk-body">blagh</p>
+                    </div>
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
+                        <h2 class="govuk-heading-l">Past week</h2>
+                        <p class="govuk-body">blagh</p>
+                    </div>
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
+                        <h2 class="govuk-heading-l">Past month</h2>
+                        <p class="govuk-body">blagh</p>
+                    </div>
+                    <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-year">
+                        <h2 class="govuk-heading-l">Past year</h2>
+                        <p class="govuk-body">blagh</p>
+                    </div>
+
+                </div>
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

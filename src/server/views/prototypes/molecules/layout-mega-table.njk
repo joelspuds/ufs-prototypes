@@ -1,0 +1,181 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = '_admin' %}
+{% set pageTitle = 'Stretch with mega table' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set isAdminUser = false %}
+{%  set loggedOut = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Stretch with mega table', caption='Example layouts') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {#<section class="section">#}
+
+        <div class="container is-fluid">
+
+            <div class="columns">
+
+                {% call components.bulmaColumnAny(size='column is-full', customID='main-content') %}
+
+                    <p class="govuk-body govuk-!-font-size-24">Supa-mega table</p>
+
+                    <p class="govuk-body"><a href="#" class="govuk-link">First target after skiplink</a></p>
+
+                {%- endcall %}
+
+            </div>
+
+        </div>
+
+    <div class="container is-fluid">
+
+        <div class="columns">
+
+            {% call components.bulmaColumnAny(size='column is-full', customID='main-content') %}
+
+                <div class="scrolly">
+                    <table class="scrolly__table">
+                        <thead>
+                        <tr>
+                            <th class="scrolly__locked-th scrolly__locked-th--left">Period</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th>Q1</th>
+                            <th>Q2</th>
+                            <th>Q3</th>
+                            <th>Q4</th>
+                            <th class="scrolly__locked-th scrolly__locked-th--right">Total</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td class="scrolly__locked-td scrolly__locked-td--left">Month</td>
+                            <td class="scrolly__td">Jan to Mar 2020</td>
+                            <td class="scrolly__td">Apr to Jun 2020</td>
+                            <td class="scrolly__td">Jul to Sep 2020</td>
+                            <td class="scrolly__td">Oct to dec 2020</td>
+                            <td class="scrolly__td">Jan to Mar 2021</td>
+                            <td class="scrolly__td">Apr to Jun 2021</td>
+                            <td class="scrolly__td">Jul to Sep 2021</td>
+                            <td class="scrolly__td">Oct to dec 2021</td>
+                            <td class="scrolly__td">Jan to Mar 2022</td>
+                            <td class="scrolly__td">Apr to Jun 2022</td>
+                            <td class="scrolly__td">Jul to Sep 2022</td>
+                            <td class="scrolly__td">Oct to dec 2022</td>
+                            <td class="scrolly__locked-td scrolly__locked-td--right">£123,00</td>
+                        </tr>
+                        <tr>
+                            <td class="scrolly__locked-td scrolly__locked-td--left">Directly incurred</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__td">£65,000</td>
+                            <td class="scrolly__locked-td scrolly__locked-td--right">£123,00</td>
+                        </tr>
+                        <tr>
+                            <td class="scrolly__locked-td scrolly__locked-td--left">Directly allocated</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__locked-td scrolly__locked-td--right">£123,00</td>
+                        </tr>
+                        <tr>
+                            <td class="scrolly__locked-td scrolly__locked-td--left">Indirect costs</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__td">£19,500</td>
+                            <td class="scrolly__locked-td scrolly__locked-td--right">£123,00</td>
+                        </tr>
+                        <tr>
+                            <td class="scrolly__locked-td scrolly__locked-td--left">Exceptions</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__td">£4,550</td>
+                            <td class="scrolly__locked-td scrolly__locked-td--right">£123,00</td>
+                        </tr>
+                        <tr class="scrolly__totals-row">
+                            <td class="scrolly__locked-td scrolly__locked-td--left">Totals</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__td">£41,000</td>
+                            <td class="scrolly__locked-td scrolly__locked-td--right">£123,00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            {%- endcall %}
+
+        </div>
+
+    </div>
+
+   {# </section>#}
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

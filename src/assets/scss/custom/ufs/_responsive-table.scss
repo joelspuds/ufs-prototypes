@@ -12,20 +12,20 @@
 
 }
 
-
 $column-fixed-width: 180px;
 $column-fixed-width-right: 120px;
 .scrolly {
   // wrapper div
+  // width: calc(100% - $column-fixed-width-right);
+  width: calc(100% - 120px);
+  overflow: auto;
 
   &__table {
     width: 100%;
     font-size: 16px;
     margin-left: $column-fixed-width;
-
     border-bottom: 1px solid darkgrey;
   }
-
 
   th, td {
     white-space: nowrap;
@@ -34,6 +34,43 @@ $column-fixed-width-right: 120px;
     border-right: 1px solid darkgrey;
   }
 
+  &__locked-td--left,
+  &__locked-th--left {
+    border-left: 2px solid darkgrey;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 2px solid darkgrey;
+    position: absolute;
+    width: $column-fixed-width;
+    left: 0;
+    top: auto;
+    background-color: #FFF;
+  }
+}
 
+.scrolly__totals-row td,
+.scrolly__totals-row .scrolly__locked-td {
+  background-color: lightgrey;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid darkgrey;
+}
 
+.scrolly td.scrolly__td {
+  text-align: right;
+}
+
+td.scrolly__locked-td--right,
+th.scrolly__locked-th--right {
+  border-left: 2px solid darkgrey;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 2px solid darkgrey;
+  position: absolute;
+  width: $column-fixed-width-right;
+  right: 0;
+  top: auto;
+  background-color: #FFF;
+  text-align: right!important;
 }

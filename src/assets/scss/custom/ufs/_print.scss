@@ -1,5 +1,5 @@
 @media print {
-  body {
+  html, body {
     background-color: #fff;
   }
 
@@ -13,6 +13,20 @@
 
   .column {
     width: 100%!important;
+    clear: both;
+  }
+
+  .column {
+    /*width: 100%!important;
+    clear: both;*/
+  }
+
+  .column,
+  .columns,
+  .columns div[class*='is-'] {
+    display: block!important;
+    flex: none!important;
+    width: 100%!important;
   }
 
   #global-cookie-message,
@@ -20,9 +34,8 @@
   .new-header,
   .app-phase-banner__wrapper,
   .govuk-back-link,
-  .govuk-tabs,
+  .govuk-tabs__list,
   .alerts,
-  .is-3, .is-4,
   .sticky-nav,
   .govuk-heading_additional-link,
   a[href="#main-content"],
@@ -31,4 +44,14 @@
   .ufs-footer{
     display: none!important;
   }
+
+
+  .govuk-tabs__panel--hidden {
+    display: block!important;
+  }
+
+  .print-hide {
+    display: none!important;
+  }
+
 }
