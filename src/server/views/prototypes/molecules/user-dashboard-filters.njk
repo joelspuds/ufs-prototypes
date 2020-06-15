@@ -17,36 +17,6 @@
 
     {%- endcall %}
 
-    <section class="section" id="tabsNav">
-
-        {% call components.bulmaRow() %}
-
-            {% call components.bulmaColumnAny(size='column is-9 is-offset-3') %}
-
-                <ul class="govuk-tabs__list" role="tablist">
-                    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
-                        <a class="govuk-tabs__tab" href="#" id="tab1" role="tab" aria-controls="bristol" aria-selected="true" tabindex="0">University of Bristol</a>
-                    </li>
-                    <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#" id="tab2" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">Cardiff University</a>
-                    </li>
-                    <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#" id="tab3" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">Bath Spa University</a>
-                    </li>
-                   {# <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#" id="tab4" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">Llanfairpwllgwyngyll University</a>
-                    </li>#}
-                    <li class="govuk-tabs__list-item" role="presentation">
-                        <a class="govuk-tabs__tab" href="#" id="tab5" role="tab" aria-controls="cardiff" aria-selected="false" tabindex="-1">SOAS</a>
-                    </li>
-                </ul>
-
-            {%- endcall %}
-
-        {%- endcall %}
-
-    </section>
-
     <section class="section" id="">
 
         {% call components.bulmaRow() %}
@@ -57,7 +27,7 @@
                     {{ components.captionHeading(text='Filters and sorting', tag='h2', size='s') }}
 
                     <div class="filter">
-                        <h2 class="filter__title">Filter by status</h2>
+                        <h2 class="filter__title">Application status</h2>
                         <span class="filter__toggle"></span>
                         <ul class="filter__list u-clearfix">
                             <li class="filter__item filter__item--small">
@@ -89,80 +59,37 @@
 
 
                     <div class="filter filter-toggle __filter-toggle--shut">
-                        <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')" aria-expanded="false">Filter by something else</button>
+                        <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')" aria-expanded="false">Organisations</button>
                         <span class="filter__toggle"></span>
-                        <ul class="filter__list u-clearfix" id="toggleCouncilsList">
+                        <ul class="filter__list u-clearfix" id="organisations">
 
                             <li class="filter__item filter__item--small govuk-clearfix">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_0" type="checkbox" name="filterCouncils_0" value="Arts and Humanities Research Council">
-                                    <label for="filterCouncils_0" class="govuk-checkboxes__label u-display-ib">AHRC</label>
+                                    <input class="govuk-checkboxes__input " id="cardiff" type="checkbox" name="cardiff" value="Cardiff University">
+                                    <label for="cardiff" class="govuk-checkboxes__label u-display-ib">Cardiff University</label>
                                 </div>
                             </li>
 
                             <li class="filter__item filter__item--small govuk-clearfix">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_1" type="checkbox" name="filterCouncils_1" value="Biotechnology and Biological Sciences Research Council">
-                                    <label for="filterCouncils_1" class="govuk-checkboxes__label u-display-ib">BBSRC</label>
+                                    <input class="govuk-checkboxes__input " id="bath" type="checkbox" name="bath" value="Bath Spa University">
+                                    <label for="bath" class="govuk-checkboxes__label u-display-ib">Bath Spa University</label>
                                 </div>
                             </li>
 
                             <li class="filter__item filter__item--small govuk-clearfix">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_2" type="checkbox" name="filterCouncils_2" value="Economic and Social Research Council">
-                                    <label for="filterCouncils_2" class="govuk-checkboxes__label u-display-ib">ESRC</label>
+                                    <input class="govuk-checkboxes__input " id="soas" type="checkbox" name="soas" value="SOAS">
+                                    <label for="soas" class="govuk-checkboxes__label u-display-ib">SOAS</label>
                                 </div>
                             </li>
 
                             <li class="filter__item filter__item--small govuk-clearfix">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_3" type="checkbox" name="filterCouncils_3" value="Engineering and Physical Sciences Research Council">
-                                    <label for="filterCouncils_3" class="govuk-checkboxes__label u-display-ib">EPSRC</label>
+                                    <input class="govuk-checkboxes__input " id="bristol" type="checkbox" name="bristol" value="University of Bristol">
+                                    <label for="bristol" class="govuk-checkboxes__label u-display-ib">Univeristy of Bristol</label>
                                 </div>
                             </li>
-
-                            <li class="filter__item filter__item--small govuk-clearfix">
-                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_4" type="checkbox" name="filterCouncils_4" value="Innovate UK">
-                                    <label for="filterCouncils_4" class="govuk-checkboxes__label u-display-ib">Innovate UK</label>
-                                </div>
-                            </li>
-
-                            <li class="filter__item filter__item--small govuk-clearfix">
-                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_5" type="checkbox" name="filterCouncils_5" value="Medical Research Council">
-                                    <label for="filterCouncils_5" class="govuk-checkboxes__label u-display-ib">MRC</label>
-                                </div>
-                            </li>
-
-                            <li class="filter__item filter__item--small govuk-clearfix">
-                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_6" type="checkbox" name="filterCouncils_6" value="Natural Environment Research Council">
-                                    <label for="filterCouncils_6" class="govuk-checkboxes__label u-display-ib">NERC</label>
-                                </div>
-                            </li>
-
-                            <li class="filter__item filter__item--small govuk-clearfix">
-                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_7" type="checkbox" name="filterCouncils_7" value="Research England">
-                                    <label for="filterCouncils_7" class="govuk-checkboxes__label u-display-ib">Research England</label>
-                                </div>
-                            </li>
-
-                            <li class="filter__item filter__item--small govuk-clearfix">
-                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_8" type="checkbox" name="filterCouncils_8" value="Science and Technology Facilities Council">
-                                    <label for="filterCouncils_8" class="govuk-checkboxes__label u-display-ib">STFC</label>
-                                </div>
-                            </li>
-
-                            <li class="filter__item filter__item--small govuk-clearfix">
-                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
-                                    <input class="govuk-checkboxes__input " id="filterCouncils_9" type="checkbox" name="filterCouncils_9" value="UK Research and Innovation">
-                                    <label for="filterCouncils_9" class="govuk-checkboxes__label u-display-ib">UKRI</label>
-                                </div>
-                            </li>
-
                         </ul>
                     </div>
 
@@ -175,8 +102,6 @@
             {%- endcall %}
 
             {% call components.bulmaColumnAny(size='column is-9', customID='main-content') %}
-
-                {{ components.captionHeading(text='In progress', tag='h2', size='m', extraClass='heading-contrast') }}
 
                 <div class="overview-items overview-items--plain">
                     <div class="overview-item">
