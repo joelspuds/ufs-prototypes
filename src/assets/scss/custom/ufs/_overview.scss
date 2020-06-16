@@ -28,6 +28,10 @@ $module: 'overview';
       padding-bottom: 0;
     }
 
+    &:first-of-type {
+      padding-top: 0;
+    }
+
     a {
       @include govuk-font($size: 19, $weight: bold);
     }
