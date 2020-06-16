@@ -33,36 +33,41 @@
                             <li class="filter__item filter__item--small">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
                                     <input class="govuk-checkboxes__input" id="filterDraft" type="checkbox" name="filterDraft" value="draft">
-                                    <label for="filterDraft" class="govuk-checkboxes__label u-display-ib">Draft</label>
+                                    <label for="filterDraft" class="govuk-checkboxes__label u-display-ib">In progress</label>
                                 </div>
                             </li>
                             <li class="filter__item filter__item--small">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
                                     <input class="govuk-checkboxes__input" id="filterReady" type="checkbox" name="filterReady" value="ready">
-                                    <label for="filterReady" class="govuk-checkboxes__label u-display-ib">Ready to open</label>
+                                    <label for="filterReady" class="govuk-checkboxes__label u-display-ib">Ready to submit</label>
                                 </div>
                             </li>
                             <li class="filter__item filter__item--small">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
                                     <input class="govuk-checkboxes__input" id="filterOpen" type="checkbox" name="filterOpen" value="open">
-                                    <label for="filterOpen" class="govuk-checkboxes__label u-display-ib">Open</label>
+                                    <label for="filterOpen" class="govuk-checkboxes__label u-display-ib">In review</label>
                                 </div>
                             </li>
                             <li class="filter__item filter__item--small">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
                                     <input class="govuk-checkboxes__input" id="filterPrePanel" type="checkbox" name="prePanel" value="prePanel">
-                                    <label for="filterPrePanel" class="govuk-checkboxes__label u-display-ib">Pre-panel</label>
+                                    <label for="filterPrePanel" class="govuk-checkboxes__label u-display-ib">Awarded</label>
+                                </div>
+                            </li>
+                            <li class="filter__item filter__item--small">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input" id="uns" type="checkbox" name="uns" value="uns">
+                                    <label for="uns" class="govuk-checkboxes__label u-display-ib">Unsuccessful</label>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
 
-                    <div class="filter filter-toggle __filter-toggle--shut">
-                        <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')" aria-expanded="false">Organisations</button>
+                    <div class="filter filter-toggle">
+                        <button class="filter__title" type="button" onclick="toggleVisibility(this, 'organisationsList', 'js-hidden')" aria-expanded="false">Organisations</button>
                         <span class="filter__toggle"></span>
-                        <ul class="filter__list u-clearfix" id="organisations">
-
+                        <ul class="filter__list u-clearfix js-hidden" id="organisationsList">
                             <li class="filter__item filter__item--small govuk-clearfix">
                                 <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
                                     <input class="govuk-checkboxes__input " id="cardiff" type="checkbox" name="cardiff" value="Cardiff University">

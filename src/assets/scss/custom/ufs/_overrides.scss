@@ -66,9 +66,6 @@
   }
 }
 
-.govuk-link {
-}
-
 .section {
   padding-top: 0;
 
@@ -83,7 +80,6 @@
 .section--nested {
   padding-left: 0;
   padding-right: 0;
-
 }
 
 .select-iterator {
@@ -96,7 +92,6 @@
     }
   }
 }
-
 
 .govuk-checkboxes--small .govuk-checkboxes__label::after {
   top: 15px;
@@ -112,18 +107,13 @@
   box-sizing: border-box;
 }
 
+a.govuk-link:focus {
+  color: govuk-colour("black");
+}
+
 .govuk-details {
 
   &--contact {
-
-    /*@at-root {
-      #{&} {
-        &__summary {
-          background-color: lime;
-        }
-      }
-    }*/
-
     .govuk-details__summary {
       // background-color: lime;
 
@@ -154,7 +144,6 @@
     }
   }
 }
-
 
 // bulma reset reset
 table td:not([align]), table th:not([align]) {
@@ -206,19 +195,12 @@ body {
   background-color: govuk-colour("white");
 }
 
-
 .container.is-fluid {
-  /*@include desktop {
-    padding-left: 32px;
-    padding-right: 32px;
-  }*/
-
   @include touch {
     padding-left: 0;
     padding-right: 0;
   }
 }
-
 
 .ufs-tabs {
   padding: 0!important;
