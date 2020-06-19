@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Review something new from the creative arts' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Review a book, film, play, poetry, current exhibition or cultural event.' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set writeReviewIsComplete = writeReviewIsComplete if writeReviewIsComplete %}
@@ -10,7 +10,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Review something new from the creative arts', caption=projectName) }}
+            {{ components.captionHeading(text='Review a book, film, play, poetry, current exhibition or cultural event.', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -36,19 +36,27 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="writeReview">It could be a book, film, play, poetry, any current exhibition or cultural event</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="writeReview">Review a book, film, play, poetry, current exhibition or cultural event.</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">Your review must be on a topic that is separate from your research and that you have recently experienced personally. Write it to interest a non-academic audience, in the form of a short essay you could read on air for BBC Radio 3.</p>
+                                <p class="govuk-body">
+                                    Make sure you choose a topic, discipline or category of the arts that is separate from your research, and of which you have personal and recent experience. In the space provided, write a review to interest a non-academic audience in the form of a short essay you could read on air for BBC Radio 3.<br><br>
+                                    The assessors are particularly looking for:
+                                    <br><br>&bull; evidence of 'free thinking', so explore the ideas within or prompted by the work, not just its apparent quality
+                                    <br><br>&bull; your editorial and stylistic suitability for a Radio 3 audience
+                                    <br><br>&bull; comfort with communicating ideas outside of your research area in an interesting, well written and engaging manner.
+
+                                </p>
+                                {#<p class="govuk-body">Your review must be on a topic that is separate from your research and that you have recently experienced personally. Write it to interest a non-academic audience, in the form of a short essay you could read on air for BBC Radio 3.</p>
                                 <p class="govuk-body">The assessors are keen to see:</p>
                                 <ul class="govuk-list govuk-list--bullet">
                                     <li>evidence of 'free thinking', so explore the ideas within or prompted by the work, not just its apparent quality</li>
                                     <li>your editorial and stylistic suitability for a Radio 3 audience</li>
                                     <li>that you are comfortable communicating ideas outside of your research area in an interesting, well written and engaging manner.</li>
-                                </ul>
+                                </ul>#}
                             </div>
                         </details>
                         <textarea class="govuk-textarea govuk-js-character-count" name="writeReview" id="writeReview" rows="18" {% if readOnly %} disabled {% endif %}>{{ writeReview }}</textarea>

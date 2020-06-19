@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Your research experience' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Your research history' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set researchExperience = researchExperience if researchExperience %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
@@ -10,7 +10,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Your research experience', caption=projectName) }}
+            {{ components.captionHeading(text='Your research history', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -36,19 +36,27 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="researchExperience">Briefly describe your research history</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="researchExperience">List the academic institutions where you have been based, the years you were there and the research you undertook</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">In the answer box list the academic institutions where you have been based, starting with the most recent. List the research you did and the years during which it took place.</p>
+                                {#<p class="govuk-body">In the answer box list the academic institutions where you have been based, starting with the most recent. List the research you did and the years during which it took place.</p>
                                 <p class="govuk-body">The assessors are keen to see:</p>
                                 <ul class="govuk-list govuk-list--bullet">
                                     <li>a breadth of research interest</li>
                                     <li>high standards of scholarship</li>
                                     <li>originality and quality in the arts and humanities.</li>
-                                </ul>
+                                </ul>#}
+
+                                <p class="govuk-body">
+                                    Include all the academic institutions for whom you have carried out research. Start with the most recent; describe what you did and how you did it, providing any interesting outcomes.<br><br>
+                                    The assessors are particularly looking for:
+                                    <br><br>&bull; a breadth of research interest
+                                    <br><br>&bull; high standards of scholarship.
+                                </p>
+
                             </div>
                         </details>
                         <textarea class="govuk-textarea govuk-js-character-count" name="researchExperience" id="researchExperience" rows="18" {% if readOnly %} disabled {% endif %}>{{ researchExperience }}</textarea>

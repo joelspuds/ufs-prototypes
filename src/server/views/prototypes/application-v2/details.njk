@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = APPLICATION_PROJECT_DETAILS_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Details and summary' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {#{% set showSimpleTinyMCEScripts = true %}#}
 {% set detailsInput = detailsInput if detailsInput %}
@@ -13,7 +13,7 @@
     </style>
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text=APPLICATION_PROJECT_DETAILS_TITLE, caption=projectName) }}
+            {{ components.captionHeading(text='Details and summary', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -42,8 +42,8 @@
                     {#{{ components.field(label='Project name', hint='Enter the full name of your proposed project', labelBold=true, id='projectName', value=projectName) }}#}
 
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectName">Project name
-                            <span class="govuk-hint">Enter the full name of your proposed project</span>
+                        <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectName">Application name
+                            <span class="govuk-hint">Make this the title of the programme you would like to make for BBC Radio 3</span>
                         </label>
                         <input class="govuk-input " id="projectName" type="text" name="projectName" value="New thinkers test project name" {% if readOnly %} disabled {% endif %}>
                     </div>
@@ -59,28 +59,31 @@
             {% call components.bulmaColumnAny(size='is-full') %}
 
                 <div class="govuk-form-group ">
-                    <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectSummary">Project summary
-                        <span class="govuk-hint">Provide a synopsis of your proposed project in the form of a brief programme pitch</span>
+                    <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectSummary">Summary
+                        <span class="govuk-hint">Provide a brief pitch for an engaging Radio 3 programme of up to 45 minutes</span>
                     </label>
                     <details class="govuk-details" data-module="govuk-details" role="group">
                         <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                             <span class="govuk-details__summary-text">Guidance for writing a summary</span>
                         </summary>
                         <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                            <p class="govuk-body">Focusing on one aspect of your research, please provide a brief pitch on how this could make an engaging and stimulating programme for Radio 3 of up to 45 minutes, ensuring that you make it clear what format this programme would take.</p>
-                            <p class="govuk-body">This will be used by assessors to assess:</p>
-                            <ul class="govuk-list govuk-list--bullet">
-                                <li>Demonstration of ideas that are innovative and interesting to the public</li>
-                                <li>Provision of a strong programme idea that explains the significance of the research and</li>
-                                <li>what the findings mean in day-to-day terms.</li>
-                                <li>Creativity and originality</li>
-                            </ul>
+                            {#<p class="govuk-body">Focusing on one aspect of your research, give a clear outline of your idea including the format your programme would take. For example: it could be three 15 minute monologues, or a series of interviews with you and experts from this field.</p>
+                            <p class="govuk-body">Keep in mind this will be for a non-academic audience. The assessors are looking for ideas that:</p>
+                            <p class="govuk-body"> &bull; are based on a strong and innovative programme concept</p>
+                            <p class="govuk-body"> &bull; will engage and excite the public</p>
+                            <p class="govuk-body"> &bull; explain the relevance of your research and what the findings mean in simple, everyday language</p>
+                            <p class="govuk-body"> &bull; demonstrate creative and original thinking</p>#}
+                            <p class="govuk-body">Focusing on one aspect of your research, give a clear outline of your idea including the format your programme would take. For example: it could be three 15 minute monologues, or a series of interviews with you and experts from this field.
+                            <br><br>Keep in mind this will be for a non-academic audience. The assessors are looking for ideas that:
+                            <br><br> &bull; are based on a strong and innovative programme concept
+                            <br><br> &bull; will engage and excite the public
+                            <br><br> &bull; explain the relevance of your research and what the findings mean in simple, everyday language
+                            <br><br> &bull; demonstrate creative and original thinking
+                            </p>
                         </div>
                     </details>
-
                     <textarea class="govuk-textarea govuk-js-character-count" name="projectSummary" id="projectSummary" rows="18" {% if readOnly %} disabled {% endif %}>{{ detailsInput }}</textarea>
                     <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 400 words remaining</span></p>
-
                 </div>
 
             {%- endcall %}

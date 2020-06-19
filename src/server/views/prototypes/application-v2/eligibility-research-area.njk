@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Eligibility - your programme topic' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Topic eligibility' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set programmeTopic = programmeTopic if programmeTopic %}
 {% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
@@ -10,7 +10,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Eligibility - your programme topic', caption=projectName) }}
+            {{ components.captionHeading(text='Topic eligibility', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -36,13 +36,18 @@
 
                 <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                     <div class="govuk-form-group ">
-                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="programmeTopic">You need to state at least one research topic, which is/are yours?</label>
+                        <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="programmeTopic">Select the primary focus of your current research activity from the available disciplines.</label>
+                        (<a href="#" class="govuk-link govuk-!-font-size-19 govuk-!-font-weight-bold">View list of AHRC Level 2 subject disciplines</a>)
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
                                 <span class="govuk-details__summary-text">What you should include in your answer?</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                <p class="govuk-body">The primary research focus for your programme idea must be in the arts and humanities. It could be bringing arts and humanities research together with non-AHRC funded disciplines. But you have to demonstrate suitable links to the world of arts and humanities and that this remains your primary focus. In the answer box, you may select more than one topic (there is a more detailed list of the AHRC disciplines on the website listing for this Opportunity). If you do that, identify your primary area by entering it first on your list.</p>
+                                <p class="govuk-body">
+                                    Your research could involve bringing together arts and humanities research with other non-AHRC funded disciplines. We welcome interdisciplinary research, but your main focus must be a subject discipline listed on our web page - if it is not listed, it is ineligible.<br><br>
+                                    In the space provided, state the subject discipline.
+                                </p>
+                                {#<p class="govuk-body">The primary research focus for your programme idea must be in the arts and humanities. It could be bringing arts and humanities research together with non-AHRC funded disciplines. But you have to demonstrate suitable links to the world of arts and humanities and that this remains your primary focus. In the answer box, you may select more than one topic (there is a more detailed list of the AHRC disciplines on the website listing for this Opportunity). If you do that, identify your primary area by entering it first on your list.</p>
                                 <p class="govuk-body">Our main topic areas are:</p>
                                 <ul class="govuk-list govuk-list--bullet">
                                     <li>Archaeology</li>
@@ -64,7 +69,7 @@
                                     <li>Languages and literature</li>
                                     <li>Linguistics</li>
                                     <li>Visual arts.</li>
-                                </ul>
+                                </ul>#}
                             </div>
                         </details>
                         <textarea class="govuk-textarea govuk-js-character-count" name="programmeTopic" id="programmeTopic" rows="18" {% if readOnly %} disabled {% endif %}>{{ programmeTopic }}</textarea>

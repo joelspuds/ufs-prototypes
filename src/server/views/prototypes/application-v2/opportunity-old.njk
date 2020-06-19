@@ -1,0 +1,273 @@
+{% set showExternalFurniture = true %}
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set pageTitle = 'AHRC New Generation Thinkers scheme ' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% set backLinkContents =  [{url:'/prototypes/application-v2/project-listings', text:'Back to all Opportunities'}] %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='AHRC New Generation Thinkers scheme') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-8', extraClass='u-space-t20') %}
+
+            <ul class="opportunity-meta govuk-list">
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Opportunity status:</span>
+                    <span class="opportunity-meta__details">Open</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Funder:</span>
+                    <span class="opportunity-meta__details"><a href="#" class="govuk-link">Arts and Humanities Research Council (AHRC)</a></span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Funding type:</span>
+                    <span class="opportunity-meta__details">Outline Application</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Publication date:</span>
+                    <span class="opportunity-meta__details">Wednesday 29 July 2020</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Opening date:</span>
+                    <span class="opportunity-meta__details">Wednesday 29 July 2020</span>
+                </li>
+                <li class="opportunity-meta__item">
+                    <span class="opportunity-meta__title">Closing date:</span>
+                    <span class="opportunity-meta__details">Open</span>
+                </li>
+            </ul>
+
+            <p class="govuk-body">Last updated: 3 August 2020</p>
+
+            <p class="govuk-body"><a href="/prototypes/register-v1/start" class="govuk-button govuk-button--start">Start an application</a> </p>
+
+            <div class="alerts ">
+                <h2 class="govuk-heading-s">This Opportunity is not available through the Je-S platform</h2>
+                You will need to create an account with the new UKRI Funding Service, which allows you to save your work as you go along.
+            </div>
+
+            <p class="govuk-body">The AHRC’s main aim is to fund the highest quality research across a diverse range of disciplines. But it also has a duty to enhance the public’s understanding of the arts and humanities. The BBC also wants to find a new generation of academics who can bring the best of the latest university research and thinking to a broad audience. </p>
+            <p class="govuk-body">This Opportunity gives 60, early-career researchers the chance to workshop radio programme ideas with experienced BBC producers. Of these, up to 10 will become AHRC New Generation Thinkers – making programmes for Radio 3 and other outlets, and contributing to wider media through the AHRC. Some of the selected researchers will also get the opportunity to work with BBC Four to present a TV programme.</p>
+
+            <p class="govuk-body">Previous New Generation Thinkers have presented at the Hay Festival and the Being Human Festival, and have been interviewed by flagship BBC programmes and other media and broadcasters.</p>
+
+
+            <div class="govuk-accordion ukri-accordion" data-module="govuk-accordion" id="accordion-default"><div class="govuk-accordion__controls"></div>
+
+                <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                        <h2 class="govuk-accordion__section-heading ukri-accordion__section-heading">
+                            <button type="button" id="accordion-default-heading-1" aria-controls="accordion-default-content-1" class="govuk-accordion__section-button" aria-expanded="false">
+                                Who can apply
+                            </button><span class="govuk-accordion__icon" aria-hidden="true"></span></h2>
+                    </div>
+                    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                        <p class="govuk-body">To apply for the New Generation Thinkers scheme, you must be: </p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>a UK resident, and</li>
+                            <li>over the age of 18, and</li>
+                            <li>currently working or studying at a UK research organisation that is eligible to receive funding from UK Research and Innovation, and</li>
+                            <li>studying a relevant area of research (see ‘Your research’, below).</li>
+                        </ul>
+
+                        <p class="govuk-body">You must also be either:</p>
+                        <ol class="govuk-list govuk-list--alpha">
+                            <li>a current PhD student who has made considerable progress on your research, for example within one year of submission, or</li>
+                            <li>within eight years of the award of your PhD, excluding any period of career break such as parental leave, caring responsibilities or health reasons, or</li>
+                            <li>within six years of your first academic appointment, excluding any career break such as parental leave, caring responsibilities or health reasons. This must be a paid contract of employment, either full-time or part-time, which lists research and/or teaching as the primary function, including research assistantships. You do not need to have a permanent contract of employment to be eligible, as long as you meet the conditions above. </li>
+                        </ol>
+
+                        <p class="govuk-body">You can apply if you have applied to the scheme before, as long as you weren’t selected as a final New Generation Thinker. You can’t apply if you work for the BBC, the AHRC or UKRI. </p>
+
+                        <h3 class="govuk-heading-s">Your organisation's eligibility</h3>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li> a UK higher education institution that receives grant funding from a UK funding body, such as Research England, the Higher Education Funding Council for Wales, the Scottish Funding Council or the Department for Employment and Learning Northern Ireland, or</li>
+                            <li> a research institute that UKRI has an established, long-term involvement with as a major funder, or</li>
+                            <li> an independent research organisation (IRO) which has been awarded IRO status by UKRI.</li>
+                        </ul>
+
+                        <p class="govuk-body">You can find out more about your organisation’s eligibility in the AHRC Research Funding Guide.</p>
+
+                        <h3 class="govuk-heading-s">Your research</h3>
+
+                        <p class="govuk-body">This must have a primary focus in the arts and humanities. As long as that is the case, it could be combined with other non-AHRC funded disciplines. Applications without this focus will be disqualified.
+                            Our main topic areas are:
+                        </p>
+
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>Archaeology</li>
+                            <li>Classics</li>
+                            <li>Cultural and museum studies</li>
+                            <li>Development studies</li>
+                            <li>History</li>
+                            <li>Information and communication technologies</li>
+                            <li>Law and legal studies</li>
+                            <li>Library and information studies</li>
+                            <li>Philosophy</li>
+                            <li>Political science and international studies</li>
+                            <li>Theology, divinity and religion</li>
+                            <li>Dance</li>
+                            <li>Design</li>
+                            <li>Drama and theatre studies</li>
+                            <li>Media</li>
+                            <li>Music</li>
+                            <li>Languages and literature</li>
+                            <li>Linguistics</li>
+                            <li>Visual arts.</li>
+                        </ul>
+
+
+                    </div>
+                </div>
+
+                <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                        <h2 class="govuk-accordion__section-heading ukri-accordion__section-heading">
+
+                            <button type="button" id="accordion-default-heading-2" aria-controls="accordion-default-content-2" class="govuk-accordion__section-button" aria-expanded="false">
+                                What we are looking for
+                            </button><span class="govuk-accordion__icon" aria-hidden="true"></span></h2>
+                    </div>
+                    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+
+                        <p class="govuk-body">The applicants who will go forward to the next round of assessment (see how we will asses your application) will have demonstrated:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>how one area of their research could make an engaging and stimulating programme for Radio 3 of up to 45 minutes, that explains the significance of the research and, including the format it would take, and
+                            <li>how this research could have the potential to either change public opinion, influence policy or make a difference, and</li>
+                            <li>creativity, originality and the potential to talk and write about other areas within the arts and humanities, in an accessible and interesting manner particularly to a wider listening audience.</li>
+                        </ul>
+                        <p class="govuk-body">We strongly suggest you listen to work by previous New Generation Thinkers before you apply. You can find examples of these on the BBC website. You can also find more examples and other information about the scheme on the AHRC website.</p>
+                    </div>
+                </div>
+
+                <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                        <h2 class="govuk-accordion__section-heading ukri-accordion__section-heading">
+
+                            <button type="button" id="accordion-default-heading-3" aria-controls="accordion-default-content-3" class="govuk-accordion__section-button" aria-expanded="false">
+                                How to apply
+                            </button><span class="govuk-accordion__icon" aria-hidden="true"></span></h2>
+                    </div>
+                    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                        <p class="govuk-body">You will need to create a new UKRI Funding Service account and submit your application
+                        before the deadline of 4pm on Tuesday 8 October 2020. This UKRI Funding Service is linked to your organisation, who will need to approve both your final application before it is sent to the AHRC. Make sure you leave enough time for them to do this before the closing date. By submitting an application, you consent to the AHRC sharing your information with the BBC for the purposes of this scheme.</p>
+                        <p class="govuk-body">The application is divided into a number of sections:</p>
+
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>In ‘Details and summary’, you will be asked to provide a name for your application, a start date and duration. For the purposes of the form please enter 1 April 2021 and a duration of 12 months. You will then be asked for a synopsis of your programme idea, from one aspect of your research, following the guidelines suggested in ‘What we are looking for’ above. For this there is a 400-word count limit.</li>
+                            <li>You will then be asked about your eligibility, which is in two parts: your current situation and, choosing from a list, the primary focus for your programme idea which must be in the arts and humanities.</li>
+                            <li>The next section requires you to provide a simple, jargon-free explanation of the current arts and humanities research area(s) you have undertaken and any impact this may have on the wider public. For this there is a 250-word count limit.</li>
+                            <li>The section after that is for you to briefly detail your research history, listing the academic institutions where you have been based, the research you have undertaken and the years this activity took place. For this there is a 250-word count limit.</li>
+                            <li>And finally, you will need to review of a book, film, play, poetry, any current exhibition or cultural event of which you have personal and recent experience. This should be of interest to and written for a non-academic audience. It must also be on a topic and discipline separate from your research and stylistically as if you were going to read it on air as a short essay for BBC Radio 3 (you can listen to examples online). For this there is a 250-word count limit.</li>
+                        </ul>
+
+                       {# <p class="govuk-body">In ‘Details and summary’, you will be asked to provide a name for your application, a start date and duration. For the purposes of the form please enter 1 April 2021 and a duration of 12 months. You will then be asked for a synopsis of your programme idea, from one aspect of your research, following the guidelines suggested in ‘What we are looking for’ above. For this there is a 400-word count limit.</p>
+                        <p class="govuk-body">You will then be asked about your eligibility, which is in two parts: your current situation and, choosing from a list, the primary focus for your programme idea which must be in the arts and humanities.</p>
+                        <p class="govuk-body">The next section requires you to provide a simple, jargon-free explanation of the current arts and humanities research area(s) you have undertaken and any impact this may have on the wider public. For this there is a 250-word count limit.</p>
+                        <p class="govuk-body">The section after that is for you to briefly detail your research history, listing the academic institutions where you have been based, the research you have undertaken and the years this activity took place. For this there is a 250-word count limit.</p>
+                        <p class="govuk-body">And finally, you will need to review of a book, film, play, poetry, any current exhibition or cultural event of which you have personal and recent experience. This should be of interest to and written for a non-academic audience. It must also be on a topic and discipline separate from your research and stylistically as if you were going to read it on air as a short essay for BBC Radio 3 (you can listen to examples online). For this there is a 250-word count limit.</p>#}
+                    </div>
+                </div>
+
+                <div class="govuk-accordion__section">
+                    <div class="govuk-accordion__section-header">
+                        <h2 class="govuk-accordion__section-heading ukri-accordion__section-heading">
+
+                            <button type="button" id="accordion-default-heading-4" aria-controls="accordion-default-content-4" class="govuk-accordion__section-button" aria-expanded="false">
+                                How we will assess your application
+                            </button><span class="govuk-accordion__icon" aria-hidden="true"></span></h2>
+                    </div>
+                    <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                        <p class="govuk-body">You must meet all the eligibility criteria and complete the other sections of the application satisfactorily. Applications which don’t adhere to these rules will be disqualified and will not progress further. Ineligible, incomplete, obscene or fraudulent entries will also be disqualified at this stage.</p>
+                        <p class="govuk-body">The AHRC and the BBC will then assess all remaining applications against the assessment criteria below and assign an initial grade (1 to 6), where 1 is unsatisfactory and 6 is exceptional. After considering all proposals, both the AHRC and the BBC will each shortlist up to 60 applications.</p>
+
+                        <p class="govuk-body">When deciding which candidates will be selected to go forward to attend the workshops, the judges will be looking for applications that:</p>
+
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>give a simple, jargon free explanation of the research in an engaging manner</li>
+                            <li>demonstrate high standards of scholarship with originality and quality</li>
+                            <li>are creative and original</li>
+                            <li>provide a strong programme idea that explains the significance of the research and what the findings mean in day-to-day terms</li>
+                            <li>have an editorial and stylistic suitability for a Radio 3 audience</li>
+                            <li>have a review and research description that shows a breadth of interest</li>
+                            <li>demonstrate that you are comfortable communicating ideas outside of your research area in an interesting, well-written and engaging manner</li>
+                            <li>demonstrate ideas that are innovative, and interesting to a public audience.</li>
+                        </ul>
+                        <p class="govuk-body">Unfortunately, due to the volume of applications, we are not able to provide individual feedback if you are unsuccessful at the application stage.</p>
+                    </div>
+                </div>
+            </div>
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-4 _is-offset-1') %}
+
+            <h2 class="govuk-heading-m">Timeline</h2>
+            <div class="timeline">
+                <ul class="timeline__list">
+                    <li class="timeline__item">
+                        <span class="timeline__title">8 October 2020 4pm</span>
+                        <span class="timeline__meta">Application deadline</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">22 November 2020</span>
+                        <span class="timeline__meta">Assessment meeting</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">9 December 2020</span>
+                        <span class="timeline__meta">Applicants informed of decisions</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">15 January 2021</span>
+                        <span class="timeline__meta">Workshop 1 (Salford)</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">20 January 2021</span>
+                        <span class="timeline__meta">Workshop 2 (London)</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">22 January 2021</span>
+                        <span class="timeline__meta">Workshop 3 (London)</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">30 January 2021</span>
+                        <span class="timeline__meta">Final ten advised</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">18-19 February 2021</span>
+                        <span class="timeline__meta">Media training, photography and event</span>
+                    </li>
+                    <li class="timeline__item">
+                        <span class="timeline__title">25  March 2021</span>
+                        <span class="timeline__meta">Finalist record Radio 3 programme</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="rel-box rel-box--external">
+                <h2 class="govuk-heading-s">Eligibility</h2>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="#" class="govuk-link">AHRC international scheme workshop for applicants</a> </li>
+                    <li><a href="#" class="govuk-link">Training and support for researchers</a> </li>
+                </ul>
+            </div>
+
+            <div class="rel-box rel-box--external">
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="#" class="govuk-link">Print this page</a> </li>
+                    <li><a href="#" class="govuk-link">Download as PDF</a> </li>
+                </ul>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
