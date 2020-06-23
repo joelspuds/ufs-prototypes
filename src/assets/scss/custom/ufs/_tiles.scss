@@ -1,0 +1,83 @@
+.tfs-tile {
+  background-color: #EBEEF0;
+  padding: 10px;
+  min-height: 170px;
+
+  &--plain {
+    background-color: govuk-colour("white");
+    padding: 0;
+  }
+
+  &__heading {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &--urgent {
+    border-left: 5px solid govuk-colour("red");
+  }
+
+  &--actions {
+    border-left: 5px solid govuk-colour("blue");
+  }
+
+  &__progress {
+    display: block;
+    @include govuk-font($size: 19);
+  }
+
+  &__number {
+    display: block;
+    @include govuk-font($size: 24, $weight: bold);
+  }
+
+  &__link {
+    display: block;
+    margin-top: 6px;
+    @include govuk-font($size: 19);
+  }
+
+  &__action {
+    display: block;
+    margin: 10px 0 4px;
+    position: relative;
+    @include govuk-font($size: 19);
+    // @include govuk-font($size: 24, $weight: bold);
+
+    &:before {
+      content: "";
+      left: 1px;
+      width: 18px;
+      height: 18px;
+      top: 4px;
+      position: absolute;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.tfs-tile__heading + .tfs-tile__progress {
+  margin-top: 38px;
+}
+
+.tfs-tile--actions {
+  .tfs-tile__action {
+      padding-left: 30px;
+
+      &:before {
+        background-image: url(/images/ufs/blue_info.svg);
+        background-size: 18px 18px;
+      }
+    }
+}
+
+.tfs-tile--urgent {
+  .tfs-tile__action {
+    padding-left: 30px;
+
+    &:before {
+      background-image: url(/images/ufs/red_warning.svg);
+      background-size: 18px 19px;
+    }
+  }
+}

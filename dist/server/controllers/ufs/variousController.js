@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.autoPingGet = autoPingGet;
 exports.autoPingPost = autoPingPost;
+exports.megaDataGet = megaDataGet;
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
@@ -39,4 +40,22 @@ function autoPingPost(req, res) {
   let tempRefreshCounter = req.session.refreshCounter + 1;
   req.session.refreshCounter = tempRefreshCounter;
   return res.redirect('/prototypes/molecules/auto-ping');
+}
+
+// ************************************************************************
+//
+//       MEGA DATA TABLE
+//
+// ************************************************************************
+function megaDataGet(req, res) {
+  let viewData;
+
+  // const allOrgs = generalData.allOrgs2;
+  const megaData = generalData.megaData;
+
+  viewData = {
+    megaData
+  };
+
+  return res.render('prototypes/molecules/mega-data', viewData);
 }

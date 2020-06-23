@@ -264,6 +264,7 @@ router.post('/prototypes/application-v2/add-applicant', demosController.appV2Add
 * *************************************************************** */
 router.get('/prototypes/molecules/auto-ping', demosController.autoPingGet);
 router.post('/prototypes/molecules/auto-ping', demosController.autoPingPost);
+router.get('/prototypes/molecules/mega-data', demosController.megaDataGet);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

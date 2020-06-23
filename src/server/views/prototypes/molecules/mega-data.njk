@@ -1,0 +1,293 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set isAdminUser = true %}
+{% set pageTitle = OPPORTUNITY_TITLE_TAG + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set listItemsActions = [
+    { text: 'Create new Opportunity', url: '/prototypes/opportunity-v3/create' }
+] %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set allCouncils = allCouncils %}
+{% set megaData = megaData if megaData %}
+
+{% block content %}
+
+    {% call components.bulmaRow(extraClass='') %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+            {{ components.captionHeading(text='Lister') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow(extraClass='', customID='main-content') %}
+        {#{% call components.bulmaColumnAny(size='is-3') %}
+
+            #}{# <a href="/prototypes/opportunity-v3/create" class="govuk-button ">Create new Opportunity</a>#}{#
+
+        {%- endcall %}#}
+
+        {% call components.bulmaColumnAny(size='is-9') %}
+
+            <form action="#" method="get" role="search">
+                <div class="search">
+                    <div class="govuk-form-group govuk-form-group--search">
+                        <label class="govuk-label govuk-visually-hidden" for="search">Event name</label>
+                        <input class="govuk-input govuk-input--width-20 search__input" id="search" name="event-name" type="text" placeholder="Search all Opportunities">
+                        <button type="submit" class="search__submit">Search</button>
+                    </div>
+                </div>
+            </form>
+
+            <p class="govuk-body">
+                Showing <strong>125</strong> Opportunities filtered by <strong>MRC</strong> in award set-up
+            </p>
+
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-3') %}
+
+            {#{{ components.list(items=listItemsActions, type='bullet')}}#}
+
+            <div class="govuk-related-items govuk-related-items--flush u-space-t15">
+
+                {{ components.captionHeading(text='Filters and sorting', tag='h2', size='s') }}
+
+                <div class="filter">
+                    <h2 class="filter__title">Filter by status</h2>
+                    <span class="filter__toggle"></span>
+                    <ul class="filter__list u-clearfix ">
+                        <li class="filter__item filter__item--small ">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input govuk-checkboxes--small" id="filterDraft" type="checkbox" name="filterDraft" value="draft">
+                                <label for="filterDraft" class="govuk-checkboxes__label u-display-ib">Draft</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <label for="filterReady" class="govuk-checkboxes__label u-display-ib">Ready to open</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input" id="filterOpen" type="checkbox" name="filterOpen" value="open">
+                                <label for="filterOpen" class="govuk-checkboxes__label u-display-ib">Open</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input" id="filterPrePanel" type="checkbox" name="prePanel" value="prePanel">
+                                <label for="filterPrePanel" class="govuk-checkboxes__label u-display-ib">Pre-panel</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="filter">
+                    <h2 class="filter__title">Filter by criteria</h2>
+                    <span class="filter__toggle"></span>
+                    <ul class="filter__list u-clearfix ">
+                        <li class="filter__item filter__item--small ">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input govuk-checkboxes--small" id="filterOne" type="checkbox" name="filterOne" value="one">
+                                <label for="filterOne" class="govuk-checkboxes__label u-display-ib">Criteria one</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input" id="filterTwo" type="checkbox" name="filterTwo" value="two">
+                                <label for="filterTwo" class="govuk-checkboxes__label u-display-ib">Criteria two</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input" id="filterThree" type="checkbox" name="filterThree" value="three">
+                                <label for="filterThree" class="govuk-checkboxes__label u-display-ib">Criteria three</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input" id="filterFour" type="checkbox" name="filterFour" value="four">
+                                <label for="filterFour" class="govuk-checkboxes__label u-display-ib">Criteria four</label>
+                            </div>
+                        </li>
+                        <li class="filter__item filter__item--small">
+                            <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                <input class="govuk-checkboxes__input" id="filterFive" type="checkbox" name="filterFive" value="five">
+                                <label for="filterFive" class="govuk-checkboxes__label u-display-ib">Criteria five</label>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="filter filter-toggle __filter-toggle--shut">
+                    <button class="filter__title" type="button" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')" aria-expanded="false">Filter by council</button>
+                    {#<h2 class="filter__title" tabindex="0" onclick="toggleVisibility(this, 'toggleCouncilsList', 'js-hidden')">Filter by council</h2>#}
+                    <span class="filter__toggle"></span>
+                    <ul class="filter__list u-clearfix js-hidden" id="toggleCouncilsList">
+                        <ul class="filter__list u-clearfix" id="toggleCouncilsList">
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_0" type="checkbox" name="filterCouncils_0" value="Arts and Humanities Research Council">
+                                    <label for="filterCouncils_0" class="govuk-checkboxes__label u-display-ib">AHRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_1" type="checkbox" name="filterCouncils_1" value="Biotechnology and Biological Sciences Research Council">
+                                    <label for="filterCouncils_1" class="govuk-checkboxes__label u-display-ib">BBSRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_2" type="checkbox" name="filterCouncils_2" value="Economic and Social Research Council">
+                                    <label for="filterCouncils_2" class="govuk-checkboxes__label u-display-ib">ESRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_3" type="checkbox" name="filterCouncils_3" value="Engineering and Physical Sciences Research Council">
+                                    <label for="filterCouncils_3" class="govuk-checkboxes__label u-display-ib">EPSRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_4" type="checkbox" name="filterCouncils_4" value="Innovate UK">
+                                    <label for="filterCouncils_4" class="govuk-checkboxes__label u-display-ib">Innovate UK</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_5" type="checkbox" name="filterCouncils_5" value="Medical Research Council">
+                                    <label for="filterCouncils_5" class="govuk-checkboxes__label u-display-ib">MRC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_6" type="checkbox" name="filterCouncils_6" value="Natural Environment Research Council">
+                                    <label for="filterCouncils_6" class="govuk-checkboxes__label u-display-ib">NERC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_7" type="checkbox" name="filterCouncils_7" value="Research England">
+                                    <label for="filterCouncils_7" class="govuk-checkboxes__label u-display-ib">Research England</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_8" type="checkbox" name="filterCouncils_8" value="Science and Technology Facilities Council">
+                                    <label for="filterCouncils_8" class="govuk-checkboxes__label u-display-ib">STFC</label>
+                                </div>
+                            </li>
+
+                            <li class="filter__item filter__item--small govuk-clearfix">
+                                <div class="govuk-checkboxes__item govuk-checkboxes--small multiple-choice filter__switch">
+                                    <input class="govuk-checkboxes__input " id="filterCouncils_9" type="checkbox" name="filterCouncils_9" value="UK Research and Innovation">
+                                    <label for="filterCouncils_9" class="govuk-checkboxes__label u-display-ib">UKRI</label>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </ul>
+                </div>
+
+                <div>
+                    {% call components.formGroup() %}
+                        {{ components.button(text='Apply filters', extraClass='')}}
+                    {%- endcall %}
+                </div>
+
+            </div>
+
+
+        {%- endcall %}
+
+        {% call components.bulmaColumnAny(size='is-9') %}
+
+            <div class="responsive-table">
+
+                <table class="govuk-table mega-table responsive-table__table">
+                    <thead>
+                        <tr class="govuk-table__header">
+                            <th class="govuk-table__header">Opp<br>number</th>
+                            <th class="govuk-table__header">Opportunity name</th>
+                            <th class="govuk-table__header">Funder</th>
+                           {# <th class="govuk-table__header govuk-table__header--numeric">Organisation</th>#}
+                            <th class="govuk-table__header govuk-table__header--numeric">Number of<br>awards</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Number of<br>projects</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Award<br>amount</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Award<br>status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for item in megaData %}
+                        <tr class="mega-table_row-status--{{ item.status }}">
+                            <td class="govuk-table__cell">{{ item.id }}</td>
+                            <td class="govuk-table__cell mega-table__cell--fixed"><a href="#" class="govuk-link">{{ item.name }}</a></td>
+                            <td class="govuk-table__cell"><a href="#" class="govuk-link">{{ item.funder }}</a></td>
+                            {#<td class="govuk-table__cell govuk-table__cell--numeric"><a href="#" class="govuk-link">{{ item.org }}</a></td>#}
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{{ range(1, 10) | random }}</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{{ range(1, 10) | random }}</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£{{ range(100000, 1000000) | random | numberFormat }}</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <span class="mega-table_item-status">
+                                    {% if item.status == 'overdue' %}In progress{% endif %}
+                                    {% if item.status == 'progress' %}In progress{% endif %}
+                                    {% if item.status == 'change' %}Change request{% endif %}
+                                    {% if item.status == 'ready' %}Agreement ready{% endif %}
+                                    {% if item.status == 'complete' %}Set-up complete{% endif %}
+                                </span>
+                                <span class="mega-table_item-meta">
+                                    {{ range(1, 5) | random }} of 9 complete
+                                </span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {#{{ components.pagination(totalItems=46,currentPage=2) }}#}
+            {{ components.pagination(totalItems=99,itemsPerPage=10,currentPage=4) }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      function toggleVisibility(_this, id, className) {
+        // event.preventDefault();
+        let toggleSwitch = _this;
+        let toggleItem = document.getElementById(id);
+        if (hasClass(toggleItem, className)) {
+          toggleSwitch.classList.add('filter__title--closed');
+          toggleItem.classList.remove(className);
+          toggleSwitch.setAttribute('aria-expanded', true);
+        }
+        else  {
+          toggleSwitch.classList.remove('filter__title--closed');
+          toggleItem.classList.add(className);
+          toggleSwitch.setAttribute('aria-expanded', false);
+        }
+        // return false;
+      }
+      function hasClass(target, className) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }
+    </script>
+{% endblock %}

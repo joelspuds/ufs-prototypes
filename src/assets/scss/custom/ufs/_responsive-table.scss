@@ -74,3 +74,99 @@ th.scrolly__locked-th--right {
   background-color: #FFF;
   text-align: right!important;
 }
+
+.mega-table {
+  @include govuk-font($size: 16);
+
+  tr {
+    td:first-of-type {
+      padding-left: 4px;
+    }
+    td:last-of-type {
+      padding-right: 4px;
+    }
+  }
+
+  &_row {
+
+    &-status {
+
+      &--ready{
+        background-color: #e8f0f8;
+        // background-color: lighten(ufs-colour("ukri-blue"), 70%);
+        border-left:4px solid ufs-colour("ukri-blue");
+
+        .mega-table_item-status {
+          color: ufs-colour("other-blue");
+          // 1D70B8
+        }
+      }
+
+      &--change {
+        background-color: #fbf1e5;
+        // background-color: lighten(ufs-colour("sand"), 65%);
+        border-left:4px solid ufs-colour("sand");
+
+        .mega-table_item-status {
+          color: ufs-colour("sand")
+        }
+      }
+
+      &--complete {
+        background-color: #e5f0eb;
+        // background-color: lighten(govuk-colour("green"), 75%);
+        border-left:4px solid govuk-colour("green");
+
+        .mega-table_item-status {
+          color: govuk-colour("green")
+        }
+      }
+
+      &--overdue {
+        // background-color: lighten(govuk-colour("red"), 50%);
+        background-color: #fbeae7;
+        border-left:4px solid govuk-colour("red");
+
+        .mega-table_item-status {
+          color: govuk-colour("red")
+        }
+      }
+    }
+
+  }
+
+  &__cell--fixed {
+    max-width: 280px;
+  }
+
+  &_item-status {
+
+    @include govuk-font($size: 16, $weight: bold);
+
+    /*&--black,
+    &--orange,
+    &--blue,
+    &--green {
+
+    }
+
+    &--orange {
+      color: #D77900;
+    }
+
+    &--blue {
+      color: #1D70B8;
+    }
+
+    &--green {
+      color: #00703C;
+    }*/
+  }
+
+  &_item-meta {
+    display: block;
+    @include govuk-font($size: 14);
+    color: #6F777B;
+  }
+
+}

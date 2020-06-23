@@ -33,3 +33,21 @@ export function autoPingPost(req, res) {
   req.session.refreshCounter = tempRefreshCounter;
   return res.redirect('/prototypes/molecules/auto-ping');
 }
+
+// ************************************************************************
+//
+//       MEGA DATA TABLE
+//
+// ************************************************************************
+export function megaDataGet(req, res) {
+  let viewData;
+
+  // const allOrgs = generalData.allOrgs2;
+  const megaData = generalData.megaData;
+
+  viewData = {
+    megaData,
+  };
+
+  return res.render('prototypes/molecules/mega-data', viewData);
+}
