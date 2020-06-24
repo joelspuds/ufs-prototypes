@@ -1,0 +1,138 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Dashboard tiles' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Dashboard tiles') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow(extraClass='bottom-rule') %}
+
+            {% call components.bulmaColumnAny(size='column is-3') %}
+
+                <div class="tfs-tile2 tfs-tile2--urgent">
+                    <h2 class="govuk-heading-s tfs-tile2__heading"><a href="#" class="govuk-link">Opportunities</a></h2>
+                    <span class="tfs-tile2__number">1</span>
+                    <span class="tfs-tile2__progress">In progress</span>
+                    <span class="tfs-tile2__action">
+                        {{ range(1, 20) | random }} urgent actions required
+                    </span>
+
+                </div>
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-3') %}
+
+                <div class="tfs-tile2 tfs-tile2--actions">
+                    <h2 class="govuk-heading-s tfs-tile2__heading"><a href="#" class="govuk-link">Award set-up</a></h2>
+                    <span class="tfs-tile2__number">1</span>
+                    <span class="tfs-tile2__progress">In progress</span>
+                    <span class="tfs-tile2__action">
+                        {{ range(1, 20) | random }} urgent actions required
+                    </span>
+                </div>
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-3') %}
+
+                <div class="tfs-tile2 ">
+                    <h2 class="govuk-heading-s tfs-tile2__heading"><a href="#" class="govuk-link">Awards</a></h2>
+                    <span class="tfs-tile2__number">1</span>
+                    <span class="tfs-tile2__progress">In progress</span>
+                    <span class="tfs-tile2__link"><a href="#" class="govuk-link">View payment schedule</a></span>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    <section class="section" id="">
+
+        {% call components.bulmaRow(extraClass='bottom-rule') %}
+
+            {% call components.bulmaColumnAny(size='column is-4') %}
+
+                <div class="tfs-tile2 tfs-tile2--urgent">
+                    <h2 class="govuk-heading-s tfs-tile2__heading"><a href="#" class="govuk-link">Opportunities</a></h2>
+                    <span class="tfs-tile2__number">1</span>
+                    <span class="tfs-tile2__progress">In progress</span>
+                    <span class="tfs-tile2__action">
+                        {{ range(1, 20) | random }} urgent actions required
+                    </span>
+
+                </div>
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-4') %}
+
+                <div class="tfs-tile2 tfs-tile2--actions">
+                    <h2 class="govuk-heading-s tfs-tile2__heading"><a href="#" class="govuk-link">Award set-up</a></h2>
+                    <span class="tfs-tile2__number">1</span>
+                    <span class="tfs-tile2__progress">In progress</span>
+                    <span class="tfs-tile2__action">
+                        {{ range(1, 20) | random }} urgent actions required
+                    </span>
+                </div>
+
+            {%- endcall %}
+
+            {% call components.bulmaColumnAny(size='column is-4') %}
+
+                <div class="tfs-tile2 ">
+                    <h2 class="govuk-heading-s tfs-tile2__heading"><a href="#" class="govuk-link">Awards</a></h2>
+                    <span class="tfs-tile2__number">1</span>
+                    <span class="tfs-tile2__progress">In progress</span>
+                    <span class="tfs-tile2__link"><a href="#" class="govuk-link">View payment schedule</a></span>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+
+
+
+    </section>
+    <section class="section" id="secondary-controls">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-3') %}
+
+                <div class="tfs-tile2 tfs-tile2--plain">
+                    <h2 class="govuk-heading-s tfs-tile2__heading">Manage Oxford University</h2>
+                    <span class="tfs-tile2__link"><a href="#" class="govuk-link govuk-!-font-weight-bold">Manage team members</a></span>
+                    <span class="tfs-tile2__progress">As an administrator you can manage team members in your organisation.</span>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

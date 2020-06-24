@@ -1,0 +1,95 @@
+.tfs-tile2 {
+  // background-color: #EBEEF0;
+  padding: 10px;
+  min-height: 170px;
+
+  &--plain {
+    // background-color: govuk-colour("white");
+    padding: 10px 0 0 0;
+
+  }
+
+  &__heading {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  border-top: 5px solid govuk-colour("mid-grey");
+
+  &--urgent {
+    border-top: 5px solid govuk-colour("red");
+  }
+
+  &--actions {
+    border-top: 5px solid govuk-colour("blue");
+  }
+
+  &__progress {
+    display: block;
+    @include govuk-font($size: 19);
+  }
+
+  &__number {
+    display: block;
+    @include govuk-font($size: 48, $weight: bold);
+  }
+
+  &__link {
+    display: block;
+    margin-top: 6px;
+    padding-top: 4px;
+    @include govuk-font($size: 19);
+  }
+
+  &__action {
+    display: block;
+    margin: 10px 0 4px;
+    position: relative;
+    @include govuk-font($size: 19);
+    // background-color: #EBEEF0;
+    background-color: govuk-colour("light-grey");
+    padding: 4px 0 4px 40px;
+    // @include govuk-font($size: 24, $weight: bold);
+
+    &:before {
+      content: "";
+      left: 11px;
+      width: 18px;
+      height: 18px;
+      top: 8px;
+      position: absolute;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.tfs-tile2__heading + .tfs-tile2__progress {
+  margin-top: 38px;
+}
+
+.tfs-tile2--actions {
+  .tfs-tile2__action {
+      border-left: 5px solid govuk-colour("blue");
+
+      &:before {
+        background-image: url(/images/ufs/blue_info.svg);
+        background-size: 18px 18px;
+      }
+    }
+}
+
+.tfs-tile2--urgent {
+  .tfs-tile2__action {
+    border-left: 5px solid govuk-colour("red");
+
+    &:before {
+      background-image: url(/images/ufs/red_warning.svg);
+      background-size: 18px 19px;
+    }
+  }
+}
+
+.bottom-rule {
+  padding-bottom: 30px;
+  border-bottom: 1px solid  govuk-colour("mid-grey", $legacy: "grey-2");
+}
