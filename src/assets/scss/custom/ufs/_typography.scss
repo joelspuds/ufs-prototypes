@@ -26,6 +26,7 @@ body.ufs {
 
     .govuk-body {
       @include govuk-font($size: 16);
+      line-height: 24px!important;
     }
 
   }
