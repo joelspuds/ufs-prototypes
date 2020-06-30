@@ -21,8 +21,13 @@ body.ufs {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
   }
 
-  .serif, .serif *, h1.serif, h2.serif, h3.serif, h4.serif {
-    font-family: Merriweather, serif;
+  .serif, .serif .govuk-body, .serif *, h1.serif, h2.serif, h3.serif, h4.serif {
+    font-family: Merriweather, serif!important;
+
+    .govuk-body {
+      @include govuk-font($size: 16);
+    }
+
   }
 }
 

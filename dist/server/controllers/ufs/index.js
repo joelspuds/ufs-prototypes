@@ -183,3 +183,15 @@ Object.keys(_variousController).forEach(function (key) {
     }
   });
 });
+
+var _awardsController = require('./awardsController');
+
+Object.keys(_awardsController).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function () {
+      return _awardsController[key];
+    }
+  });
+});

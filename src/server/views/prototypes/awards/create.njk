@@ -1,0 +1,84 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+
+{% set navType = 'admin' %}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{% set isAdminUser = true %}
+{%  set loggedOut = false %}
+{% set activeNavItem = 'awards' %}
+{% set backLinkContents =  [{url:'/prototypes/awards/', text:'Back to award set-up'}] %}
+{% set pageTitle = 'Create a direct award' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+            {% if createOpportunityError %}
+
+                {{ components.errorSummary(
+                    heading='There is a problem with your information',
+                    headingId='createOpportunityError',
+                    description='',
+                    items=[{
+                        link: '#opportunityName',
+                        text: 'Your Opportunity name is not valid'
+                    }]
+                ) }}
+
+            {% endif %}
+
+            {{ components.captionHeading(text='Create a direct award') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.form(action='/prototypes/awards/create', method='POST',name='createAward') %}
+
+        <section class="section" id="openDates">
+
+            {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+                <div class="govuk-form-group {% if createOpportunityError %}govuk-form-group--error{% endif %}">
+                    <label class="govuk-label govuk-label--s" for="awardName">Direct award name
+                        <span class="govuk-hint">This name will be used to identify the direct award internally and publicly.</span>
+                        {% if createOpportunityError %}
+                            <span class="govuk-error-message">
+                                <span class="govuk-visually-hidden">Error:</span> Enter a valid Opportunity name
+                            </span>
+                        {% endif %}
+                    </label>
+                    <input class="govuk-input " id="awardName" type="text" name="awardName" value="">
+                </div>
+             {%- endcall %}
+
+        {%- endcall %}
+
+        </section>
+
+        <section class="" id="submitSection">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+
+                        {{ components.button(text='Save and continue', extraClass="application-controls__submit")}}
+
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        </section>
+
+    {%- endcall %}
+
+{% endblock %}

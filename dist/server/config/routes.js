@@ -266,6 +266,14 @@ router.get('/prototypes/molecules/auto-ping', demosController.autoPingGet);
 router.post('/prototypes/molecules/auto-ping', demosController.autoPingPost);
 router.get('/prototypes/molecules/mega-data', demosController.megaDataGet);
 
+/* *************************************************************** *
+
+  Awards
+
+* *************************************************************** */
+router.get('/prototypes/awards', demosController.awardStartGet);
+router.post('/prototypes/awards', demosController.awardStartPost);
+
 // Create route from view path
 router.get('*', miscController.viewFileRoute);
 

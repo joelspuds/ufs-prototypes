@@ -13,3 +13,4 @@ export * from './register-v1';
 export * from './emailsController';
 export * from './applicationController-v2';
 export * from './variousController';
+export * from './awardsController';

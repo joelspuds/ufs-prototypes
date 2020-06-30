@@ -333,3 +333,187 @@ let megaDataList = [{
 }];
 
 const megaData = exports.megaData = megaDataList;
+
+let megaDataAwardsList = [{
+  id: 'OPP124',
+  name: 'UK-Canada Social Research Team Grants',
+  funder: 'MRC',
+  org: 'University of Cardiff',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'overdue'
+}, {
+  id: 'OPP125',
+  name: 'Strength in places Round 3',
+  funder: 'EPSRC',
+  org: 'Oxford University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'ready'
+}, {
+  id: 'OPP131',
+  name: 'Public transport infrastructure development: tariff reduction and inter-connectivity Part III',
+  funder: 'AHRC',
+  org: 'Bristol University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'change'
+}, {
+  id: 'OPP132',
+  name: 'Responsive mode',
+  funder: 'MRC',
+  org: 'University of Hardknocks',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP134',
+  name: 'UK-Canada Diabetes Research Team Grants',
+  funder: 'MRC',
+  org: 'Birmingham University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP135',
+  name: 'UK social research for the next decade Part III',
+  funder: 'Innovate UK',
+  org: 'Swindon Polytechnic',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP137',
+  name: 'Electric battery innovation for land-based travel',
+  funder: 'MRC',
+  org: 'Imperial College London',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'ready'
+}, {
+  id: 'OPP138',
+  name: 'Entomophagy - acceptable levels of crunchiness for a post-apocalyptic world',
+  funder: 'MRC',
+  org: 'Queen Mary College',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'complete'
+}, {
+  id: 'OPP139',
+  name: 'Salt-water gill adaptations in special transmorphogenic augementation',
+  funder: 'MRC',
+  org: 'King College, University of London',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'complete'
+}, {
+  id: 'OPP140',
+  name: 'Re-icing polar regions feasibility Part IV',
+  funder: 'STFC',
+  org: 'Newport University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP141',
+  name: 'Reforestation and carbon capture',
+  funder: 'NERC',
+  org: 'East Anglia University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP143',
+  name: 'Hydro-batteries and green energy storage in the environment',
+  funder: 'AHRC',
+  org: 'UWE, Bristol',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP145',
+  name: 'Public transport infrastructure development: green power Part IV',
+  funder: 'Research England',
+  org: 'Fulchester University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP124',
+  name: 'UK-Canada Medical Research Team Grants',
+  funder: 'MRC',
+  org: 'University of Cardiff',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'overdue'
+}, {
+  id: 'OPP125',
+  name: 'Strength in places Round 3',
+  funder: 'EPSRC',
+  org: 'Oxford University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'ready'
+}, {
+  id: 'OPP131',
+  name: 'Public transport infrastructure development: tariff reduction and inter-connectivity Part III',
+  funder: 'AHRC',
+  org: 'Bristol University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'change'
+}, {
+  id: 'OPP132',
+  name: 'Responsive mode',
+  funder: 'MRC',
+  org: 'University of Hardknocks',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP134',
+  name: 'UK-Canada Diabetes Research Team Grants',
+  funder: 'AHRC',
+  org: 'Birmingham University',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'progress'
+}, {
+  id: 'OPP135',
+  name: 'UK social research for the next decade Part III',
+  funder: 'Innovate UK',
+  org: 'Swindon Polytechnic',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'change'
+}, {
+  id: 'OPP137',
+  name: 'Electric battery innovation for land-based travel',
+  funder: 'AHRC',
+  org: 'Imperial College London',
+  numberOfAwards: '3',
+  numberOfProjects: '12',
+  awardAmount: '308,500',
+  status: 'ready'
+}];
+
+const megaDataAwards = exports.megaDataAwards = megaDataAwardsList;
