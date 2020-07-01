@@ -1,5 +1,5 @@
 {% extends 'layouts/bulma-ufs.layout.njk' %}
-{% set pageTitle = 'Review a book, film, play, poetry, current exhibition or cultural event.' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set pageTitle = 'Write a review' + GLOBAL_TAG_TITLE_SUFFIX %}
 {% set projectName = projectName if projectName %}
 {% set allProjectDetails = allProjectDetails if allProjectDetails %}
 {% set writeReviewIsComplete = writeReviewIsComplete if writeReviewIsComplete %}
@@ -10,7 +10,7 @@
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
-            {{ components.captionHeading(text='Review a book, film, play, poetry, current exhibition or cultural event.', caption=projectName) }}
+            {{ components.captionHeading(text='Write a review', caption=projectName) }}
         {%- endcall %}
     {%- endcall %}
 
@@ -39,7 +39,7 @@
                         <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="writeReview">Review a book, film, play, poetry, current exhibition or cultural event.</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
-                                <span class="govuk-details__summary-text">What you should include in your answer?</span>
+                                <span class="govuk-details__summary-text">What you should include in your answer</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
                                 <p class="govuk-body">
