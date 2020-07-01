@@ -43,9 +43,9 @@
 
                     <div class="govuk-form-group ">
                         <label class="govuk-label govuk-label--s  govuk-!-font-weight-bold " for="projectName">Application name
-                            <span class="govuk-hint">Make this the title of the programme you would like to make for BBC Radio 3</span>
+                            <span class="govuk-hint">This should be the title of the programme you would like to make for BBC Radio 3</span>
                         </label>
-                        <input class="govuk-input " id="projectName" type="text" name="projectName" value="New thinkers test project name" {% if readOnly %} disabled {% endif %}>
+                        <input class="govuk-input " id="projectName" type="text" name="projectName" value="" {% if readOnly %} disabled {% endif %}>
                     </div>
 
                 {%- endcall %}
@@ -67,23 +67,17 @@
                             <span class="govuk-details__summary-text">Guidance for writing a summary</span>
                         </summary>
                         <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                            {#<p class="govuk-body">Focusing on one aspect of your research, give a clear outline of your idea including the format your programme would take. For example: it could be three 15 minute monologues, or a series of interviews with you and experts from this field.</p>
-                            <p class="govuk-body">Keep in mind this will be for a non-academic audience. The assessors are looking for ideas that:</p>
-                            <p class="govuk-body"> &bull; are based on a strong and innovative programme concept</p>
-                            <p class="govuk-body"> &bull; will engage and excite the public</p>
-                            <p class="govuk-body"> &bull; explain the relevance of your research and what the findings mean in simple, everyday language</p>
-                            <p class="govuk-body"> &bull; demonstrate creative and original thinking</p>#}
-                            <p class="govuk-body">Focusing on one aspect of your research, give a clear outline of your idea including the format your programme would take. For example: it could be three 15 minute monologues, or a series of interviews with you and experts from this field.
+                            <p class="govuk-body">Focusing on one aspect of your research, give a clear outline of your idea including the format your programme would take.
                             <br><br>Keep in mind this will be for a non-academic audience. The assessors are looking for ideas that:
                             <br><br> &bull; are based on a strong and innovative programme concept
                             <br><br> &bull; will engage and excite the public
-                            <br><br> &bull; explain the relevance of your research and what the findings mean in simple, everyday language
-                            <br><br> &bull; demonstrate creative and original thinking
+                            <br><br> &bull; explain the relevance of your research and what the findings mean in an accessible way
+                            <br><br> &bull; demonstrate creative and original thinking with personality and flair
                             </p>
                         </div>
                     </details>
                     <textarea class="govuk-textarea govuk-js-character-count" name="projectSummary" id="projectSummary" rows="18" {% if readOnly %} disabled {% endif %}>{{ detailsInput }}</textarea>
-                    <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 400 words remaining</span></p>
+                    <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 250 words remaining</span></p>
                 </div>
 
             {%- endcall %}

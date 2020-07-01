@@ -40,28 +40,22 @@
                         <label class="govuk-label govuk-label--s govuk-!-font-weight-bold" for="eligibilityInput">You need to be a UK resident, aged 18 or over and must select one of the eligibility criteria listed below.</label>
                         <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
                             <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
-                                <span class="govuk-details__summary-text">What you should include in your answer?</span>
+                                <span class="govuk-details__summary-text">Eligibility categories</span>
                             </summary>
                             <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-                                {#<p class="govuk-body">Only UK residents aged 18 or over can apply for the New Generation Thinkers scheme. But you must also fit one of the three descriptions below. In the answer box, simply state A, B or C.</p>
-                                <ol class="govuk-list govuk-list--Alpha" type="A">
-                                    <li>You are a current PhD student who has made considerable progress on your research, within one year of submission.</li>
-                                    <li>You are within eight years of being awarded your PhD – excluding any break in your career such as parental leave, caring responsibilities or health reasons. </li>
-                                    <li>You are within six years of your first academic appointment, excluding any break described in 'B'. This must be a paid contract of service, or for services, either full or part time, that lists research and/or teaching as the primary role, including research internships.</li>
-                                </ol>#}
                                 <p class="govuk-body">
-                                    Select which of the three categories below describes you best, then enter ‘A’, ‘B’ or ‘C’ in the space provided. Briefly add a description of your current situation and how this meets your selected criteria.
+                                    Select which of the three categories below describes you best, then enter 'A', 'B' or 'C' in the space provided. Briefly add a description of your current situation and how this meets your selected criteria.
                                     <br><br>
-                                    A. You are a current PhD student who has made considerable progress on your research, within one year of submission.
+                                    A. a current PhD student who has made considerable progress on your research, for example within one year of submission, or
                                     <br><br>
-                                    B. You are within eight years of being awarded your PhD – excluding any break in your career such as parental leave, caring responsibilities or health reasons
+                                    B. within eight years of the award of your PhD, excluding any period of career break such as parental leave, caring responsibilities or health reasons, or
                                     <br><br>
-                                    C. You are within six years of your first academic appointment, excluding any break described in 'B'. This must be a paid contract of service, or for services, either full or part time, that lists research and/or teaching as the primary role, including research internships.
+                                    C. within six years of your first academic appointment, excluding any period of career break such as parental leave, caring responsibilities or health reasons. This must be a paid contract of employment, either full-time or part-time, which lists research and/or teaching as the primary function, including research assistantships.
                                 </p>
                             </div>
                         </details>
                         <textarea class="govuk-textarea govuk-js-character-count" name="eligibilityInput" id="eligibilityInput" rows="18" {% if readOnly %} disabled {% endif %}>{{ eligibilityInput }}</textarea>
-                        <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 70 words remaining</span></p>
+                        <p><span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 100 words remaining</span></p>
                     </div>
                 </div>
 
