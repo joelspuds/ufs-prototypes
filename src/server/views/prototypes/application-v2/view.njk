@@ -22,11 +22,8 @@
 {% set researchExperience = researchExperience if researchExperience %}
 {% set writeReview = writeReview if writeReview %}
 {% set readOnly = readOnly if readOnly %}
-
 {% set actionText = 'View this section' if readOnly else 'Edit this section'%}
-
-
-{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}
+{#{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}#}
 
 {% block content %}
 
