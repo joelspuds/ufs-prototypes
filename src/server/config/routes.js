@@ -253,6 +253,8 @@ router.get('/prototypes/molecules/mega-data', demosController.megaDataGet);
 * *************************************************************** */
 router.get('/prototypes/awards', demosController.awardStartGet);
 router.post('/prototypes/awards', demosController.awardStartPost);
+router.get('/prototypes/awards/create', demosController.createAwardGet);
+router.post('/prototypes/awards/create', demosController.createAwardPost);
 
 // Create route from view path
 router.get('*', miscController.viewFileRoute);

@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.awardStartGet = awardStartGet;
 exports.awardStartPost = awardStartPost;
+exports.createAwardGet = createAwardGet;
+exports.createAwardPost = createAwardPost;
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
@@ -30,6 +32,35 @@ function awardStartGet(req, res) {
 }
 
 function awardStartPost(req, res) {
+  const {} = req.body;
+
+  // req.session.opportunityName = opportunityName;
+
+  return res.redirect('/prototypes/awards/index');
+}
+
+/* **************
+
+    Create new award
+
+*************** */
+function createAwardGet(req, res) {
+  let viewData;
+
+  // opportunityName = req.session.opportunityName;
+  // createOpportunityError = req.session.createOpportunityError;
+
+  const megaDataAwards = generalData.megaDataAwards;
+  const allCouncils = generalData.allCouncils;
+
+  viewData = {
+    megaDataAwards,
+    allCouncils
+  };
+  return res.render('prototypes/awards/index', viewData);
+}
+
+function createAwardPost(req, res) {
   const {} = req.body;
 
   // req.session.opportunityName = opportunityName;
