@@ -18,11 +18,11 @@
 
     {%- endcall %}
 
-    <section class="section" id="main-content">
+    <section class="section">
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+            {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen', customID='main-content', role='main') %}
 
                 <p class="govuk-body govuk-!-font-size-24">This is actually as near as we get to full-width, unless it is a internal/admin page.</p>
 

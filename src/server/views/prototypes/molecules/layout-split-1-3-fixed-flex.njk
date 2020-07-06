@@ -23,13 +23,13 @@
 
             <div class="columns">
 
-                {% call components.bulmaColumnAny(size='column is-3') %}
+                {% call components.bulmaColumnAny(size='column is-3', role='complementary') %}
                     <div class="govuk-related-items govuk-related-items--flush">
                         <h2 class="govuk-heading-s ">Some side bar content</h2>
                     </div>
                 {%- endcall %}
 
-                {% call components.bulmaColumnAny(size='column', customID='main-content') %}
+                {% call components.bulmaColumnAny(size='column', customID='main-content', role='main') %}
 
                     <p class="govuk-body govuk-!-font-size-24">This one is handy for search results and big lists etc.</p>
 

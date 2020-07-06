@@ -18,11 +18,11 @@
 
     {%- endcall %}
 
-    <section class="section" id="main-content">
+    <section class="section">
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-7') %}
+            {% call components.bulmaColumnAny(size='column is-7', customID='main-content', role='main') %}
 
                 {% call components.bulmaRow() %}
 
@@ -54,7 +54,7 @@
 
             {%- endcall %}
 
-            {% call components.bulmaColumnAny(size='column is-4 is-offset-1') %}
+            {% call components.bulmaColumnAny(size='column is-4 is-offset-1', role='complementary') %}
                 <div class="govuk-related-items govuk-related-items--flush u-space-t15">
                     <h2 class="govuk-heading-s ">Some side bar content</h2>
                 </div>

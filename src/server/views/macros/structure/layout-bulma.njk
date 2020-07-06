@@ -75,8 +75,8 @@
 
 #}
 
-{% macro bulmaColumnAny(size='', extraClass, customID)%}
-    <div class="column {{ size }} {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %}>{{ caller() }}</div>
+{% macro bulmaColumnAny(size='', extraClass, customID, role)%}
+    <div class="column {{ size }} {{ extraClass }}" {% if customID %}id="{{ customID }}"{% endif %} {% if role %}role="{{ role }}"{% endif %}>{{ caller() }}</div>
 {% endmacro %}
 
 
