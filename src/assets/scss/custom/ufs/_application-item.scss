@@ -184,6 +184,14 @@ $module: 'application-item';
     }
 }
 
+.#{$module}s {
+
+    &__list {
+        margin-bottom: 30px;
+    }
+
+}
+
 .application-items .application-item--skinny:last-of-type,
 .application-items .application-item--skinny-last {
     border-bottom: 1px solid govuk-colour("mid-grey");
