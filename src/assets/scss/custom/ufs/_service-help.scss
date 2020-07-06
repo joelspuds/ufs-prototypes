@@ -1,0 +1,16 @@
+.service-help {
+
+  &__heading {
+    @include govuk-font($size: 19);
+    margin-bottom: 0;
+  }
+
+  &__text {
+    padding: 15px;
+    border-left: 5px solid govuk-colour("mid-grey");
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{#{% set navType = 'admin' %}#}
+{% set createOpportunityError = createOpportunityError if createOpportunityError %}
+{% set createOpportunityErrorMessage = createOpportunityErrorMessage if createOpportunityErrorMessage %}
+{% set opportunityName = opportunityName if opportunityName %}
+{% set createOpportunityErrorMessageInputLevel = createOpportunityErrorMessageInputLevel if createOpportunityErrorMessageInputLevel %}
+{#{% set isAdminUser = true %}#}
+{% set useAltSaveMethod = useAltSaveMethod if useAltSaveMethod %}
+{%  set loggedOut = true %}
+{% set backLinkContents =  [{url:'/prototypes/application-v2/opportunity', text:'Back to Opportunity'}] %}
+{% set pageTitle = 'Error: Do you have a UKRI Funding Service account' + GLOBAL_TAG_TITLE_SUFFIX %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+        {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
+            {{ components.captionHeading(text='Do you have a UKRI Funding Service account?') }}
+        {%- endcall %}
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='is-full') %}
+
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                <h2 class="govuk-error-summary__title" id="error-summary-title">
+                    There is a problem
+                </h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                            <a href="#registerError">You have not selected an option</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.form(action='/prototypes/register-v1/start', method='POST',name='checkeForAccount') %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen', customID='main-content') %}
+
+                <p class="govuk-body-m">You cannot use your Je-s sign-in details to apply for this Opportunity.</p>
+                <div class="govuk-form-group govuk-form-group--error" id="registerError">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-visually-hidden">Do you have a UKRI Funding Service account?</legend>
+                        <span id="changed-name-error" class="govuk-error-message">
+                            <span class="govuk-visually-hidden">Error:</span> You must choose to sign in to an existing account or create a new one
+                        </span>
+                        <div class="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="accountYes" name="existingAccount" type="radio" value="yes">
+                                <label class="govuk-label govuk-radios__label" for="accountYes">Yes, I want to sign in</label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="accountNo" name="existingAccount" type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="accountNo">No, I want to create an account</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column  is-full is-9-desktop is-9-widescreen') %}
+
+                {% call components.formGroup() %}
+                    {{ components.button(text='Continue', extraClass="application-controls__submit")}}
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    {%- endcall %} {# end form #}
+    {% include '../../layouts/partials/user-contact.njk' %}
+{% endblock %}
+{% block bodyScripts %}
+{% endblock %}
+
+
