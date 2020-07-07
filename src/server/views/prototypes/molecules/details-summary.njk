@@ -1,0 +1,54 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Details summary' + GLOBAL_TAG_TITLE_SUFFIX %}
+{#{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}#}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Details summary') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+
+                <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Further guidance on using the details component</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <p>You can have paragraphs inside this if required.</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>you can even have</li>
+                            <li>a list</li>
+                            <li>Woo!</li>
+                        </ul>
+                        <p>Get the original code for the <a href="https://github.com/alphagov/govuk-frontend/tree/master/src/govuk/components/details" class="govuk-link">details component on GDS github</a>. </p>
+                        <p>The last paragraph always has it's bottom margin removed as this is already covered with the details component itself</p>
+                    </div>
+                </details>
+
+            {%- endcall %}
+
+        {%- endcall %}
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}
