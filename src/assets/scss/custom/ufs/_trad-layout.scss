@@ -1,0 +1,22 @@
+.trad-layout {
+
+  .columns {
+    display: block;
+  }
+
+  &--right {
+    float: right;
+    @include govuk-clearfix;
+  }
+
+  &--left {
+    float: right;
+    @include govuk-clearfix;
+  }
+
+  @include touch {
+    .column {
+     width: 100%;
+    }
+  }
+}
