@@ -77,7 +77,7 @@ h1.govuk-heading-xl {
   position: relative;
 }
 .govuk-heading_additional-link {
-  @include govuk-font($size: 16);
+  @include govuk-font($size: 19);
   position: relative;
   display: block;
   margin: 4px 0 0 0;
@@ -100,4 +100,8 @@ h1.govuk-heading-xl {
   background-color: ufs-colour("ukri-blue");
   color: govuk-colour("white")!important;
   padding:4px 8px;
+}
+
+body.ufs .govuk-heading_additional-link a {
+    font-family: 'Roboto', sans-serif!important;
 }

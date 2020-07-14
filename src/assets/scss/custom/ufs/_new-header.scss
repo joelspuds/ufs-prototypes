@@ -22,7 +22,6 @@
     background-size: 540px;
     background-repeat: no-repeat;
 
-
     @include touch {
       background-position: 200px 0;
     }
@@ -99,7 +98,6 @@
       margin: 0;
       margin-top: 15px;
     }
-
   }
 
   &__nav-list {
@@ -206,43 +204,6 @@
         color: ufs-colour("sand");
         border: 2px solid ufs-colour("sand");
       }
-    }
-  }
-}
-
-.hamburger {
-  display: none;
-}
-
-.js-enabled {
-
-  .hamburger {
-
-    display: none;
-
-    @include mobile {
-      position: absolute;
-      right: 10px;
-      top: 34px;
-      display: block;
-      background-color: govuk-colour("white");
-      border: 0;
-      width: 50px;
-      height: 42px;
-      cursor: pointer;
-
-      span {
-        display: block;
-        width: 35px;
-        height: 5px;
-        background-color: ufs-colour("ukri-blue");;
-        margin: 6px 0;
-      }
-    }
-
-    &:focus,
-    &:hover {
-      background-color: govuk-colour("yellow");
     }
   }
 }
