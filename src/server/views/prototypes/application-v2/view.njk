@@ -22,7 +22,7 @@
 {% set researchExperience = researchExperience if researchExperience %}
 {% set writeReview = writeReview if writeReview %}
 {% set readOnly = readOnly if readOnly %}
-{% set actionText = 'View ' if readOnly else 'Edit '%}
+{% set actionText = 'View ' if readOnly else 'Edit <span aria-hidden="true">this section</span>'%}
 {#{% set backLinkContents =  [{url:'/prototypes/application-v2/', text:'Back to application'}] %}#}
 
 {% block content %}
@@ -78,7 +78,7 @@
             {% if detailsInput %}
                 {{ detailsInput }}
             {% else %}
-                <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                <p class='govuk-body-s meta'>No content has been added for this section yet.</p>
             {% endif %}
             </div>
 
@@ -100,7 +100,7 @@
                 {% if eligibilityInput %}
                     {{ eligibilityInput }}
                 {% else %}
-                    <p class='govuk-body-s has-text-grey' >No content has been added for this section yet.</p>
+                    <p class='govuk-body-s meta' >No content has been added for this section yet.</p>
                 {% endif %}
             </div>
 
@@ -115,7 +115,7 @@
                 {% if programmeTopic %}
                     {{ programmeTopic }}
                 {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                    <p class='govuk-body-s meta'>No content has been added for this section yet.</p>
                 {% endif %}
             </div>
 
@@ -130,7 +130,7 @@
                 {% if widerEffect %}
                     {{ widerEffect}}
                 {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                    <p class='govuk-body-s meta'>No content has been added for this section yet.</p>
                 {% endif %}
             </div>
 
@@ -145,7 +145,7 @@
                 {% if researchExperience %}
                     {{ researchExperience }}
                 {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                    <p class='govuk-body-s meta'>No content has been added for this section yet.</p>
                 {% endif %}
             </div>
 
@@ -160,7 +160,7 @@
                 {% if writeReview %}
                     {{ writeReview }}
                 {% else %}
-                    <p class='govuk-body-s has-text-grey'>No content has been added for this section yet.</p>
+                    <p class='govuk-body-s meta'>No content has been added for this section yet.</p>
                 {% endif %}
             </div>
 

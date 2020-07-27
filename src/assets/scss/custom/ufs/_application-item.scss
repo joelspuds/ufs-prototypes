@@ -38,6 +38,17 @@ $module: 'application-item';
         text-align: right;
     }
 
+    &--summary {
+
+        .#{$module}__left {
+            width: 60%;
+        }
+
+        .#{$module}__right {
+            width: 40%;
+        }
+    }
+
     &__control {
         position: absolute;
         left: 0;

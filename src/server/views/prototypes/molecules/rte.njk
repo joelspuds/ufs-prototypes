@@ -11,7 +11,7 @@
 
 <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
-<ul>
+<ul class="govuk-list ">
     <li><a href="#/link/to/my/example/pages/a">Lorem</a></li>
     <li><a href="#/link/to/my/example/pages/b">Aliquam</a></li>
     <li><a href="#/link/to/my/example/pages/c">Morbi</a></li>
@@ -27,7 +27,7 @@
 
     {% call components.bulmaRow() %}
 
-        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+        {% call components.bulmaColumnAny(size='column is-half') %}
 
             {{ components.captionHeading(text='Rich-text editor') }}
 
@@ -39,7 +39,7 @@
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-8') %}
+            {% call components.bulmaColumnAny(size='column is-half') %}
 
                 <style>
                     .tox-notification.tox-notification--in.tox-notification--error,
