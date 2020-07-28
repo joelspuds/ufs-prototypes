@@ -246,6 +246,10 @@ router.get('/prototypes/molecules/auto-ping', demosController.autoPingGet);
 router.post('/prototypes/molecules/auto-ping', demosController.autoPingPost);
 router.get('/prototypes/molecules/rte-simple', demosController.rteSimpleGet);
 router.post('/prototypes/molecules/rte-simple', demosController.rteSimplePost);
+router.get('/prototypes/molecules/rte-simple-test', demosController.rteSimpleTestGet);
+router.post('/prototypes/molecules/rte-simple-test', demosController.rteSimpleTestPost);
+router.get('/prototypes/molecules/rte-simple', demosController.rteComplexGet);
+router.post('/prototypes/molecules/rte-simple', demosController.rteComplexPost);
 router.get('/prototypes/molecules/mega-data', demosController.megaDataGet);
 
 /* *************************************************************** *

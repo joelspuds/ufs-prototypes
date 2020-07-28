@@ -74,7 +74,9 @@
 
             <div class="govuk-related-items govuk-related-items--flush">
 
-                {{ components.captionHeading(text=opportunityID, tag='h2', size='xs', extraClass='u-space-y5') }}
+                <h2 class="govuk-heading-xs u-space-y5">
+                    <span class="govuk-visually-hidden">Opportunity reference: </span> {{opportunityID}}
+                </h2>
                 <p class="govuk-body-s u-space-b5">{{ opportunityName }}</p>
 
                 {{ components.captionHeading(text='Funders', tag='h2', size='xs', extraClass='u-space-y5') }}

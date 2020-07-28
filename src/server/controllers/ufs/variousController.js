@@ -82,6 +82,23 @@ const guidanceHTML = `<p class="govuk-body">Focusing on one aspect of your resea
 </ul>
 <p class="govuk-body">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>`;
 
+const unformattedHTML = `<h2>This is an awesome title</h2>
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+<ul class="">
+  <li><a href="#">Lorem</a></li>
+<li><a href="#">Aliquam</a></li>
+<li><a href="#">Morbi</a></li>
+<li><a href="#">Praesent</a></li>
+<li><a href="#">Pellentesque</a></li>
+</ul>
+<h3>Check out my last paragraph!</h3>`;
+
+/*
+*
+*     SIMPLE
+*
+* */
+
 export function rteSimpleGet(req, res) {
   let viewData, userHTML, exampleHTML, convertedHTML;
 
@@ -110,4 +127,76 @@ export function rteSimplePost(req, res) {
   // let userHTML = htmlTest;
   req.session.userHTML = htmlTest;
   return res.redirect('/prototypes/molecules/rte-simple');
+}
+
+/*
+*
+*     Style test
+*
+* */
+
+export function rteSimpleTestGet(req, res) {
+  let viewData, styleTestHTML, exampleHTML, convertedHTML;
+
+  styleTestHTML = req.session.styleTestHTML;
+
+  if (!userHTML) {
+    // exampleHTML = startingHTML;
+    exampleHTML = unformattedHTML;
+  } else {
+    exampleHTML = userHTML;
+  }
+
+  convertedHTML = genericFunctions.changeHTMLTags(exampleHTML);
+
+  viewData = {
+    exampleHTML,
+    convertedHTML,
+  };
+
+  return res.render('prototypes/molecules/rte-simple-test', viewData);
+}
+
+export function rteSimpleTestPost(req, res) {
+  const { htmlTest } = req.body;
+
+  // let userHTML = htmlTest;
+  req.session.styleTestHTML = htmlTest;
+  return res.redirect('/prototypes/molecules/rte-simple-test');
+}
+
+/*
+*
+*     Complex
+*
+* */
+
+export function rteComplexGet(req, res) {
+  let viewData, userHTML, exampleHTML, convertedHTML;
+
+  userHTML = req.session.userHTML;
+
+  if (!userHTML) {
+    // exampleHTML = startingHTML;
+    exampleHTML = guidanceHTML;
+  } else {
+    exampleHTML = userHTML;
+  }
+
+  convertedHTML = genericFunctions.changeHTMLTags(exampleHTML);
+
+  viewData = {
+    exampleHTML,
+    convertedHTML,
+  };
+
+  return res.render('prototypes/molecules/rte-complex', viewData);
+}
+
+export function rteComplexPost(req, res) {
+  const { htmlTest } = req.body;
+
+  // let userHTML = htmlTest;
+  req.session.userHTML = htmlTest;
+  return res.redirect('/prototypes/molecules/rte-complex');
 }

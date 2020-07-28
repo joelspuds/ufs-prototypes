@@ -1,0 +1,183 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Rich-text editor, simple' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set allCouncils = allCouncils %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set isAdminUser = true %}
+
+{% set exampleHTML = exampleHTML if exampleHTML %}
+{% set convertedHTML = convertedHTML if convertedHTML %}
+
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-half') %}
+
+            {{ components.captionHeading(text='Rich-text editor') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.form(action='#', method='POST',name='tinyMCETestSimple') %}
+
+            {% call components.bulmaRow(extraClass='u-space-b30') %}
+
+                {% call components.bulmaColumnAny(size='column is-half') %}
+
+                    <h2 class="govuk-heading-m">Input some content</h2>
+                    <style>
+                        .tox-notification.tox-notification--in.tox-notification--error,
+                        .tox-notifications-container {
+                            /*display: none!important;*/
+                        }
+                    </style>
+                    <noscript>
+                        {{ components.alerts(text='Because your JavaScript is not enabled, this content appears unformatted. To use rich-text editing, enable JavaScript in the advanced section of your device or browser’s security settings. If you have not disabled it yourself, then try refreshing the page in a few minutes.', type='danger')}}
+                    </noscript>
+                    {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, id='htmlTest', hint='', group=true, rows='12', size='', value=exampleHTML, extraClass='', visuallyHidden=true) }}
+
+                    <p>
+                        <span id="wordCount" class="govuk-hint govuk-character-count__message" aria-live="polite"></span>
+                    </p>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='column is-half') %}
+                    <h2 class="govuk-heading-m">Loaded HTML</h2>
+<pre>{{ convertedHTML }}</pre>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {% call components.formGroup() %}
+                        {{ components.button(text='Save and reload', extraClass="application-controls__submit")}}
+                    {%- endcall %}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+
+    <section class="section">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-9') %}
+                <h2 class="govuk-heading-l">Rendered HTML in block</h2>
+                {{ exampleHTML }}
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-9') %}
+                <h2 class="govuk-heading-l">Rendered HTML in details/summary</h2>
+                <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
+                    <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+                        <span class="govuk-details__summary-text">Open this stuff in one of those details/summary toggle boxes</span>
+                    </summary>
+                    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+                        {{ exampleHTML }}
+                    </div>
+                </details>
+            {%- endcall %}
+
+        {%- endcall %}
+
+      {#  {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <div contentEditable="true" style="border:2px solid black; width: 100%; height: 400px;padding: 10px;">
+                    <h2>Type here. You can insert images too</h2>
+                    <strong>This text is strong</strong>
+                    <p>This is a paragraph</p>
+                    <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcQCze-mfukcuvzKk7Ilj2zQ0CS6PbOkq7ZhRInnNd1Yz3TQzU4e&t=1" />
+                </div>
+
+            {%- endcall %}
+
+        {%- endcall %}#}
+    </section>
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      let wordy, count, newCount, overCount;
+      let limit = 400;
+      let countOutput = document.getElementById('wordCount');
+      countOutput.innerHTML = 'You have ' +  limit + ' words remaining';
+
+      tinymce.init({
+        selector: 'textarea',
+        height: 600,
+        menubar: false,
+        plugins: [
+          'lists charmap anchor',
+          'paste code wordcount '
+        ],
+        toolbar: 'formatselect | bold italic | numlist bullist |',
+        formats: {
+          alignleft: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left' },
+          aligncenter: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center' },
+          alignright: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right' },
+          alignfull: { selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full' },
+          bold: { inline: 'span', classes: 'bold' },
+          italic: { inline: 'span', classes: 'italic' },
+          underline: { inline: 'span', classes: 'underline', exact: true },
+          strikethrough: { inline: 'del' },
+          customformat: { inline: 'span', styles: { color: '#00ff00', fontSize: '20px' }, attributes: { title: 'My custom format'} , classes: 'example1'}
+        },
+        style_formats: [
+          { title: 'Custom format', format: 'customformat' },
+          { title: 'Align left', format: 'alignleft' },
+          { title: 'Align center', format: 'aligncenter' },
+          { title: 'Align right', format: 'alignright' },
+          { title: 'Align full', format: 'alignfull' },
+          { title: 'Bold text', inline: 'strong' },
+          { title: 'Red text', inline: 'span', styles: { color: '#ff0000' } },
+          { title: 'Red header', block: 'h1', styles: { color: '#ff0000' } },
+          { title: 'Badge', inline: 'span', styles: { display: 'inline-block', border: '1px solid #2276d2', 'border-radius': '5px', padding: '2px 5px', margin: '0 2px', color: '#2276d2' } },
+          { title: 'Table row 1', selector: 'tr', classes: 'tablerow1' },
+          { title: 'Image formats' },
+          { title: 'Image Left', selector: 'img', styles: { 'float': 'left', 'margin': '0 10px 0 10px' } },
+          { title: 'Image Right', selector: 'img', styles: { 'float': 'right', 'margin': '0 0 10px 10px' } },
+        ],
+        content_css: [
+          '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
+          '/stylesheets/tinymce.css'
+        ],
+        setup: function(editor) {
+          editor.on('keyup', function(e) {
+            wordy = editor.plugins.wordcount;
+            count = parseInt(wordy.body.getWordCount());
+            newCount = limit - count;
+            // overCount =  limit + count;
+            overCount =  count - limit;
+            if (newCount < 0) {
+              countOutput.innerHTML = '<span style="font-weight:700;color:red">You have ' +  overCount + ' words too many</span>'
+            } else {
+              countOutput.innerHTML = 'You have ' +  newCount + ' words remaining'
+            }
+          }).on('load');
+        }
+      });
+    </script>
+{% endblock %}
