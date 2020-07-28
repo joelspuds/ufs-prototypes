@@ -113,3 +113,11 @@ let convertDate = function (crapDate, isAmerican = true, separatorChar = '/') {
 };
 
 module.exports.convertDate = convertDate;
+
+let changeHTMLTags = function (input) {
+  let tempString;
+  tempString = input.replace(/>/g, '&gt;');
+  tempString = tempString.replace(/</g, '&lt;');
+  return tempString;
+};
+module.exports.changeHTMLTags = changeHTMLTags;

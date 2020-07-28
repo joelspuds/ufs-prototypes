@@ -176,3 +176,14 @@
     {%- endcall %}
 
 {% endblock %}
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        $(window).on('load', function() {
+          console.log('window loaded');
+          $('.govuk-tabs__tab').attr('tabindex', '');
+        });
+      });
+    </script>
+{% endblock %}
+
