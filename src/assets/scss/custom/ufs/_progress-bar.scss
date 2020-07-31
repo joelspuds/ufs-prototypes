@@ -19,7 +19,7 @@
 .progress-meter__text--back {
   position: absolute;
   text-align: center;
-  color: black;
+  color: govuk-colour("black");
   width: 100%;
 }
 
@@ -28,6 +28,10 @@
   color: white;
   background-color: #2c2d62;
   width: 100%;
+
+  &::-ms-fill {
+    background-color: lime!important;
+  }
 
   strong {
     color: govuk-colour("white");
@@ -43,3 +47,10 @@
   clip-path: inset(0% 100% 0% 0%);
 }
 
+
+// IE11 Fix
+// https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/
+_:-ms-fullscreen, :root .progress-meter__text--front {
+  background-color: #f3f2f1!important;
+  color: govuk-colour("black");
+}

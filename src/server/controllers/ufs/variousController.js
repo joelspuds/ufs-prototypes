@@ -140,11 +140,11 @@ export function rteSimpleTestGet(req, res) {
 
   styleTestHTML = req.session.styleTestHTML;
 
-  if (!userHTML) {
+  if (!styleTestHTML) {
     // exampleHTML = startingHTML;
     exampleHTML = unformattedHTML;
   } else {
-    exampleHTML = userHTML;
+    exampleHTML = styleTestHTML;
   }
 
   convertedHTML = genericFunctions.changeHTMLTags(exampleHTML);
