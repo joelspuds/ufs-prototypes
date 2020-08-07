@@ -47,6 +47,8 @@ body {
 .mce-container textarea {
     display: inline-block!important
 }
+
+
 .mce-content-body {
     font-family: 'Roboto', sans-serif!important;
     font-size: 16px;
@@ -155,3 +157,4 @@ body {
 .mce-content-body hr {
     border-top: 2px solid #bbb
 }
+
