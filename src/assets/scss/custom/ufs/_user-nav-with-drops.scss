@@ -17,38 +17,6 @@ main {
   right: 0;
   top: 0;
 
-  &__list {
-    // ul {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-  }
-
-  .user-header__switch {
-    // li
-    display: block;
-    float: left;
-    padding: 0;
-    position: relative;
-    text-decoration: none;
-  }
-
-  &__control {
-    display: block;
-    padding: 8px 10px 7px;
-    background-color: ufs-colour("ukri-blue");
-    color: govuk-colour("white");
-
-    &:hover {
-      background-color: govuk-colour("white");
-    }
-
-  }
-
-
-}
-
-/*
   a {
     text-decoration: none;
   }
@@ -189,4 +157,3 @@ main {
     width: 100%;
   }
 }
-*/

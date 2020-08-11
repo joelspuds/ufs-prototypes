@@ -122,7 +122,7 @@
     @include mobile {
       display: block;
       width: 100%;
-      border-bottom: 1px solid govuk-colour("mid-grey");
+      // border-bottom: 1px solid govuk-colour("mid-grey");
     }
 
     &--user {
@@ -138,23 +138,30 @@
   &__nav-link {
     // <a>
     display: inline-block;
-    border: 2px solid white;
+    // border: 2px solid white;
     padding: 0 4px;
     font-size: 19px;
     font-weight: bold;
     color: ufs-colour("ukri-blue");
 
     &:hover {
-      border: 2px solid orange;
+      // border: 2px solid orange;
     }
 
     @include mobile {
       border: none;
       display: block;
-      padding: 6px 0;
+      // padding: 6px 0;
+
+      background-color: ufs-colour("ukri-blue");
+      color: govuk-colour("white");
+      padding: 6px 10px;
+      margin-bottom: 4px;
 
       &:hover {
-        border: none!important;
+        // border: none!important;
+        background-color: govuk-colour("light-grey");
+        color: ufs-colour("ukri-blue");
       }
 
       &:focus {
@@ -179,7 +186,7 @@
     .new-header__nav-link {
       &:hover {
         color: #622378;
-        border: 2px solid #622378;
+        // border: 2px solid #622378;
       }
     }
 
@@ -194,8 +201,8 @@
   &--admin {
     .new-header__nav-link {
       &:hover {
-        color: ufs-colour("sand");
-        border: 2px solid ufs-colour("sand");
+        // color: ufs-colour("sand");
+        // border: 2px solid ufs-colour("sand");
       }
     }
 

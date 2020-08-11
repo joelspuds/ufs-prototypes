@@ -1,0 +1,656 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'admin' %}
+{% set pageTitle = 'Application items' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set isAdminUser = true %}
+
+{% block content %}
+
+    <section class="section" id="sections">
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Sections in two-thirds row', tag='h2', size='m') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            <div class="application-items u-space-b30">
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            <a href="#" class="govuk-link" id="detailSectionLink">Details</a>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete ">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Details", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="This is the title of a really long custom question that goes on for a bit", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            <a href="#" class="govuk-link" id="detailSectionLink">This is the title of a really long custom question that goes on for a bit</a>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete ">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="This is the title of a really long custom question that goes on for a bit", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is complete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders but not really funders also not complete, just something with a really long title that wraps", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders but not really funders, just something with a really long title that wraps", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Complete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders but not really funders, just something with a really long title that wraps", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is complete. The funders for this Opportunity are: </span> EPSRC, NERC, Innovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete application-item--skinny application-item--skinny-last">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders, but with loads", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is complete. The funders for this Opportunity are: </span> EPSRC, NERC, Innovate UK, AHRC, BBC, ESRC, BBSRC, MRC
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="application-items u-space-b30">
+
+                <div class="application-item application-item--incomplete application-item--skinny">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Somthing", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-item application-item--incomplete application-item--error application-item--skinny">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is incomplete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-item application-item--incomplete application-item--skinny application-item--skinny-last">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Another", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is incomplete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is incomplete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="detailSectionLink">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Funders", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="govuk-visually-hidden">This section is complete. The funders for this Opportunity are: </span> EPSRC, NERC, Inovate UK
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Open:<br>
+                                <strong>9 Apr 2020</strong><br>
+                                Close:<br>
+                                <strong>21 Aug 2020</strong><br>
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">Application</div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Open:<br>
+                                <strong>9 Apr 2020</strong><br>
+                                Close:<br>
+                                <strong>21 Aug 2020</strong><br>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--incomplete application-item--error">
+                    <div class="application-item__error-message" id="openCloseDates">
+                        [Error message]
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Open:<br>
+                                <strong>9 Apr 2020</strong><br>
+                                Close:<br>
+                                <strong>21 Aug 2020</strong><br>
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+
+                        <div class="application-item__left">
+                            {{ components.link(text="Application", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Open:<br>
+                                <strong>9 Apr 2020</strong><br>
+                                Close:<br>
+                                <strong>21 Aug 2020</strong><br>
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    Item is open, with dates data &amp; is complete, has mega-meta
+                </div>
+
+                <div class="application-item">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            <span class="govuk-!-font-size-24">Applications</span>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Open:<br>
+                                    <strong>9 Apr 2020</strong><br>
+                                Close:<br>
+                                <strong>21 Aug 2020</strong>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--summary">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text='Applications', url='#', extraClass='govuk-!-font-size-24') }}
+                            <div class="application-item__data">
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>9,567</strong><br> In progress</span>
+                                </div>
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>5,612</strong><br> Over 50% complete</span>
+                                </div>
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>0</strong><br> Submitted</span>
+                                </div>
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>234,434</strong><br> total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="item-successful">Opened:<br>
+                                    <strong>9 Apr 2020</strong><br></span>
+                                Closes:<br>
+                                <strong>21 Aug 2020</strong>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--summary application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text='Applications', url='#', extraClass='govuk-!-font-size-24') }}
+                            <div class="application-item__data">
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>9,567</strong><br> In progress</span>
+                                </div>
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>5,612</strong><br> Over 50% complete</span>
+                                </div>
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>0</strong><br> Submitted</span>
+                                </div>
+                                <div class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>234,434</strong><br> total</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="item-successful">Opened:<br>
+                                    <strong>9 Apr 2020</strong><br></span>
+                                <span class="item-successful">Closed:<br>
+                                <strong>21 Aug 2020</strong><br></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--summary application-item--complete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text='Applications', url='#', extraClass='govuk-!-font-size-24') }}
+                            <div class="application-item__data">
+                                <a class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>9,567</strong><br> In progress</span>
+                                </a>
+                                <a class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>5,612</strong><br> Over 50% complete</span>
+                                </a>
+                                <a class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>0</strong><br> Submitted</span>
+                                </a>
+                                <a class="application-item__data-item">
+                                    <span class="application-item__data-text"><strong>234,434</strong><br> total</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="item-successful">Opened:<br>
+                                    <strong>9 Apr 2020</strong><br></span>
+                                <span class="item-successful">Closed:<br>
+                                <strong>21 Aug 2020</strong><br></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    <strong>You can ignore everything below this...</strong>
+                </div>
+
+                <div class="application-item application-item--error">
+                    <div class="application-item__error-message" id="openCloseDates">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {#{{ components.link(text="Application open and close dates", url='#') }}#}
+                            <a href="#" class="govuk-link" >Application open and close dates</a>
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--error application-item--incomplete">
+                    <div class="application-item__error-message">
+                        You must select [Custom/chosen section title] to mark this section as complete
+                    </div>
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Application open and close dates", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">
+                                Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                            </span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--workflow application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Applicants", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--workflow application-item--incomplete">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Resources and costs", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="application-item application-item--incomplete application-item--workflow">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                            <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item">
+                    <div class="application-item__contents govuk-clearfix">
+                        <div class="application-item__left">
+                            {{ components.link(text="Has no icon", url='#') }}
+                        </div>
+                        <div class="application-item__right">
+                            <span class="application-item__meta">No icon required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="application-item application-item--complete">
+                  <div class="application-item__contents govuk-clearfix">
+                      <div class="application-item__left">
+                          {{ components.link(text="Very long title for a custom section that will wrap. ", url='#') }}
+                      </div>
+                      <div class="application-item__right">
+                          <span class="application-item__meta">
+                              Excessive amount of meta going into this one, just a tiny bit more so it wraps.
+                          </span>
+                          <span class="application-item__control">{{ components.link(text='Remove <span class="govuk-visually-hidden">this section</span>', url='#') }} </span>
+                      </div>
+                  </div>
+              </div>
+
+            </div>
+
+        {%- endcall %}
+
+        </section>
+
+        <section class="section" id="altRows">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {{ components.captionHeading(text='Sections in three-quarters row', size='m') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-8') %}
+
+                    <div class="application-items u-space-b30">
+
+                        <div class="application-item application-item--incomplete">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text="Details", url='#') }}
+                                </div>
+                                <div class="application-item__right">
+                                    <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="application-item application-item--incomplete application-item--workflow">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text="This item has an unfeasibly long title that is designed to let it wrap around all over the place and go on to the next line", url='#') }}
+                                </div>
+                                <div class="application-item__right">
+                                    <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                                    <span class="application-item__control">{{ components.link(text="Remove", url='#') }} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
+                    <div class="govuk-related-items govuk-related-items--flush">
+                        <h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
+                        <p class="govuk-body-s u-space-b5">Really long title for this exciting new opportunity</p>
+                        <ul class="govuk-list u-space-t10">
+                            <li><a href="/prototypes/opportunity-v2/create?mode=edit" class="govuk-link govuk-body--s sub-button">Edit Opportunity name</a></li>
+                        </ul>
+                    </div>
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
+    {%- endcall %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+       $('#togglePostIts').on('click', function() {
+         $('.guidelines').toggleClass('govuk-visually-hidden');
+       });
+      });
+    </script>
+{% endblock %}
+
