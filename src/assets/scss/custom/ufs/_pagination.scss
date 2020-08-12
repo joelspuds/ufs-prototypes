@@ -1,11 +1,11 @@
 $module: 'pager';
-$pager-link-dimensions: 32px;
+$pager-link-dimensions: 24px;
 
 .#{$module} {
   /*margin-top: em(5, 16);
   margin-bottom: em(20, 16);*/
   margin: 30px 0;
-  @include govuk-font($size: 19);
+  @include govuk-font($size: 16);
   @include govuk-clearfix;
 
   &__summary {
@@ -45,6 +45,12 @@ $pager-link-dimensions: 32px;
     padding: 0;
     text-align: right;
     width: 100%;
+
+    @include touch {
+      float: left;
+      clear: both;
+      text-align: left;
+    }
   }
 
   &__list-item {
@@ -94,7 +100,7 @@ $pager-link-dimensions: 32px;
       position: absolute;
       font-size: 24px;
       right: -12px;
-      top: -4px;
+      top: -7px;
       height: 32px;
       width: 18px;
 
@@ -107,7 +113,7 @@ $pager-link-dimensions: 32px;
       position: absolute;
       font-size: 24px;
       left: -12px;
-      top: -4px;
+      top: -7px;
       height: 32px;
       width: 18px;
     }
