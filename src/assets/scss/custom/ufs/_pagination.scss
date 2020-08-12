@@ -52,8 +52,9 @@ $pager-link-dimensions: 32px;
   }
   &__list-link {
     display: block;
-    width: $pager-link-dimensions;
+    min-width: $pager-link-dimensions;
     height: $pager-link-dimensions;
+    padding: 0 4px;
     text-align: center;
 
     &:hover {
@@ -67,11 +68,18 @@ $pager-link-dimensions: 32px;
     height: $pager-link-dimensions;
     text-align: center;
   }
+  &__list-ellipses {
+    display: block;
+    width: 14px;
+    height: $pager-link-dimensions;
+    text-align: center;
+  }
 
   &__next,
   &__prev {
     display: block;
-    width: 40px;
+    position: relative;
+    min-width: 40px;
     text-align: center;
     height: $pager-link-dimensions;
 
@@ -80,9 +88,28 @@ $pager-link-dimensions: 32px;
     }
   }
 
-  /*&__next {
-  }*/
+  &__next {
+    &:after {
+      content: "\203A";
+      position: absolute;
+      font-size: 24px;
+      right: -12px;
+      top: -4px;
+      height: 32px;
+      width: 18px;
 
-  /*&__prev {
-  }*/
+    }
+  }
+
+  &__prev {
+    &:before {
+      content: "\2039";
+      position: absolute;
+      font-size: 24px;
+      left: -12px;
+      top: -4px;
+      height: 32px;
+      width: 18px;
+    }
+  }
 }

@@ -22,20 +22,359 @@
             {% call components.bulmaRow() %}
                 {% call components.bulmaColumnAny(size='column is-8') %}
 
-                    {{ components.pagination(totalItems=46,currentPage=2) }}
-                    {{ components.pagination(totalItems=99,itemsPerPage=10,currentPage=4) }}
+                    <h2 class="govuk-heading-m">Search results</h2>
 
-                    <p class="govuk-body">
-                        <i>To do: Needs to fold on more than 10 pages to show only x number of pages either side of selected page to avoid massive lists of numbers.</i>
-                    </p>
+                    {{ components.pagination(totalItems=46,currentPage=2) }}
+                    {#{{ components.pagination(totalItems=99,itemsPerPage=10,currentPage=4) }}#}
+                    {#{{ components.pagination(totalItems=250,itemsPerPage=20,currentPage=6) }}#}
+                    {#{{ components.pagination(totalItems=1456,itemsPerPage=20,currentPage=6) }}#}
+
+                    <div class="pager">
+                        <div class="pager__summary">
+                            Showing 120 – 140 of 200 items
+                        </div>
+                        <div class="pager__controls">
+                            <ul class="pager__list">
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">1</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">4</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">5</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-not-link">6</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">7</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">8</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">10</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pager">
+                        <div class="pager__summary">
+                            Showing 380 – 400 of 2038 items
+                        </div>
+                        <div class="pager__controls">
+                            <ul class="pager__list">
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">1</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">17</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">18</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-not-link">19</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">20</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">21</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">102</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {# <div class="pager">
+                         <div class="pager__summary">
+                             Showing 51 – 60 of 1456 items
+                         </div>
+                         <div class="pager__controls">
+                             <ul class="pager__list">
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link pager__prev govuk-link" href="#">#}{#&lsaquo;#}{# Prev</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link govuk-link" href="#">First</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <span class="pager__list-ellipses">...</span>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link govuk-link" href="#">17</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link govuk-link" href="#">18</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <span class="pager__list-not-link">19</span>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link govuk-link" href="#">20</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link govuk-link" href="#">21</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <span class="pager__list-ellipses">...</span>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link govuk-link" href="#">Last</a>
+                                 </li>
+                                 <li class="pager__list-item">
+                                     <a class="pager__list-link pager__next govuk-link" href="#">Next #}{#&rsaquo;#}{#</a>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>#}
+
+
+                    {# <p class="govuk-body">
+                         <i>To do: Needs to fold on more than 10 pages to show only x number of pages either side of selected page to avoid massive lists of numbers.</i>
+                     </p>#}
 
                 {%- endcall %}
 
                 {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
                     <div class="govuk-related-items govuk-related-items--flush">
+                        [side bar stuff in offset-1 col]
                     </div>
                 {%- endcall %}
             {%- endcall %}
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-full') %}
+
+                    <h2 class="govuk-heading-m">Search results</h2>
+
+                    {{ components.pagination(totalItems=46,currentPage=2) }}
+
+                    <div class="pager">
+                        <div class="pager__summary">
+                            Showing 120 – 140 of 200 items
+                        </div>
+                        <div class="pager__controls">
+                            <ul class="pager__list">
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">1</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">4</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">5</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-not-link">6</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">7</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">8</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">10</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pager">
+                        <div class="pager__summary">
+                            Showing 380 – 400 of 2038 items
+                        </div>
+                        <div class="pager__controls">
+                            <ul class="pager__list">
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">1</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">17</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">18</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-not-link">19</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">20</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">21</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">102</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-3') %}
+                    <div class="govuk-related-items govuk-related-items--flush">
+                        [side bar stuff in flush col]
+                    </div>
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='column is-9') %}
+
+                    <h2 class="govuk-heading-m">Search results</h2>
+
+
+                    {{ components.pagination(totalItems=46,currentPage=2) }}
+
+                    <div class="pager">
+                        <div class="pager__summary">
+                            Showing 120 – 140 of 200 items
+                        </div>
+                        <div class="pager__controls">
+                            <ul class="pager__list">
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">1</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">4</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">5</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-not-link">6</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">7</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">8</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">10</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pager">
+                        <div class="pager__summary">
+                            Showing 380 – 400 of 2038 items
+                        </div>
+                        <div class="pager__controls">
+                            <ul class="pager__list">
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">1</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">17</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">18</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-not-link">19</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">20</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">21</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link govuk-link" href="#">102</a>
+                                </li>
+                                <li class="pager__list-item">
+                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
         </section>
 
 {% endblock %}
