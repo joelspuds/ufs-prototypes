@@ -27,12 +27,12 @@
     powerpaste_allow_local_images: true,
     external_plugins: {
       // 'tiny_mce_wiris' : 'http://localhost:3002/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
-      'tiny_mce_wiris' : 'https://tfs-front-end-v3.herokuapp.com/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
+      'tiny_mce_wiris' : '/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
     },
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',
       'searchreplace visualblocks code fullscreen',
-      'insertdatetime media table paste tinydrive code imagetools wordcount'
+      'insertdatetime media table tinydrive code imagetools wordcount powerpaste'
     ],
     toolbar: 'formatselect | bold italic | bullist numlist | image pastetext | tiny_mce_wiris_formulaEditor',
     content_css: [

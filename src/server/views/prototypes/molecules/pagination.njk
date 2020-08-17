@@ -24,24 +24,24 @@
 
                     <h2 class="govuk-heading-m">Search results (with RH side col)</h2>
 
-                    {#{{ components.pagination(totalItems=46,currentPage=2) }}#}
-                    {#{{ components.pagination(totalItems=99,itemsPerPage=10,currentPage=4) }}#}
-                    {#{{ components.pagination(totalItems=250,itemsPerPage=20,currentPage=6) }}#}
-                    {#{{ components.pagination(totalItems=1456,itemsPerPage=20,currentPage=6) }}#}
+                    {#{{ components.pagination(totalresults=46,currentPage=2) }}#}
+                    {#{{ components.pagination(totalresults=99,resultsPerPage=10,currentPage=4) }}#}
+                    {#{{ components.pagination(totalresults=250,resultsPerPage=20,currentPage=6) }}#}
+                    {#{{ components.pagination(totalresults=1456,resultsPerPage=20,currentPage=6) }}#}
 
                     <h3 class="govuk-heading-s">page 1 of 100</h3>
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 0 – 20 of 200 items
+                            Showing 0 to 20 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 {#<li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>#}
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">1</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">1</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">2</a>
@@ -55,7 +55,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">5</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -63,7 +63,7 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,20 +71,20 @@
 
                     <h3 class="govuk-heading-s">page 2 of 10</h3>
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 21 – 40 of 200 items
+                            Showing 21 to 40 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">2</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">2</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">3</a>
@@ -98,7 +98,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">6</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -106,7 +106,7 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
@@ -114,14 +114,14 @@
 
                     <h3 class="govuk-heading-s">page 3 of 10</h3>
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 41 – 60 of 200 items
+                            Showing 41 to 60 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
@@ -130,7 +130,7 @@
                                     <a class="pager__list-link govuk-link" href="#">2</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">3</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">3</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">4</a>
@@ -141,7 +141,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">6</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -149,21 +149,21 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 4 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 61 – 80 of 200 items
+                            Showing 61 to 80 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
@@ -175,7 +175,7 @@
                                     <a class="pager__list-link govuk-link" href="#">3</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">4</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">4</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">5</a>
@@ -183,7 +183,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">6</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -191,26 +191,26 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 5 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 81 – 100 of 200 items
+                            Showing 81 to 100 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -220,7 +220,7 @@
                                     <a class="pager__list-link govuk-link" href="#">4</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">5</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">5</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">6</a>
@@ -228,34 +228,33 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">7</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
-
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 6 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 101 – 120 of 200 items
+                            Showing 101 to 120 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -265,7 +264,7 @@
                                     <a class="pager__list-link govuk-link" href="#">5</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">6</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">6</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">7</a>
@@ -273,34 +272,33 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">8</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
-
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 7 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 121 – 140 of 200 items
+                            Showing 121 to 140 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -310,7 +308,7 @@
                                     <a class="pager__list-link govuk-link" href="#">6</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">7</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">7</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">8</a>
@@ -322,26 +320,26 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 8 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 141 – 160 of 200 items
+                            Showing 141 to 160 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -354,7 +352,7 @@
                                     <a class="pager__list-link govuk-link" href="#">7</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">8</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">8</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">9</a>
@@ -363,26 +361,26 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 9 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 161 – 180 of 200 items
+                            Showing 161 to 180 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -398,32 +396,32 @@
                                     <a class="pager__list-link govuk-link" href="#">8</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">9</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">9</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">page 10 of 10</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 181 – 200 of 200 items
+                            Showing 181 to 200 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -442,29 +440,29 @@
                                     <a class="pager__list-link govuk-link" href="#">9</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">10</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">10</span>
                                 </li>
                                 {#<li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>#}
                             </ul>
                         </div>
                     </div>
 
                     <h3 class="govuk-heading-s">You want more? page 15 of 100</h3>
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 301 – 320 of 2000 items
+                            Showing 301 to 320 of 2000 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -474,7 +472,7 @@
                                     <a class="pager__list-link govuk-link" href="#">14</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">15</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">15</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">16</a>
@@ -482,14 +480,14 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">17</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">100</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
@@ -499,19 +497,19 @@
 
 
 
-                   {# <div class="pager">
+                   {#  <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 120 – 140 of 200 items
+                            Showing 120 to 140 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -521,7 +519,7 @@
                                     <a class="pager__list-link govuk-link" href="#">5</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">6</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">6</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">7</a>
@@ -529,7 +527,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">8</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -537,25 +535,25 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>#}
 
-                  {#  <div class="pager">
+                  {#   <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 380 – 400 of 2038 items
+                            Showing 380 to 400 of 2038 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -565,7 +563,7 @@
                                     <a class="pager__list-link govuk-link" href="#">18</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">19</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">19</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">20</a>
@@ -573,22 +571,22 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">21</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">102</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>#}
 
-                    {# <div class="pager">
+                    {#  <div class="pager" role="navigation" aria-label="Pagination">
                          <div class="pager__summary">
-                             Showing 51 – 60 of 1456 items
+                             Showing 51 to 60 of 1456 results
                          </div>
                          <div class="pager__controls">
                              <ul class="pager__list">
@@ -598,9 +596,9 @@
                                  <li class="pager__list-item">
                                      <a class="pager__list-link govuk-link" href="#">First</a>
                                  </li>
-                                 <li class="pager__list-item">
-                                     <span class="pager__list-ellipses">...</span>
-                                 </li>
+                                 <li class="pager__list-item" aria-hidden="true" role="presentation">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
                                  <li class="pager__list-item">
                                      <a class="pager__list-link govuk-link" href="#">17</a>
                                  </li>
@@ -608,7 +606,7 @@
                                      <a class="pager__list-link govuk-link" href="#">18</a>
                                  </li>
                                  <li class="pager__list-item">
-                                     <span class="pager__list-not-link">19</span>
+                                     <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">19</span>
                                  </li>
                                  <li class="pager__list-item">
                                      <a class="pager__list-link govuk-link" href="#">20</a>
@@ -616,9 +614,9 @@
                                  <li class="pager__list-item">
                                      <a class="pager__list-link govuk-link" href="#">21</a>
                                  </li>
-                                 <li class="pager__list-item">
-                                     <span class="pager__list-ellipses">...</span>
-                                 </li>
+                                 <li class="pager__list-item" aria-hidden="true" role="presentation">
+                                    <span class="pager__list-ellipses">...</span>
+                                </li>
                                  <li class="pager__list-item">
                                      <a class="pager__list-link govuk-link" href="#">Last</a>
                                  </li>
@@ -637,7 +635,7 @@
                 {%- endcall %}
 
                 {% call components.bulmaColumnAny(size='column is-3 is-offset-1') %}
-                    <div class="govuk-related-items govuk-related-items--flush">
+                    <div class="govuk-related-results govuk-related-results--flush">
                         [side bar stuff in offset-1 col]
                     </div>
                 {%- endcall %}
@@ -648,21 +646,21 @@
 
                     <h2 class="govuk-heading-m">Search results (full width)</h2>
 
-                    {{ components.pagination(totalItems=46,currentPage=2) }}
+                    {{ components.pagination(totalresults=46,currentPage=2) }}
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 120 – 140 of 200 items
+                            Showing 120 to 140 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -672,7 +670,7 @@
                                     <a class="pager__list-link govuk-link" href="#">5</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">6</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">6</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">7</a>
@@ -680,7 +678,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">8</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -688,25 +686,25 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 380 – 400 of 2038 items
+                            Showing 380 to 400 of 2038 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -716,7 +714,7 @@
                                     <a class="pager__list-link govuk-link" href="#">18</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">19</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">19</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">20</a>
@@ -724,14 +722,14 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">21</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">102</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
@@ -743,7 +741,7 @@
           {#  {% call components.bulmaRow() %}
 
                 {% call components.bulmaColumnAny(size='column is-3') %}
-                    <div class="govuk-related-items govuk-related-items--flush">
+                    <div class="govuk-related-results govuk-related-results--flush">
                         [side bar stuff in flush col]
                     </div>
                 {%- endcall %}
@@ -753,21 +751,21 @@
                     <h2 class="govuk-heading-m">Search results (with LH col)</h2>
 
 
-                    {{ components.pagination(totalItems=46,currentPage=2) }}
+                    {{ components.pagination(totalresults=46,currentPage=2) }}
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 120 – 140 of 200 items
+                            Showing 120 to 140 of 200 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -777,7 +775,7 @@
                                     <a class="pager__list-link govuk-link" href="#">5</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">6</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">6</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">7</a>
@@ -785,7 +783,7 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">8</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
 
@@ -793,25 +791,25 @@
                                     <a class="pager__list-link govuk-link" href="#">10</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="pager">
+                     <div class="pager" role="navigation" aria-label="Pagination">
                         <div class="pager__summary">
-                            Showing 380 – 400 of 2038 items
+                            Showing 380 to 400 of 2038 results
                         </div>
                         <div class="pager__controls">
                             <ul class="pager__list">
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__prev govuk-link" href="#">Prev</a>
+                                    <a class="pager__list-link pager__prev govuk-link" href="#" aria-label="Previous page">Prev</a>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">1</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
@@ -821,7 +819,7 @@
                                     <a class="pager__list-link govuk-link" href="#">18</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <span class="pager__list-not-link">19</span>
+                                    <span class="pager__list-not-link" aria-current="true" aria-label="Page X, current page">19</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">20</a>
@@ -829,14 +827,14 @@
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">21</a>
                                 </li>
-                                <li class="pager__list-item">
+                                <li class="pager__list-item" aria-hidden="true" role="presentation">
                                     <span class="pager__list-ellipses">...</span>
                                 </li>
                                 <li class="pager__list-item">
                                     <a class="pager__list-link govuk-link" href="#">102</a>
                                 </li>
                                 <li class="pager__list-item">
-                                    <a class="pager__list-link pager__next govuk-link" href="#">Next</a>
+                                    <a class="pager__list-link pager__next govuk-link" href="#" aria-label="Nex page">Next</a>
                                 </li>
                             </ul>
                         </div>

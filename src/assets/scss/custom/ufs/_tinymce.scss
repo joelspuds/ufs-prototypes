@@ -39,7 +39,6 @@
   }
 
   p .bold {
-    //@include .govuk-font($weight: bold);
     @include govuk-font($size: 19, $weight: bold);
   }
 }
