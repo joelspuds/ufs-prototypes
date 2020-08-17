@@ -64,8 +64,8 @@
 
                             <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
                             <select class="govuk-select" id="openingTimeMeridian" name="openingTimeMeridian">
-                                <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %}>am</option>
-                                <option value="pm" {% if openingTimeMeridian === 'pm'%}selected{% endif %} >pm</option>
+                                <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %} aria-label="a.m.">am</option>
+                                <option value="pm" {% if openingTimeMeridian === 'pm'%}selected{% endif %} aria-label="p.m.">pm</option>
                             </select>
                         </div>
                     </fieldset>
@@ -105,8 +105,8 @@
                             </select>
                             <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
                             <select class="govuk-select" id="closingTimeMeridian" name="closingTimeMeridian">
-                                <option value="am" {% if closingTimeMeridian === 'am' %}selected{% endif %}>am</option>
-                                <option value="pm" {% if closingTimeMeridian === 'pm' or not closingTime %}selected{% endif %} >pm</option>
+                                <option value="am" {% if closingTimeMeridian === 'am' %}selected{% endif %} aria-label="a.m.">am</option>
+                                <option value="pm" {% if closingTimeMeridian === 'pm' or not closingTime %}selected{% endif %} aria-label="p.m.">pm</option>
                             </select>
                         </div>
                     </fieldset>
