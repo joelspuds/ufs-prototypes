@@ -25,14 +25,18 @@ $module: 'overview';
 
     &:last-of-type {
       // margin-bottom: 0;
-      padding-bottom: 0;
+      //padding-bottom: 0;
     }
 
     &:first-of-type {
-      padding-top: 0;
+      //padding-top: 0;
     }
 
     a {
+      // @include govuk-font($size: 19, $weight: bold);
+    }
+
+    &__title {
       @include govuk-font($size: 19, $weight: bold);
     }
 
@@ -74,6 +78,22 @@ $module: 'overview';
         color: govuk-colour("red");
       }
 
+      &-list {
+        margin-top:4px;
+        @include govuk-font($size: 16);
+      }
+
+      &-item {
+        margin-bottom: 4px;
+      }
+
+    }
+
+
+
+    &--inactive {
+      // background-color: lighten(ufs-colour("light-grey"), 10%);
+      background-color: ufs-colour("light-grey");
     }
   }
 
@@ -85,12 +105,16 @@ $module: 'overview';
 
     .#{$module}-item {
 
-      padding: 10px 0;
+      // padding: 10px 0;
       border-bottom: 1px solid govuk-colour("mid-grey");
       margin-bottom: 0;
 
+      &:first-of-type {
+        border-top: 1px solid govuk-colour("mid-grey");
+      }
+
       &__meta--right {
-        border-left: 0;
+        // border-left: 0;
       }
     }
   }

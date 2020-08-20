@@ -4,6 +4,7 @@
 {% set allCouncils = allCouncils %}
 {% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
 {% set isAdminUser = false %}
+{% set appData = appData if appData %}
 
 {% block content %}
 
@@ -55,8 +56,61 @@
 
                 {{ components.captionHeading(text='In progress', tag='h2', size='m') }}
 
-                <div class="overview-items overview-items--plain">
-                    <div class="overview-item">
+                <ul class="overview-items overview-items--plain">
+
+                    {% for item in appData %}
+
+                        <li class="overview-item {% if item.active != true %} overview-item--inactive {% endif %}">
+                            <div class="columns">
+                                <div class="column is-8">
+                                    <h3 class="overview-item__title">
+                                        <a href="#" class="govuk-link">{{ item.name }}</a>
+                                    </h3>
+                                    <ul class="overview-item__meta-list">
+                                        <li class="overview-item__meta-item" ><strong>Opportunity: </strong><a href="#" class="govuk-link">OPP{{ range(000, 999) | random }}: {{ item.oppName }}</a><br></li>
+                                        <li class="overview-item__meta-item" ><strong>Application reference:</strong> AWA{{ item.id }}<br></li>
+                                        <li class="overview-item__meta-item" ><strong>Organisation:</strong> {{ item.org }}</li>
+                                    </ul>
+                                </div>
+                                <div class="column is-2">
+                                    {% if item.hoursLeft  %}
+                                        <span class="overview-item__meta overview-item__meta--danger">
+                                            <span class="govuk-!-font-size-24">{{ item.hoursLeft }}</span><br>hours left
+                                            <br>{{ item.progressMessage }}
+                                        </span>
+                                    {% endif %}
+                                    {% if item.daysLeft and item.imminent %}
+                                        <span class="overview-item__meta overview-item__meta--danger">
+                                                <span class="govuk-!-font-size-24">{{ item.daysLeft }}</span><br>days left
+                                            <br>{{ item.progressMessage }}
+                                        </span>
+                                    {% endif %}
+                                    {% if item.daysLeft and not item.imminent %}
+                                        <span class="overview-item__meta">
+                                            <span class="govuk-!-font-size-24">{{ item.daysLeft }}</span><br>days left
+                                            <br>{{ item.progressMessage }}
+                                        </span>
+                                    {% endif %}
+                                    {% if not item.active %}
+                                        <span class="overview-item__meta">
+                                            <span class="">{{ item.finalMessage }}</span>
+                                            <br>{{ item.progressMessage }}
+                                        </span>
+                                    {%  endif %}
+
+
+                                </div>
+                                <div class="column is-2">
+                                    <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                        <span class="u-align-cell">{{ item.status }}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+
+                    {% endfor %}
+
+                    {# <div class="overview-item">
                         <div class="columns">
                             <div class="column is-8">
                                 <a href="#" class="govuk-link">Viral pandemic: distributed societal issues and news shaping</a><br>
@@ -232,8 +286,8 @@
                                 </span>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>#}
+                </ul>
             {%- endcall %}
         {%- endcall %}
 

@@ -1,0 +1,220 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = '' %}
+{% set pageTitle = 'Resources and costs' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set allCouncils = allCouncils %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to molecules'}] %}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Resources and costs', caption='Freshwater ecosystems and microplastics') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
+    {% call components.form(action='#', method='POST',name='resourcesAndCosts') %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+                <p class="govuk-body govuk-!-font-size-24">Ensure your costs accurately reflect the funding you will need to deliver your proposal. Reviewers will scrutinise them as part of the overall assessment of your application.</p>
+
+                <details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
+                    <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+                        <span class="govuk-details__summary-text">Guidance on resources and costs</span>
+                    </summary>
+                    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+                        <p class="govuk-body">Knight Rider, a shadowy flight into the dangerous world of a man who does not exist. Michael Knight, a young loner on a crusade to champion the cause of the innocent, the helpless in a world of criminals who operate above the law.</p>
+
+                        <p class="govuk-body">80 days around the world, we’ll find a pot of gold just sitting where the rainbow’s ending. Time — we’ll fight against the time, and we’ll fly on the white wings of the wind. 80 days around the world, no we won’t say a word before the ship is really back. Round, round, all around the world. Round, all around the world. Round, all around the world. Round, all around the world.</p>
+
+                        <p class="govuk-body">Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. He’s got style, a groovy style, and a car that just won’t stop. When the going gets tough, he’s really rough, with a Hong Kong Phooey chop (Hi-Ya!). Hong Kong Phooey, number one super guy. Hong Kong Phooey, quicker than the human eye. Hong Kong Phooey, he’s fan-riffic!
+
+                        <p class="govuk-body">Mutley, you snickering, floppy eared hound. When courage is needed, you’re never around. Those medals you wear on your moth-eaten chest should be there for bungling at which you are best. So, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him, tab him, grab him, stop that pigeon now.</p>
+                    </div>
+                </details>
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <table class="govuk-table">
+
+                    <thead>
+                    <tr>
+                        <th class="govuk-table__header">Funding type</th>
+                        <th class="govuk-table__header govuk-table__header--numeric">Full economic<br>cost (£)</th>
+                        <th class="govuk-table__header govuk-table__header--numeric">Funding <br>percentage (%)</th>
+                        <th class="govuk-table__header govuk-table__header--numeric">Funding <br>contribution (£)</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle">Directly incurred</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <div class="govuk-form-group u-space-y5">
+                                <label class="govuk-label govuk-visually-hidden" for="directlyIncurredCost">Directly incurred full economic costs</label>
+                                <input class="govuk-input govuk-input--width-5" id="directlyIncurredCost" type="number" name="directlyIncurredCost" value="0">
+                            </div>
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="incurredContribution">£0</span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle">Directly allocated</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <div class="govuk-form-group u-space-y5">
+                                <label class="govuk-label govuk-visually-hidden" for="directlyAllocatedCost">Directly allocated full economic costs</label>
+                                <input class="govuk-input govuk-input--width-5" id="directlyAllocatedCost" type="number" name="directlyAllocatedCost" value="0">
+                            </div>
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="alllocatedContribution">£0</span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle">Indirect costs</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <div class="govuk-form-group u-space-y5">
+                                <label class="govuk-label govuk-visually-hidden" for="indirectlCost">Indirect full economic costs</label>
+                                <input class="govuk-input govuk-input--width-5" id="indirectlCost" type="number" name="indirectlCost" value="0">
+                            </div>
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="indirectContribution">£0</span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle">Exceptions</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <div class="govuk-form-group u-space-y5">
+                                <label class="govuk-label govuk-visually-hidden" for="exceptionCost">Exceptional full economic costs</label>
+                                <input class="govuk-input govuk-input--width-5" id="exceptionCost" type="number" name="exceptionCost" value="0">
+                            </div>
+                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">100</td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="exceptionsContribution">£0</span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Total contribution from project</strong></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong><span id="totalContribution">£0</span></strong></td>
+                        <td class="" colspan="2">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Total funding requested</strong></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong><span id="totalRequested">£0</span></strong></td>
+                        <td class="" colspan="2">&nbsp;</td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow(extraClass='u-space-t30') %}
+
+            {% call components.bulmaColumnAny(size='is-8') %}
+
+                {% call components.formGroup() %}
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <fieldset class="govuk-fieldset" aria-describedby="markAsComplete">
+                                <legend class="govuk-fieldset__legend govuk-visually-hidden">
+                                    <h3 class="govuk-fieldset__heading" id="">Mark as complete</h3>
+                                </legend>
+                                <div class="govuk-checkboxes">
+                                    <div class="govuk-checkboxes__item">
+                                        <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if allResourcesValues.isComplete == 'on' %} checked{% endif %}>
+                                        <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='is-8') %}
+                <div class="application-controls govuk-clearfix">
+                    {{ components.button(text='Save and return', extraClass="application-controls__submit")}}
+                </div>
+            {%- endcall %}
+        {%- endcall %}
+
+
+    </section>
+
+    {%- endcall %}
+
+
+{% endblock %}
+
+{% block bodyScripts %}
+    <script>
+      Zepto(function($){
+        console.log('zepto loaded');
+        /*
+            #directlyIncurredCost
+            #directlyAllocatedCost
+            #indirectlCost
+            #exceptionCost
+
+            #totalContribution
+            #totalRequested
+
+        */
+        $('#directlyIncurredCost, #directlyAllocatedCost, #indirectlCost ,#exceptionCost').on('blur', function(event) {
+          let directlyIncurredCost = parseInt($('#directlyIncurredCost').val(), 10);
+          let directlyAllocatedCost = parseInt($('#directlyAllocatedCost').val(), 10);
+          let indirectlCost = parseInt($('#indirectlCost').val(), 10);
+          let exceptionCost = parseInt($('#exceptionCost').val(), 10);
+          let totalValue = directlyIncurredCost + directlyAllocatedCost + indirectlCost + exceptionCost;
+          let totalRequested =
+          console.log(totalValue);
+
+          // parseFloat("123.456").toFixed(2);
+
+          let incurredContribution = (directlyIncurredCost/100)*80;
+          $('#incurredContribution').html('£'+parseFloat(incurredContribution).toFixed(0));
+
+          let alllocatedContribution = (directlyAllocatedCost/100)*80;
+          $('#alllocatedContribution').html('£'+parseFloat(alllocatedContribution).toFixed(0));
+
+          let indirectContribution = (indirectlCost/100)*80;
+          $('#indirectContribution').html('£'+parseFloat(indirectContribution).toFixed(0));
+
+          let exceptionsContribution = (exceptionCost/100)*100;
+          $('#exceptionsContribution').html('£'+parseFloat(exceptionsContribution).toFixed(0));
+
+          $('#totalContribution').html('£'+totalValue);
+
+          $('#totalRequested').html('£'+(incurredContribution + alllocatedContribution + indirectContribution + exceptionsContribution));
+          event.preventDefault();
+        });
+      })
+    </script>
+{% endblock %}

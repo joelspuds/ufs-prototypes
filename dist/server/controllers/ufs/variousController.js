@@ -12,6 +12,7 @@ exports.rteSimpleTestGet = rteSimpleTestGet;
 exports.rteSimpleTestPost = rteSimpleTestPost;
 exports.rteComplexGet = rteComplexGet;
 exports.rteComplexPost = rteComplexPost;
+exports.userDashBoardGet = userDashBoardGet;
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
@@ -213,4 +214,23 @@ function rteComplexPost(req, res) {
   // let userHTML = htmlTest;
   req.session.userHTML = htmlTest;
   return res.redirect('/prototypes/molecules/rte-complex');
+}
+
+/*
+*
+*     Dashboard
+*
+* */
+
+function userDashBoardGet(req, res) {
+  let viewData;
+
+  const appData = generalData.megaDataApplications;
+  // console.log(appData);
+
+  viewData = {
+    appData
+  };
+
+  return res.render('prototypes/molecules/user-dashboard', viewData);
 }

@@ -517,3 +517,83 @@ let megaDataAwardsList = [{
 }];
 
 const megaDataAwards = exports.megaDataAwards = megaDataAwardsList;
+
+let megaDataApplicationsList = [{
+  id: '97',
+  name: 'Viral pandemic: distributed societal issues and news shaping',
+  oppName: 'Electric battery innovation for land-based travel',
+  funder: 'MRC',
+  org: 'University of Cardiff',
+  hoursLeft: '4',
+  progressMessage: 'Deadline 4:00pm today',
+  action: '',
+  status: 'Ready to submit',
+  completeness: '100% complete',
+  active: true,
+  imminent: true
+}, {
+  id: '124',
+  name: 'Viral pandemic: distributed societal issues and news shaping',
+  oppName: 'Electric battery innovation for land-based travel',
+  funder: 'MRC',
+  org: 'University of Cardiff',
+  daysLeft: '1',
+  progressMessage: 'Deadline 21 March 2020',
+  action: '',
+  status: 'Ready to submit',
+  completeness: '100% complete',
+  active: true,
+  imminent: true
+}, {
+  id: '204',
+  name: 'Recovery strategies from pollution in freshwater ecosystems',
+  oppName: 'Freshwater ecology Part III, Where have all the invertebrates gone?',
+  funder: 'NERC',
+  org: 'Bath University',
+  daysLeft: '34',
+  progressMessage: 'Deadline 14 May 2020',
+  action: '',
+  status: 'In progress',
+  completeness: '75% complete',
+  active: true,
+  imminent: false
+}, {
+  id: '398',
+  name: 'Effluent filtering in pre-treated brown water overflows',
+  oppName: 'Freshwater ecology Part III, Where have all the invertebrates gone?',
+  funder: 'NERC',
+  org: 'Bath University',
+  daysLeft: '34',
+  progressMessage: 'Awaiting assessment',
+  action: '',
+  status: 'Submitted',
+  completeness: '',
+  active: true
+}, {
+  id: '401',
+  name: 'Jet propulsion systems in underwater environments',
+  oppName: 'Freshwater ecology Part I, Sub aquatic travel and investigation methods?',
+  funder: 'NERC',
+  org: 'Abberllangeverybrewybethy University',
+  daysLeft: '',
+  progressMessage: 'Deadline 20 January 2020',
+  finalMessage: 'Closed',
+  action: '',
+  status: 'Submitted',
+  completeness: '',
+  active: false
+}, {
+  id: '417',
+  name: 'Dimensional transmogrification methodology in domesticated urban felines.',
+  oppName: 'Preservation of distributed and diverse avian populations in tendered and semi-wild non-rural environments',
+  funder: 'NERC',
+  org: 'Bristol University',
+  daysLeft: '',
+  progressMessage: 'Deadline 20 January 2020',
+  finalMessage: 'Closed',
+  action: 'Remove application',
+  status: 'Not submitted',
+  completeness: '',
+  active: false
+}];
+const megaDataApplications = exports.megaDataApplications = megaDataApplicationsList;

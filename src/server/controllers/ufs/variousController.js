@@ -200,3 +200,22 @@ export function rteComplexPost(req, res) {
   req.session.userHTML = htmlTest;
   return res.redirect('/prototypes/molecules/rte-complex');
 }
+
+/*
+*
+*     Dashboard
+*
+* */
+
+export function userDashBoardGet(req, res) {
+  let viewData;
+
+  const appData = generalData.megaDataApplications;
+  // console.log(appData);
+
+  viewData = {
+    appData,
+  };
+
+  return res.render('prototypes/molecules/user-dashboard', viewData);
+}
