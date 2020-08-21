@@ -18,11 +18,11 @@
 
     {%- endcall %}
 
-    <section class="section" id="tabsNav">
+    {#<section class="section" id="tabsNav">
 
         {% call components.bulmaRow() %}
 
-            {% call components.bulmaColumnAny(size='column is-full {#is-9-desktop is-9-widescreen#}') %}
+            {% call components.bulmaColumnAny(size='column is-full #}{#is-9-desktop is-9-widescreen#}{#') %}
 
                 <ul class="govuk-tabs__list" role="tablist">
                     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected" role="presentation">
@@ -46,7 +46,7 @@
 
         {%- endcall %}
 
-    </section>
+    </section>#}
 
     <section class="section" id="main-content">
 
@@ -74,10 +74,13 @@
                                 </div>
                                 <div class="column is-2">
                                     {% if item.hoursLeft  %}
-                                        <span class="overview-item__meta overview-item__meta--danger">
-                                            <span class="govuk-!-font-size-24">{{ item.hoursLeft }}</span><br>hours left
-                                            <br>{{ item.progressMessage }}
-                                        </span>
+                                        <div class="u-align-setup-vertical u-align-center">
+                                            <div class="u-align-cell">
+                                                <span class="overview-item__meta overview-item__meta--danger">
+                                                    <span class="govuk-!-font-size-24">{{ item.hoursLeft }}</span>
+                                                    <br>hours left<br>{{ item.progressMessage }}                                                            </span>
+                                            </div>
+                                        </div>
                                     {% endif %}
                                     {% if item.daysLeft and item.imminent %}
                                         <span class="overview-item__meta overview-item__meta--danger">
@@ -97,196 +100,18 @@
                                             <br>{{ item.progressMessage }}
                                         </span>
                                     {%  endif %}
-
-
                                 </div>
                                 <div class="column is-2">
-                                    <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
-                                        <span class="u-align-cell">{{ item.status }}</span>
-                                    </span>
+                                    <div class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
+                                        <div class="u-align-cell">
+                                            <strong>{{ item.status }}</strong>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
 
                     {% endfor %}
-
-                    {# <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Viral pandemic: distributed societal issues and news shaping</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 188<br>
-                                    <strong>Opportunity:</strong> Public health and positive political messaging
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--danger">
-                                        <span class="govuk-!-font-size-24">2</span><br> days left<br>
-                                    Deadline 19 April
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right overview-item__meta--success u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">Ready to submit</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Recovery strategies from pollution in freshwater ecosystems</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 204<br>
-                                    <strong>Opportunity:</strong> Freshwater ecology Part III, Where have all the invertebrates gone?
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta">
-                                    <span class="govuk-!-font-size-24">34</span>
-                                    <br> days left<br>
-                                    Deadline 14 May
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">50% complete</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Effluent filtering in pre-treated brown water overflows</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 219<br>
-                                    <strong>Opportunity:</strong> Freshwater ecology Part III, Where have all the invertebrates gone?
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta">
-                                    <span class="govuk-!-font-size-24">50</span>
-                                    <br> days left<br>
-                                    Deadline 28 May
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">50% complete</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Jet propulsion systems in underwater environments</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 176<br>
-                                    <strong>Opportunity:</strong> Freshwater ecology Part I, Sub aquatic travel and investigation methods?
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta  u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">Submitted on <br>
-                                    21 March 2020</span>
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">In review</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Dimensional transmogrification methodology in domesticated urban felines.</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 154<br>
-                                    <strong>Opportunity:</strong> Preservation of distributed and diverse avian populations in tendered and semi-wild non-rural environments
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta  u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">Submitted on <br>
-                                    14 March 2020</span>
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">Awaiting decision</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-10">
-                                <a href="#" class="govuk-link">Bucky balls in internal heterogenous fluid environments</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 116<br>
-                                    <strong>Opportunity:</strong> Surgical advancements, part II
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right overview-item__meta--success u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">Awarded</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Viral pandemic: distributed societal issues and news shaping</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 188<br>
-                                    <strong>Opportunity:</strong> Public health and positive political messaging
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell"><a href="#" class="govuk-link">Remove</a></span>
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center overview-item__meta--danger">
-                                    <span class="u-align-cell">Not successful</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="overview-item">
-                        <div class="columns">
-                            <div class="column is-8">
-                                <a href="#" class="govuk-link">Quick turnaround manufacturing techniques using lasers and 3D printers</a><br>
-                                <span class="govuk-!-font-size-16">
-                                    <strong>Application number:</strong> 219<br>
-                                    <strong>Opportunity:</strong> Pandemic response strategies: Part I, PPE manufacture
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell"><a href="#" class="govuk-link">Remove</a></span>
-                                </span>
-                            </div>
-                            <div class="column is-2">
-                                <span class="overview-item__meta overview-item__meta--right u-align-setup-vertical u-align-center">
-                                    <span class="u-align-cell">Not submitted</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>#}
                 </ul>
             {%- endcall %}
         {%- endcall %}
