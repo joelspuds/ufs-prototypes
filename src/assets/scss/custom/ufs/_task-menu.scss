@@ -39,6 +39,14 @@ $max-width: 544px;
     text-align: left;
     padding: 4px 10px;
     cursor: pointer;
+
+    &:focus {
+      /*background-color: #ffdd00;
+      -webkit-box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+      box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;*/
+      outline: 4px solid #ffdd00;
+
+    }
   }
 
   &__wrapper {
