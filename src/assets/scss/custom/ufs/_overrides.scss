@@ -206,3 +206,10 @@ body {
   padding: 0!important;
   border: 0!important;
 }
+
+// Cursor bug on disabled button flashing the "wrong" cursor as mouse moves into hit area
+.govuk-button--disabled,
+.govuk-button[disabled="disabled"],
+.govuk-button[disabled] {
+  cursor: default;
+}

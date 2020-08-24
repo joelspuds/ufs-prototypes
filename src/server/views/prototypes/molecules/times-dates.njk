@@ -62,7 +62,7 @@
                                 <option value="12">12:00</option>
                             </select>
 
-                            <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">Before or after midday</label>
+                            <label class="govuk-label govuk-visually-hidden" for="openingTimeMeridian">A.M. or P.M.</label>
                             <select class="govuk-select" id="openingTimeMeridian" name="openingTimeMeridian">
                                 <option value="am" {% if openingTimeMeridian === 'am'%}selected{% endif %} aria-label="a.m.">am</option>
                                 <option value="pm" {% if openingTimeMeridian === 'pm'%}selected{% endif %} aria-label="p.m.">pm</option>
@@ -89,7 +89,7 @@
                             <label class="govuk-label govuk-label--s" for="closingTime">Time</label>
                             <span class="govuk-hint">For example, 12:00pm or 4:00pm</span>
                             {#<input class="govuk-input govuk-input--width-4" id="closingTime" name="closingTime" type="text" value="{% if closingTime %}{{ closingTime }}{% else %}4:00{% endif %}">#}
-                            <select class="govuk-select" id="openingTime" name="openingTime">
+                            <select class="govuk-select" id="closingTime" name="closingTime">
                                 <option value="1">01:00</option>
                                 <option value="2">02:00</option>
                                 <option value="3">03:00</option>
@@ -103,7 +103,7 @@
                                 <option value="11">11:00</option>
                                 <option value="12" selected>12:00</option>
                             </select>
-                            <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">Before or after midday</label>
+                            <label class="govuk-label govuk-visually-hidden" for="closingTimeMeridian">A.M. or P.M.</label>
                             <select class="govuk-select" id="closingTimeMeridian" name="closingTimeMeridian">
                                 <option value="am" {% if closingTimeMeridian === 'am' %}selected{% endif %} aria-label="a.m.">am</option>
                                 <option value="pm" {% if closingTimeMeridian === 'pm' or not closingTime %}selected{% endif %} aria-label="p.m.">pm</option>
