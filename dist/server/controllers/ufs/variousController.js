@@ -13,6 +13,7 @@ exports.rteSimpleTestPost = rteSimpleTestPost;
 exports.rteComplexGet = rteComplexGet;
 exports.rteComplexPost = rteComplexPost;
 exports.userDashBoardGet = userDashBoardGet;
+exports.userDashBoardFiltersGet = userDashBoardFiltersGet;
 let generalData = require('./data');
 let genericFunctions = require('./generic');
 
@@ -220,17 +221,26 @@ function rteComplexPost(req, res) {
 *
 *     Dashboard
 *
-* */
-
+*/
 function userDashBoardGet(req, res) {
   let viewData;
-
   const appData = generalData.megaDataApplications;
-  // console.log(appData);
-
   viewData = {
     appData
   };
-
   return res.render('prototypes/molecules/user-dashboard', viewData);
+}
+
+/*
+*
+*     Dashboard with filters
+*
+*/
+function userDashBoardFiltersGet(req, res) {
+  let viewData;
+  const appData = generalData.megaDataApplications;
+  viewData = {
+    appData
+  };
+  return res.render('prototypes/molecules/user-dashboard-filters', viewData);
 }

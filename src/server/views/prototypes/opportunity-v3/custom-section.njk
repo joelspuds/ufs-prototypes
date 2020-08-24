@@ -55,11 +55,20 @@
 
     {% set mainTitle = sectionTitle if sectionTitle else '(Untitled section)' %}
 
-    {% call components.bulmaRow() %}
+    {#{% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column is-full') %}
             {{ components.captionHeading(text=mainTitle, caption=opportunityID + ': ' + opportunityName) }}
         {%- endcall %}
-    {%- endcall %}
+    {%- endcall %}#}
+
+    <div class="container ">
+        <div class="columns">
+            <div class="column column is-full ">
+                <span class="govuk-caption-xl">{{ opportunityName }}</span>
+                <h1 class="govuk-heading-xl ">{{ mainTitle }}</h1>
+            </div>
+        </div>
+    </div>
 
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='column is-8', customID='main-content') %}

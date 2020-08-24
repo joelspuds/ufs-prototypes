@@ -205,17 +205,26 @@ export function rteComplexPost(req, res) {
 *
 *     Dashboard
 *
-* */
-
+*/
 export function userDashBoardGet(req, res) {
   let viewData;
-
   const appData = generalData.megaDataApplications;
-  // console.log(appData);
-
   viewData = {
     appData,
   };
-
   return res.render('prototypes/molecules/user-dashboard', viewData);
+}
+
+/*
+*
+*     Dashboard with filters
+*
+*/
+export function userDashBoardFiltersGet(req, res) {
+  let viewData;
+  const appData = generalData.megaDataApplications;
+  viewData = {
+    appData,
+  };
+  return res.render('prototypes/molecules/user-dashboard-filters', viewData);
 }

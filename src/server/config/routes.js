@@ -252,6 +252,7 @@ router.get('/prototypes/molecules/rte-complex', demosController.rteComplexGet);
 router.post('/prototypes/molecules/rte-complex', demosController.rteComplexPost);
 router.get('/prototypes/molecules/mega-data', demosController.megaDataGet);
 router.get('/prototypes/molecules/user-dashboard', demosController.userDashBoardGet);
+router.get('/prototypes/molecules/user-dashboard-filters', demosController.userDashBoardFiltersGet);
 
 /* *************************************************************** *
 
