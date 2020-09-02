@@ -9,7 +9,7 @@
           </svg>
         </a>
       {% else %}
-        <a class="govuk-button {{ 'button-start' if start }}" href="{{ url }}" role="button" data-module="govuk-button">{{ text }}</a>
+        <a class="govuk-button {{ 'button-start' if start }} {{ extraClass if extraClass }}" href="{{ url }}" role="button" data-module="govuk-button">{{ text }}</a>
       {% endif %}
   {% else %}
     <button class="govuk-button {{ extraClass }} {{ 'govuk-button--disabled' if disabled }}" {{ 'id="' + customID + '"' if customID }} {{ 'name="' + customName + '"' if customName }} type="{{ type }}" value="{{ value }}" {{ disabledCode if disabled }} data-module="govuk-button">{{ text }}</button>

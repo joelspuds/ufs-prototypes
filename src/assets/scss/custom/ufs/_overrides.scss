@@ -213,3 +213,13 @@ body {
 .govuk-button[disabled] {
   cursor: default;
 }
+
+/*a.govuk-button--secondary {
+  background-color: #dbdad9;
+  @extend button.govuk-button--secondary;
+}*/
+
+
+td.u-align-right {
+  text-align: right!important;
+}
