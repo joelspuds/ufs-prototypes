@@ -223,3 +223,25 @@ body {
 td.u-align-right {
   text-align: right!important;
 }
+
+.cell-max-35 {
+
+  @include widescreen {
+    width:40%;
+  }
+
+  @include desktop {
+    width: 35%;
+  }
+}
+
+/*.cell-max-25 {
+
+  @include widescreen {
+    width:35%;
+  }
+
+  @include desktop {
+    width: 25%;
+  }
+}*/
