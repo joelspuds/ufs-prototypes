@@ -114,7 +114,7 @@
     "onchange": "^3.3.0",
     "postcss-loader": "^2.1.5",
     "prettier": "^1.13.6",
-    "puppeteer": "^0.13.0",
+    "puppeteer": "^1.13.0",
     "recursive-readdir": "^2.2.2",
     "run-sequence": "^2.2.1",
     "sass-loader": "^6.0.7",
