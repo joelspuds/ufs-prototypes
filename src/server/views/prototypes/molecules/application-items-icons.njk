@@ -640,6 +640,159 @@
             {%- endcall %}
         </section>
 
+        <section class="section" id="columnOptions">
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {{ components.captionHeading(text='Various column sizes', size='m') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {{ components.captionHeading(text='9|3 column split', size='s', tag='h3') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-9') %}
+
+                    <div class="application-items u-space-b30">
+
+                        <div class="application-item application-item--incomplete">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text="Details", url='#') }}
+                                </div>
+                                <div class="application-item__right">
+                                    <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="application-item application-item--summary application-item--complete">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text='Applications', url='#', extraClass='govuk-!-font-size-24') }}
+                                    <div class="application-item__data">
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>9,567</strong><br> In progress</span>
+                                        </a>
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>5,612</strong><br> Over 50% complete</span>
+                                        </a>
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>0</strong><br> Submitted</span>
+                                        </a>
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>234,434</strong><br> total</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="item-successful">Opened:<br>
+                                    <strong>9 Apr 2020</strong><br></span>
+                                <span class="item-successful">Closed:<br>
+                                <strong>21 Aug 2020</strong><br></span>
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='column is-3') %}
+                    <div class="govuk-related-items govuk-related-items--flush">
+                        <h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
+                        <p class="govuk-body-s u-space-b5">Really long title for this exciting new opportunity</p>
+                        <ul class="govuk-list u-space-t10">
+                            <li><a href="/prototypes/opportunity-v2/create?mode=edit" class="govuk-link govuk-body--s sub-button">Edit Opportunity name</a></li>
+                        </ul>
+                    </div>
+                {%- endcall %}
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+                    {{ components.captionHeading(text='8|4 column split', size='s', tag='h3') }}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='column is-8') %}
+
+                    <div class="application-items u-space-b30">
+
+                        <div class="application-item application-item--incomplete">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text="Details", url='#') }}
+                                </div>
+                                <div class="application-item__right">
+                                    <span class="application-item__status"><span class="govuk-visually-hidden">This section is </span> Incomplete</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="application-item application-item--summary application-item--complete">
+                            <div class="application-item__contents govuk-clearfix">
+                                <div class="application-item__left">
+                                    {{ components.link(text='Applications', url='#', extraClass='govuk-!-font-size-24') }}
+                                    <div class="application-item__data">
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>9,567</strong><br> In progress</span>
+                                        </a>
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>5,612</strong><br> Over 50% complete</span>
+                                        </a>
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>0</strong><br> Submitted</span>
+                                        </a>
+                                        <a class="application-item__data-item">
+                                            <span class="application-item__data-text"><strong>234,434</strong><br> total</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="application-item__right">
+                            <span class="application-item__meta">
+                                <span class="item-successful">Opened:<br>
+                                    <strong>9 Apr 2020</strong><br></span>
+                                <span class="item-successful">Closed:<br>
+                                <strong>21 Aug 2020</strong><br></span>
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {%- endcall %}
+
+                {% call components.bulmaColumnAny(size='column is-4') %}
+                    <div class="govuk-related-items govuk-related-items--flush">
+                        <h2 class="govuk-heading-xs u-space-y5">OPP-47101</h2>
+                        <p class="govuk-body-s u-space-b5">Really long title for this exciting new opportunity</p>
+                        <ul class="govuk-list u-space-t10">
+                            <li><a href="/prototypes/opportunity-v2/create?mode=edit" class="govuk-link govuk-body--s sub-button">Edit Opportunity name</a></li>
+                        </ul>
+                    </div>
+                {%- endcall %}
+            {%- endcall %}
+        </section>
+
     {%- endcall %}
 
 {% endblock %}
