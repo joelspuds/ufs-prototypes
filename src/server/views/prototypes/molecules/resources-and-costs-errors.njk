@@ -7,6 +7,31 @@
 
 {% block content %}
 
+
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+                <h2 class="govuk-error-summary__title" id="error-summary-title">There is a problem</h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+                        <li>
+                            <a href="#error1">You have not entered any values</a>
+                        </li>
+                        <li>
+                            <a href="#error2">You must enter numbers</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+
     {% call components.bulmaRow() %}
 
         {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
@@ -16,7 +41,6 @@
         {%- endcall %}
 
     {%- endcall %}
-
 
     {% call components.form(action='#', method='POST',name='resourcesAndCosts') %}
 
@@ -68,12 +92,12 @@
                     </thead>
 
                     <tbody>
-                    <tr>
+                    <tr class="govuk-table--error-row">
                         <td class="govuk-table__cell govuk-table__cell--middle">Directly incurred</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
                                 <label class="govuk-label govuk-visually-hidden" for="directlyIncurredCost">Directly incurred full economic costs</label>
-                                <input class="govuk-input govuk-input--width-5 u-align-right" id="directlyIncurredCost" type="number" name="directlyIncurredCost" value="0">
+                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="directlyIncurredCost" type="number" name="directlyIncurredCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
@@ -92,12 +116,12 @@
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="alllocatedContribution">£0</span></td>
                     </tr>
 
-                    <tr>
+                    <tr class="govuk-table--error-row">
                         <td class="govuk-table__cell govuk-table__cell--middle">Indirect costs</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
                                 <label class="govuk-label govuk-visually-hidden" for="indirectlCost">Indirect full economic costs</label>
-                                <input class="govuk-input govuk-input--width-5 u-align-right" id="indirectlCost" type="number" name="indirectlCost" value="0">
+                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="indirectlCost" type="number" name="indirectlCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>

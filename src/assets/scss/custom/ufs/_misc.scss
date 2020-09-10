@@ -66,3 +66,11 @@
   }
 }
 
+
+.govuk-table--error-row {
+  border-left: 5px solid govuk-colour("red");
+
+  & td:first-of-type {
+    padding-left: 10px;
+  }
+}
