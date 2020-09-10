@@ -96,8 +96,8 @@
                         <td class="govuk-table__cell govuk-table__cell--middle">Indirect costs</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
-                                <label class="govuk-label govuk-visually-hidden" for="indirectlCost">Indirect full economic costs</label>
-                                <input class="govuk-input govuk-input--width-5 u-align-right" id="indirectlCost" type="number" name="indirectlCost" value="0">
+                                <label class="govuk-label govuk-visually-hidden" for="indirectCost">Indirect full economic costs</label>
+                                <input class="govuk-input govuk-input--width-5 u-align-right" id="indirectCost" type="number" name="indirectCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
@@ -186,17 +186,17 @@
         /*
             #directlyIncurredCost
             #directlyAllocatedCost
-            #indirectlCost
+            #indirectCost
             #exceptionCost
 
             #totalContribution
             #totalRequested
 
         */
-        $('#directlyIncurredCost, #directlyAllocatedCost, #indirectlCost ,#exceptionCost').on('blur', function(event) {
+        $('#directlyIncurredCost, #directlyAllocatedCost, #indirectCost ,#exceptionCost').on('blur', function(event) {
           let directlyIncurredCost = parseInt($('#directlyIncurredCost').val(), 10);
           let directlyAllocatedCost = parseInt($('#directlyAllocatedCost').val(), 10);
-          let indirectlCost = parseInt($('#indirectlCost').val(), 10);
+          let indirectlCost = parseInt($('#indirectCost').val(), 10);
           let exceptionCost = parseInt($('#exceptionCost').val(), 10);
           let totalValue = directlyIncurredCost + directlyAllocatedCost + indirectlCost + exceptionCost;
           let totalRequested =

@@ -210,17 +210,17 @@
         /*
             #directlyIncurredCost
             #directlyAllocatedCost
-            #indirectlCost
+            #indirectCost
             #exceptionCost
 
             #totalContribution
             #totalRequested
 
         */
-        $('#directlyIncurredCost, #directlyAllocatedCost, #indirectlCost ,#exceptionCost').on('blur', function(event) {
+        $('#directlyIncurredCost, #directlyAllocatedCost, #indirectCost ,#exceptionCost').on('blur', function(event) {
           let directlyIncurredCost = parseInt($('#directlyIncurredCost').val(), 10);
           let directlyAllocatedCost = parseInt($('#directlyAllocatedCost').val(), 10);
-          let indirectlCost = parseInt($('#indirectlCost').val(), 10);
+          let indirectlCost = parseInt($('#indirectCost').val(), 10);
           let exceptionCost = parseInt($('#exceptionCost').val(), 10);
           let totalValue = directlyIncurredCost + directlyAllocatedCost + indirectlCost + exceptionCost;
           let totalRequested =
