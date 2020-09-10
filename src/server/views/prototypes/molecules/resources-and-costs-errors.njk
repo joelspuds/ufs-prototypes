@@ -18,10 +18,10 @@
                 <div class="govuk-error-summary__body">
                     <ul class="govuk-list govuk-error-summary__list">
                         <li>
-                            <a href="#error1">You have not entered any values</a>
+                            <a href="#directlyIncurredCost">You have not entered any values</a>
                         </li>
                         <li>
-                            <a href="#error2">You must enter numbers</a>
+                            <a href="#indirectCost">You must enter numbers</a>
                         </li>
                     </ul>
                 </div>
@@ -116,12 +116,12 @@
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="alllocatedContribution">£0</span></td>
                     </tr>
 
-                    <tr class="govuk-table--error-row">
+                    <tr class="govuk-table--error-row" id="error2">
                         <td class="govuk-table__cell govuk-table__cell--middle">Indirect costs</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
-                                <label class="govuk-label govuk-visually-hidden" for="indirectlCost">Indirect full economic costs</label>
-                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="indirectlCost" type="number" name="indirectlCost" value="0">
+                                <label class="govuk-label govuk-visually-hidden" for="indirectCost">Indirect full economic costs</label>
+                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="indirectCost" type="number" name="indirectCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
