@@ -243,7 +243,7 @@
 
           $('#totalContribution').html('£'+totalValue);
 
-          $('#totalRequested').html('£'+(incurredContribution + alllocatedContribution + indirectContribution + exceptionsContribution));
+          $('#totalRequested').html('£'+parseFloat((incurredContribution + alllocatedContribution + indirectContribution + exceptionsContribution)).toFixed(0));
           event.preventDefault();
         });
       })
