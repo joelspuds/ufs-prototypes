@@ -18,7 +18,7 @@
                 <div class="govuk-error-summary__body">
                     <ul class="govuk-list govuk-error-summary__list">
                         <li>
-                            <a href="#directlyIncurredCost">Incorrect value entered</a>
+                            <a href="#resourcesTable">No values entered</a>
                         </li>
                     </ul>
                 </div>
@@ -77,7 +77,7 @@
 
             {% call components.bulmaColumnAny(size='column is-8') %}
 
-                <table class="govuk-table">
+                <table class="govuk-table" id="resourcesTable">
 
                     <thead>
                     <tr>
@@ -90,11 +90,7 @@
 
                     <tbody>
                     <tr class="govuk-table--error-row">
-                        <td class="govuk-table__cell govuk-table__cell--middle">
-                            Directly incurred
-                            <br>
-                            <span class="error-message error-summary {#govuk-input--error#} error-text">You must enter only numbers</span>
-                        </td>
+                        <td class="govuk-table__cell govuk-table__cell--middle">Directly incurred</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
                                 <label class="govuk-label govuk-visually-hidden" for="directlyIncurredCost">Directly incurred full economic costs</label>
@@ -105,36 +101,36 @@
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="incurredContribution">£0</span></td>
                     </tr>
 
-                    <tr>
+                    <tr class="govuk-table--error-row">
                         <td class="govuk-table__cell govuk-table__cell--middle">Directly allocated</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
                                 <label class="govuk-label govuk-visually-hidden" for="directlyAllocatedCost">Directly allocated full economic costs</label>
-                                <input class="govuk-input govuk-input--width-5 u-align-right" id="directlyAllocatedCost" type="number" name="directlyAllocatedCost" value="0">
+                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="directlyAllocatedCost" type="number" name="directlyAllocatedCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="alllocatedContribution">£0</span></td>
                     </tr>
 
-                    <tr>
+                    <tr class="govuk-table--error-row" id="error2">
                         <td class="govuk-table__cell govuk-table__cell--middle">Indirect costs</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
                                 <label class="govuk-label govuk-visually-hidden" for="indirectCost">Indirect full economic costs</label>
-                                <input class="govuk-input govuk-input--width-5 u-align-right" id="indirectCost" type="number" name="indirectCost" value="0">
+                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="indirectCost" type="number" name="indirectCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric"><span id="indirectContribution">£0</span></td>
                     </tr>
 
-                    <tr>
+                    <tr class="govuk-table--error-row">
                         <td class="govuk-table__cell govuk-table__cell--middle">Exceptions</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <div class="govuk-form-group u-space-y5">
                                 <label class="govuk-label govuk-visually-hidden" for="exceptionCost">Exceptional full economic costs</label>
-                                <input class="govuk-input govuk-input--width-5 u-align-right" id="exceptionCost" type="number" name="exceptionCost" value="0">
+                                <input class="govuk-input govuk-input--error govuk-input--width-5 u-align-right" id="exceptionCost" type="number" name="exceptionCost" value="0">
                             </div>
                         </td>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">100</td>

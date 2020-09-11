@@ -14,7 +14,6 @@ $module: 'overview';
     & > .columns {
       margin-bottom: 0;
     }
-
   }
 
   &-item {
@@ -23,28 +22,12 @@ $module: 'overview';
     margin-bottom: 10px;
     background-color: govuk-colour("white");
 
-    &:last-of-type {
-      // margin-bottom: 0;
-      //padding-bottom: 0;
-    }
-
-    &:first-of-type {
-      //padding-top: 0;
-    }
-
-    a {
-      // @include govuk-font($size: 19, $weight: bold);
-    }
-
     &__title {
       @include govuk-font($size: 19, $weight: bold);
     }
 
     &__meta {
-      // display: block;
       text-align: center;
-      // font-weight: bold;
-      // vertical-align: middle;
       height: 100%;
 
       @include touch {
@@ -87,35 +70,24 @@ $module: 'overview';
       &-item {
         margin-bottom: 4px;
       }
-
     }
 
-
-
     &--inactive {
-      // background-color: lighten(ufs-colour("light-grey"), 10%);
       background-color: ufs-colour("light-grey");
     }
   }
 
   &-items--plain {
-
     background-color: govuk-colour("white");
     padding: 0;
     margin-bottom: 30px;
 
     .#{$module}-item {
-
-      // padding: 10px 0;
       border-bottom: 1px solid govuk-colour("mid-grey");
       margin-bottom: 0;
 
       &:first-of-type {
         border-top: 1px solid govuk-colour("mid-grey");
-      }
-
-      &__meta--right {
-        // border-left: 0;
       }
     }
   }

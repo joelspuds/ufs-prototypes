@@ -104,3 +104,8 @@ body.ufs .govuk-heading_additional-link a span {
 .meta {
   color: govuk-colour("dark-grey");
 }
+
+.error-text {
+  color: govuk-colour("red");
+  @include govuk-font($size:19, $weight: bold);
+}
