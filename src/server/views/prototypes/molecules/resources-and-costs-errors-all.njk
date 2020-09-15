@@ -18,7 +18,7 @@
                 <div class="govuk-error-summary__body">
                     <ul class="govuk-list govuk-error-summary__list">
                         <li>
-                            <a href="#resourcesTable">No values entered</a>
+                            <a href="#errorMessage">No values entered</a>
                         </li>
                     </ul>
                 </div>
@@ -78,17 +78,20 @@
             {% call components.bulmaColumnAny(size='column is-8') %}
 
                 <table class="govuk-table" id="resourcesTable">
-
                     <thead>
-                    <tr>
-                        <th class="govuk-table__header">Funding type</th>
-                        <th class="govuk-table__header govuk-table__header--numeric">Full economic<br>cost (£)</th>
-                        <th class="govuk-table__header govuk-table__header--numeric">Funding <br>percentage (%)</th>
-                        <th class="govuk-table__header govuk-table__header--numeric">Funding <br>contribution (£)</th>
-                    </tr>
+                        <tr>
+                            <th class="govuk-table__header">Funding type</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Full economic<br>cost (£)</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Funding <br>percentage (%)</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Funding <br>contribution (£)</th>
+                        </tr>
                     </thead>
-
                     <tbody>
+                    <tr class="govuk-table--error-row">
+                        <td class="govuk-table__cell" colspan="4">
+                            <span class="error-text" id="errorMessage">You must enter a value in at least one of the boxes below</span>
+                        </td>
+                    </tr>
                     <tr class="govuk-table--error-row">
                         <td class="govuk-table__cell govuk-table__cell--middle">Directly incurred</td>
                         <td class="govuk-table__cell govuk-table__cell--numeric">
