@@ -145,7 +145,8 @@ function richTextEmailPost(req, res) {
 
   const msg = {
     to: emailAddress,
-    from: 'test@example.com',
+    name: 'The UKRI Funding Service',
+    from: 'fundingservice@ukri.org',
     subject: emailSubject,
     html: htmlEmailContent
   };
