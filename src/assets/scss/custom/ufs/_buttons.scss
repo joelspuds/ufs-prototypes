@@ -1,0 +1,12 @@
+.govuk-button--link {
+  @include govuk-font($size: 16);
+  @extend .govuk-link;
+  border: 0;
+  padding: 0;
+  color: ufs-colour("other-blue");
+
+  &:hover {
+    cursor: pointer;
+    color: govuk-colour("dark-blue");
+  }
+}
