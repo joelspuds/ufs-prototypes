@@ -56,6 +56,8 @@
 
             {% call components.bulmaColumnAny(size='column is-8') %}
 
+                <div class="responsive-table">
+
                 <table class="govuk-table">
 
                     <thead>
@@ -117,13 +119,28 @@
                     </tr>
 
                     <tr>
-                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Total contribution from project</strong></td>
-                        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong><span id="totalContribution">£0</span></strong></td>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless u-pad-t20"><strong>Total cost</strong></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless u-pad-t20"><strong><span id="totalCost">£0</span></strong></td>
                         <td class="" colspan="2">&nbsp;</td>
                     </tr>
 
-                    <tr>
+                    {#<tr>
                         <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Total funding requested</strong></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong><span id="totalRequested">£0</span></strong></td>
+                        <td class="" colspan="2">&nbsp;</td>
+                    </tr>#}
+
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Contribution from applying organisation</strong></td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong><span id="totalContribution">£0</span></strong></td>
+                        <td class="" colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><hr class="section-break--table"></td>
+                        <td class="" colspan="2">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Total funding applied for</strong></td>
                         <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong><span id="totalRequested">£0</span></strong></td>
                         <td class="" colspan="2">&nbsp;</td>
                     </tr>
@@ -131,6 +148,8 @@
                     </tbody>
 
                 </table>
+
+                </div>
 
 
             {%- endcall %}
@@ -199,10 +218,16 @@
           let indirectlCost = parseInt($('#indirectCost').val(), 10);
           let exceptionCost = parseInt($('#exceptionCost').val(), 10);
           let totalValue = directlyIncurredCost + directlyAllocatedCost + indirectlCost + exceptionCost;
-          let totalRequested =
+          // let totalRequested =
           console.log(totalValue);
 
           // parseFloat("123.456").toFixed(2);
+
+          /*
+          #totalCost
+          #totalContribution
+          #totalRequested
+           */
 
           let incurredContribution = (directlyIncurredCost/100)*80;
           $('#incurredContribution').html('£'+parseFloat(incurredContribution).toFixed(0));
@@ -216,9 +241,17 @@
           let exceptionsContribution = (exceptionCost/100)*100;
           $('#exceptionsContribution').html('£'+parseFloat(exceptionsContribution).toFixed(0));
 
-          $('#totalContribution').html('£'+totalValue);
 
-          $('#totalRequested').html('£'+parseFloat((incurredContribution + alllocatedContribution + indirectContribution + exceptionsContribution)).toFixed(0));
+          let totalRequested = parseFloat((incurredContribution + alllocatedContribution + indirectContribution + exceptionsContribution)).toFixed(0);
+
+          $('#totalContribution').html('£'+(totalValue-totalRequested));
+
+          $('#totalCost').html('£'+totalValue);
+
+          // $('#totalRequested').html('£'+parseFloat((incurredContribution + alllocatedContribution + indirectContribution + exceptionsContribution)).toFixed(0));
+
+          $('#totalRequested').html('£'+totalRequested);
+
           event.preventDefault();
         });
       })

@@ -64,6 +64,11 @@
     border-top: 2px solid govuk-colour("black");
     margin: 40px 0;
   }
+
+  &--table {
+    border-top: 1px solid govuk-colour("mid-grey");
+    margin: 0 0;
+  }
 }
 
 
