@@ -30,8 +30,13 @@
                 {% call components.bulmaColumnAny(size='column is-8') %}
 
                     <h2 class="govuk-heading-m">Input some content</h2>
-                    <noscript>
+                    {#<noscript>
                         {{ components.alerts(text='Because your JavaScript is not enabled, this content appears unformatted. To use rich-text editing, enable JavaScript in the advanced section of your device or browser’s security settings. If you have not disabled it yourself, then try refreshing the page in a few minutes.', type='danger')}}
+                    </noscript>#}
+                    <noscript>
+                        <div class="alerts  alerts--danger ">
+                            <strong>JavaScript is not enabled</strong> This means anything you enter or paste into the box below will appear without formatting. To use 'rich text editing' functions, like bold text or lists, you will need <a href="https://www.enable-javascript.com/" class="govuk-link" target="_blank">to enable JavaScript</a> in your device or browser's security settings. If you did not disable JavaScript, try refreshing this page in a few minutes.
+                        </div>
                     </noscript>
                     {{ components.textarea(options=selectOptions, label='Enter your case for support', labelBold=true, name='htmlTest', id='tinyMCEInput', hint='', group=true, rows='12', size='', value=exampleHTML, extraClass='', visuallyHidden=true) }}
 
@@ -115,7 +120,8 @@
         ],
         advlist_bullet_styles: 'disc',
         advlist_number_styles: 'default',
-        toolbar: 'formatselect | bold italic | bullist numlist | align | indent outdent | link',
+        // toolbar: 'formatselect | bold italic | bullist numlist | align | indent outdent | link',
+        toolbar: 'formatselect | bold | bullist numlist | link',
         content_css: [
           '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
           '/stylesheets/tinymce.css'
