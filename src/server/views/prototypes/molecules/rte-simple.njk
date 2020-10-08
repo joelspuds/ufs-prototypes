@@ -30,6 +30,24 @@
                 {% call components.bulmaColumnAny(size='column is-8') %}
 
                     <h2 class="govuk-heading-m">Input some content</h2>
+
+                    <details class="govuk-details u-space-t20 js-only" data-module="govuk-details" role="group">
+                        <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+                            <span class="govuk-details__summary-text">Guidance on text formatting</span>
+                        </summary>
+                        <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+                            <div class="tiny-spoof">
+                                <p class="govuk-body">You can only use the formatting options available in the text editor's toolbar. These are:</p>
+                                <ul class="govuk-list govuk-list--bullet u-space-b0">
+                                    <li>Headings</li>
+                                    <li>Bold</li>
+                                    <li>Links</li>
+                                    <li>Bulleted and numbered lists</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </details>
+
                     {#<noscript>
                         {{ components.alerts(text='Because your JavaScript is not enabled, this content appears unformatted. To use rich-text editing, enable JavaScript in the advanced section of your device or browser’s security settings. If you have not disabled it yourself, then try refreshing the page in a few minutes.', type='danger')}}
                     </noscript>#}
@@ -110,7 +128,25 @@
 
 {% block bodyScripts %}
     <script src="https://cdn.tiny.cloud/1/phk3goz7y02jvj65em0m21azcq1qr7abduimch9isoe4jkor/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>
+      /*
+    tinyMCE.init({
+        setup: function(editor) {
+            editor.on("init", function(){
+            editor.addShortcut("ctrl+u", "", "");
+        });
+        }
+    })
+    oninit : "disableShortcuts",
+        setup: function(editor) {
+          editor.on('init', function(){
+            editor.addShortcut('Command+I', '', '');
+          });
+        },
+
+    */
+
       tinymce.init({
         selector: '#tinyMCEInput',
         height: 500,

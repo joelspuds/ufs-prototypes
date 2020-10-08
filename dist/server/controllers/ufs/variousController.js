@@ -16,6 +16,8 @@ exports.userDashBoardGet = userDashBoardGet;
 exports.userDashBoardFiltersGet = userDashBoardFiltersGet;
 let generalData = require('./data');
 let genericFunctions = require('./generic');
+// import sanitizeHtml from '../../../../no';
+const sanitizeHTML = require('../../../../node_modules/sanitize-html');
 
 // ************************************************************************
 //
@@ -118,7 +120,8 @@ const unformattedHTML = `<h2>This is an awesome title</h2>
 function rteSimpleGet(req, res) {
   let viewData, userHTML, exampleHTML, convertedHTML;
 
-  userHTML = req.session.userHTML;
+  // userHTML = req.session.userHTML;
+  userHTML = req.session.styleTestHTML;
 
   if (!userHTML) {
     // exampleHTML = startingHTML;
@@ -140,8 +143,30 @@ function rteSimpleGet(req, res) {
 function rteSimplePost(req, res) {
   const { htmlTest } = req.body;
 
+  // sanitizeHTML
+
+  // let freshHTML = htmlTest;
+  // let cleanHTML,
+  const clean = sanitizeHTML(htmlTest, {
+    allowedTags: ['b', 'strong', 'a', 'p', 'ul', 'li', 'ol', 'h2', 'h3', 'h4'],
+    allowedAttributes: {
+      'a': ['href', 'class'],
+      'p': ['class'],
+      'ul': ['class'],
+      'ol': ['class'],
+      'li': ['class'],
+      'h2': ['class'],
+      'h3': ['class'],
+      'h4': ['class']
+    },
+    allowedIframeHostnames: ['www.youtube.com']
+  });
+
+  console.log(clean);
+
+  req.session.styleTestHTML = clean;
   // let userHTML = htmlTest;
-  req.session.userHTML = htmlTest;
+  // req.session.userHTML = htmlTest;
   return res.redirect('/prototypes/molecules/rte-simple');
 }
 
@@ -175,7 +200,6 @@ function rteSimpleTestGet(req, res) {
 
 function rteSimpleTestPost(req, res) {
   const { htmlTest } = req.body;
-
   // let userHTML = htmlTest;
   req.session.styleTestHTML = htmlTest;
   return res.redirect('/prototypes/molecules/rte-simple-test');
