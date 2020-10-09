@@ -12,6 +12,7 @@ exports.rteSimpleTestGet = rteSimpleTestGet;
 exports.rteSimpleTestPost = rteSimpleTestPost;
 exports.rteComplexGet = rteComplexGet;
 exports.rteComplexPost = rteComplexPost;
+exports.rteComplex2Get = rteComplex2Get;
 exports.userDashBoardGet = userDashBoardGet;
 exports.userDashBoardFiltersGet = userDashBoardFiltersGet;
 let generalData = require('./data');
@@ -150,14 +151,14 @@ function rteSimplePost(req, res) {
   const clean = sanitizeHTML(htmlTest, {
     allowedTags: ['b', 'strong', 'a', 'p', 'ul', 'li', 'ol', 'h2', 'h3', 'h4'],
     allowedAttributes: {
-      'a': ['href', 'class'],
-      'p': ['class'],
-      'ul': ['class'],
-      'ol': ['class'],
-      'li': ['class'],
-      'h2': ['class'],
-      'h3': ['class'],
-      'h4': ['class']
+      a: ['href', 'class'],
+      p: ['class'],
+      ul: ['class'],
+      ol: ['class'],
+      li: ['class'],
+      h2: ['class'],
+      h3: ['class'],
+      h4: ['class']
     },
     allowedIframeHostnames: ['www.youtube.com']
   });
@@ -239,6 +240,33 @@ function rteComplexPost(req, res) {
   // let userHTML = htmlTest;
   req.session.userHTML = htmlTest;
   return res.redirect('/prototypes/molecules/rte-complex');
+}
+
+/*
+* complex extra complicated
+*
+* */
+
+function rteComplex2Get(req, res) {
+  let viewData, userHTML, exampleHTML, convertedHTML;
+
+  userHTML = req.session.userHTML;
+
+  if (!userHTML) {
+    // exampleHTML = startingHTML;
+    exampleHTML = guidanceHTML;
+  } else {
+    exampleHTML = userHTML;
+  }
+
+  convertedHTML = genericFunctions.changeHTMLTags(exampleHTML);
+
+  viewData = {
+    exampleHTML,
+    convertedHTML
+  };
+
+  return res.render('prototypes/molecules/rte-complex-2', viewData);
 }
 
 /*

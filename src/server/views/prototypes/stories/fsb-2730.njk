@@ -26,7 +26,6 @@
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
                         <h2 class="govuk-fieldset__legend govuk-fieldset__legend--s">Organisation</h2>
-                        </h2>
                         <div class="govuk-radios">
                             <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="org1" name="orgs" type="radio" value="org1">
@@ -57,30 +56,12 @@
 
     <section class="section" id="finalForm">
 
-            {#{% call components.bulmaRow() %}
-
-                {% call components.bulmaColumnAny(size='is-full') %}
-
-                    <div class="application-item">
-                        <div class="application-item__contents">
-                            <div class="govuk-checkboxes">
-                                <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
-                                    <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark [this_item] as complete</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                {%- endcall %}
-
-            {%- endcall %}#}
 
             {% call components.bulmaRow() %}
 
                 {% call components.bulmaColumnAny(size='is-two-thirds') %}
 
-                    {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit", name='saveAndComplete')}}
+                    {{ components.button(text='Confirm', extraClass="application-controls__submit", name='saveAndComplete')}}
 
                 {%- endcall %}
 

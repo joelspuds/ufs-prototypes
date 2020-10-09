@@ -226,6 +226,33 @@ export function rteComplexPost(req, res) {
 }
 
 /*
+* complex extra complicated
+*
+* */
+
+export function rteComplex2Get(req, res) {
+  let viewData, userHTML, exampleHTML, convertedHTML;
+
+  userHTML = req.session.userHTML;
+
+  if (!userHTML) {
+    // exampleHTML = startingHTML;
+    exampleHTML = guidanceHTML;
+  } else {
+    exampleHTML = userHTML;
+  }
+
+  convertedHTML = genericFunctions.changeHTMLTags(exampleHTML);
+
+  viewData = {
+    exampleHTML,
+    convertedHTML,
+  };
+
+  return res.render('prototypes/molecules/rte-complex-2', viewData);
+}
+
+/*
 *
 *     Dashboard
 *

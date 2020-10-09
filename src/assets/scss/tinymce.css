@@ -60,13 +60,13 @@ body {
 .mce-content-body * {
     background-position: initial
 }
-.mce-content-body h1 {
+/*.mce-content-body h1 {
     font-size: 34px;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
-}
+}*/
 .mce-content-body h2 {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
@@ -88,7 +88,7 @@ body {
     line-height: 1.4em;
     margin: 25px 0 15px
 }
-.mce-content-body h5 {
+/*.mce-content-body h5 {
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
@@ -101,7 +101,7 @@ body {
     font-weight: 700;
     line-height: 1.4em;
     margin: 25px 0 15px
-}
+}*/
 .mce-content-body p {
     margin: 25px 0
 }

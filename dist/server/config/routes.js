@@ -270,6 +270,8 @@ router.get('/prototypes/molecules/rte-simple-test', demosController.rteSimpleTes
 router.post('/prototypes/molecules/rte-simple-test', demosController.rteSimpleTestPost);
 router.get('/prototypes/molecules/rte-complex', demosController.rteComplexGet);
 router.post('/prototypes/molecules/rte-complex', demosController.rteComplexPost);
+router.get('/prototypes/molecules/rte-complex-2', demosController.rteComplex2Get);
+// router.post('/prototypes/molecules/rte-complex-old', demosController.rteComplexOLDPost);
 router.get('/prototypes/molecules/mega-data', demosController.megaDataGet);
 router.get('/prototypes/molecules/user-dashboard', demosController.userDashBoardGet);
 router.get('/prototypes/molecules/user-dashboard-filters', demosController.userDashBoardFiltersGet);

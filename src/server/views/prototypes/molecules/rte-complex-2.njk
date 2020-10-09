@@ -16,7 +16,7 @@
 
         {% call components.bulmaColumnAny(size='column is-half') %}
 
-            {{ components.captionHeading(text='Rich-text editor') }}
+            {{ components.captionHeading(text='Rich-text editor with custom formatting ') }}
 
         {%- endcall %}
 
@@ -88,14 +88,14 @@
         height: 500,
         external_plugins: {
           // 'tiny_mce_wiris' : 'http://localhost:3002/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
-          'tiny_mce_wiris' : 'https://tfs-front-end-v3.herokuapp.com/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
+          // 'tiny_mce_wiris' : 'https://tfs-front-end-v3.herokuapp.com/javascripts/@wiris/mathtype-tinymce4/plugin.min.js'
         },
         plugins: [
           'advlist autolink lists link image charmap print preview anchor',
           'searchreplace visualblocks code fullscreen',
           'insertdatetime media table paste tinydrive code imagetools wordcount'
         ],
-        toolbar: 'formatselect | bold italic | bullist numlist | align indent | image pastetext | table | tiny_mce_wiris_formulaEditor',
+        // toolbar: 'formatselect | bold italic | bullist numlist | align indent | image pastetext | table | tiny_mce_wiris_formulaEditor',
         // toolbar: 'formatselect | bold italic | bullist numlist | image pastetext | tiny_mce_wiris_formulaEditor',
         // toolbar: 'formatselect | bold italic | bullist numlist | align ',
         content_css: [
@@ -122,7 +122,6 @@
           /*'.tablerow1 { background-color: #D3D3D3; }' +*/
           '.govuk-body {}',
         formats: {
-
           bold: { inline: 'span', classes: 'bold' },
           italic: { inline: 'span', classes: 'italic' },
           underline: { inline: 'span', classes: 'underline', exact: true },
@@ -137,7 +136,7 @@
 
         ],
         menubar: false,
-        // toolbar: 'formatselect | bold italic | numlist bullist |',
+        toolbar: 'formatselect | bold italic | numlist bullist |',
       });
     </script>
     <script>

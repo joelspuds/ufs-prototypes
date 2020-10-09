@@ -162,6 +162,13 @@
           '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
           '/stylesheets/tinymce.css'
         ],
+       content_style: '.red-text: {color: red}',
+       formats :{
+         redText: { inline: 'span', classes: 'red-text' },
+       },
+       style_formats: [
+         {title: 'Red text', block: 'h2', format: 'redText', classes: 'govuk-heading-l'},
+       ],
        menubar: false,
       });
     </script>
