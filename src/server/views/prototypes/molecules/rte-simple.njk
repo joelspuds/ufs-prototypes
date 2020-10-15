@@ -154,21 +154,33 @@
           'advlist autolink lists link anchor',
           'wordcount'
         ],
+        content_style: '.red-text {color: red}',
+        formats :{
+          //redText: { selector: 'p', classes: 'red-text' },
+          redText: { inline: 'span', classes: 'red-text' },
+          para: { selector: 'p,h2,h3,h4,li', classes: 'govuk-body' },
+          heading2: { selector: 'p,h2,h3,h4,li', classes: 'govuk-heading-l', exact: true },
+          heading3: { selector: 'p,h2,h3,h4', classes: 'govuk-heading-m', exact: true },
+          heading4: { selector: 'p,h2,h3,h4', classes: 'govuk-heading-s', exact: true },
+          unorderedList: { selector: 'ul, ol, p,h2,h3,h4', classes: 'govuk-list govuk-list--bullets'},
+        },
+        style_formats: [
+          /*{title: 'Red text', format: 'redText', styles: { color: '#ff0000' }},*/
+          {title: 'Paragraph', format: 'para'},
+          /*{title: 'Heading 2', format: 'heading2', block: 'h2', /!*styles: { color: 'lime' },*!/ classes: 'govuk-heading-l'},*/
+          {title: 'Heading 2', format: 'heading2', remove: 'all', block: 'h2', classes: 'govuk-heading-l'},
+          {title: 'Heading 3', format: 'heading3', block: 'h3', classes: 'govuk-heading-m'},
+          {title: 'Heading 4', format: 'heading4', block: 'h4', classes: 'govuk-heading-s'},
+          {title: 'Unordered list', format: 'unorderedList', block: 'ul'},
+        ],
         advlist_bullet_styles: 'disc',
         advlist_number_styles: 'default',
         // toolbar: 'formatselect | bold italic | bullist numlist | align | indent outdent | link',
-        toolbar: 'formatselect | bold | bullist numlist | link',
+        // toolbar: 'formatselect | bold | bullist numlist | link',
         content_css: [
           '//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i',
           '/stylesheets/tinymce.css'
         ],
-       content_style: '.red-text: {color: red}',
-       formats :{
-         redText: { inline: 'span', classes: 'red-text' },
-       },
-       style_formats: [
-         {title: 'Red text', block: 'h2', format: 'redText', classes: 'govuk-heading-l'},
-       ],
        menubar: false,
       });
     </script>

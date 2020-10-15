@@ -1,0 +1,123 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Applicants' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set backLinkContents =  [{url:'/prototypes/molecules', text:'Back to [previous_page]'}] %}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Resources and costs table for preview') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+   {# {% call components.form(action='#', method='POST', name='submitApplication') %}#}
+
+        <section class="section" id="main-content">
+
+            {% call components.bulmaRow() %}
+                {% call components.bulmaColumnAny(size='is-12') %}
+
+                    <div class="responsive-table serif">
+
+                    <table class="govuk-table">
+
+                        <thead>
+                        <tr>
+                            <th class="govuk-table__header">Funding type</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Full economic<br>cost (£)</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Funding <br>percentage (%)</th>
+                            <th class="govuk-table__header govuk-table__header--numeric">Funding <br>applied for (£)</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle">Directly incurred</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">420,000</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">336,000</td>
+                        </tr>
+
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle">Directly allocated</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">136,00</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">109,200</td>
+                        </tr>
+
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle">Indirect costs</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">240,000</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">80</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">192,000</td>
+                        </tr>
+
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle">Exceptions</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">28,500</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">100</td>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--numeric">28,500</td>
+                        </tr>
+
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless u-pad-t20"><strong>Total cost</strong></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless u-pad-t20"><strong>£825,000</strong></td>
+                            <td class="" colspan="2">&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Contribution from applying organisation</strong></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong>£159,300</strong></td>
+                            <td class="" colspan="2">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><hr class="section-break--table"></td>
+                            <td class="" colspan="2">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="govuk-table__cell govuk-table__cell--middle govuk-table__cell--borderless"><strong>Total funding applied for</strong></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric govuk-table__cell--borderless"><strong>£665,700</strong></td>
+                            <td class="" colspan="2">&nbsp;</td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                    </div>
+
+                {%- endcall %}
+            {%- endcall %}
+
+        </section>
+
+       {# <section class="section" id="finalForm">
+
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+                    {{ components.button(text='Confirm', extraClass="application-controls__submit", name='saveAndComplete')}}
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        </section>#}
+
+    {#{%- endcall %}#}
+
+    {# {% include '../../layouts/partials/user-contact.njk' %}#}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}

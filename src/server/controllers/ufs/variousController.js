@@ -132,7 +132,7 @@ export function rteSimplePost(req, res) {
   // let freshHTML = htmlTest;
   // let cleanHTML,
   const clean = sanitizeHTML(htmlTest, {
-    allowedTags: ['b', 'strong', 'a', 'p', 'ul', 'li', 'ol', 'h2', 'h3', 'h4'],
+    allowedTags: ['b', 'strong', 'a', 'p', 'ul', 'li', 'ol', 'h2', 'h3', 'h4', 'span'],
     allowedAttributes: {
       a: ['href', 'class'],
       p: ['class'],
@@ -142,6 +142,7 @@ export function rteSimplePost(req, res) {
       h2: ['class'],
       h3: ['class'],
       h4: ['class'],
+      span: ['class'],
     },
     allowedIframeHostnames: ['www.youtube.com'],
   });
