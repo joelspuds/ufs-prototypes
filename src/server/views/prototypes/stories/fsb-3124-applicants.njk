@@ -1,0 +1,172 @@
+{% extends 'layouts/bulma-ufs.layout.njk' %}
+{% set navType = 'NOTadmin' %}
+{% set pageTitle = 'Applicants' + GLOBAL_TAG_TITLE_SUFFIX %}
+{% set backLinkContents =  [{url:'#', text:'Back to application'}] %}
+{% set isAdminUser = false %}
+
+{% block content %}
+
+    {% call components.bulmaRow() %}
+
+        {% call components.bulmaColumnAny(size='column is-full is-9-desktop is-9-widescreen') %}
+
+            {{ components.captionHeading(text='Applicants', caption='The name of my proposed project') }}
+
+        {%- endcall %}
+
+    {%- endcall %}
+
+    <section class="section" id="main-content">
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='column is-8') %}
+
+                <p class="govuk-body">This is your application team for assessment purposes.</p>
+
+                {#<details class="govuk-details u-space-t20" data-module="govuk-details" role="group">
+                    <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+                        <span class="govuk-details__summary-text">Guidance on adding and managing applicants</span>
+                    </summary>
+                    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+                        <p class="govuk-body">Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate. Nam hendrerit sapien eget pellentesque ultrices. Curabitur urna ante, tempor nec bibendum quis, rutrum sed arcu. Etiam nec aliquet lacus. Aenean gravida viverra leo quis blandit. Integer nunc nunc, dignissim a nibh et, lacinia ornare metus. Pellentesque elementum metus sed mauris cursus ornare. Ut venenatis massa nec risus cursus blandit. In imperdiet nisi eget diam semper, sit amet venenatis turpis faucibus. Vestibulum finibus lobortis vulputate.</p>
+                    </div>
+                </details>#}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+            {% call components.bulmaColumnAny(size='is-8') %}
+                {% call components.formGroup() %}
+                    {{ components.button(text='Add applicant', extraClass='govuk-button--secondary', url='/prototypes/molecules/add-applicant')}}
+                {%- endcall %}
+            {%- endcall %}
+        {%- endcall %}
+
+        {% call components.bulmaRow() %}
+
+            {% call components.bulmaColumnAny(size='is-12') %}
+
+                {{ components.captionHeading(text='Aapplicants', size='s')}}
+
+                <div class="responsive-table">
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption govuk-visually-hidden">Project team members</caption>
+                        <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Name</th>
+                            <th scope="col" class="govuk-table__header">Email</th>
+                            <th scope="col" class="govuk-table__header">Role</th>
+                            <th scope="col" class="govuk-table__header">Organisation</th>
+                            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+                        </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Prof. Jane Doe</td>
+                                <td class="govuk-table__cell">j.doe@cardiffuniversity.ac.uk</td>
+                                <td class="govuk-table__cell">Principle investigator</td>
+                                <td class="govuk-table__cell">Cardiff University</td>
+                                <td class="govuk-table__cell u-align-right">
+                                    <a href="#?action=remove" class="govuk-link">Remove</a>
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Dr. Phoebe Buffay-Hannigan</td>
+                                <td class="govuk-table__cell">p.buffay-hanningane@bristoluniversity.ac.uk</td>
+                                <td class="govuk-table__cell"><a href="#" class="govuk-link">Co-investigator</a></td>
+                                <td class="govuk-table__cell">Cardiff University</td>
+                                <td class="govuk-table__cell u-align-right">
+                                    <a href="#?action=remove" class="govuk-link">Remove</a>
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Dr. Richard Johnson</td>
+                                <td class="govuk-table__cell">r.johnson@cardiffuniversity.ac.uk</td>
+                                <td class="govuk-table__cell"><a href="#" class="govuk-link">Co-investigator</a></td>
+                                <td class="govuk-table__cell">Cardiff University</td>
+                                <td class="govuk-table__cell u-align-right">
+                                    <a href="#?action=remove" class="govuk-link">Remove</a>
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Dr. Annabel Hatt</td>
+                                <td class="govuk-table__cell">a.hatt@newportpolytechnic.ac.uk</td>
+                                <td class="govuk-table__cell"><a href="#" class="govuk-link">Researcher</a></td>
+                                <td class="govuk-table__cell">Newport Polytechnic</td>
+                                <td class="govuk-table__cell u-align-right">
+                                    <a href="#?action=remove" class="govuk-link">Remove</a>
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Dr. Dave Trousers</td>
+                                <td class="govuk-table__cell">d.trousers@swansea.ac.uk</td>
+                                <td class="govuk-table__cell"><a href="#" class="govuk-link">Researcher</a></td>
+                                <td class="govuk-table__cell">Swansea University</td>
+                                <td class="govuk-table__cell u-align-right">
+                                    <a href="#?action=remove" class="govuk-link">Remove</a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            {%- endcall %}
+
+        {%- endcall %}
+
+    </section>
+
+    <section class="section" id="finalForm">
+
+        {% call components.form(action='#', method='POST', name='submitApplication') %}
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='is-full') %}
+
+                    <div class="application-item">
+                        <div class="application-item__contents">
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="markAsComplete" name="isComplete" type="checkbox" {% if fundersIsComplete %} checked{% endif %}>
+                                    <label class="govuk-label govuk-checkboxes__label" for="markAsComplete">Mark as complete</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+
+            {% call components.bulmaRow() %}
+
+                {% call components.bulmaColumnAny(size='is-two-thirds') %}
+
+
+                    {{ components.button(text=ADD_FUNDERS_TO_OPPORTUNITY_FORM_CTA, extraClass="application-controls__submit", name='saveAndComplete')}}
+
+
+                {%- endcall %}
+
+            {%- endcall %}
+
+        {%- endcall %}
+
+
+    </section>
+
+    {% include '../../layouts/partials/user-contact.njk' %}
+
+{% endblock %}
+
+{% block bodyScripts %}
+    {#<script>
+    </script>#}
+{% endblock %}
