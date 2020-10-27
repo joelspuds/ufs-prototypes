@@ -235,7 +235,7 @@ td.u-align-right {
   }
 }
 
-/*.cell-max-25 {
+.cell-max-25 {
 
   @include widescreen {
     width:35%;
@@ -244,5 +244,5 @@ td.u-align-right {
   @include desktop {
     width: 25%;
   }
-}*/
+}
 
