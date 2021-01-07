@@ -9,6 +9,9 @@
     {% call components.bulmaRow() %}
         {% call components.bulmaColumnAny(size='is-two-thirds') %}
             {{ components.captionHeading(text='Add applicant', caption=projectName) }}
+
+            <p class="govuk-body">Co-applicants will be notified by the email you specify. You should only assign a Principal Investigator role to someone else if you are job sharing with them.</p>
+
         {%- endcall %}
     {%- endcall %}
 
